@@ -1,0 +1,389 @@
+if (isset(f5)) {
+  load.pic(v0);
+  draw.pic(v0);
+  discard.pic(v0);
+  load.logics(101);
+  set.horizon(50);
+  load.sound(15);
+  if (isset(f75)) {
+    load.logics(103);
+    load.view(9);
+    add.to.pic(9,0,0,105,120,0,0);
+  }
+  if (v65 == v0) {
+    add.to.pic(62,0,0,36,86,0,0);
+  }
+  if (!isset(f75)) {
+    load.view(9);
+    animate.obj(o2);
+    set.view(o2,9);
+    position(o2,105,120);
+    if (v1 == 55) {
+      set.cel(o2,2);
+    }
+    else {
+      set.cel(o2,0);
+    }
+    draw(o2);
+    stop.update(o2);
+  }
+  load.view(107);
+  load.view(97);
+  animate.obj(o11);
+  animate.obj(o12);
+  animate.obj(o1);
+  set.view(o11,107);
+  set.view(o12,107);
+  set.view(o1,97);
+  position(o11,121,161);
+  position(o12,73,166);
+  ignore.horizon(o1);
+  position(o1,115,17);
+  set.priority(o1,15);
+  set(f68);
+  object.on.water(o11);
+  object.on.water(o12);
+  ignore.blocks(o0);
+  draw(o11);
+  draw(o12);
+  draw(o1);
+  if (v1 == 55) {
+    position(o0,110,122);
+    set(f26);
+  }
+  if (v1 == 3) {
+    get.posn(o0,v60,v61);
+    if (v61 > 150) {
+      position(o0,2,150);
+    }
+  }
+  draw(o0);
+  call(101);
+  wander(o11);
+  wander(o12);
+  show.pic();
+}
+if (said("check","room")) {
+  print("You are standing outside a castle"
+        "surrounded by an alligator filled moat.");
+}
+if (isset(f26)) {
+  reset(f26);
+  start.update(o2);
+  reverse.loop(o2,f25);
+}
+if (isset(f25) &&
+    !isset(f27)) {
+  stop.update(o2);
+}
+if (said("pet","alligator")) {
+  print("What!  Are you crazy?");
+}
+if (said("check","bridge")) {
+  print("It is a rather small, wooden bridge.");
+}
+if (said("check","banner")) {
+  print("High above the castle, the flags are"
+        "waving in the wind.");
+}
+if (said("check","building")) {
+  print("King Edward the Benevolent, the mighty"
+        "ruler of Daventry, lives in this castle.");
+}
+if (said("check","moat")) {
+  print("You never know what might be in there!");
+}
+if (said("check","water")) {
+  print("It's your typical moat water: murky and"
+        "smelly.");
+}
+if (said("check","blossom")) {
+  print("They are absolutely gorgeous!");
+}
+if ((said("acquire","blossom") ||
+    said("steal","blossom"))) {
+  print("King Edward does not allow anyone to take"
+        "his flowers.");
+}
+if (said("check","alligator")) {
+  print("These alligators have protected the"
+        "castle from many a trespasser.");
+}
+if (said("enter","building")) {
+  if (isset(f25)) {
+    print("You must enter the castle through the"
+          "door, and the  door is closed.");
+  }
+}
+if (said("close","door")) {
+  print("The door is already closed.");
+}
+if (said("check","door")) {
+  if (posn(o0,0,120,159,167)) {
+    print("These doors are strongly built to keep"
+          "out unwanted visitors.");
+  }
+  else {
+    print("You can't see them from here.");
+  }
+}
+if (said("anyword","lion")) {
+  if (posn(o0,0,128,159,167)) {
+    print("They pose as immovable guards for King"
+          "Edward's castle, and have frightened"
+          "off numerous intruders.");
+  }
+  else {
+    print("You can't see them from here.");
+  }
+}
+if (isset(f75)) {
+  if (said("open","door")) {
+    if (posn(o0,105,120,121,128)) {
+      print("Since the goat is with you,"
+            "permission to enter the  castle is"
+            "denied.");
+    }
+    else {
+      print("You cannot reach the door from here.");
+    }
+    goto(Label1);
+  }
+}
+if (isset(f125)) {
+  if (said("open","door")) {
+    if (posn(o0,105,120,121,128)) {
+      if (v74 == 3) {
+        print("You have been to the castle once"
+              "since your quest and  are not"
+              "allowed to return again.");
+      }
+      else {
+        print("You have been to the castle once"
+              "and you may not return until your"
+              "quest is complete.");
+      }
+    }
+    else {
+      print("You cannot reach the door from here.");
+    }
+    goto(Label1);
+  }
+}
+if (said("knock","door")) {
+  if (posn(o0,105,120,121,128)) {
+    print("Your knock echos within the castle. "
+          "Unfortunately, no one answers.");
+  }
+  else {
+    print("You cannot reach the door from here.");
+  }
+}
+if (!isset(f75) &&
+    !isset(f125)) {
+  if (said("open","door")) {
+    if (posn(o0,105,120,121,128)) {
+      set(f27);
+      start.update(o2);
+      sound(15,f28);
+      end.of.loop(o2,f24);
+      stop.motion(o0);
+      set.priority(o0,15);
+      print("The huge doors swing open slowly.");
+      if (!isset(f193)) {
+        set(f193);
+        v3 += 1;
+        goto(Label1);
+      }
+      if (!isset(f206)) {
+        set(f206);
+        v3 += 1;
+      }
+    }
+    else {
+      print("You cannot reach the door from here.");
+    }
+  }
+}
+if (isset(f24) &&
+    isset(f28)) {
+  new.room(55);
+}
+if (said("drink","water") &&
+    !isset(f88) &&
+    !isset(f116)) {
+  if ((posn(o0,0,143,159,167) ||
+      posn(o0,40,108,74,142))) {
+    print("As you kneel by the edge of the moat"
+          "and see just how filthy the water is,"
+          "your thirst strangely leaves you.");
+  }
+  else {
+    print("You are not close enough to any water.");
+  }
+}
+if (isset(f81) &&
+    !isset(f88)) {
+  if (said("acquire","water")) {
+    if ((posn(o0,0,143,159,167) ||
+        posn(o0,40,108,74,142))) {
+      reset(f116);
+      print("Although you notice the water is"
+            "unclean, you fill the bucket.");
+      get("water");
+      set(f88);
+      if (!isset(f91)) {
+        set(f91);
+        v3 += 2;
+      }
+    }
+    else {
+      print("You are not close enough to any water.");
+    }
+  }
+}
+if (isset(f3)) {
+  set(f0);
+}
+if (v94 <= 0 &&
+    isset(f0)) {
+  v76 = 255;
+  ignore.objs(o0);
+  if (posn(o0,9,145,44,167)) {
+    v76 = 27;
+    v77 = 166;
+  }
+  if (posn(o0,45,159,69,167)) {
+    v76 = 50;
+    v77 = 166;
+  }
+  if (posn(o0,70,159,94,167)) {
+    v76 = 75;
+    v77 = 166;
+  }
+  if (posn(o0,95,159,122,167)) {
+    v76 = 103;
+    v77 = 166;
+  }
+  if (posn(o0,123,159,159,167)) {
+    v76 = 133;
+    v77 = 166;
+  }
+  if (posn(o0,50,110,70,144)) {
+    set.priority(o0,5);
+    v76 = 56;
+    v77 = 130;
+  }
+  if (v76 == 255) {
+    v76 = 0;
+  }
+  else {
+    get.posn(o0,v60,v61);
+    v76 -= v60;
+    v77 -= v61;
+    set(f134);
+  }
+}
+if (isset(f0)) {
+  if ((said("get out","moat") ||
+      said("exit","moat"))) {
+    print("The moats slippery sides prevent you"
+          "from getting out.");
+  }
+}
+if (isset(f0) &&
+    !isset(f23)) {
+  program.control();
+  stop.motion(o0);
+  follow.ego(o11,18,f20);
+  follow.ego(o12,18,f21);
+  set(f23);
+}
+if (posn(o0,61,135,63,137) &&
+    !isset(f22)) {
+  print("Misfortune strikes and you have fallen"
+        "into the moat. Your struggles and cries"
+        "have attracted hungry alligators.  They"
+        "do not want to let you go.");
+  set(f22);
+  v31 = 45;
+}
+if (isset(f20) &&
+    !isset(f22)) {
+  print("Misfortune strikes and you have fallen"
+        "into the moat. Your struggles and cries"
+        "have attracted hungry alligators.  They"
+        "do not want to let you go.");
+  set(f22);
+  v31 = 45;
+}
+if (isset(f21) &&
+    !isset(f22)) {
+  print("Misfortune strikes and you have fallen"
+        "into the moat. Your struggles and cries"
+        "have attracted hungry alligators.  They"
+        "do not want to let you go.");
+  set(f22);
+  v31 = 45;
+}
+if (isset(f22) &&
+    v31 < 1) {
+  erase(o0);
+  if (isset(f20)) {
+    erase(o11);
+  }
+  if (isset(f21)) {
+    erase(o12);
+  }
+  set(f63);
+}
+v31--;
+Label1:
+if (v2 != 0) {
+  reset(f68);
+}
+if (v2 == 1) {
+  new.room(15);
+}
+if (v2 == 2) {
+  new.room(1);
+}
+if (v2 == 4) {
+  new.room(3);
+}
+if (isset(f75)) {
+  call(103);
+}
+call(101);
+return();
+
+// Messages
+#message 1 "High above the castle, the flags are waving in the wind."
+#message 2 "King Edward the Benevolent, the mighty ruler of Daventry, lives in this castle."
+#message 3 "You must enter the castle through the door, and the  door is closed."
+#message 4 "It's your typical moat water: murky and smelly."
+#message 5 "You never know what might be in there!"
+#message 6 "It is a rather small, wooden bridge."
+#message 7 "These alligators have protected the castle from many a trespasser."
+#message 8 "They pose as immovable guards for King Edward's castle, and have frightened off numerous intruders."
+#message 9 "These doors are strongly built to keep out unwanted visitors."
+#message 10 "You can't see them from here."
+#message 11 "As you kneel by the edge of the moat and see just how filthy the water is, your thirst strangely leaves you."
+#message 12 "Although you notice the water is unclean, you fill the bucket."
+#message 13 "You are not close enough to any water."
+#message 14 "You have no container for water."
+#message 15 "You have been to the castle once and you may not return until your quest is complete."
+#message 16 "You have been to the castle once since your quest and  are not allowed to return again."
+#message 17 "Since the goat is with you, permission to enter the  castle is denied."
+#message 18 "You cannot reach the door from here."
+#message 19 "The door is already closed."
+#message 21 "Misfortune strikes and you have fallen into the moat. Your struggles and cries have attracted hungry alligators.  They do not want to let you go."
+#message 22 "They are absolutely gorgeous!"
+#message 23 "King Edward does not allow anyone to take his flowers."
+#message 25 "The huge doors swing open slowly."
+#message 26 "The moats slippery sides prevent you from getting out."
+#message 27 "What!  Are you crazy?"
+#message 28 "Your knock echos within the castle.  Unfortunately, no one answers."
+#message 29 "You are standing outside a castle surrounded by an alligator filled moat."
+
+

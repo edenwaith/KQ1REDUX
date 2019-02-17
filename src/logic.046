@@ -1,0 +1,231 @@
+// logic.046 - Ogre
+if (isset(f5)) {
+  load.pic(v0);
+  draw.pic(v0);
+  discard.pic(v0);
+  if (isset(f75)) {
+    load.logics(103);
+  }
+  if (v65 == v0) {
+    add.to.pic(62,0,0,60,71,0,0);
+  }
+  set.horizon(42);
+  random(0,250,v62);
+  if (v62 < 175) {
+    load.sound(1);
+    v31 = 2;
+    step.size(o1,v31);
+    load.view(94);
+    load.view(95);
+    load.view(2);
+    animate.obj(o1);
+    set.view(o1,2);
+    set(f20);
+  }
+  if (isset(f20)) {
+Label1:
+    random(0,250,v70);
+    if (v70 > 90) {
+      goto(Label1);
+    }
+  }
+  draw(o0);
+  show.pic();
+}
+v70--;
+if (v70 == 1) {
+  set(f145);
+  set(f146);
+  position(o1,40,51);
+  set(f21);
+  set(f135);
+  sound(1,f159);
+  draw(o1);
+  if (!isset(f75)) {
+    print("Watch out!!!  There is an ogre nearby! "
+          "He will crush you in his strong arms if"
+          "he catches you.");
+    follow.ego(o1,7,f156);
+  }
+  if (isset(f75)) {
+    wander(o1);
+    set(f23);
+    print("Watch out!!!  There is an ogre nearby! "
+          "He will crush you in his strong arms if"
+          "he catches you.");
+    print("Lucky for you that ogres are afraid of"
+          "goats. This one decides to leave you"
+          "alone.");
+  }
+}
+if (isset(f159)) {
+  reset(f159);
+  reset(f135);
+}
+if (!isset(f21)) {
+  reset(f145);
+  reset(f146);
+  if (said("anyword","dwarf")) {
+    print("There is no ogre here.");
+  }
+  if (said("cast","dagger") &&
+      isset(f67)) {
+    print("OK.  You drop the dagger.");
+    reset(f67);
+    set(f70);
+    drop("dagger");
+    v3 -= 5;
+  }
+}
+if (isset(f156)) {
+  reset(f156);
+  if (isset(f79)) {
+    print("Fortunately, you are invisible and the"
+          "ogre can't see you.");
+    wander(o1);
+    set(f23);
+    goto(Label2);
+  }
+  if (isset(f73)) {
+    print("You are very fortunate that your"
+          "protective spell is still working.");
+    wander(o1);
+    set(f23);
+    goto(Label2);
+  }
+  if (isset(f102)) {
+    print("With the magic shield, no harm will"
+          "come to you.");
+    wander(o1);
+    set(f23);
+    goto(Label2);
+  }
+  if (isset(f120)) {
+    print("The ogre's vision is not keen enough to"
+          "see you.");
+    wander(o1);
+    set(f23);
+    goto(Label2);
+  }
+  set(f24);
+  v30 = 10;
+  program.control();
+  stop.motion(o0);
+  erase(o1);
+  set.view(o0,94);
+}
+v30--;
+Label2:
+if (isset(f23) &&
+    v5 != 0) {
+  erase(o1);
+  reset(f23);
+  reset(f21);
+}
+if (v30 == 1) {
+  print("You were warned to be careful around this"
+        "fierce creature!  Maybe next time you"
+        "will be able to elude the beast.");
+  get.posn(o0,v60,v61);
+  erase(o0);
+  set.view(o0,95);
+  set.view(o1,2);
+  position.v(o0,v60,v61);
+  position.v(o1,v60,v61);
+  draw(o1);
+  draw(o0);
+  stop.motion(o1);
+  stop.cycling(o1);
+  set(f63);
+}
+if (isset(f21)) {
+  if (said("check","dwarf")) {
+    print("That is a ferocious looking beast. "
+          "Please keep your distance!");
+  }
+  if (said("kill","dwarf")) {
+    print("Ogres are practically indestructible.");
+  }
+  if (said("check","stump")) {
+    print("At one time these were very pretty"
+          "trees.");
+  }
+  if (said("pet","dwarf")) {
+    print("Do you really want to try that?");
+  }
+  if (said("check","blossom")) {
+    print("The delightful wild flowers brighten up"
+          "your day.");
+  }
+  if (said("smell","blossom")) {
+    if (posn(o0,22,86,114,167)) {
+      print("Their perfume is joyful, sweet, and"
+            "light.");
+    }
+    else {
+      print("You need to be a little closer to"
+            "smell the flowers.");
+    }
+  }
+  if ((said("speak","dwarf") ||
+      said("hello") ||
+      said("say","hello"))) {
+    print("Ogres don't talk, they growl!");
+  }
+  if (said("cast","dagger") &&
+      isset(f67)) {
+    print("The dagger is of little use against"
+          "such a mean creature. I would save it"
+          "if I were you.");
+  }
+}
+if (v2 != 0) {
+  reset(f145);
+  reset(f146);
+}
+if (isset(f24)) {
+  goto(Label3);
+}
+if (v2 == 1 &&
+    v30 <= 0) {
+  new.room(3);
+}
+if (v2 == 2 &&
+    v30 <= 0) {
+  new.room(47);
+}
+if (v2 == 4 &&
+    v30 <= 0) {
+  new.room(45);
+}
+if (v2 == 3 &&
+    v30 <= 0) {
+  new.room(35);
+}
+if (isset(f75)) {
+  call(103);
+}
+Label3:
+return();
+
+// Messages
+#message 1 "Watch out!!!  There is an ogre nearby!  He will crush you in his strong arms if he catches you."
+#message 2 "You are very fortunate that your protective spell is still working."
+#message 3 "With the magic shield, no harm will come to you."
+#message 4 "Fortunately, you are invisible and the ogre can't see you."
+#message 5 "The ogre's vision is not keen enough to see you."
+#message 6 "The ogre can see you now!"
+#message 7 "The dagger is of little use against such a mean creature. I would save it if I were you."
+#message 8 "OK.  You drop the dagger."
+#message 9 "That is a ferocious looking beast.  Please keep your distance!"
+#message 10 "There is no ogre here."
+#message 11 "Ogres are practically indestructible."
+#message 12 "At one time these were very pretty trees."
+#message 13 "Do you really want to try that?"
+#message 14 "The delightful wild flowers brighten up your day."
+#message 15 "Their perfume is joyful, sweet, and light."
+#message 16 "Ogres don't talk, they growl!"
+#message 17 "You were warned to be careful around this fierce creature!  Maybe next time you will be able to elude the beast."
+#message 18 "Lucky for you that ogres are afraid of goats. This one decides to leave you alone."
+#message 19 "You need to be a little closer to smell the flowers."
+

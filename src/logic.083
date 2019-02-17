@@ -1,0 +1,142 @@
+if (isset(f5)) {
+  load.pic(v0);
+  load.sound(22);
+  configure.screen(0,21,0);
+  draw.pic(v0);
+  prevent.input();
+  v30 = 250;
+  v31 = 245;
+  v33 = 1;
+  v35 = 1;
+  v37 = 12;
+  set(f9);
+  if (v26 == 2) {
+    display(24,1,"(c) copyright Sierra On-Line"
+            "Inc.  1987");
+  }
+  else {
+    display(22,1,"(c) copyright Sierra On-Line"
+            "Inc.  1987");
+    display(24,5,"Press any key to continue.");
+  }
+  set.key(0,59,c18);
+  set.key(0,60,c17);
+  set.key(19,0,c17);
+  set.key(0,61,c13);
+  set.key(5,0,c13);
+  set.key(0,62,c21);
+  set.key(0,63,c1);
+  set.key(0,64,c16);
+  set.key(0,65,c2);
+  set.key(0,67,c3);
+  set.key(0,68,c9);
+  set.key(9,0,c4);
+  set.key(0,32,c10);
+  set.key(10,0,c11);
+  set.key(3,0,c12);
+  set.key(24,0,c12);
+  set.key(18,0,c15);
+  set.key(0,44,c6);
+  set.key(61,0,c5);
+  set.key(45,0,c8);
+  set.key(48,0,c7);
+  if (v20 == 1) {
+    set.key(49,0,c18);
+    set.key(50,0,c17);
+    set.key(51,0,c13);
+    set.key(53,0,c1);
+    set.key(55,0,c2);
+    set.key(57,0,c3);
+  }
+  show.pic();
+}
+if (!isset(f21)) {
+  set(f21);
+  sound(22,f20);
+}
+v30--;
+if (v30 == v31) {
+  v32 = v33;
+  v34 = v35;
+  if (v26 == 2) {
+    v36 = 19;
+  }
+  else {
+    v36 = 18;
+  }
+Label1:
+  display.v(v36,v37,v32);
+  v34--;
+  if (v34 > 0) {
+    v36--;
+    v32--;
+    goto(Label1);
+  }
+  v31 -= 5;
+  v33++;
+  if (v35 < 13) {
+    v35++;
+  }
+}
+if (v30 == 135) {
+  v31 = 255;
+  if (v26 == 2) {
+    clear.lines(24,24,0);
+    display(24,5,"Press any key to continue.");
+  }
+}
+if (have.key()) {
+  if (v26 != 2) {
+    clear.lines(21,24,0);
+  }
+  stop.sound();
+  v30 = 0;
+  set.key(27,0,c25);
+  if (v20 == 4) {
+    set.key(1,1,c25);
+    set.key(1,3,c5);
+  }
+  else {
+    set.key(1,1,c0);
+    set.key(1,3,c25);
+    set.key(1,2,c5);
+    set.key(1,4,c4);
+  }
+  new.room(1);
+}
+return();
+
+// Messages
+#message 1 "Designed and    "
+#message 2 "    Written by: "
+#message 3 "Roberta Williams"
+#message 4 "                "
+#message 5 "Orig. Version by"
+#message 6 " Charles Tingley"
+#message 7 "  Ken MacNeill  "
+#message 8 "   Chris Iden   "
+#message 9 "                "
+#message 10 "Graphics by:    "
+#message 11 " Doug MacNeill  "
+#message 12 "  Greg Rowland  "
+#message 13 "                "
+#message 14 "New Version by: "
+#message 15 " Jeff Stephenson"
+#message 16 "  Sol Ackerman  "
+#message 17 "   Chris Iden   "
+#message 18 "                "
+#message 19 "Thanks to:      "
+#message 20 " Linda Ackerman  "
+#message 21 "  Mark Crowe     "
+#message 22 "   Robert Heitman"
+#message 23 "    Scott Murphy "
+#message 24 "(c) copyright Sierra On-Line Inc.  1987"
+#message 25 "Press any key to continue."
+
+
+
+
+
+
+
+

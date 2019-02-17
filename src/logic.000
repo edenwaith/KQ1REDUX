@@ -1,0 +1,1371 @@
+// logic.0
+if (v17 > 0) {
+  call(98);
+}
+if (v0 == 0) {
+  set.game.id("KQ1");
+  script.size(100);
+  v7 = 158;
+  v88 = 2;
+  v10 = v88;
+  if (isset(f6)) {
+    new.room(1);
+  }
+  else {
+    set.menu("Info");
+    set.menu.item("About KQ",c19);
+    set.menu.item("Help    ",c18);
+    set.menu("File");
+    set.menu.item("Save Game      <F5>",c1);
+    set.menu.item("Restore Game   <F7>",c2);
+    set.menu.item("-------------------",c20);
+    set.menu.item("Restart Game   <F9>",c3);
+    set.menu.item("-------------------",c20);
+    set.menu.item("Quit        <Alt Z>",c6);
+    set.menu("Game");
+    set.menu.item("See Object     <F4>",c21);
+    set.menu.item("Inventory     <Tab>",c4);
+    set.menu("Action ");
+    set.menu.item("Swim  =",c5);
+    set.menu.item("Jump  0",c7);
+    set.menu.item("Duck  -",c8);
+    set.menu("Special");
+    set.menu.item("Sound On/Off       <F2>",c17);
+    if (v20 != 5) {
+      if (v20 == 4) {
+        set.menu.item("Joystick/Mouse <Ctrl J>",c11);
+      }
+      else {
+        if (v20 == 0 &&
+            v26 != 3 &&
+            v26 != 2) {
+          set.menu.item("Graphics Mode  <Ctrl R>",c15);
+        }
+        set.menu.item("Reset Joystick <Ctrl J>",c11);
+      }
+    }
+    set.menu.item("Pause             <Esc>",c14);
+    set.menu("Speed");
+    set.menu.item("Normal      ",c23);
+    set.menu.item("Slow        ",c24);
+    set.menu.item("Fast        ",c22);
+    set.menu.item("Fastest     ",c26);
+    set.menu.item("------------",c20);
+    set.menu.item("Change <F10>",c27);
+    submit.menu();
+    new.room(83);
+  }
+}
+if (v0 == 52) {
+  set(f0);
+}
+if ((isset(f5) ||
+    isset(f12))) {
+  if (v0 != 83) {
+    set(f8);
+    disable.item(c20);
+    set(f14);
+    v15 = 3;
+  }
+}
+if (isset(f5)) {
+  animate.obj(o0);
+  load.view(0);
+  if (v0 == 52) {
+    v16 = 0;
+  }
+  if (v0 == 65 &&
+      v1 == 80) {
+    v16 = 105;
+  }
+  if ((isset(f200) ||
+      isset(f143))) {
+    reset(f200);
+    reset(f143);
+    reset(f98);
+    v16 = 0;
+  }
+  if (v1 == 10 &&
+      v0 != 11) {
+    if (isset(f75)) {
+      v16 = 0;
+    }
+  }
+  if (v1 == 11 &&
+      v0 != 10) {
+    if (isset(f75)) {
+      v16 = 0;
+    }
+  }
+  load.view.v(v16);
+  set.view.v(o0,v16);
+  load.logics(102);
+  if (isset(f171)) {
+    load.sound(8);
+  }
+  if (v0 != 53 &&
+      v0 != 58 &&
+      v0 != 49 &&
+      v0 != 51 &&
+      v0 != 52 &&
+      v0 != 12 &&
+      v0 != 10 &&
+      v0 != 11) {
+    load.view(75);
+    load.view(87);
+  }
+  load.view(110);
+  if (v0 != 83) {
+    configure.screen(1,22,0);
+  }
+  if ((isset(f123) ||
+      isset(f120))) {
+    load.view(60);
+  }
+  if ((isset(f75) ||
+      v65 > 0)) {
+    load.view(62);
+  }
+  reset(f190);
+  observe.objs(o0);
+  observe.blocks(o0);
+  reset(f122);
+  reset(f68);
+  reset(f148);
+  reset(f159);
+  reset(f198);
+  reset(f199);
+  reset(f156);
+  reset(f145);
+  v62 = 0;
+  v70 = 0;
+  v71 = 0;
+  v45 = 20;
+Label1:
+  reset.v(v45);
+  v45++;
+  if (v45 < 45) {
+    goto(Label1);
+  }
+  v45 = 30;
+Label2:
+  *v45 = 0;
+  v45++;
+  if (v45 < 45) {
+    goto(Label2);
+  }
+  set.string(s0,">");
+  set.cursor.char("_");
+}
+get.posn(o0,v100,v101);
+if (controller(c25) &&
+    v0 != 83) {
+  menu.input();
+}
+if (controller(c10)) {
+  load.logics(99);
+  set(f190);
+  print("VERSION 3.0");
+  version();
+}
+if (controller(c27)) {
+  if (v10 < 2) {
+    v10++;
+  } else {
+    v10 = v10 + 2;
+  }
+  if (v10 > 4) {
+    v10 = 0;
+  }
+  v88 = v10;
+}
+if ((said("fastest") ||
+    controller(c26))) {
+  v88 = 0;
+  v10 = v88;
+} 
+if ((said("fast") ||
+    controller(c22))) {
+  v88 = 1;
+  v10 = v88;
+} 
+if ((said("normal") ||
+    controller(c23))) {
+  v88 = 2;
+  v10 = v88;
+}
+if ((said("slow") ||
+    controller(c24))) {
+  v88 = 4;
+  v10 = v88;
+}
+if ((said("quit") ||
+    controller(c6))) {
+  stop.sound();
+  quit(0);
+}
+if ((said("restore","game") ||
+    controller(c2))) {
+  restore.game();
+}
+if ((said("restart","game") ||
+    controller(c3))) {
+  restart.game();
+}
+if (controller(c4)) {
+  status();
+}
+if (controller(c21)) {
+  set(f13);
+  status();
+  if (v25 > 0 &&
+      v25 != 255) {
+    v62 = v25;
+    v62 += 116;
+    if (v62 == 125 &&
+        v89 == 1) {
+      v62++;
+    }
+    if ((v62 == 127 ||
+        v62 == 142) &&
+        isset(f88) &&
+        !isset(f0)) {
+      v62 = 128;
+    }
+    show.obj.v(v62);
+  }
+  reset(f13);
+}
+if (controller(c19)) {
+  print("King's Quest was designed by Roberta"
+        "Williams.");
+}
+if (controller(c18)) {
+  call(92);
+}
+if (controller(c17)) {
+  toggle(f9);
+}
+if (controller(c15)) {
+  toggle.monitor();
+}
+if (controller(c11)) {
+  init.joy();
+}
+if (controller(c12)) {
+  cancel.line();
+}
+if (isset(f63)) {
+  if (!isset(f197)) {
+    load.logics(100);
+    load.sound(2);
+    v97 = 40;
+    set(f197);
+  }
+  program.control();
+  stop.motion(o0);
+  disable.item(c1);
+  disable.item(c14);
+  disable.item(c5);
+  disable.item(c7);
+  disable.item(c8);
+  call(100);
+  return();
+}
+if ((v0 > 52 ||
+    v0 == 3 ||
+    v0 == 6 ||
+    v0 == 9 ||
+    v0 == 10 ||
+    v0 == 11 ||
+    v0 == 12 ||
+    v0 == 13 ||
+    v0 == 14 ||
+    v0 == 15 ||
+    v0 == 16 ||
+    v0 == 19 ||
+    v0 == 21 ||
+    v0 == 22 ||
+    v0 == 24 ||
+    v0 == 27 ||
+    v0 == 28 ||
+    v0 == 29 ||
+    v0 == 30 ||
+    v0 == 31 ||
+    v0 == 35 ||
+    v0 == 36 ||
+    v0 == 38 ||
+    v0 == 44 ||
+    v0 == 45 ||
+    v0 == 46 ||
+    v0 == 48 ||
+    v0 == 50 ||
+    v0 == 51)) {
+  if ((said("swim") ||
+      said("enter","swim") ||
+      said("swim","anyword") ||
+      controller(c5))) {
+    print("You need to be in water to swim.");
+  }
+}
+if (v6 == 0) {
+  if (isset(f98)) {
+    start.cycling(o0);
+  }
+  else {
+    stop.cycling(o0);
+  }
+}
+else {
+  if (!isset(f95) &&
+      !isset(f200)) {
+    if (v6 == v110 &&
+        v100 == v108 &&
+        v101 == v109) {
+      stop.cycling(o0);
+    }
+    else {
+      start.cycling(o0);
+    }
+  }
+}
+if ((said("save","game") ||
+    controller(c1))) {
+  save.game();
+}
+if (controller(c13)) {
+  echo.line();
+}
+if (controller(c14)) {
+  pause();
+}
+if (v0 == 21) {
+  goto(Label3);
+}
+if ((said("jump") ||
+    controller(c7))) {
+  if (!isset(f143) &&
+      !isset(f157) &&
+      !isset(f158) &&
+      !isset(f79) &&
+      !isset(f120) &&
+      v0 != 79 &&
+      !isset(f0) &&
+      !isset(f145) &&
+      !isset(f200) &&
+      v94 <= 0 &&
+      v0 != 29 &&
+      v0 != 13 &&
+      v0 != 53 &&
+      v0 != 58 &&
+      v0 != 49 &&
+      v0 != 52 &&
+      v0 != 63 &&
+      v0 != 80 &&
+      v0 != 48 &&
+      v0 != 73 &&
+      v0 != 65 &&
+      v0 != 12 &&
+      v0 != 14 &&
+      v0 != 10 &&
+      v0 != 11 &&
+      v0 != 51) {
+    set(f143);
+    stop.motion(o0);
+    set.cel(o0,0);
+    v102 = 2;
+    cycle.time(o0,v102);
+    set.view(o0,75);
+    set(f98);
+    end.of.loop(o0,f144);
+  }
+  else {
+    print("There is no reason to do that now.");
+  }
+}
+if (isset(f144)) {
+  reset(f143);
+  reset(f144);
+  reset(f98);
+  v103 = 1;
+  cycle.time(o0,v103);
+  start.motion(o0);
+  set.view(o0,0);
+}
+Label3:
+if ((said("duck") ||
+    controller(c8))) {
+  if (!isset(f200) &&
+      !isset(f157) &&
+      !isset(f158) &&
+      !isset(f79) &&
+      !isset(f120) &&
+      !isset(f0) &&
+      !isset(f145) &&
+      v94 <= 0 &&
+      !isset(f143) &&
+      !isset(f146) &&
+      v0 != 29 &&
+      v0 != 12 &&
+      v0 != 53 &&
+      v0 != 58 &&
+      v0 != 49 &&
+      v0 != 52 &&
+      v0 != 63 &&
+      v0 != 80 &&
+      v0 != 48 &&
+      v0 != 73 &&
+      v0 != 65 &&
+      v0 != 79 &&
+      v0 != 14 &&
+      v0 != 10 &&
+      v0 != 11 &&
+      v0 != 13 &&
+      v0 != 51 &&
+      !isset(f142)) {
+    set(f200);
+    set.view(o0,87);
+    set(f98);
+    start.cycling(o0);
+    end.of.loop(o0,f201);
+  }
+  else {
+    if (!isset(f202)) {
+      print("There is no reason to do that now.");
+    }
+  }
+}
+if (isset(f201)) {
+  stop.cycling(o0);
+  stop.motion(o0);
+  set(f202);
+  reset(f201);
+  reset(f98);
+}
+if (isset(f202)) {
+  if ((said("stand") ||
+      controller(c8) ||
+      said("jump") ||
+      controller(c7))) {
+    reset(f200);
+    reset(f202);
+    start.motion(o0);
+    set.view(o0,0);
+    start.cycling(o0);
+  }
+}
+if (said("thank","anyword")) {
+  print("You're welcome!");
+}
+if (isset(f67)) {
+  if (said("check","dagger")) {
+    show.obj(117);
+  }
+  if (said("acquire","dagger")) {
+    print("You already have it.");
+  }
+  if (said("cast","dagger")) {
+    if (v0 != 18 &&
+        v0 != 25 &&
+        v0 != 29 &&
+        v0 != 39 &&
+        v0 != 41 &&
+        v0 != 46 &&
+        v0 != 51 &&
+        v0 != 58) {
+      print("There is no reason to throw the"
+            "dagger.");
+    }
+    else {
+      reset(f4);
+    }
+  }
+}
+if (isset(f70) &&
+    v65 != v0) {
+  if (said("anyword","dagger")) {
+    print("You had the dagger and lost it.  Sorry.");
+  }
+}
+if (isset(f70) &&
+    v65 == v0) {
+  if (said("anyword","dagger")) {
+    print("You don't want the dagger anymore.");
+  }
+}
+if (isset(f118) &&
+    said("consume","carrot")) {
+  print("You already ate the carrot.");
+}
+if (isset(f77)) {
+  if (said("consume","carrot")) {
+    if (!isset(f75)) {
+      print("Mmmm!  There's nothing like a crisp,"
+            "fresh carrot.");
+      drop("carrot");
+      reset(f77);
+      reset(f117);
+      v3 -= 2;
+      set(f118);
+    }
+    if (isset(f75)) {
+      print("Seeing how much the goat likes that"
+            "carrot, eating it may be hazardous to"
+            "your health.");
+    }
+  }
+  if (said("check","carrot")) {
+    show.obj(119);
+  }
+  if (said("acquire","carrot")) {
+    print("You already have a carrot.");
+  }
+  if (isset(f75)) {
+    if (v0 != 10 &&
+        v0 != 11) {
+      if ((said("feed","carrot") ||
+          said("feed","goat","carrot") ||
+          said("feed","carrot","goat") ||
+          said("give","carrot") ||
+          said("give","goat","carrot") ||
+          said("give","carrot","goat"))) {
+        print("The goat quickly eats the carrot"
+              "and disappears.");
+        drop("carrot");
+        reset(f77);
+        reset(f117);
+        v3 -= 2;
+        erase(o13);
+        set(f130);
+        reset(f75);
+      }
+    }
+    if ((v0 == 10 ||
+        v0 == 11)) {
+      if ((said("feed","carrot") ||
+          said("feed","goat","carrot") ||
+          said("feed","carrot","goat") ||
+          said("give","carrot") ||
+          said("give","goat","carrot") ||
+          said("give","carrot","goat"))) {
+        print("There is no reason to do that now.");
+      }
+    }
+    if ((said("show","carrot") ||
+        said("show","carrot","goat") ||
+        said("show","goat","carrot"))) {
+      print("It is not nice to tease the goat.");
+    }
+  }
+}
+if (isset(f108)) {
+  if ((said("open","gold nut") ||
+      said("crack","gold nut"))) {
+    print("You have already opened the walnut.");
+  }
+  if (said("consume","gold nut")) {
+    print("Don't do that!  This walnut is not"
+          "edible since it is pure gold.");
+  }
+  if (said("check","gold nut")) {
+    show.obj(120);
+  }
+}
+if (isset(f127)) {
+  if (said("consume","gold nut")) {
+    print("Ouch!  It would be much easier if you"
+          "opened the walnut first.");
+  }
+  if (said("check","gold nut")) {
+    show.obj(139);
+  }
+  if ((said("open","gold nut") ||
+      said("crack","gold nut"))) {
+    if (v0 == 30) {
+      sound(14,f148);
+    }
+    print("When you open the walnut, you discover"
+          "the nut inside is pure gold!");
+    reset(f127);
+    set(f108);
+    drop("walnut");
+    get("gold walnut");
+    v3 += 3;
+  }
+}
+if (v0 != 49 &&
+    said("dive","anyword")) {
+  if (v94 > 0) {
+    print("The water is very deep here. Without"
+          "aid, it is impossible to swim under the"
+          "water for any length of time.");
+  }
+  else {
+    print("You need to be in the water to try that.");
+  }
+}
+if (v63 == 0 &&
+    v64 == 0 &&
+    isset(f73)) {
+  print("\"Ye best be careful, young Graham.  The"
+        "mystic protective spell of mine has"
+        "weakened and departed.\"");
+  reset(f73);
+}
+else {
+  v64--;
+  if (v64 == 0) {
+    v63--;
+    if (v63 != 0) {
+      v64 = 250;
+    }
+  }
+}
+if (isset(f81) &&
+    isset(f88) &&
+    said("check","bucket")) {
+  show.obj(128);
+}
+if (isset(f81) &&
+    isset(f88) &&
+    !isset(f0)) {
+  if ((said("acquire","bucket") ||
+      said("acquire","water"))) {
+    print("You already have it.");
+  }
+  if (said("check","water")) {
+    show.obj(128);
+  }
+  if ((said("drink","water") ||
+      said("acquire","drink"))) {
+    set(f116);
+    print("You drain the bucket of water to quench"
+          "your thirst.");
+    reset(f88);
+    drop("water");
+    v3 -= 2;
+    reset(f91);
+  }
+}
+if (isset(f0) &&
+    (said("drink","water") ||
+    said("acquire","drink"))) {
+  print("You open your mouth while swimming and"
+        "quench your thirst.");
+}
+if (isset(f81) &&
+    !isset(f88)) {
+  if (isset(f0)) {
+    if ((said("acquire","water") ||
+        said("fill","bucket"))) {
+      reset(f116);
+      print("With difficulty, you fill the bucket"
+            "while swimming.");
+      get("water");
+      set(f88);
+      if (!isset(f91)) {
+        v3 += 2;
+      }
+      set(f91);
+    }
+  }
+  if (said("check","bucket")) {
+    show.obj(127);
+  }
+}
+if (isset(f123)) {
+  if (said("acquire","mushroom")) {
+    print("You already have it.");
+  }
+  if (said("check","mushroom")) {
+    show.obj(140);
+  }
+  if (said("consume","mushroom")) {
+    if (isset(f79)) {
+      print("You try, but being invisible makes it"
+            "impossible.");
+    }
+    if (!isset(f157) &&
+        !isset(f158) &&
+        !isset(f79) &&
+        !isset(f180) &&
+        !isset(f181) &&
+        !isset(f175) &&
+        v0 != 21 &&
+        v0 != 22 &&
+        v0 != 80 &&
+        v0 != 65 &&
+        v0 != 14 &&
+        v0 != 63 &&
+        v94 <= 0 &&
+        v0 != 12 &&
+        v0 != 73 &&
+        v0 != 74 &&
+        v0 != 75) {
+      print("As soon as you swallow the first"
+            "bite, you have this strange shrinking"
+            "feeling...  It's true!  You are now"
+            "no bigger than a mouse!");
+      set.view(o0,60);
+      v82 = 200;
+      drop("mushroom");
+      reset(f123);
+      set(f124);
+      set(f120);
+      v3 -= 1;
+      if (v0 == 78) {
+        v3 += 3;
+      }
+    }
+    else {
+      print("Now is not a good time to try and eat"
+            "the mushroom.");
+    }
+  }
+}
+if (isset(f120) &&
+    v82 > 0) {
+  v82--;
+  if (v82 == 1 &&
+      v0 != 36 &&
+      v0 != 78) {
+    set.view(o0,0);
+    print("You feel a stretching sensation... Oh,"
+          "you're back to your original size.");
+    reset(f120);
+  }
+}
+if (isset(f83)) {
+  if (said("check","ring")) {
+    show.obj(123);
+  }
+  if (said("acquire","ring")) {
+    print("You already have it.");
+  }
+  if ((said("put on","ring") ||
+      said("acquire","ring","pocket") ||
+      said("acquire","ring","pocket"))) {
+    if (isset(f133)) {
+      print("The ring is already on your finger.");
+    }
+    if (!isset(f133)) {
+      set(f133);
+      print("You slip the beautiful ring on one of"
+            "your fingers.");
+    }
+  }
+  if (said("remove","ring")) {
+    if (!isset(f133)) {
+      print("You are not wearing the ring.");
+    }
+    if (isset(f133) &&
+        !isset(f79)) {
+      drop("magic ring");
+      v3 -= 3;
+      print("I don't know why, but you drop the"
+            "magic ring.");
+      reset(f83);
+      reset(f133);
+      set(f115);
+    }
+    if (isset(f133) &&
+        isset(f79)) {
+      drop("magic ring");
+      v3 -= 3;
+      print("When the ring disappears, you"
+            "reappear!");
+      set.view(o0,0);
+      reset(f83);
+      reset(f79);
+      reset(f133);
+      set(f115);
+      v90 = 0;
+      v91 = 0;
+    }
+  }
+  if (said("rub","ring")) {
+    if (!isset(f133)) {
+      print("The magic ring is still in your"
+            "pocket.  You can't rub it there.");
+    }
+    if (isset(f133) &&
+        isset(f75)) {
+      print("You rub the magic ring but the goat"
+            "seems to have a strange effect on it.");
+    }
+    if (isset(f133) &&
+        isset(f79)) {
+      print("There is no need to rub the ring as"
+            "you are already invisible.");
+    }
+    if (isset(f133) &&
+        !isset(f75) &&
+        !isset(f79)) {
+      if (v0 != 65 &&
+          !isset(f157) &&
+          !isset(f158) &&
+          v94 <= 0 &&
+          v0 != 63 &&
+          v0 != 80 &&
+          v0 != 49 &&
+          v0 != 51 &&
+          v0 != 52 &&
+          v0 != 12 &&
+          v0 != 79 &&
+          !isset(f209) &&
+          !isset(f142) &&
+          !isset(f120)) {
+        set.view(o0,110);
+        print("When you rub the magic ring, you"
+              "mysteriously disappear, except for"
+              "your footprints.");
+        set(f79);
+        v90 = 250;
+        v91 = 10;
+      }
+      if ((v0 == 65 ||
+          isset(f157) ||
+          isset(f158) ||
+          v94 > 0 ||
+          v0 == 63 ||
+          v0 == 80 ||
+          v0 == 49 ||
+          v0 == 51 ||
+          v0 == 52 ||
+          v0 == 12 ||
+          v0 == 79 ||
+          isset(f209) ||
+          isset(f142) ||
+          isset(f120))) {
+        print("You're too busy right now to rub"
+              "the ring.");
+      }
+    }
+  }
+}
+if (isset(f79)) {
+  v90--;
+  if (v90 == 0) {
+    if (v91 > 0) {
+      v91--;
+      v90 = 250;
+    }
+  }
+}
+if (v90 == 1 &&
+    v91 == 0) {
+  v90 = 0;
+  set.view(o0,0);
+  reset(f83);
+  drop("magic ring");
+  reset(f133);
+  set(f115);
+  reset(f79);
+  print("The spell to make you invisible has"
+        "expired and you are once again visible to"
+        "dangerous creatures, but, the ring has"
+        "now disappeared.");
+  v3 -= 3;
+}
+if (isset(f154)) {
+  if (said("check","bean")) {
+    show.obj(141);
+  }
+  if (said("consume","bean")) {
+    print("You're going to be sorry!!  These were"
+          "magic beans!");
+    v3 -= 5;
+    drop("beans");
+    reset(f154);
+  }
+  if (said("bury","bean")) {
+    if (v0 != 6 &&
+        v0 != 22 &&
+        v0 != 31 &&
+        v0 != 35 &&
+        v0 != 38) {
+      print("That is not a bad idea, but this is"
+            "not a very suitable place to plant"
+            "these beans.  Why don't you try it"
+            "elsewhere?");
+    }
+    else {
+      reset(f4);
+    }
+  }
+}
+if (isset(f89)) {
+  if (v89 == 1) {
+    if (said("consume","stew")) {
+      if (v0 == 79) {
+        print("It is very inconsiderate to eat in"
+              "front of these poor, starving"
+              "people.  The pains of guilt set in"
+              "on you.");
+      }
+      else {
+        print("You eat every bite of the delicious"
+              "stew.");
+      }
+      v89 = 0;
+      reset(f184);
+      v3 -= 2;
+      goto(Label4);
+    }
+    if (said("taste","stew")) {
+      print("Even a small portion of the stew is"
+            "very appetizing.");
+    }
+    if (said("check","stew")) {
+      print("The stew is chock full of vegetables"
+            "and meat.");
+    }
+    if ((said("check","bowl") ||
+        said("look in","bowl"))) {
+      show.obj(126);
+    }
+    if ((said("fill") ||
+        said("acquire","stew") ||
+        said("say","fill"))) {
+      print("You already have a full bowl of stew.");
+    }
+  }
+  if (v89 == 0) {
+    if ((said("check","bowl") ||
+        said("look in","bowl"))) {
+      show.obj(125);
+    }
+    if ((said("read","bowl") ||
+        said("read","word") ||
+        said("check","word") ||
+        said("read","bottom","bowl") ||
+        said("check","bottom","bowl"))) {
+      print("The word on the bottom of the bowl"
+            "says \"fill\".");
+      if (!isset(f184)) {
+        set(f184);
+        v3 += 1;
+      }
+    }
+    if ((said("fill") ||
+        said("say","fill"))) {
+      if (v0 == 79) {
+        print("The bowl fills with the delicious"
+              "stew, but the woodcutters are"
+              "unaware of it.");
+      }
+      else {
+        print("After uttering that strange word,"
+              "the bowl starts quivering and"
+              "immediately fills up with a"
+              "delicious, hot stew.");
+      }
+      v89 = 1;
+      if (!isset(f184)) {
+        set(f184);
+        v3 += 2;
+      }
+    }
+    if ((said("consume","stew") ||
+        said("taste","stew") ||
+        said("check","stew"))) {
+      print("You do not have any stew.");
+    }
+  }
+}
+Label4:
+if (isset(f93)) {
+  if (said("check","pebbles")) {
+    show.obj(129);
+  }
+  if (said("cast","pebbles")) {
+    print("You throw one of your pebbles.");
+  }
+  if (said("acquire","pebbles")) {
+    print("You already have it.");
+  }
+}
+if (isset(f104)) {
+  if (said("acquire","chest")) {
+    print("You already have it.");
+  }
+  if ((said("check","chest") ||
+      said("look in","chest"))) {
+    show.obj(118);
+  }
+  if (said("open","chest")) {
+    print("You are dazzled by the countless supply"
+          "of gold coins spilling from the magic"
+          "chest.  You quickly close the chest.");
+  }
+  if (said("acquire","coin")) {
+    print("You are already carrying an endless"
+          "supply of gold coins in the magic chest.");
+  }
+  if (said("check","coin")) {
+    print("You open the chest and admire the gold"
+          "coins for a moment. You then close the"
+          "chest.");
+  }
+}
+if (!isset(f75)) {
+  if (v65 <= 0 &&
+      v0 != 10 &&
+      v0 != 11) {
+    if (said("anyword","goat")) {
+      print("There is no goat here.");
+    }
+  }
+  if (v65 > 0 &&
+      v0 != 10 &&
+      v0 != 11) {
+    if (said("anyword","goat")) {
+      print("You've already killed the goat.");
+    }
+  }
+}
+if (isset(f75)) {
+  if (!isset(f67) &&
+      said("kill","goat")) {
+    print("You don't have any way to kill the old"
+          "goat.");
+  }
+  if (isset(f67) &&
+      said("kill","goat")) {
+    if (v0 != 25 &&
+        v0 != 39 &&
+        v0 != 41) {
+      if ((v0 == 10 ||
+          v0 == 11)) {
+        get.posn(o0,v60,v61);
+        print("You hurl the dagger at the old"
+              "goat... he tries to avoid the"
+              "flying dagger, but your aim is"
+              "true... as the dagger strikes, he"
+              "slumps to the ground... dead.");
+        set.view(o0,0);
+        set.view(o13,62);
+        position.v(o13,v60,v61);
+        draw(o13);
+        v65 = v0;
+        v98 = 0;
+        step.size(o13,v98);
+        drop("dagger");
+        v3 -= 5;
+        reset(f67);
+        reset(f75);
+        set(f70);
+      }
+      else {
+        print("You hurl the dagger at the old"
+              "goat... he tries to avoid the"
+              "flying dagger, but your aim is"
+              "true... as the dagger strikes, he"
+              "slumps to the ground... dead.");
+        erase(o13);
+        set.view(o13,62);
+        draw(o13);
+        v65 = v0;
+        v98 = 0;
+        step.size(o13,v98);
+        drop("dagger");
+        v3 -= 5;
+        reset(f67);
+        reset(f75);
+        set(f70);
+      }
+    }
+  }
+  if (said("check","goat")) {
+    print("The old goat, trotting briskly, seems"
+          "happy to be with you.");
+  }
+  if (said("speak","goat")) {
+    print("The goat is not much for conversation.");
+  }
+}
+if (isset(f84)) {
+  if (said("check","gold key")) {
+    show.obj(121);
+  }
+  if (said("acquire","gold key")) {
+    print("You already have it.");
+  }
+}
+if (isset(f170)) {
+  if (said("check","note")) {
+    show.obj(122);
+  }
+  if ((said("read","note") ||
+      said("read","message") ||
+      said("read","message","note"))) {
+    print("The note reads, \"Sometimes it is wise"
+          "to think backwards.\"");
+    if (!isset(f196)) {
+      set(f196);
+      v3 += 1;
+    }
+  }
+  if (said("acquire","note")) {
+    print("You already have it.");
+  }
+}
+if (isset(f139)) {
+  if (said("acquire","cheese")) {
+    print("You already have it.");
+  }
+  if (said("check","cheese")) {
+    show.obj(134);
+  }
+  if (said("consume","cheese")) {
+    print("Mmmm!  That Swiss cheese was as"
+          "delicious as it looked.");
+    drop("cheese");
+    reset(f139);
+    v3 -= 2;
+  }
+}
+if (isset(f87)) {
+  if (said("check","clover")) {
+    show.obj(124);
+  }
+  if (said("acquire","clover")) {
+    print("You already have it.");
+  }
+}
+if (isset(f97)) {
+  if (said("acquire","sling")) {
+    print("You already have it.");
+  }
+  if (said("check","sling")) {
+    show.obj(130);
+  }
+}
+if (isset(f102)) {
+  if (said("acquire","shield")) {
+    print("You already have it.");
+  }
+  if (said("check","shield")) {
+    show.obj(137);
+  }
+}
+if (isset(f113)) {
+  if (said("acquire","sceptre")) {
+    print("You already have it.");
+  }
+  if (said("check","sceptre")) {
+    show.obj(133);
+  }
+}
+if (isset(f106)) {
+  if (said("acquire","diamond")) {
+    print("You already have it.");
+  }
+  if ((said("check","diamond") ||
+      said("check","bag"))) {
+    show.obj(131);
+  }
+  if (said("open","bag")) {
+    print("You have already opened the pouch.");
+  }
+}
+if (isset(f72)) {
+  if (said("acquire","bag")) {
+    print("You already have it.");
+  }
+  if (said("check","bag")) {
+    show.obj(132);
+  }
+  if (!isset(f106)) {
+    if ((said("open","bag") ||
+        said("look in","bag"))) {
+      print("Cautiously, you open the pouch and"
+            "see many sparkling and flashing"
+            "diamonds!  Quickly, you close it"
+            "again so as not to lose any.");
+      get("pouch of diamonds");
+      drop("pouch");
+      v3 += 3;
+      set(f106);
+      reset(f72);
+    }
+  }
+}
+if (isset(f110)) {
+  if (said("acquire","egg")) {
+    print("You already have it.");
+  }
+  if (said("check","egg")) {
+    show.obj(136);
+  }
+  if (said("consume","egg")) {
+    print("This egg will be tough to crack.");
+  }
+}
+if (isset(f171)) {
+  if (said("acquire","fiddle")) {
+    print("You already have it.");
+  }
+  if (said("check","fiddle")) {
+    show.obj(138);
+  }
+  if (v0 != 76 &&
+      v0 != 77 &&
+      v0 != 53 &&
+      v0 != 65 &&
+      v0 != 80 &&
+      v0 != 49 &&
+      v0 != 52 &&
+      v0 != 12 &&
+      v94 != 1 &&
+      v94 != 2 &&
+      !isset(f209) &&
+      !isset(f142) &&
+      !isset(f157) &&
+      !isset(f180) &&
+      !isset(f158) &&
+      !isset(f175) &&
+      !isset(f211)) {
+    if (said("play","fiddle")) {
+      set(f211);
+      print("You play a lively, toe-tapping tune"
+            "on the fiddle.");
+      sound(8,f212);
+    }
+  }
+}
+if (isset(f212)) {
+  reset(f212);
+  reset(f211);
+}
+if (isset(f100)) {
+  if (said("acquire","mirror")) {
+    print("You already have it.");
+  }
+  if ((said("check","mirror") ||
+      said("look in","mirror"))) {
+    show.obj(135);
+  }
+}
+if (v74 == 3) {
+  reset(f125);
+}
+if (isset(f190)) {
+  call(99);
+}
+call.v(v0);
+call(102);
+get.posn(o0,v108,v109);
+v110 = v6;
+return();
+
+// Messages
+#message 1 "You splash around in the water for a while but seem  to have forgotten how to swim. Unfortunately, you drown."
+#message 2 "Where do you think it could be?"
+#message 3 "The goat is not much for conversation."
+#message 4 "\"Ye best be careful, young Graham.  The mystic protective spell of mine has weakened and departed.\""
+#message 5 "KQ1"
+#message 6 "You feel a stretching sensation... Oh, you're back to your original size."
+#message 7 "You're too busy right now to rub the ring."
+#message 8 "There is no reason to do that now."
+#message 9 "You had the dagger and lost it.  Sorry."
+#message 10 "You already have it."
+#message 11 "As soon as you swallow the first bite, you have this strange shrinking feeling...  It's true!  You are now no bigger than a mouse!"
+#message 12 "You need to be closer to the water if you want to swim."
+#message 13 "You drain the bucket of water to quench your thirst."
+#message 14 "You open your mouth while swimming and quench your thirst."
+#message 15 "With difficulty, you fill the bucket while swimming."
+#message 16 "Mmmm!  There's nothing like a crisp, fresh carrot."
+#message 17 "VERSION 2.0F"
+#message 18 "You already have a carrot."
+#message 19 "You already ate the carrot."
+#message 20 "The goat quickly eats the carrot and disappears."
+#message 21 "Now is not a good time to try and eat the mushroom."
+#message 22 "You do not have a bowl."
+#message 23 "It is not nice to tease the goat."
+#message 24 "You are not carrying it."
+#message 25 "There is no reason to drop it."
+#message 26 "You are already swimming."
+#message 27 "The water is very deep here. Without aid, it is impossible to swim under the water for any length of time."
+#message 28 "You need to be in the water to try that."
+#message 29 "You need to be in water to swim."
+#message 30 ">"
+#message 32 "You do not have any stew."
+#message 33 "The stew is chock full of vegetables and meat."
+#message 34 "You already have a full bowl of stew."
+#message 35 "The bowl fills with the delicious stew, but the woodcutters are unaware of it."
+#message 36 "After uttering that strange word, the bowl starts quivering and immediately fills up with a delicious, hot stew."
+#message 37 "It is very inconsiderate to eat in front of these poor, starving people.  The pains of guilt set in on you."
+#message 38 "You eat every bite of the delicious stew."
+#message 39 "OK."
+#message 40 "You're welcome!"
+#message 42 "You are dazzled by the countless supply of gold coins spilling from the magic chest.  You quickly close the chest."
+#message 43 "You are already carrying an endless supply of gold coins in the magic chest."
+#message 44 "You open the chest and admire the gold coins for a moment. You then close the chest."
+#message 45 "There is no reason to throw the dagger."
+#message 46 "You don't want the dagger anymore."
+#message 47 "You hurl the dagger at the old goat... he tries to avoid the flying dagger, but your aim is true... as the dagger strikes, he slumps to the ground... dead."
+#message 48 "You don't have any way to kill the old goat."
+#message 49 "There is no goat here."
+#message 50 "You've already killed the goat."
+#message 51 "The old goat, trotting briskly, seems happy to be with you."
+#message 52 "Seeing how much the goat likes that carrot, eating it may be hazardous to your health."
+#message 53 "You have already opened the walnut."
+#message 54 "When you open the walnut, you discover the nut inside is pure gold!"
+#message 55 "Ouch!  It would be much easier if you opened the walnut first."
+#message 56 "Don't do that!  This walnut is not edible since it is pure gold."
+#message 60 "The note reads, \"Sometimes it is wise to think backwards.\""
+#message 63 "Mmmm!  That Swiss cheese was as delicious as it looked."
+#message 65 "The word on the bottom of the bowl says \"fill\"."
+#message 66 "Even a small portion of the stew is very appetizing."
+#message 68 "You throw one of your pebbles."
+#message 73 "This egg will be tough to crack."
+#message 75 "You play a lively, toe-tapping tune on the fiddle."
+#message 78 "You have already opened the pouch."
+#message 79 "Cautiously, you open the pouch and see many sparkling and flashing diamonds!  Quickly, you close it again so as not to lose any."
+#message 81 "You try, but being invisible makes it impossible."
+#message 84 "You're going to be sorry!!  These were magic beans!"
+#message 85 "That is not a bad idea, but this is not a very suitable place to plant these beans.  Why don't you try it elsewhere?"
+#message 88 "The ring is already on your finger."
+#message 89 "You slip the beautiful ring on one of your fingers."
+#message 90 "I don't know why, but you drop the magic ring."
+#message 91 "Nothing happens."
+#message 92 "When the ring disappears, you reappear!"
+#message 93 "When you rub the magic ring, you mysteriously disappear, except for your footprints."
+#message 94 "You rub the magic ring but the goat seems to have a strange effect on it."
+#message 95 "With disappointment, you see that nothing happens."
+#message 96 "The magic ring is still in your pocket.  You can't rub it there."
+#message 97 "The spell to make you invisible has expired and you are once again visible to dangerous creatures, but, the ring has now disappeared."
+#message 98 "You will have to find it before you can get it."
+#message 99 "You do not have it."
+#message 100 "_"
+#message 101 "You are not wearing the ring."
+#message 102 "There is no need to rub the ring as you are already invisible."
+#message 150 "Info"
+#message 151 "Help    "
+#message 152 "About KQ"
+#message 153 "File"
+#message 154 "Save Game      <F5>"
+#message 155 "Restore Game   <F7>"
+#message 156 "-------------------"
+#message 157 "Restart Game   <F9>"
+#message 158 "Pause             <Esc>"
+#message 159 "Quit        <Alt Z>"
+#message 160 "Game"
+#message 161 "Inventory     <Tab>"
+#message 162 "See Object     <F4>"
+#message 163 "Sound On/Off       <F2>"
+#message 164 "Action "
+#message 165 "Swim  ="
+#message 166 "Special"
+#message 167 "Graphics Mode  <Ctrl R>"
+#message 168 "Reset Joystick <Ctrl J>"
+#message 169 "Speed"
+#message 170 "Normal"
+#message 171 "Fast  "
+#message 172 "Slow  "
+#message 173 "King's Quest was designed by Roberta Williams."
+#message 174 "Jump  0"
+#message 175 "Duck  -"
+#message 176 "Joystick/Mouse <Ctrl J>"
+

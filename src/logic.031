@@ -1,0 +1,262 @@
+// logic.031 - Bowl
+if (isset(f5)) {
+  load.pic(v0);
+  draw.pic(v0);
+  discard.pic(v0);
+  load.sound(4);
+  load.sound(5);
+  set.horizon(50);
+  if (isset(f75)) {
+    load.logics(103);
+  }
+  if (v65 == v0) {
+    add.to.pic(62,0,0,39,96,0,0);
+  }
+  if ((isset(f154) ||
+      v80 == 31)) {
+    v92 = 84;
+    set(f155);
+    load.pic(v92);
+    load.view(114);
+    load.view(103);
+    load.view(104);
+    load.view(74);
+    load.view(105);
+    load.logics(104);
+    load.sound(12);
+  }
+  if (v1 == 70 &&
+      isset(f157)) {
+    set.view(o0,74);
+    position(o0,64,51);
+    move.obj(o0,64,51,0,f148);
+    set.priority(o0,8);
+  }
+  if (v1 == 70 &&
+      isset(f158)) {
+    program.control();
+    ignore.horizon(o0);
+    set.priority(o0,15);
+    set.view(o0,105);
+    get.posn(o0,v60,v61);
+    if (v60 > 75) {
+      position(o0,80,29);
+    }
+    else {
+      position(o0,65,29);
+    }
+    get.posn(o0,v60,v61);
+    v61 = 106;
+    v96 = 2;
+    move.obj.v(o0,v60,v61,96,f22);
+  }
+  if (!isset(f90)) {
+    load.view(25);
+    animate.obj(o1);
+    set.view(o1,25);
+    position(o1,126,138);
+  }
+  if (!isset(f90)) {
+    draw(o1);
+  }
+  if (v80 == 31) {
+    overlay.pic(v92);
+  }
+  draw(o0);
+  show.pic();
+}
+if (isset(f158) &&
+    !isset(f23)) {
+  set(f23);
+  set(f135);
+  sound(5,f24);
+}
+if (isset(f22)) {
+  stop.sound();
+  set(f23);
+  reset(f158);
+  reset(f135);
+  set.view(o0,114);
+  shake.screen(2);
+  set(f63);
+}
+if (isset(f90) &&
+    !isset(f89)) {
+  if (said("anyword","bowl")) {
+    print("There may have been a bowl here at one"
+          "time, but it is not here now!");
+  }
+}
+if (!isset(f90)) {
+  if (said("check","bowl")) {
+    if (posn(o0,106,103,159,167)) {
+      print("This is a very colorful ceramic bowl.");
+    }
+    else {
+      print("It looks like an interesting,"
+            "colorful bowl.");
+    }
+  }
+  if ((said("check","grass") ||
+      said("check","room"))) {
+    print("There appears to be some sort of bowl"
+          "on the ground.");
+  }
+}
+if (!isset(f90) &&
+    said("acquire","bowl")) {
+  if (posn(o0,116,128,136,148)) {
+    print("You pick up the ceramic bowl.");
+    start.update(o1);
+    erase(o1);
+    v3 += 3;
+    set(f89);
+    set(f90);
+    get("ceramic bowl");
+  }
+  else {
+    print("That is impossible from here.");
+  }
+}
+if (isset(f154) &&
+    isset(f155)) {
+  if (said("bury","bean")) {
+    reset(f154);
+    v80 = 31;
+    set(f94);
+    drop("beans");
+    v3 += 2;
+    print("The beans immediately sprout roots that"
+          "reach deep into the fertile soil..."
+          "leaves unfold themselves to the warm,"
+          "loving sun... a rumbling is felt... and"
+          "a mighty beanstalk now stretches up"
+          "into the sky!");
+    sound(12,f25);
+    overlay.pic(v92);
+    show.pic();
+  }
+}
+if (v80 == 31 &&
+    !isset(f79)) {
+  if (said("climb","beanstalk") &&
+      !isset(f157)) {
+    if (posn(o0,52,76,103,97)) {
+      erase(o0);
+      set.view(o0,74);
+      set(f157);
+      position(o0,71,77);
+      set.priority(o0,8);
+      draw(o0);
+      move.obj(o0,71,77,0,f148);
+    }
+    else {
+      print("You can't reach the beanstalk from"
+            "here.");
+    }
+  }
+}
+if (v80 != 31) {
+  if (said("climb","beanstalk")) {
+    print("There is no beanstalk here to climb.");
+  }
+}
+if (isset(f157)) {
+  if (isset(f3) &&
+      posn(o0,60,78,93,80)) {
+    erase(o0);
+    set.view(o0,0);
+    reset(f157);
+    position(o0,70,106);
+    release.priority(o0);
+    draw(o0);
+  }
+  if (isset(f3) &&
+      !posn(o0,60,78,93,80)) {
+    program.control();
+    set.priority(o0,15);
+    get.posn(o0,v60,v61);
+    erase(o0);
+    set.view(o0,105);
+    reset(f157);
+    position.v(o0,v60,v61);
+    draw(o0);
+    v61 = 106;
+    v96 = 2;
+    move.obj.v(o0,v60,v61,96,f20);
+    set(f135);
+    sound(5,f198);
+  }
+}
+v30--;
+if (isset(f20)) {
+  stop.sound();
+  reset(f20);
+  observe.blocks(o0);
+  release.priority(o0);
+  stop.motion(o0);
+  set.view(o0,103);
+  v30 = 20;
+  set(f98);
+  shake.screen(2);
+  print("Ouch!");
+  set(f135);
+  sound(4,f159);
+}
+if (isset(f159)) {
+  if (v30 > 0) {
+    reset(f159);
+    sound(4,f159);
+  }
+}
+if (v30 == 1) {
+  set.view(o0,104);
+  end.of.loop(o0,f21);
+}
+if (isset(f21)) {
+  reset(f21);
+  reset(f98);
+  start.motion(o0);
+  set.view(o0,0);
+  release.priority(o0);
+  player.control();
+}
+if (v2 != 0) {
+  reset(f155);
+}
+if (v2 == 1 &&
+    isset(f157)) {
+  new.room(70);
+}
+if (v2 == 1 &&
+    !isset(f157)) {
+  new.room(34);
+}
+if (v2 == 2) {
+  new.room(32);
+}
+if (v2 == 4) {
+  new.room(30);
+}
+if (v2 == 3) {
+  new.room(18);
+}
+if (isset(f75)) {
+  call(103);
+}
+if (v80 == 31) {
+  call(104);
+}
+return();
+
+// Messages
+#message 1 "This is a very colorful ceramic bowl."
+#message 2 "You pick up the ceramic bowl."
+#message 3 "It looks like an interesting, colorful bowl."
+#message 4 "That is impossible from here."
+#message 5 "There may have been a bowl here at one time, but it is not here now!"
+#message 6 "The beans immediately sprout roots that reach deep into the fertile soil... leaves unfold themselves to the warm, loving sun... a rumbling is felt... and a mighty beanstalk now stretches up into the sky!"
+#message 7 "You can't reach the beanstalk from here."
+#message 8 "There is no beanstalk here to climb."
+#message 9 "Ouch!"
+#message 10 "There appears to be some sort of bowl on the ground."
