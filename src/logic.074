@@ -1,0 +1,30 @@
+if (isset(f5)) {
+  load.pic(v0);
+  draw.pic(v0);
+  discard.pic(v0);
+  if (v1 == 75) {
+    get.posn(o0,v60,v61);
+    v60 += 2;
+    position.v(o0,v60,v61);
+  }
+  if (v1 == 73) {
+    position(o0,80,70);
+  }
+  draw(o0);
+  show.pic();
+}
+if (said("check","cave")) {
+  print("The further you get from the light, the"
+        "darker and mustier it becomes.");
+}
+if (posn(o0,65,51,100,52)) {
+  new.room(73);
+}
+if (posn(o0,0,0,1,167)) {
+  new.room(75);
+}
+return();
+
+// Messages
+#message 1 "The further you get from the light, the darker and mustier it becomes."
+

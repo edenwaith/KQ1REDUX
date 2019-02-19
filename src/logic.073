@@ -1,0 +1,169 @@
+// logic.073
+if (isset(f5)) {
+  load.pic(v0);
+  draw.pic(v0);
+  discard.pic(v0);
+  load.sound(4);
+  load.sound(5);
+  load.view(105);
+  load.view(103);
+  load.view(104);
+  if (v1 == 48) {
+    position(o0,90,63);
+    set.view(o0,105);
+    ignore.blocks(o0);
+    set(f98);
+    start.cycling(o0);
+    move.obj(o0,90,142,4,f20);
+    if (isset(f79)) {
+      set(f23);
+      reset(f79);
+      reset(f83);
+      drop("magic ring");
+      v3 -= 3;
+      set(f115);
+    }
+    if (isset(f120)) {
+      reset(f120);
+      v82 = 0;
+      set(f24);
+    }
+  }
+  if (!isset(f121)) {
+    load.view(84);
+    animate.obj(o1);
+    set.view(o1,84);
+    position(o1,72,115);
+    // set(f20);
+    draw(o1);
+  }
+  if (v1 == 74) {
+    position(o0,77,165);
+  }
+  draw(o0);
+  show.pic();
+}
+if (!isset(f20) &&
+    !isset(f22) &&
+    v1 == 48) {
+  sound(5,f159);
+  set(f22);
+}
+if (said("check","doorway")) {
+  print("The warm sunlight falls through the hole"
+        "in the ceiling.  Unfortunately, you can't"
+        "reach it.");
+}
+if ((said("check","cave") || said("check"))) {
+  print("The dark tunnel leads off to the south.");
+  if (!isset(f121)) {
+    print("There is a large, colorful mushroom growing in the sunlight.");
+  }
+}
+if (!isset(f123) &&
+    isset(f121)) {
+  if (said("check","mushroom")) {
+    print("There is no mushroom here.");
+  }
+}
+if (isset(f121)) {
+  if (said("check","ground")) {
+    print("There is nothing of interest around you.");
+  }
+  if (said("acquire","mushroom")) {
+    if (isset(f123)) {
+      print("You already have it.");
+    }
+    else {
+      print("There is no mushroom here.");
+    }
+  }
+}
+if (!isset(f121)) {
+  if (said("check","mushroom")) {
+    print("This mushroom is large and aromatic.");
+  }
+  if (said("check","ground")) {
+    print("There is a large mushroom growing in the ground close by.");
+  }
+  if (said("acquire","mushroom")) {
+    // Mushroom's location: 72,115
+    if (posn(o0,62,105,82,125)) {
+      erase(o1);
+      print("You reach down and pick a fat"
+              "mushroom.");
+      set(f121);
+      set(f123);
+      v3 += 1;
+      get("mushroom");
+    }
+    else {
+      print("You need to get closer to do that.");
+    }
+  }
+}
+if (isset(f20)) {
+  reset(f20);
+  stop.sound();
+  observe.blocks(o0);
+  set.view(o0,103);
+  program.control();
+  shake.screen(1);
+  print("OUCH!");
+  v30 = 36;
+  sound(4,f159);
+}
+if (isset(f159)) {
+  if (v30 > 0) {
+    reset(f159);
+    sound(4,f159);
+  }
+}
+if (v30 == 1) {
+  set.view(o0,104);
+  end.of.loop(o0,f21);
+}
+if (isset(f21)) {
+  reset(f21);
+  set.view(o0,0);
+  reset(f98);
+  player.control();
+  if (isset(f23)) {
+    reset(f23);
+    print("While falling through the hole, the"
+          "magic ring fell off your finger. "
+          "Dangerous creatures can see you now!");
+  }
+  if (isset(f24)) {
+    reset(f24);
+    print("When you fell through the hole, you"
+          "felt a streching sensation and are back"
+          "to your normal size.");
+  }
+}
+v30--;
+if (posn(o0,0,166,159,167)) {
+  new.room(74);
+}
+return();
+
+// Messages
+#message 1 "While falling through the hole, the magic ring fell off your finger.  Dangerous creatures can see you now!"
+#message 2 "The warm sunlight falls through the hole in the ceiling.  Unfortunately, you can't reach it."
+#message 3 "The dark tunnel leads off to the south."
+#message 4 "OUCH!"
+#message 5 "When you fell through the hole, you felt a streching sensation and are back to your normal size."
+
+
+
+
+
+
+
+
+
+
+
+
+
+

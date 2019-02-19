@@ -11,10 +11,11 @@ if (isset(f5)) {
     load.view(25);
     animate.obj(o5);
     set.view(o5,25);
-    position(o5,126,138);
+    position(o5,65,120);
+    set.priority(o5,12);
   }
   if (!isset(f90)) {
-    draw(o1);
+    draw(o5);
   }
   if (!isset(f170)) {
     load.view(42);
@@ -149,7 +150,7 @@ if (isset(f75)) {
 }
 if (v81 == 3) {
   if (said("anyword","witch")) {
-    print("The witch is dead.");
+    print("Ding dong, the witch is dead.");
   }
 }
 if (v1 == 80) {
@@ -308,6 +309,9 @@ if (isset(f21)) {
     print("This ugly old witch is one of the most"
           "hideous sights you have ever seen.  I"
           "would never trust her.");
+  }
+  if (said("kiss","witch")) {
+    print("You aren't that desperate!");
   }
   distance(o0,o4,v70);
   if (v70 < 15) {
@@ -707,3 +711,5 @@ return();
 #message 62 "Be thankful that you are invisible or the witch may have stuck around to try and catch you!"
 #message 63 "You need to be more specific."
 #message 64 "It looks like an ordinary bedroom."
+
+
