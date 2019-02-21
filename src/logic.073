@@ -54,7 +54,7 @@ if (said("check","doorway")) {
         "in the ceiling.  Unfortunately, you can't"
         "reach it.");
 }
-if ((said("check","cave") || said("check"))) {
+if ((said("check","cave") || said("check","room") || said("check"))) {
   print("The dark tunnel leads off to the south.");
   if (!isset(f121)) {
     print("There is a large, colorful mushroom growing in the sunlight.");
@@ -153,6 +153,7 @@ return();
 #message 3 "The dark tunnel leads off to the south."
 #message 4 "OUCH!"
 #message 5 "When you fell through the hole, you felt a streching sensation and are back to your normal size."
+
 
 
 

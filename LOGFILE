@@ -35,3 +35,167 @@ No response to input.
 Room 3
 Input line: check doorway
 No response to input.
+
+Room 1
+Input line: gimme gimme
+Word not known: gimme
+
+Room 1
+Input line: tp 42
+Word not known: 42
+
+Room 1
+Input line: pt
+Word not known: pt
+
+Room 1
+Input line: look chest
+No response to input.
+
+Room 1
+Input line: look chest
+No response to input.
+
+Room 1
+Input line: eat beans
+No response to input.
+
+Room 1
+Input line: gimme gimme
+Word not known: gimme
+
+Room 1
+Input line: sp
+No response to input.
+
+Room 1
+Input line: sp
+No response to input.
+
+Room 1
+Input line: show priority
+No response to input.
+
+Room 1
+Input line: show position
+No response to input.
+
+Room 16
+Input line: get carrot
+No response to input.
+
+Room 1
+Input line: pet alligator
+No response to input.
+
+Room 51
+Input line: look room
+No response to input.
+
+Room 51
+Input line: throw water at dragon
+No response to input.
+
+Room 51
+Input line: look
+No response to input.
+
+Room 51
+Input line: look room
+No response to input.
+
+Room 51
+Input line: get mirror
+No response to input.
+
+Room 51
+Input line: look room
+No response to input.
+
+Room 51
+Input line: look
+No response to input.
+
+Room 51
+Input line: look cave
+No response to input.
+
+Room 27
+Input line: look dagger
+No response to input.
+
+Room 1
+Input line: object number
+Word not known: number
+
+Room 1
+Input line: get object 6
+Word not known: 6
+
+Room 1
+Input line: fill
+No response to input.
+
+Room 1
+Input line: say fill
+No response to input.
+
+Room 1
+Input line: say shitstains
+Word not known: shitstains
+
+Room 1
+Input line: say shit
+Word not known: shit
+
+Room 1
+Input line: say alligator
+No response to input.
+
+Room 1
+Input line: say kill king
+No response to input.
+
+Room 1
+Input line: say king
+No response to input.
+
+Room 1
+Input line: eat stew
+No response to input.
+
+Room 1
+Input line: look bowl
+No response to input.
+
+Room 1
+Input line: eat cheese
+No response to input.
+
+Room 1
+Input line: eat cheese
+No response to input.
+
+Room 1
+Input line: get object 26
+Word not known: 26
+
+Room 1
+Input line: tp 65
+Word not known: 65
+
+Room 1
+Input line: 47
+Word not known: 47
+
+Room 74
+Input line: look
+No response to input.
+
+Room 1
+Input line: 73
+Word not known: 73
+
+Room 73
+Input line: 48
+Word not known: 48
