@@ -1,0 +1,70 @@
+// logic.057
+if (isset(f5)) {
+  ignore.horizon(o0);
+  load.pic(v0);
+  draw.pic(v0);
+  discard.pic(v0);
+  load.sound(5);
+  load.view(105);
+  draw(o0);
+  show.pic();
+}
+if (isset(f3)) {
+  ignore.blocks(o0);
+  set(f199);
+  reset(f3);
+  program.control();
+  if (!isset(f79)) {
+    set.view(o0,105);
+  }
+  start.cycling(o0);
+  set(f98);
+  get.priority(o0,v30);
+  set.priority.v(o0,v30);
+  get.posn(o0,v60,v61);
+  v61 += 30;
+  v96 = 4;
+  move.obj.v(o0,v60,v61,96,f20);
+}
+if (!isset(f20) &&
+    isset(f199) &&
+    !isset(f21)) {
+  sound(5,f159);
+  set(f21);
+}
+if (isset(f20)) {
+  erase(o0);
+  reset(f199);
+  reset(f20);
+  stop.sound();
+  print("You'll have to keep yourself out of the"
+        "clouds!");
+  set(f63);
+}
+if (said("check","tree")) {
+  print("These are very unusual looking trees.");
+}
+else {
+  if ((said("check","anyword") || said("check"))) {
+    print("You are in the Land of the Clouds.  It"
+          "is rumored that a giant lives up here.");
+  }
+}
+if (v2 == 2) {
+  new.room(58);
+}
+if (v2 == 4) {
+  new.room(56);
+}
+if (v2 == 3) {
+  new.room(60);
+}
+return();
+
+// Messages
+#message 1 "You'll have to keep yourself out of the clouds!"
+#message 2 "You are in the Land of the Clouds.  It is rumored that a giant lives up here."
+#message 3 "These are very unusual looking trees."
+
+
+

@@ -199,3 +199,35 @@ Word not known: 73
 Room 73
 Input line: 48
 Word not known: 48
+
+Room 64
+Input line: get flat
+Word not known: flat
+
+Room 64
+Input line: get flag
+No response to input.
+
+Room 64
+Input line: flag
+No response to input.
+
+Room 64
+Input line: get flag
+No response to input.
+
+Room 64
+Input line: getflag
+Word not known: getflag
+
+Room 64
+Input line: get flag
+No response to input.
+
+Room 64
+Input line: look beanstalk
+No response to input.
+
+Room 64
+Input line: look beanstalk
+No response to input.
