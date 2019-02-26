@@ -113,6 +113,7 @@ if (isset(f5)) {
       v0 != 11) {
     load.view(75);
     load.view(87);
+    load.view(150);
   }
   load.view(110);
   if (v0 != 83) {
@@ -424,10 +425,10 @@ if ((said("duck") ||
       v0 != 51 &&
       !isset(f142)) {
     set(f200);
-    set.view(o0,87);
+    set.view(o0,150);
     set(f98);
-    start.cycling(o0);
-    end.of.loop(o0,f201);
+    //start.cycling(o0);
+    //end.of.loop(o0,f201);
   }
   else {
     if (!isset(f202)) {
@@ -1368,4 +1369,8 @@ return();
 #message 174 "Jump  0"
 #message 175 "Duck  -"
 #message 176 "Joystick/Mouse <Ctrl J>"
+
+
+
+
 
