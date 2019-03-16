@@ -251,3 +251,39 @@ Word not known: memory
 Room 1
 Input line: memory
 Word not known: memory
+
+Room 28
+Input line: look
+No response to input.
+
+Room 28
+Input line: look house
+No response to input.
+
+Room 74
+Input line: look
+No response to input.
+
+Room 75
+Input line: give cheese to rat
+No response to input.
+
+Room 75
+Input line: give cheese to rat
+No response to input.
+
+Room 75
+Input line: give cheese to rat
+No response to input.
+
+Room 75
+Input line: look
+No response to input.
+
+Room 73
+Input line: 21
+Word not known: 21
+
+Room 1
+Input line: 21
+Word not known: 21

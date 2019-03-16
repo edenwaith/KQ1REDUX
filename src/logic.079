@@ -1,0 +1,556 @@
+// logic.079 - Inside woodcutter's house
+if (isset(f5)) {
+  load.pic(v0);
+  draw.pic(v0);
+  discard.pic(v0);
+  load.view(57);
+  load.view(58);
+  load.sound(5);
+  load.sound(8);
+  if ((isset(f89) ||
+      isset(f183))) {
+    load.view(25);
+    load.view(83);
+    animate.obj(o1);
+  }
+  if (!isset(f172)) {
+    load.view(50);
+    animate.obj(o3);
+    set.view(o3,50);
+    position(o3,128,155);
+  }
+  animate.obj(o2);
+  set.view(o2,57);
+  position(o2,45,116);
+  stop.cycling(o2);
+  animate.obj(o4);
+  set.view(o4,58);
+  position(o4,89,115);
+  stop.cycling(o4);
+  draw(o2);
+  draw(o4);
+  if (!isset(f172)) {
+    stop.cycling(o3);
+    draw(o3);
+  }
+  if (isset(f183)) {
+    if (v89 == 0) {
+      set.view(o1,25);
+    }
+    if (v89 == 1) {
+      set.view(o1,83);
+    }
+    position(o1,68,104);
+    set.priority(o1,14);
+    draw(o1);
+    stop.update(o1);
+  }
+  if (v1 == 44) {
+    position(o0,24,113);
+  }
+  draw(o0);
+  show.pic();
+}
+if (isset(f75)) {
+  reset(f75);
+  set(f130);
+  print("As soon as you entered the house the old"
+        "goat ran away.");
+  v3 -= 5;
+}
+if (said("jump")) {
+  print("You dare not jump here or you would go"
+        "through the floor!");
+}
+if ((said("check","building") ||
+    said("check","room") || 
+    said("check"))) {
+  if (!isset(f172)) {
+    print("The cottage is run-down and sparsely"
+          "furnished.  The only nice possession"
+          "seems to be a fiddle in the corner.");
+  }
+  else {
+    print("The cottage is run-down and sparsely"
+          "furnished.");
+  }
+}
+if ((said("check","doorway") ||
+    said("check","floor"))) {
+  print("This family is so poor, they can't even"
+        "repair the floor.");
+}
+if (said("check","dwarf")) {
+  print("The woodcutter is thin and dressed in"
+        "rags.");
+}
+if (said("check","fairy")) {
+  print("The woodcutter's wife is skinny and"
+        "poorly dressed.");
+}
+if (said("check","people")) {
+  print("The woodcutter is thin and dressed in"
+        "rags.");
+  print("The woodcutter's wife is skinny and"
+        "poorly dressed.");
+}
+if (said("check","table")) {
+  if (!isset(f183)) {
+    print("The woodcutter and his wife are sitting"
+          "at the old oak table.");
+  }
+  if (isset(f183) &&
+      v89 == 0) {
+    print("There is an empty bowl sitting on the"
+          "old oak table.");
+  }
+  if (isset(f183) &&
+      v89 == 1) {
+    print("There is a bowl of stew sitting on the"
+          "old oak table.");
+  }
+}
+v30--;
+if (said("speak","dwarf")) {
+  print("\"Welcome to my humble abode.\"");
+  if (!isset(f20)) {
+    set(f20);
+    start.cycling(o2);
+    v30 = 18;
+  }
+}
+if (said("speak","fairy")) {
+  if (!isset(f183)) {
+    print("She replies, \"I'd like to offer you"
+          "something, but we do not even have food"
+          "for ourselves.\"");
+  }
+  else {
+    print("\"Make yourself at home in our humble"
+          "home.\"");
+  }
+  if (!isset(f21)) {
+    set(f21);
+    start.cycling(o4);
+    v30 = 18;
+  }
+}
+if (v30 == 1) {
+  if (isset(f20)) {
+    reset(f20);
+    stop.cycling(o2);
+  }
+  if (isset(f21)) {
+    reset(f21);
+    stop.cycling(o4);
+  }
+  if (isset(f24)) {
+    reset(f24);
+    stop.cycling(o2);
+    stop.cycling(o4);
+  }
+}
+if ((said("aid","dwarf") ||
+    said("aid","fairy") ||
+    said("aid","people"))) {
+  print("That would be very nice.  How do you want"
+        "to help them?");
+}
+if ((said("kill","dwarf") ||
+    said("kill","fairy") ||
+    said("kill","people") ||
+    said("attack","anyword"))) {
+  print("What an abominable idea!  You should be"
+        "ashamed of yourself for even suggesting"
+        "such a thing!");
+  if (!isset(f24)) {
+    set(f24);
+    start.cycling(o2);
+    start.cycling(o4);
+    v30 = 18;
+  }
+}
+if (said("check","cabinet")) {
+  print("It is closed, but in this house, all the"
+        "cabinets are bare.");
+}
+if (said("open","cabinet")) {
+  print("The cabinet is all but bare.");
+}
+if (said("check","window")) {
+  print("The beautiful scenery outside is in"
+        "contrast to the dreariness inside.");
+}
+if (said("break","window")) {
+  print("You should have more sympathy for these"
+        "poor folks!");
+  if (!isset(f24)) {
+    set(f24);
+    start.cycling(o2);
+    start.cycling(o4);
+    v30 = 18;
+  }
+}
+if (isset(f183)) {
+  if (said("acquire","bowl")) {
+    print("You have given the bowl to these poor"
+          "people and it is now theirs.  You have"
+          "no right to take it back.");
+    if (!isset(f24)) {
+      set(f24);
+      start.cycling(o2);
+      start.cycling(o4);
+      v30 = 18;
+    }
+  }
+  if (said("check","bowl")) {
+    print("The woodcutters admire the bowl as it"
+          "sits on their table.");
+  }
+}
+if (!isset(f106) &&
+    !isset(f110) &&
+    !isset(f108) &&
+    !isset(f113)) {
+  if (said("give","treasure")) {
+    print("This is a nice thought, but"
+          "unfortunately you have nothing to give"
+          "these poor people.");
+  }
+}
+if ((isset(f106) ||
+    isset(f110) ||
+    isset(f108) ||
+    isset(f113))) {
+  if (said("give","treasure")) {
+    print("What treasure do you wish to donate to"
+          "them?");
+  }
+}
+if (isset(f106) &&
+    (said("give","diamond") ||
+    said("give","bag"))) {
+  print("The woodcutter and his wife very"
+        "gratefully accept the treasure.  \"This"
+        "will help us for awhile,\" says the"
+        "woodcutter.");
+  if (!isset(f24)) {
+    set(f24);
+    start.cycling(o2);
+    start.cycling(o4);
+    v30 = 18;
+  }
+  reset(f106);
+  drop("pouch of diamonds");
+  v3 -= 6;
+}
+if (isset(f110) &&
+    said("give","egg")) {
+  print("The woodcutter and his wife very"
+        "gratefully accept the treasure.  \"This"
+        "will help us for awhile,\" says the"
+        "woodcutter.");
+  if (!isset(f24)) {
+    set(f24);
+    start.cycling(o2);
+    start.cycling(o4);
+    v30 = 18;
+  }
+  reset(f110);
+  drop("gold egg");
+  v3 -= 6;
+}
+if (isset(f108) &&
+    said("give","gold nut")) {
+  print("The woodcutter and his wife very"
+        "gratefully accept the treasure.  \"This"
+        "will help us for awhile,\" says the"
+        "woodcutter.");
+  if (!isset(f24)) {
+    set(f24);
+    start.cycling(o2);
+    start.cycling(o4);
+    v30 = 18;
+  }
+  reset(f108);
+  drop("gold walnut");
+  v3 -= 6;
+}
+if (isset(f113) &&
+    said("give","sceptre")) {
+  print("The woodcutter and his wife very"
+        "gratefully accept the treasure.  \"This"
+        "will help us for awhile,\" says the"
+        "woodcutter.");
+  if (!isset(f24)) {
+    set(f24);
+    start.cycling(o2);
+    start.cycling(o4);
+    v30 = 18;
+  }
+  reset(f113);
+  drop("sceptre");
+  v3 -= 6;
+}
+if (isset(f77) &&
+    said("give","carrot")) {
+  print("The woodcutter and his wife kindly accept"
+        "your gift of food.  They offer a"
+        "heartfelt \"Thank you.\"");
+  if (!isset(f24)) {
+    set(f24);
+    start.cycling(o2);
+    start.cycling(o4);
+    v30 = 18;
+  }
+  reset(f77);
+  drop("carrot");
+  v3 -= 2;
+}
+if (isset(f154) &&
+    said("give","bean")) {
+  print("The woodcutter and his wife kindly accept"
+        "your gift of food.  They offer a"
+        "heartfelt \"Thank you.\"");
+  if (!isset(f24)) {
+    set(f24);
+    start.cycling(o2);
+    start.cycling(o4);
+    v30 = 18;
+  }
+  reset(f154);
+  drop("beans");
+  v3 -= 6;
+}
+if (isset(f89)) {
+  if (v89 == 0) {
+    if ((said("give","bowl") ||
+        said("give","bowl","dwarf") ||
+        said("give","dwarf","bowl") ||
+        said("give","fairy","bowl") ||
+        said("give","bowl","fairy") ||
+        said("drop","bowl","table"))) {
+      set(f183);
+      reset(f89);
+      drop("ceramic bowl");
+      v3 -= 3;
+      v3 += 6;
+      position(o1,68,104);
+      set.priority(o1,14);
+      set.view(o1,25);
+      draw(o1);
+      print("Puzzled, the couple wonders why you"
+            "have given them a bowl.");
+      if (!isset(f24)) {
+        set(f24);
+        start.cycling(o2);
+        start.cycling(o4);
+        v30 = 18;
+      }
+    }
+  }
+  if (v89 == 1) {
+    if ((said("give","bowl") ||
+        said("give","bowl","dwarf") ||
+        said("give","dwarf","bowl") ||
+        said("give","fairy","bowl") ||
+        said("give","bowl","fairy") ||
+        said("drop","bowl","table") ||
+        said("give","stew") ||
+        said("give","stew","dwarf") ||
+        said("give","dwarf","stew") ||
+        said("give","fairy","stew") ||
+        said("give","stew","fairy") ||
+        said("drop","stew","table"))) {
+      set(f183);
+      reset(f89);
+      drop("ceramic bowl");
+      v3 -= 3;
+      v3 += 6;
+      position(o1,68,104);
+      set.priority(o1,14);
+      set.view(o1,83);
+      draw(o1);
+      print("The woodcutter family is very"
+            "grateful that you have given them a"
+            "bowl of stew.  Now they will have at"
+            "least one last meal.  As a token of"
+            "their gratitude, they offer their"
+            "last earthly possession, the"
+            "woodcutter's fiddle.");
+      set(f185);
+      if (!isset(f24)) {
+        set(f24);
+        start.cycling(o2);
+        start.cycling(o4);
+        v30 = 18;
+      }
+    }
+  }
+}
+if (isset(f183)) {
+  if (said("consume","stew")) {
+    if (v89 == 0) {
+      print("Eat stew from an empty bowl?  The"
+            "woodcutters are beginning to question"
+            "your authenticity.");
+    }
+    else {
+      print("The stew looks delicious, but it is"
+            "no longer yours.  Now you will have"
+            "to do without.");
+    }
+  }
+}
+if (isset(f183) &&
+    v89 == 0) {
+  if ((said("fill") ||
+      said("say","fill") ||
+      said("fill","bowl"))) {
+    erase(o1);
+    set.view(o1,83);
+    draw(o1);
+    print("The couple is amazed and delighted as"
+          "the bowl miraculously fills with a"
+          "bubbling stew.  As a token of their"
+          "gratitude, they offer their last"
+          "earthly possession, the woodcutter's"
+          "fiddle.");
+    v89 = 1;
+    if (!isset(f184)) {
+      set(f184);
+      v3 += 2;
+    }
+    set(f185);
+    if (!isset(f24)) {
+      set(f24);
+      start.cycling(o2);
+      start.cycling(o4);
+      v30 = 18;
+    }
+  }
+}
+if (said("show","anyword")) {
+  print("The couple does not understand.");
+}
+if (!isset(f172)) {
+  if (said("check","fiddle")) {
+    if (posn(o0,120,140,158,166)) {
+      print("The fiddle is a beautiful instrument"
+            "made of polished wood.");
+    }
+    else {
+      print("You cannot see it very well from here.");
+    }
+  }
+  if (said("steal","fiddle")) {
+    if (posn(o0,120,140,158,166)) {
+      print("What a terrible suggestion!  These"
+            "people are poor and starving and you"
+            "want to steal one of their last"
+            "earthly possessions.");
+    }
+    else {
+      print("I doubt that you will get away with"
+            "it, but you will have to get closer"
+            "to try.");
+    }
+  }
+  if (said("acquire","fiddle")) {
+    if (!isset(f185)) {
+      print("You cannot take their last precious"
+            "possession!");
+    }
+    if (posn(o0,120,140,158,166) &&
+        isset(f185)) {
+      erase(o3);
+      set(f171);
+      set(f172);
+      print("The polished wood feels like satin --"
+            "it seems to still vibrate from the"
+            "last song it played.");
+      get("fiddle");
+      v3 += 3;
+    }
+    if (!posn(o0,120,140,158,166) &&
+        isset(f185)) {
+      print("You are not close enough to reach it.");
+    }
+  }
+}
+if (isset(f0) &&
+    !isset(f199)) {
+  ignore.blocks(o0);
+  set(f95);
+  stop.cycling(o0);
+  set(f199);
+  set.priority(o0,5);
+  get.posn(o0,v60,v61);
+  v61 = 166;
+  v96 = 6;
+  move.obj.v(o0,v60,v61,96,f23);
+  sound(5,f159);
+}
+if (isset(f23)) {
+  reset(f23);
+  erase(o0);
+  print("These poor people can't even afford to"
+        "repair the floor!  Sorry about that.");
+  set(f63);
+}
+if ((said("say","hello") ||
+    said("say","hello") ||
+    said("hello") ||
+    said("hello"))) {
+  print("\"Hello\"");
+}
+if (isset(f3)) {
+  new.room(44);
+}
+return();
+
+// Messages
+#message 1 "You dare not jump here or you would go through the floor!"
+#message 2 "The cottage is run-down and sparsely furnished.  The only nice possession seems to be a fiddle in the corner."
+#message 3 "The cottage is run-down and sparsely furnished."
+#message 4 "This family is so poor, they can't even repair the floor."
+#message 5 "This is the woodcutter's fiddle."
+#message 6 "The woodcutter is thin and dressed in rags."
+#message 7 "The woodcutter's wife is skinny and poorly dressed."
+#message 8 "The woodcutter and his wife are sitting at the old oak table."
+#message 9 "\"Welcome to my humble abode.\""
+#message 10 "She replies, \"I'd like to offer you something, but we do not even have food for ourselves.\""
+#message 11 "\"Make yourself at home in our humble home.\""
+#message 12 "That would be very nice.  How do you want to help them?"
+#message 13 "What an abominable idea!  You should be ashamed of yourself for even suggesting such a thing!"
+#message 14 "It is closed, but in this house, all the cabinets are bare."
+#message 15 "The cabinet is all but bare."
+#message 16 "The beautiful scenery outside is in contrast to the dreariness inside."
+#message 17 "You should have more sympathy for these poor folks!"
+#message 18 "You have given the bowl to these poor people and it is now theirs.  You have no right to take it back."
+#message 19 "The woodcutters admire the bowl as it sits on their table."
+#message 21 "What treasure do you wish to donate to them?"
+#message 22 "The woodcutter and his wife very gratefully accept the treasure.  \"This will help us for awhile,\" says the woodcutter."
+#message 23 "This is a nice thought, but unfortunately you have nothing to give these poor people."
+#message 24 "The woodcutter and his wife kindly accept your gift of food.  They offer a heartfelt \"Thank you.\""
+#message 27 "Puzzled, the couple wonders why you have given them a bowl."
+#message 28 "The woodcutter family is very grateful that you have given them a bowl of stew.  Now they will have at least one last meal.  As a token of their gratitude, they offer their last earthly possession, the woodcutter's fiddle."
+#message 29 "Eat stew from an empty bowl?  The woodcutters are beginning to question your authenticity."
+#message 30 "The stew looks delicious, but it is no longer yours.  Now you will have to do without."
+#message 33 "The couple is amazed and delighted as the bowl miraculously fills with a bubbling stew.  As a token of their gratitude, they offer their last earthly possession, the woodcutter's fiddle."
+#message 36 "The couple does not understand."
+#message 37 "The fiddle is a beautiful instrument made of polished wood."
+#message 38 "You cannot take their last precious possession!"
+#message 39 "The polished wood feels like satin -- it seems to still vibrate from the last song it played."
+#message 40 "What a terrible suggestion!  These people are poor and starving and you want to steal one of their last earthly possessions."
+#message 41 "You cannot see it very well from here."
+#message 42 "You are not close enough to reach it."
+#message 43 "I doubt that you will get away with it, but you will have to get closer to try."
+#message 44 "These poor people can't even afford to repair the floor!  Sorry about that."
+#message 45 "As soon as you entered the house the old goat ran away."
+#message 46 "\"Hello\""
+#message 47 "There is an empty bowl sitting on the old oak table."
+#message 48 "There is a bowl of stew sitting on the old oak table."
+
+
+

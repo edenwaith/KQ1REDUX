@@ -142,7 +142,8 @@ if (said("check","building")) {
   print("You see King Edward's castle on the"
         "horizon.");
 }
-if (said("check","room")) {
+if ((said("check","room") || 
+     said("check"))) {
   if (isset(f121)) {
     print("This lovely meadow is split by the"
           "Raging River.");
@@ -268,3 +269,4 @@ return();
 #message 18 "This lovely meadow is split by the Raging River."
 #message 19 "There is no mushroom here."
 #message 20 "You already have it."
+

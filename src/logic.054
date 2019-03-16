@@ -1,0 +1,46 @@
+// logic.054 - Castle hallway corner
+if (isset(f5)) {
+  load.pic(v0);
+  draw.pic(v0);
+  discard.pic(v0);
+  if (v1 == 53) {
+    get.posn(o0,v60,v61);
+    v60 += 2;
+    position.v(o0,v60,v61);
+  }
+  if (v1 == 55) {
+    get.posn(o0,v60,v61);
+    v61 -= 2;
+    position.v(o0,v60,v61);
+  }
+  draw(o0);
+  show.pic();
+}
+if (said("check","chandelier")) {
+  print("The light from the oil lamp is rather dim"
+        "in the dark interior of the castle.");
+}
+if ((said("check","hall") ||
+    said("check","room") ||
+    said("check","building") || 
+    said("check"))) {
+  print("The long marble hall has a cold, dreary"
+        "feeling.");
+}
+if (said("acquire","chandelier")) {
+  print("You cannot swing from the chandelier because you are not Sia.");
+}
+if (posn(o0,0,0,1,167)) {
+  new.room(53);
+}
+if (posn(o0,0,166,159,167)) {
+  new.room(55);
+}
+return();
+
+// Messages
+#message 1 "The light from the oil lamp is rather dim in the dark interior of the castle."
+#message 2 "The long marble hall has a cold, dreary feeling."
+
+
+

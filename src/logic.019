@@ -48,6 +48,9 @@ if (said("climb","mountain")) {
   print("The mountain is much too steep and rocky"
         "for you to climb.");
 }
+if ((said("open","sesame") || said("abracadabra"))) {
+  print("You say the magic phrase, but the door remains shut.");
+}
 if (said("check","door")) {
   if (posn(o0,90,93,125,114)) {
     print("It is a huge wooden door built right"
@@ -251,5 +254,6 @@ return();
 #message 20 "The door is already open."
 #message 21 "The door is already closed."
 #message 22 "The only response you get is the echo of your pounding."
+
 
 

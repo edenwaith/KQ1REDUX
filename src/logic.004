@@ -1,0 +1,151 @@
+// logic.004
+if (isset(f5)) {
+  load.pic(v0);
+  draw.pic(v0);
+  discard.pic(v0);
+  set.horizon(55);
+  load.logics(101);
+  call(101);
+  if (isset(f75)) {
+    load.logics(103);
+  }
+  if (v65 == v0) {
+    add.to.pic(62,0,0,74,66,0,0);
+  }
+  if (v1 == 13) {
+    get.posn(o0,v60,v61);
+    if (v60 < 70) {
+      position(o0,70,56);
+    }
+  }
+  ignore.blocks(o0);
+  draw(o0);
+  show.pic();
+}
+if (isset(f213)) {
+  reset(f213);
+  print("It seems the old goat has wandered off by"
+        "himself and is no longer following you.");
+}
+if ((said("check","lake") ||
+     said("check"))) {
+  print("This is a serene mountain lake.");
+}
+if (said("check","cattails")) {
+  print("These cattails are soft and fuzzy.");
+}
+if (said("acquire","cattails")) {
+  print("You have no need for the cattails.");
+}
+if (!isset(f88) &&
+    !isset(f0) &&
+    !isset(f116)) {
+  if ((said("drink","water") ||
+      said("acquire","drink"))) {
+    if ((posn(o0,0,40,57,56) ||
+        posn(o0,0,57,76,70) ||
+        posn(o0,0,90,109,167) ||
+        posn(o0,0,71,97,89))) {
+      print("The lake's water is very refreshing.");
+    }
+    else {
+      print("You are not close enough to the water.");
+    }
+  }
+}
+if (!isset(f88) &&
+    isset(f81) &&
+    !isset(f0) &&
+    said("acquire","water")) {
+  if ((posn(o0,0,40,57,56) ||
+      posn(o0,0,57,76,70) ||
+      posn(o0,0,90,106,133) ||
+      posn(o0,0,134,106,167))) {
+    reset(f116);
+    print("The clear water washes into the bucket.");
+    get("water");
+    set(f88);
+    if (!isset(f91)) {
+      v3 += 2;
+    }
+    set(f91);
+  }
+  else {
+    print("You are not close enough to the water.");
+  }
+}
+if (!isset(f0)) {
+  if ((posn(o0,0,78,22,158) ||
+      posn(o0,23,151,25,162) ||
+      posn(o0,26,147,42,152) ||
+      posn(o0,43,141,60,149) ||
+      posn(o0,16,129,38,146))) {
+    set(f0);
+    set(f134);
+  }
+}
+if (v94 <= 0 &&
+    isset(f0)) {
+  v76 = 255;
+  if (posn(o0,0,147,25,163)) {
+    v76 = 3;
+    v77 = 148;
+  }
+  if (posn(o0,26,148,49,157)) {
+    v76 = 27;
+    v77 = 148;
+  }
+  if (posn(o0,50,142,76,150)) {
+    v76 = 50;
+    v77 = 143;
+  }
+  if (posn(o0,77,143,96,145)) {
+    v76 = 74;
+    v77 = 142;
+  }
+  if (v76 == 255) {
+    v76 = 0;
+  }
+  else {
+    get.posn(o0,v60,v61);
+    v76 -= v60;
+    v77 -= v61;
+    set(f134);
+  }
+}
+if (v2 != 0) {
+  if (isset(f66)) {
+    reset(f66);
+    reset(f75);
+    set(f130);
+    set(f213);
+  }
+}
+if (v2 == 1) {
+  new.room(13);
+}
+if (v2 == 2) {
+  new.room(3);
+}
+if (v2 == 4) {
+  new.room(5);
+}
+if (v2 == 3) {
+  new.room(45);
+}
+if (isset(f75)) {
+  call(103);
+}
+call(101);
+return();
+
+// Messages
+#message 1 "The clear water washes into the bucket."
+#message 2 "The lake's water is very refreshing."
+#message 3 "You are not close enough to the water."
+#message 4 "These cattails are soft and fuzzy."
+#message 5 "This is a serene mountain lake."
+#message 6 "It seems the old goat has wandered off by himself and is no longer following you."
+
+
+

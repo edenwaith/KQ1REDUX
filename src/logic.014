@@ -1,0 +1,144 @@
+// logic.014 - Big tree
+if (isset(f5)) {
+  load.pic(v0);
+  draw.pic(v0);
+  discard.pic(v0);
+  set.horizon(40);
+  load.sound(4);
+  load.sound(5);
+  if (isset(f75)) {
+    load.logics(103);
+  }
+  if (v65 == v0) {
+    add.to.pic(62,0,0,21,90,0,0);
+  }
+  if (v1 == 63) {
+    if (isset(f131)) {
+      load.view(105);
+      load.view(103);
+      load.view(104);
+      set.view(o0,105);
+      ignore.blocks(o0);
+      position(o0,84,41);
+      set.priority(o0,12);
+      program.control();
+      move.obj(o0,84,132,4,f20);
+      set(f209);
+    }
+    else {
+      position(o0,84,132);
+    }
+  }
+  draw(o0);
+  show.pic();
+}
+if ((said("check","room") || 
+     said("check"))) {
+  print("There is a very large oak tree here with"
+        "branches stretching to the sky.");
+}
+if (isset(f131) &&
+    !isset(f22)) {
+  set(f22);
+  set(f135);
+  sound(5,f198);
+}
+v30--;
+if (isset(f20)) {
+  reset(f20);
+  reset(f131);
+  observe.blocks(o0);
+  release.priority(o0);
+  stop.motion(o0);
+  set.view(o0,103);
+  v30 = 20;
+  set(f98);
+  shake.screen(2);
+  print("OUCH!");
+  sound(4,f159);
+}
+if (isset(f159)) {
+  if (v30 > 0) {
+    reset(f159);
+    sound(4,f159);
+  }
+}
+if (v30 == 1) {
+  v30 = 0;
+  reset(f135);
+  set.view(o0,104);
+  end.of.loop(o0,f21);
+}
+if (isset(f21)) {
+  reset(f21);
+  reset(f98);
+  set.view(o0,0);
+  start.motion(o0);
+  reset(f209);
+  player.control();
+}
+if (said("check","tree")) {
+  if (posn(o0,45,125,159,167)) {
+    print("This is a very large oak tree with"
+          "branches stretching to the sky.");
+  }
+  else {
+    print("This is a very pretty maple tree.");
+  }
+}
+if ((said("climb","tree") ||
+    said("climb","oak","tree") ||
+    said("climb","oak"))) {
+  if (isset(f79)) {
+    print("You can't do that when you're invisible.");
+  }
+  else {
+    if (isset(f75)) {
+      print("The old goat is afraid of heights and"
+            "refuses to climb the tree.");
+    }
+    else {
+      if (posn(o0,85,131,140,167)) {
+        print("OK");
+        new.room(63);
+      }
+      else {
+        if (posn(o0,36,56,73,90)) {
+          print("This tree is too hard to climb.");
+        }
+        else {
+          print("You can't climb a tree here!");
+        }
+      }
+    }
+  }
+}
+if (v2 == 1) {
+  new.room(19);
+}
+if (v2 == 2) {
+  new.room(15);
+}
+if (v2 == 4) {
+  new.room(13);
+}
+if (v2 == 3) {
+  new.room(3);
+}
+if (isset(f75)) {
+  call(103);
+}
+return();
+
+// Messages
+#message 1 "This is a very pretty maple tree."
+#message 2 "This is a very large oak tree with branches stretching to the sky."
+#message 3 "You can't climb a tree here!"
+#message 4 "This tree is too hard to climb."
+#message 5 "You can't do that when you're invisible."
+#message 6 "The old goat is afraid of heights and refuses to climb the tree."
+#message 7 "OK"
+#message 8 "OUCH!"
+#message 9 "There is a very large oak tree here with branches stretching to the sky."
+
+

@@ -14,6 +14,7 @@ if (isset(f5)) {
   load.view(95);
   if (!isset(f138)) {
     load.sound(1);
+    load.sound(48);
     load.view(45);
     animate.obj(o1);
     set.view(o1,45);
@@ -250,8 +251,10 @@ if (!isset(f138)) {
         drop("cheese");
         reset(f139);
         set(f140);
+        // Interesting, it takes away 2 points, but adds 4, for a total of 2
         v3 -= 2;
         v3 += 4;
+        sound(48,f148);
       }
       else {
         print("It appears you are afraid of the"
@@ -334,6 +337,10 @@ return();
 #message 25 "The rat scrambles to the wall and seems to magically merge with it."
 #message 26 "That is a good idea, but you do not have any cheese."
 #message 27 "You count your fingers and are relieved to see you still have all of them."
+
+
+
+
 
 
 

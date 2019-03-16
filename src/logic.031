@@ -5,6 +5,7 @@ if (isset(f5)) {
   discard.pic(v0);
   load.sound(4);
   load.sound(5);
+  load.sound(48);
   set.horizon(50);
   if (isset(f75)) {
     load.logics(103);
@@ -98,9 +99,18 @@ if (!isset(f90)) {
     }
   }
   if ((said("check","grass") ||
-      said("check","room"))) {
+      said("check","room") || 
+      said("check"))) {
+    print(m11);
     print("There appears to be some sort of bowl"
           "on the ground.");
+  }
+}
+else {
+  if ((said("check","grass") ||
+       said("check","room") || 
+       said("check"))) {
+       print(m11);
   }
 }
 if (!isset(f90) &&
@@ -260,3 +270,8 @@ return();
 #message 8 "There is no beanstalk here to climb."
 #message 9 "Ouch!"
 #message 10 "There appears to be some sort of bowl on the ground."
+#message 11 "This is a charming little wooded area of the forest. Pine trees and lush grass grow in the especially rich soil here."
+
+
+
+
