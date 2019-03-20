@@ -1,0 +1,106 @@
+// logic.045
+if (isset(f5)) {
+  load.pic(v0);
+  draw.pic(v0);
+  discard.pic(v0);
+  set.horizon(43);
+  if (isset(f75)) {
+    load.logics(103);
+  }
+  if (v65 == v0) {
+    add.to.pic(62,0,0,77,83,0,0);
+  }
+  draw(o0);
+  show.pic();
+}
+if ((said("check","room") || 
+     said("look around") || 
+     said("check"))) {
+  print(m11);
+}
+if (said("check","building")) {
+  print("This old cottage is sagging and in great"
+        "need of repair.");
+}
+if (said("check","stump")) {
+  print("The trees were cut from these stumps long"
+        "ago.");
+}
+if ((said("speak","dwarf") ||
+    said("speak","fairy"))) {
+  if (posn(o0,11,119,45,146)) {
+    print("You need to go inside to do that.");
+  }
+  else {
+    print("You can't do that now.");
+  }
+}
+if ((said("check","dwarf") ||
+    said("check","fairy"))) {
+  if (posn(o0,11,119,45,146)) {
+    print("Perhaps you should go inside the house"
+          "for a better look.");
+  }
+  else {
+    print("You could get a much better view if you"
+          "were a little bit closer.");
+  }
+}
+if ((said("check","window") ||
+    said("look in","window"))) {
+  if (posn(o0,11,119,45,146)) {
+    print("When you look in the window, you see a"
+          "poor, starving woodcutter and his wife.");
+  }
+  else {
+    print("You could get a much better view if you"
+          "were a little bit closer.");
+  }
+}
+if (said("break","window")) {
+  if (posn(o0,11,119,45,146)) {
+    print("There isn't a glass pane in this window.");
+  }
+  else {
+    print("You are not close enough.");
+  }
+}
+if (said("climb","window")) {
+  if (posn(o0,11,119,45,146)) {
+    print("You should really try to find the door.");
+  }
+  else {
+    print("You are not close enough.");
+  }
+}
+if (v2 == 1) {
+  new.room(4);
+}
+if (v2 == 2) {
+  new.room(46);
+}
+if (v2 == 4) {
+  new.room(44);
+}
+if (v2 == 3) {
+  new.room(36);
+}
+if (isset(f75)) {
+  call(103);
+}
+return();
+
+// Messages
+#message 1 "This old cottage is sagging and in great need of repair."
+#message 2 "The trees were cut from these stumps long ago."
+#message 3 "When you look in the window, you see a poor, starving woodcutter and his wife."
+#message 4 "There isn't a glass pane in this window."
+#message 5 "You could get a much better view if you were a little bit closer."
+#message 6 "You are not close enough."
+#message 7 "You should really try to find the door."
+#message 8 "You need to go inside to do that."
+#message 9 "You can't do that now."
+#message 10 "Perhaps you should go inside the house for a better look."
+#message 11 "You see the back of the old tumbledown cottage, badly in need of repair."
+
+

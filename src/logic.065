@@ -404,12 +404,11 @@ if (said("open","cage")) {
   print("It is fastened with a very strong lock. "
         "There is no way for you to open it.");
 }
-if (said("check","building")) {
+if ((said("check","building") || 
+     said("check","room") || 
+     said("check"))) {
   print("The little house is surprisingly neat"
         "considering a wicked witch lives here.");
-}
-if (said("check","room")) {
-  print("You need to be more specific.");
 }
 if (posn(o0,23,89,55,100)) {
   if ((said("check","cabinet") ||
@@ -711,5 +710,6 @@ return();
 #message 62 "Be thankful that you are invisible or the witch may have stuck around to try and catch you!"
 #message 63 "You need to be more specific."
 #message 64 "It looks like an ordinary bedroom."
+
 
 

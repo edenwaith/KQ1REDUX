@@ -65,6 +65,11 @@ if (isset(f159)) {
   reset(f159);
   reset(f135);
 }
+if ((said("check","room") || 
+     said("look around") || 
+     said("check"))) {
+  print(m13);
+}
 if (!isset(f20)) {
   if (said("anyword","wolf")) {
     print("There's no wolf here.");
@@ -164,3 +169,5 @@ return();
 #message 10 "There's no wolf here."
 #message 11 "Now that the goat is gone, you'll have to take care of yourself!"
 #message 12 "The wolf is in no mood for conversion."
+#message 13 "You are in a clearing in the forest. You have the uneasy feeling that someone or something is watching you."
+

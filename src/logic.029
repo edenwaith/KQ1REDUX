@@ -70,6 +70,11 @@ if (v70 == 1) {
           "to leave.");
   }
 }
+if ((said("check","room") || 
+     said("look around") || 
+     said("check"))) {
+  print(m14);
+}
 if (!isset(f21)) {
   if (said("anyword","dwarf")) {
     print("There's no sorcerer here.");
@@ -200,4 +205,6 @@ return();
 #message 11 "This sorcerer's magic is no match for your fairy godmother's."
 #message 12 "The sorcerer sees the goat and decides to leave."
 #message 13 "Being invisible has protected you from this sorcerer."
+#message 14 "Gnarled, ancient trees loom in this dark part of the forest."
+
 

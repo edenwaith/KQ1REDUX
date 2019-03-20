@@ -51,6 +51,11 @@ if (isset(f21) &&
   set(f25);
   follow.ego(o1,1,f22);
 }
+if ((said("check","room") || 
+     said("look around") || 
+     said("check"))) {
+  print(m29);
+}
 if (!isset(f21)) {
   if (said("anyword","troll")) {
     print("I don't see a troll.");
@@ -478,4 +483,5 @@ return();
 #message 26 "You could never win a fight with a troll."
 #message 27 "You glance under the old bridge, but see nothing unusual."
 #message 28 "As you start to cross the bridge, a wretched troll appears.  Even though you are invisible, he will not let you cross his bridge."
+#message 29 "A rough-hewn plank bridge spans the deep rushing river here."
 

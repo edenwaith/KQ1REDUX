@@ -29,7 +29,9 @@ if (isset(f0) &&
   print("Your swimming attempt proved fatal!  The"
         "raging current drags you under....");
 }
-if (said("check","river")) {
+if ((said("check","river") || 
+     said("check","room") || 
+     said("check"))) {
   print("This is a Raging River filled with"
         "boulders and rapids.");
 }
@@ -162,4 +164,5 @@ return();
 #message 6 "You have no container for water."
 #message 7 "You are not close enough to the Raging River."
 #message 8 "Your swimming attempt proved fatal!  The raging current drags you under...."
+
 

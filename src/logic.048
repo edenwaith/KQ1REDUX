@@ -73,7 +73,7 @@ if (isset(f25)) {
 }
 if ((said("check","room") || 
      said("check"))) {
-     print("There is a large hole in the middle of this meadow.");
+     print("There is a large hole in this part of this meadow.");
 }
 if ((said("check","doorway") ||
     said("look in","doorway"))) {
@@ -115,5 +115,7 @@ return();
 #message 1 "In the depths of the large hole you seem to sense a faint, green glow."
 #message 2 "Don't be afraid... get closer."
 #message 3 "OUCH"
+
+
 
 

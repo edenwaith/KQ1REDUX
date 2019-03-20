@@ -4,6 +4,7 @@ if (isset(f5)) {
   configure.screen(0,21,0);
   draw.pic(v0);
   prevent.input();
+  // v30 = 250;
   v30 = 250;
   v31 = 245;
   v33 = 1;
@@ -15,9 +16,8 @@ if (isset(f5)) {
             "Inc.  1987");
   }
   else {
-    display(22,1,"(c) copyright Sierra On-Line"
-            "Inc.  1987");
-    display(24,5,"Press any key to continue.");
+    display(22,5,"(c) 1987 Sierra On-Line Inc.");
+    display(23,14,"Version 3.0");
   }
   set.key(0,59,c18);
   set.key(0,60,c17);
@@ -67,7 +67,7 @@ if (v30 == v31) {
     v36 = 18;
   }
 Label1:
-  display.v(v36,v37,v32);
+  // display.v(v36,v37,v32);
   v34--;
   if (v34 > 0) {
     v36--;
@@ -133,7 +133,11 @@ return();
 #message 22 "   Robert Heitman"
 #message 23 "    Scott Murphy "
 #message 24 "(c) copyright Sierra On-Line Inc.  1987"
-#message 25 "Press any key to continue."
+#message 25 "Version 3.0"
+
+
+
+
 
 
 

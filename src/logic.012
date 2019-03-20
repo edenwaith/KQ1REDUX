@@ -1,4 +1,4 @@
-// logic.012
+// logic.012 - Well
 if (isset(f5)) {
   load.pic(v0);
   draw.pic(v0);
@@ -402,6 +402,12 @@ if (isset(f22)) {
   stop.update(o2);
   stop.update(o1);
 }
+if ((said("check","room") || 
+     said("look around") || 
+     said("check"))) {
+  print("You have encountered an old stone "
+        "well in the middle of these woods.");
+}
 if (!isset(f176) &&
     !isset(f177)) {
   if ((said("lower","bucket") ||
@@ -724,4 +730,7 @@ return();
 #message 55 "There is no useful rope to get."
 #message 56 "You should be more careful the next time you try  climbing ropes."
 #message 57 "There is not enough rope left to lower."
+
+
+
 

@@ -1,0 +1,413 @@
+// logic.035 - Dwarf and butte
+if (isset(f5)) {
+  load.pic(v0);
+  draw.pic(v0);
+  discard.pic(v0);
+  set.horizon(44);
+  load.sound(4);
+  load.sound(5);
+  if (isset(f75)) {
+    load.logics(103);
+  }
+  if (v65 == v0) {
+    add.to.pic(62,0,0,24,110,0,0);
+  }
+  if ((isset(f154) ||
+      v80 == 35)) {
+    v92 = 84;
+    set(f155);
+    load.pic(v92);
+    load.view(114);
+    load.view(103);
+    load.view(104);
+    load.view(74);
+    load.view(105);
+    load.logics(104);
+    load.sound(12);
+  }
+  if (v1 == 70 &&
+      isset(f157)) {
+    set.view(o0,74);
+    position(o0,64,41);
+    move.obj(o0,64,41,0,f148);
+    set.priority(o0,8);
+  }
+  if (v1 == 70 &&
+      isset(f158)) {
+    program.control();
+    ignore.horizon(o0);
+    set.priority(o0,15);
+    set.view(o0,105);
+    get.posn(o0,v60,v61);
+    if (v60 > 75) {
+      position(o0,80,29);
+    }
+    else {
+      position(o0,65,29);
+    }
+    get.posn(o0,v60,v61);
+    v61 = 106;
+    v96 = 2;
+    move.obj.v(o0,v60,v61,96,f26);
+  }
+  random(0,250,v62);
+  if (v62 < 85) {
+    v31 = 4;
+    step.size(o1,v31);
+    load.view(111);
+    animate.obj(o1);
+    set.view(o1,111);
+    set(f20);
+    load.sound(1);
+    load.sound(16);
+  }
+  if (isset(f20)) {
+Label1:
+    random(0,250,v70);
+    if (v70 > 90) {
+      goto(Label1);
+    }
+  }
+  if (v80 == 35) {
+    overlay.pic(v92);
+  }
+  draw(o0);
+  show.pic();
+}
+if (isset(f21) &&
+    isset(f159)) {
+  if (!isset(f30)) {
+    set(f30);
+    sound(16,f31);
+  }
+  if (isset(f31)) {
+    reset(f30);
+    reset(f31);
+  }
+}
+if (isset(f158) &&
+    !isset(f27)) {
+  set(f27);
+  set(f135);
+  sound(5,f28);
+}
+if (isset(f26)) {
+  stop.sound();
+  set(f27);
+  reset(f158);
+  reset(f135);
+  set.view(o0,114);
+  shake.screen(2);
+  set(f63);
+}
+v70--;
+if ((said("check","room") || 
+     said("look around") || 
+     said("check"))) {
+  print(m15);
+}
+if (v70 == 1 &&
+    !isset(f158) &&
+    !isset(f157)) {
+  position(o1,16,79);
+  set(f21);
+  sound(1,f159);
+  draw(o1);
+  if (!isset(f75)) {
+    print("There is a small dwarf close by.  It"
+          "would be a good idea to be careful.");
+    follow.ego(o1,7,f156);
+  }
+  if (isset(f75)) {
+    wander(o1);
+    set(f23);
+    print("There is a small dwarf close by.  It"
+          "would be a good idea to be careful.");
+    print("The dwarf sees the goat and decides to"
+          "leave.");
+  }
+}
+if (!isset(f21)) {
+  if (said("anyword","dwarf")) {
+    print("There is no dwarf here.");
+  }
+}
+if (isset(f21)) {
+  if (said("check","dwarf")) {
+    print("Dwarfs are quick, little guys who will"
+          "try to take your treasure.");
+  }
+  if (said("kill","dwarf")) {
+    print("He's too quick for you to catch.");
+  }
+  if ((said("speak","dwarf") ||
+      said("hello") ||
+      said("say","hello") ||
+      said("hello","dwarf"))) {
+    print("No time to talk to him.  He's in too"
+          "much of a hurry!");
+  }
+}
+if (isset(f156)) {
+  reset(f156);
+  if (isset(f73)) {
+    print("It's a good thing you are protected by"
+          "a spell.  That little dwarf likes to"
+          "steal treasures.");
+    wander(o1);
+    set(f23);
+  }
+  else {
+    if (isset(f79)) {
+      print("Being invisible has protected you"
+            "from the dwarf.");
+      wander(o1);
+      set(f23);
+    }
+    else {
+      if (isset(f100)) {
+        reset(f100);
+        set(f101);
+        v3 -= 8;
+        drop("magic mirror");
+        set(f126);
+        reset(f125);
+        v74--;
+      }
+      else {
+        if (isset(f102)) {
+          reset(f102);
+          set(f103);
+          v3 -= 8;
+          drop("shield");
+          set(f126);
+          reset(f125);
+          v74--;
+        }
+        else {
+          if (isset(f104)) {
+            reset(f104);
+            set(f105);
+            v3 -= 8;
+            drop("chest");
+            set(f126);
+            reset(f125);
+            v74--;
+          }
+          else {
+            if (isset(f106)) {
+              reset(f106);
+              set(f107);
+              v3 -= 6;
+              drop("pouch of diamonds");
+            }
+            else {
+              if (isset(f108)) {
+                reset(f108);
+                set(f109);
+                v3 -= 6;
+                drop("gold walnut");
+              }
+              else {
+                if (isset(f110)) {
+                  reset(f110);
+                  set(f111);
+                  v3 -= 6;
+                  drop("gold egg");
+                }
+                else {
+                  if (isset(f72)) {
+                    reset(f72);
+                    set(f112);
+                    v3 -= 3;
+                    drop("pouch");
+                  }
+                  else {
+                    if (isset(f113)) {
+                      reset(f113);
+                      set(f114);
+                      v3 -= 6;
+                      drop("sceptre");
+                    }
+                    else {
+                      print("The quick, little"
+                            "dwarf came by to see"
+                            "what you had --"
+                            "nothing interested"
+                            "him.");
+                      wander(o1);
+                      set(f23);
+                      goto(Label2);
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      print("That little dwarf caught you by"
+            "surprise.  Is your treasure still OK?");
+      wander(o1);
+      set(f23);
+    }
+  }
+}
+Label2:
+if (isset(f23) &&
+    v5 != 0) {
+  erase(o1);
+  reset(f23);
+  reset(f21);
+}
+if (isset(f154) &&
+    isset(f155)) {
+  if (said("bury","bean")) {
+    reset(f154);
+    v80 = 35;
+    set(f94);
+    drop("beans");
+    v3 += 2;
+    print("The beans immediately sprout roots that"
+          "reach deep into the fertile soil..."
+          "leaves unfold themselves to the warm,"
+          "loving sun... a rumbling is felt... and"
+          "a mighty beanstalk now stretches up"
+          "into the sky!");
+    sound(12,f29);
+    overlay.pic(v92);
+    show.pic();
+  }
+}
+if (v80 == 35 &&
+    !isset(f79)) {
+  if (said("climb","beanstalk") &&
+      !isset(f157)) {
+    if (posn(o0,52,76,103,97)) {
+      erase(o0);
+      ignore.blocks(o0);
+      set.view(o0,74);
+      set(f157);
+      position(o0,71,77);
+      set.priority(o0,8);
+      draw(o0);
+      move.obj(o0,71,77,0,f148);
+    }
+    else {
+      print("You can't reach the beanstalk from"
+            "here.");
+    }
+  }
+}
+if (v80 != 35) {
+  if (said("climb","beanstalk")) {
+    print("There is no beanstalk here to climb.");
+  }
+}
+if (isset(f157)) {
+  if (isset(f3) &&
+      posn(o0,60,78,93,80)) {
+    erase(o0);
+    set.view(o0,0);
+    observe.blocks(o0);
+    reset(f157);
+    position(o0,70,106);
+    release.priority(o0);
+    draw(o0);
+  }
+  if (isset(f3) &&
+      !posn(o0,60,78,93,80)) {
+    program.control();
+    set.priority(o0,15);
+    get.posn(o0,v60,v61);
+    erase(o0);
+    set.view(o0,105);
+    reset(f157);
+    position.v(o0,v60,v61);
+    draw(o0);
+    v61 = 106;
+    v96 = 2;
+    move.obj.v(o0,v60,v61,96,f24);
+    set(f135);
+    sound(5,f198);
+  }
+}
+v30--;
+if (isset(f24)) {
+  stop.sound();
+  reset(f24);
+  observe.blocks(o0);
+  release.priority(o0);
+  stop.motion(o0);
+  set.view(o0,103);
+  v30 = 20;
+  set(f98);
+  shake.screen(2);
+  print("Ouch!");
+  set(f135);
+  sound(4,f159);
+}
+if (isset(f159)) {
+  if (v30 > 0) {
+    reset(f159);
+    sound(4,f159);
+  }
+}
+if (v30 == 1) {
+  set.view(o0,104);
+  end.of.loop(o0,f25);
+}
+if (isset(f25)) {
+  reset(f25);
+  reset(f98);
+  start.motion(o0);
+  set.view(o0,0);
+  release.priority(o0);
+  player.control();
+}
+if (v2 != 0) {
+  reset(f155);
+}
+if (v2 == 1 &&
+    isset(f157)) {
+  new.room(70);
+}
+if (v2 == 1 &&
+    !isset(f157)) {
+  new.room(46);
+}
+if (v2 == 2) {
+  new.room(34);
+}
+if (v2 == 4) {
+  new.room(36);
+}
+if (v2 == 3) {
+  new.room(30);
+}
+if (isset(f75)) {
+  call(103);
+}
+if (v80 == 35) {
+  call(104);
+}
+return();
+
+// Messages
+#message 1 "There is a small dwarf close by.  It would be a good idea to be careful."
+#message 2 "That little dwarf caught you by surprise.  Is your treasure still OK?"
+#message 3 "The quick, little dwarf came by to see what you had -- nothing interested him."
+#message 4 "Dwarfs are quick, little guys who will try to take your treasure."
+#message 5 "There is no dwarf here."
+#message 6 "He's too quick for you to catch."
+#message 7 "No time to talk to him.  He's in too much of a hurry!"
+#message 8 "It's a good thing you are protected by a spell.  That little dwarf likes to steal treasures."
+#message 9 "The beans immediately sprout roots that reach deep into the fertile soil... leaves unfold themselves to the warm, loving sun... a rumbling is felt... and a mighty beanstalk now stretches up into the sky!"
+#message 10 "You can't reach the beanstalk from here."
+#message 11 "There is no beanstalk here to climb."
+#message 12 "Ouch!"
+#message 13 "The dwarf sees the goat and decides to leave."
+#message 14 "Being invisible has protected you from the dwarf."
+#message 15 "You are in an eerie, desolate part of the forest."
+
+

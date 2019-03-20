@@ -94,7 +94,8 @@ Label1:
   }
   show.pic();
 }
-if (said("check","room")) {
+if ((said("check","room") || 
+     said("check"))) {
   print("A large cave is at the edge of this"
         "meadow.");
 }
@@ -399,5 +400,6 @@ return();
 #message 14 "Ouch!"
 #message 15 "This bird doesn't talk much."
 #message 16 "A large cave is at the edge of this meadow."
+
 
 

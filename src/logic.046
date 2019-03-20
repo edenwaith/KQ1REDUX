@@ -33,6 +33,11 @@ Label1:
   show.pic();
 }
 v70--;
+if ((said("check","room") || 
+     said("look around") || 
+     said("check"))) {
+  print(m20);
+}
 if (v70 == 1) {
   set(f145);
   set(f146);
@@ -228,4 +233,7 @@ return();
 #message 17 "You were warned to be careful around this fierce creature!  Maybe next time you will be able to elude the beast."
 #message 18 "Lucky for you that ogres are afraid of goats. This one decides to leave you alone."
 #message 19 "You need to be a little closer to smell the flowers."
+#message 20 "You are in a forest clearing."
+
+
 

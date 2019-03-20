@@ -114,7 +114,8 @@ if (isset(f20) &&
   }
   set(f63);
 }
-if (said("check","room")) {
+if ((said("check","room") || 
+     said("check"))) {
   if (!isset(f165) &&
       v75 == 0) {
     print("The ferocious fire-breathing dragon is"
@@ -464,3 +465,4 @@ return();
 #message 38 "You should know about these fire-breathing dragons!  Maybe next time you will be a little more careful!"
 #message 39 "Your shield melted from the intensity of the dragon's flames!  You should know about these fire-breathing dragons!  Maybe next time you will be a little more careful!"
 #message 40 "I think you found the dragon!"
+

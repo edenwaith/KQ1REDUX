@@ -14,7 +14,6 @@ if (isset(f5)) {
   load.view(95);
   if (!isset(f138)) {
     load.sound(1);
-    load.sound(48);
     load.view(45);
     animate.obj(o1);
     set.view(o1,45);
@@ -26,6 +25,8 @@ if (isset(f5)) {
     step.size(o1,v30);
   }
   load.sound(19);
+  // FIXME: If restoring to this screen, Sound 48 will not play and the game crashes
+  // load.sound(48);
   load.view(46);
   animate.obj(o2);
   set.view(o2,46);
@@ -52,6 +53,8 @@ if (isset(f5)) {
     stop.update(o2);
   }
 }
+// Load the points chime here.  Do a check if the rat is present or not
+load.sound(48);
 if (isset(f203)) {
   reset(f203);
   stop.update(o2);
@@ -337,6 +340,9 @@ return();
 #message 25 "The rat scrambles to the wall and seems to magically merge with it."
 #message 26 "That is a good idea, but you do not have any cheese."
 #message 27 "You count your fingers and are relieved to see you still have all of them."
+
+
+
 
 
 

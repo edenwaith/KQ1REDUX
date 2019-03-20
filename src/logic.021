@@ -146,6 +146,11 @@ if (isset(f22)) {
     }
   }
 }
+if ((said("check","room") || 
+     said("look around") || 
+     said("check"))) {
+  print(m19);
+}
 if (!isset(f21)) {
   if (said("anyword","witch")) {
     print("There's no witch here.");
@@ -246,4 +251,5 @@ return();
 #message 16 "There is no way you can now."
 #message 17 "There is no reason to jump now."
 #message 18 "Oh NO!!  She's back!!!"
+#message 19 "This part of the forest is dark and creepy."
 
