@@ -1,4 +1,4 @@
-// logic.053
+// logic.053 - Castle throne room
 if (isset(f5)) {
   load.pic(v0);
   draw.pic(v0);
@@ -394,7 +394,8 @@ if (said("sit","throne")) {
   }
 }
 if ((said("check","room") ||
-    said("check","building"))) {
+    said("check","building") || 
+    said("check"))) {
   print("This huge, tapestried room echoes every"
         "sound.");
 }
@@ -503,6 +504,7 @@ return();
 #message 59 "That is no way to try and address King Edward."
 #message 60 "The spell to make you invisible has expired and you are once again visible."
 #message 61 "That man is the King."
+
 
 
 

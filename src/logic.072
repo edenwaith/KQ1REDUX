@@ -1,0 +1,179 @@
+// logic.072 - Clouds with beanstalk
+if (isset(f5)) {
+  load.pic(v0);
+  draw.pic(v0);
+  discard.pic(v0);
+  load.view(105);
+  load.view(74);
+  load.sound(5);
+  if (v1 == 56) {
+    position(o0,145,109);
+  }
+  if (v1 == 71) {
+    set.view(o0,74);
+    position(o0,66,165);
+    move.obj(o0,66,165,0,f148);
+  }
+  draw(o0);
+  show.pic();
+}
+if (isset(f158) &&
+    !isset(f22) &&
+    !isset(f23)) {
+  sound(5,f159);
+  set(f23);
+}
+if (!posn(o0,65,100,84,120) &&
+    !isset(f157) &&
+    !isset(f79)) {
+  if (said("climb","beanstalk")) {
+    print("You need to be closer to do that.");
+  }
+}
+if (isset(f79)) {
+  if (said("climb","beanstalk")) {
+    print("You can't do that when you are"
+          "invisible!");
+  }
+}
+if (isset(f157)) {
+  if (said("check","beanstalk")) {
+    get.posn(o0,v60,v61);
+    if (v61 > 140) {
+      print("Your heart thuds.  Dare you climb"
+            "into the clouds?");
+    }
+    if (v61 < 141) {
+      print("It is amazing that you actually"
+            "climbed up this high!");
+    }
+  }
+}
+if (!isset(f157)) {
+  if (said("check","beanstalk")) {
+    get.posn(o0,v60,v61);
+    if (v60 > 89) {
+      print("It is hard to believe those seeds you"
+            "planted grew this high.");
+    }
+    if (v60 < 90) {
+      print("It is a long, long way down....");
+    }
+  }
+}
+if ((said("check","clouds") ||
+    said("check","room") || 
+    said("check"))) {
+  print("You are in the Land of the Clouds.  It is"
+        "rumored a giant lives up here.");
+}
+if (isset(f3) &&
+    !isset(f21) &&
+    !posn(o0,65,100,82,120) &&
+    !isset(f157)) {
+  set(f21);
+  if (!isset(f79)) {
+    set.view(o0,105);
+  }
+  start.cycling(o0);
+  set(f98);
+  get.posn(o0,v60,v61);
+  get.priority(o0,v30);
+  set.priority.v(o0,v30);
+  v61 = 165;
+  v96 = 4;
+  move.obj.v(o0,v60,v61,96,f20);
+  sound(5,f198);
+}
+if (isset(f3) &&
+    !isset(f21) &&
+    posn(o0,65,100,82,120) &&
+    isset(f79)) {
+  set(f21);
+  if (!isset(f79)) {
+    set.view(o0,105);
+  }
+  start.cycling(o0);
+  set(f98);
+  get.posn(o0,v60,v61);
+  get.priority(o0,v30);
+  set.priority.v(o0,v30);
+  v61 = 165;
+  v96 = 4;
+  move.obj.v(o0,v60,v61,96,f20);
+  sound(5,f198);
+}
+if (isset(f20)) {
+  reset(f20);
+  erase(o0);
+  print("Whoops!  You fall toward a distant earth.");
+  set(f63);
+}
+if (isset(f3) &&
+    posn(o0,65,100,82,120) &&
+    !isset(f79)) {
+  if (isset(f157)) {
+    reset(f157);
+    erase(o0);
+    set.view(o0,0);
+    position(o0,85,112);
+    draw(o0);
+    move.obj(o0,85,112,0,f148);
+    goto(Label1);
+  }
+  if (!isset(f157)) {
+    set(f157);
+    erase(o0);
+    set.view(o0,74);
+    position(o0,70,123);
+    draw(o0);
+    move.obj(o0,70,123,0,f148);
+  }
+}
+if (isset(f3) &&
+    isset(f157)) {
+  program.control();
+  print("Whoops!  You fall toward a distant earth.");
+  get.posn(o0,v60,v61);
+  reset(f157);
+  set(f158);
+  erase(o0);
+  set.view(o0,105);
+  if (v60 > 75) {
+    v60 = 80;
+    position.v(o0,v60,v61);
+    draw(o0);
+  }
+  if (v60 < 76) {
+    v60 = 65;
+    position.v(o0,v60,v61);
+    draw(o0);
+  }
+  start.cycling(o0);
+  set(f98);
+  v61 = 166;
+  v96 = 4;
+  move.obj.v(o0,v60,v61,96,f22);
+}
+Label1:
+if ((isset(f22) ||
+    posn(o0,0,166,159,167))) {
+  new.room(71);
+}
+if (v2 == 2) {
+  new.room(56);
+}
+return();
+
+// Messages
+#message 1 "If you were to jump or duck here you might fall."
+#message 2 "You need to be closer to do that."
+#message 3 "You can't do that when you are invisible!"
+#message 4 "Whoops!  You fall toward a distant earth."
+#message 5 "Your heart thuds.  Dare you climb into the clouds?"
+#message 6 "It is a long, long way down...."
+#message 7 "It is amazing that you actually climbed up this high!"
+#message 8 "It is hard to believe those seeds you planted grew this high."
+#message 9 "You are in the Land of the Clouds.  It is rumored a giant lives up here."
+
+

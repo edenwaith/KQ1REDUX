@@ -1,0 +1,477 @@
+// logic.049
+if (isset(f5)) {
+  load.pic(v0);
+  draw.pic(v0);
+  discard.pic(v0);
+  load.sound(5);
+  load.logics(101);
+  call(101);
+  load.view(72);
+  load.view(16);
+  load.view(74);
+  load.view(105);
+  load.view(99);
+  if (isset(f182)) {
+    set.view(o0,105);
+    position(o0,81,48);
+    ignore.objs(o0);
+    ignore.blocks(o0);
+    set.priority(o0,15);
+    set(f98);
+    set(f20);
+    move.obj(o0,81,164,3,f21);
+  }
+  if (v1 == 12 &&
+      !isset(f182)) {
+    if (!isset(f162)) {
+      set(f162);
+      v3 += 1;
+    }
+    if (isset(f180)) {
+      set.view(o0,74);
+      position(o0,81,48);
+      set.priority(o0,15);
+    }
+  }
+  if (v1 == 52) {
+    v94 = 2;
+    set.view(o0,70);
+    set(f23);
+    v30 = 250;
+    position(o0,75,163);
+  }
+  if (isset(f179)) {
+    add.to.pic(99,0,0,84,119,4,4);
+    discard.view(99);
+  }
+  if (isset(f177)) {
+    if (isset(f181)) {
+      animate.obj(o1);
+      set.view(o1,72);
+      position(o1,79,150);
+      set.cel(o1,0);
+      draw(o1);
+      add.to.pic(99,0,0,84,119,4,4);
+      end.of.loop(o1,f148);
+      goto(Label1);
+    }
+    else {
+      add.to.pic(99,0,0,84,119,4,4);
+      animate.obj(o1);
+      set.view(o1,16);
+      position(o1,79,150);
+      set.cel(o1,0);
+      draw(o1);
+      stop.update(o1);
+    }
+  }
+  draw(o0);
+Label1:
+  show.pic();
+}
+if ((isset(f179) ||
+    isset(f177))) {
+  if (said("check","rope")) {
+    print("It is a very long, sturdy rope.");
+  }
+}
+if (isset(f0)) {
+  observe.blocks(o0);
+}
+else {
+  ignore.blocks(o0);
+}
+if (isset(f182) &&
+    !isset(f21) &&
+    !isset(f22) &&
+    !isset(f24)) {
+  sound(5,f159);
+  set(f24);
+}
+if (isset(f180)) {
+  get.posn(o0,v60,v61);
+  if (v61 > 115 &&
+      isset(f177)) {
+    reset(f180);
+    set(f182);
+    set.view(o0,105);
+    v61 = 164;
+    ignore.objs(o0);
+    set.priority(o0,15);
+    set(f98);
+    set(f20);
+    v96 = 3;
+    move.obj.v(o0,v60,v61,96,f22);
+  }
+  if (v61 > 115 &&
+      isset(f179)) {
+    reset(f180);
+    set(f182);
+    set.view(o0,105);
+    v61 = 164;
+    ignore.objs(o0);
+    set.priority(o0,15);
+    set(f98);
+    set(f20);
+    v96 = 3;
+    move.obj.v(o0,v60,v61,96,f22);
+  }
+  if ((v60 < 79 ||
+      v60 > 83)) {
+    if (v61 > 70) {
+      reset(f180);
+      set(f182);
+      set.view(o0,105);
+      v61 = 164;
+      ignore.objs(o0);
+      set.priority(o0,15);
+      set(f98);
+      set(f20);
+      v96 = 3;
+      move.obj.v(o0,v60,v61,96,f22);
+    }
+    else {
+      reset(f180);
+      set(f182);
+      set(f25);
+      set.view(o0,105);
+      v61 = 164;
+      ignore.objs(o0);
+      set.priority(o0,15);
+      set(f98);
+      set(f20);
+      v96 = 3;
+      move.obj.v(o0,v60,v61,96,f21);
+    }
+  }
+}
+if (isset(f21)) {
+  reset(f21);
+  stop.sound();
+  erase(o0);
+  if (isset(f182) &&
+      !isset(f25)) {
+    print("You should be more careful before"
+          "trying that next time!");
+  }
+  else {
+    print("I can see you need a little practice"
+          "climbing rope!");
+  }
+  set(f63);
+}
+if (isset(f22)) {
+  reset(f20);
+  reset(f22);
+  reset(f98);
+  reset(f182);
+  release.priority(o0);
+  stop.sound();
+  set.view(o0,93);
+}
+if (v94 == 2 &&
+    !isset(f23)) {
+  set(f23);
+  v30 = 250;
+}
+v30--;
+if (v30 == 1 &&
+    isset(f23)) {
+  erase(o0);
+  print("Your arms are like lead... from swimming."
+        " You find it impossible... to swim any"
+        "longer.  You sink to the bottom... of the"
+        "well....");
+  set(f63);
+}
+if (!isset(f180) &&
+    !isset(f20)) {
+  if ((said("climb","rope") ||
+      said("a","rope"))) {
+    if (!isset(f179) &&
+        !isset(f177)) {
+      print("The rope is out of reach.");
+    }
+    if (isset(f179)) {
+      erase(o0);
+      v94 = 0;
+      reset(f98);
+      set.view(o0,74);
+      position(o0,81,113);
+      set.priority(o0,15);
+      draw(o0);
+      move.obj(o0,81,113,0,f148);
+      set(f180);
+      reset(f23);
+    }
+    if (isset(f177) &&
+        !isset(f181)) {
+      erase(o0);
+      v94 = 0;
+      reset(f98);
+      set.view(o0,74);
+      position(o0,81,113);
+      set.priority(o0,15);
+      draw(o0);
+      move.obj(o0,81,113,0,f148);
+      set(f180);
+      reset(f23);
+    }
+    if (isset(f181)) {
+      start.update(o1);
+      erase(o1);
+      set.view(o1,16);
+      set.view(o0,74);
+      position(o1,78,150);
+      position(o0,81,113);
+      set.cel(o1,0);
+      draw(o1);
+      stop.update(o1);
+      set.priority(o0,15);
+      draw(o0);
+      move.obj(o0,81,113,0,f148);
+      set(f180);
+      reset(f181);
+    }
+  }
+  if (isset(f181)) {
+    if ((said("enter","water") ||
+        said("exit","bucket") ||
+        said("enter","water") ||
+        said("jump","water") ||
+        said("get out","bucket"))) {
+      start.update(o1);
+      erase(o1);
+      set.view(o1,16);
+      set.view(o0,105);
+      position(o1,79,150);
+      position(o0,81,124);
+      set(f98);
+      move.obj(o0,81,164,3,f22);
+      set.cel(o1,0);
+      draw(o1);
+      stop.update(o1);
+      set.priority(o0,15);
+      draw(o0);
+      set(f180);
+      reset(f181);
+    }
+  }
+}
+if ((said("climb","well") ||
+    said("a","well"))) {
+  print("You cannot climb the sides of the well. "
+        "They are too steep and slippery.");
+}
+if ((said("check","well") || 
+     said("check"))) {
+  print("When you look upwards, you see the top of"
+        "the well far, far above.");
+}
+if (!isset(f81)) {
+  if (said("check","bucket")) {
+    if (isset(f177)) {
+      print("Although you can only see the bottom"
+            "of the bucket, it looks like a very"
+            "nice bucket.");
+    }
+    else {
+      print("The bucket is not here.");
+    }
+  }
+  if (said("acquire","bucket")) {
+    if (isset(f177)) {
+      print("How are you going to get the bucket?");
+    }
+    else {
+      print("The bucket is not here.");
+    }
+  }
+  if ((said("enter","bucket") ||
+      said("get in","bucket"))) {
+    if (isset(f177) &&
+        !isset(f181)) {
+      print("I don't think that getting in the"
+            "bucket right now will do you very"
+            "much good.");
+    }
+  }
+}
+if ((said("untie","rope") ||
+    said("untie","bucket"))) {
+  if ((isset(f180) ||
+      isset(f181))) {
+    print("The knot is tied very tightly.");
+  }
+  else {
+    print("The rope is out of reach.");
+  }
+}
+if (said("acquire","rope")) {
+  if ((isset(f180) ||
+      isset(f181))) {
+    print("The rope is secured to the well with a"
+          "very tight knot.");
+  }
+  else {
+    print("The rope is out of reach.");
+  }
+}
+if (said("break","rope")) {
+  if ((isset(f180) ||
+      isset(f181))) {
+    print("The thick rope resists your efforts.");
+  }
+  else {
+    print("The rope is out of reach.");
+  }
+}
+if ((said("lower","bucket") ||
+    said("raise","bucket") ||
+    said("lower","rope") ||
+    said("raise","rope"))) {
+  print("A person in your position is in no"
+        "position to raise or lower anything.");
+}
+if (!isset(f67)) {
+  if (said("cut","rope")) {
+    print("You have nothing to cut the rope with.");
+  }
+}
+if (isset(f67)) {
+  if (said("cut","rope")) {
+    if (isset(f180) &&
+        isset(f177)) {
+      print("Just before slitting the rope, you"
+            "realize that it is not a very wise"
+            "move at this time.");
+    }
+    if (isset(f181)) {
+      print("Just before slitting the rope, you"
+            "realize that it is not a very wise"
+            "move at this time.");
+    }
+    if (!isset(f177)) {
+      print("There is no reason to cut the rope.");
+    }
+    if (v94 == 2 &&
+        isset(f177)) {
+      print("You reach up out of the well water"
+            "and cut the thick rope that holds the"
+            "bucket.");
+      start.update(o1);
+      erase(o1);
+      set(f81);
+      set(f176);
+      reset(f177);
+      set(f179);
+      v3 += 2;
+      get("water bucket");
+      if (isset(f163)) {
+        set(f88);
+        get("water");
+        if (!isset(f91)) {
+          set(f91);
+          v3 += 2;
+        }
+      }
+    }
+    if (v94 == 1) {
+      print("You have other things to think about"
+            "right now.");
+    }
+    if (!isset(f177) &&
+        !isset(f179)) {
+      print("The rope is out of reach.");
+    }
+  }
+}
+if (!isset(f88)) {
+  if (said("check","water")) {
+    print("This is murky well water.");
+  }
+  if (said("drink","water")) {
+    if ((v94 == 1 ||
+        v94 == 2)) {
+      print("The water does not taste as good as"
+            "you expected.");
+    }
+    else {
+      print("You need to be closer to the water to"
+            "drink.");
+    }
+  }
+  if (said("acquire","water")) {
+    if (isset(f81) &&
+        (v94 == 1 ||
+        v94 == 2)) {
+      print("In the midst of your activities, you"
+            "fill the bucket with well water.");
+      set(f88);
+      if (!isset(f91)) {
+        v3 += 2;
+        set(f91);
+      }
+    }
+    else {
+      print("There is no way for you to get water"
+            "now.");
+    }
+  }
+}
+if (v94 != 1 &&
+    v94 != 2) {
+  if ((said("dive","water") ||
+      said("dive","a") ||
+      said("dive"))) {
+    print("Now is not the time to try diving.");
+  }
+}
+if ((v94 == 1 ||
+    v94 == 2)) {
+  if ((said("dive","water") ||
+      said("dive","a") ||
+      said("dive"))) {
+    if (!isset(f164)) {
+      set(f164);
+      v3 += 2;
+    }
+    new.room(52);
+  }
+}
+if (v2 == 1) {
+  new.room(12);
+}
+call(101);
+return();
+
+// Messages
+#message 1 "I can see you need a little practice climbing rope!"
+#message 2 "You should be more careful before trying that next time!"
+#message 3 "Your arms are like lead... from swimming.  You find it impossible... to swim any longer.  You sink to the bottom... of the well...."
+#message 4 "The rope is out of reach."
+#message 5 "You cannot climb the sides of the well.  They are too steep and slippery."
+#message 6 "When you look upwards, you see the top of the well far, far above."
+#message 7 "Although you can only see the bottom of the bucket, it looks like a very nice bucket."
+#message 8 "The bucket is not here."
+#message 9 "How are you going to get the bucket?"
+#message 10 "This is murky well water."
+#message 11 "The water does not taste as good as you expected."
+#message 12 "In the midst of your activities, you fill the bucket with well water."
+#message 13 "The knot is tied very tightly."
+#message 14 "The rope is secured to the well with a very tight knot."
+#message 15 "The thick rope resists your efforts."
+#message 16 "You have nothing to cut the rope with."
+#message 17 "Just before slitting the rope, you realize that it is not a very wise move at this time."
+#message 18 "There is no reason to cut the rope."
+#message 19 "You reach up out of the well water and cut the thick rope that holds the bucket."
+#message 20 "You have other things to think about right now."
+#message 21 "The rope is out of reach."
+#message 22 "A person in your position is in no position to raise or lower anything."
+#message 23 "I don't think that getting in the bucket right now will do you very much good."
+#message 24 "You need to be closer to the water to drink."
+#message 25 "There is no way for you to get water now."
+#message 26 "Now is not the time to try diving."
+#message 27 "It is a very long, sturdy rope."
+
+

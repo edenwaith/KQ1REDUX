@@ -1,0 +1,148 @@
+// logic.036
+if (isset(f5)) {
+  load.pic(v0);
+  draw.pic(v0);
+  discard.pic(v0);
+  set.horizon(42);
+  if (isset(f75)) {
+    load.logics(103);
+  }
+  if (v65 == v0) {
+    add.to.pic(62,0,0,56,83,0,0);
+  }
+  if (v1 == 78) {
+    v82 = 0;
+    v3 += 1;
+    set.view(o0,60);
+    position(o0,110,131);
+    move.obj(o0,88,131,0,f20);
+  }
+  draw(o0);
+  show.pic();
+}
+if (isset(f120)) {
+  ignore.blocks(o0);
+}
+else {
+  observe.blocks(o0);
+}
+if (isset(f20)) {
+  set.view(o0,0);
+  print("You feel a stretching sensation... Oh,"
+        "you're back to your original size.");
+  reset(f120);
+  reset(f20);
+}
+if ((said("check","doorway") ||
+    said("look in","doorway"))) {
+  if (posn(o0,90,124,106,140)) {
+    print("When looking in this small hole, you"
+          "see a faint green glow.");
+    goto(Label1);
+  }
+  if (posn(o0,75,125,109,158)) {
+    print("One rock has a small hole in its base.");
+  }
+  else {
+    print("You'll have to move closer.");
+  }
+}
+if (said("reach","doorway")) {
+  if (posn(o0,90,124,106,140)) {
+    print("Very cautiously, you reach into the"
+          "hole, and to your dismay, find nothing.");
+  }
+  else {
+    print("You'll have to move closer.");
+  }
+}
+if (!isset(f120)) {
+  if ((said("enter","doorway") ||
+      said("enter","doorway"))) {
+    if (posn(o0,75,125,109,158)) {
+      print("You would need to be much smaller to"
+            "fit through that hole.");
+    }
+    else {
+      print("You'll have to move closer.");
+    }
+  }
+}
+if (isset(f120)) {
+  if ((said("enter","doorway") ||
+      said("enter","doorway"))) {
+    print("Go ahead.  Walk right in.");
+  }
+}
+if (said("acquire","boulder")) {
+  if (posn(o0,75,125,109,158)) {
+    print("This rock is firmly stuck in the ground.");
+  }
+  else {
+    print("You'll have to move closer.");
+  }
+}
+if (said("move","boulder")) {
+  if (posn(o0,75,125,109,158)) {
+    print("Although you are very strong and"
+          "healthy, this rock is too much even for"
+          "you.");
+  }
+  else {
+    print("You'll have to move closer.");
+  }
+}
+if (said("check","boulder")) {
+  if (posn(o0,50,80,158,166)) {
+    print("The ancient, mossy rock has seen many"
+          "winters.  There is a small hole at its"
+          "base.");
+  }
+  else {
+    print("From here it looks like a typical,"
+          "large rock.");
+  }
+}
+if ((said("check","room") || 
+     said("check"))) {
+  print("You notice a hole in the base of a large"
+        "moss covered rock.");
+}
+Label1:
+if (posn(o0,111,127,119,132)) {
+  new.room(78);
+}
+if (v2 == 1) {
+  new.room(45);
+}
+if (v2 == 2) {
+  new.room(35);
+}
+if (v2 == 4) {
+  new.room(37);
+}
+if (v2 == 3) {
+  new.room(29);
+}
+if (isset(f75)) {
+  call(103);
+}
+return();
+
+// Messages
+#message 1 "When looking in this small hole, you see a faint green glow."
+#message 2 "You would need to be much smaller to fit through that hole."
+#message 3 "This rock is firmly stuck in the ground."
+#message 4 "Although you are very strong and healthy, this rock is too much even for you."
+#message 5 "Very cautiously, you reach into the hole, and to your dismay, find nothing."
+#message 6 "You'll have to move closer."
+#message 7 "The ancient, mossy rock has seen many winters.  There is a small hole at its base."
+#message 8 "From here it looks like a typical, large rock."
+#message 9 "There are several pretty trees in the area and a few rocks.  One rock has a small hole in its base."
+#message 10 "You feel a stretching sensation... Oh, you're back to your original size.  You can't get out of the small  cave!"
+#message 11 "One rock has a small hole in its base."
+#message 12 "Go ahead.  Walk right in."
+#message 13 "You feel a stretching sensation... Oh, you're back to your original size."
+#message 14 "You notice a hole in the base of a large moss covered rock."
+
+

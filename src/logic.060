@@ -1,0 +1,60 @@
+// logic.060
+if (isset(f5)) {
+  load.pic(v0);
+  draw.pic(v0);
+  discard.pic(v0);
+  load.sound(5);
+  set.horizon(45);
+  draw(o0);
+  show.pic();
+}
+if ((said("check","room") ||
+    said("check","clouds") ||
+    said("check"))) {
+  print("You are in the Land of the Clouds.  It is"
+        "rumored that a giant lives up here.");
+}
+if ((said("check","tree") ||
+    said("check","blossom"))) {
+  print("This is very strange vegetation.");
+}
+if (isset(f3)) {
+  set(f95);
+  program.control();
+  stop.cycling(o0);
+  get.posn(o0,v60,v61);
+  get.priority(o0,v30);
+  set.priority.v(o0,v30);
+  v61 += 8;
+  v96 = 4;
+  sound(5,f159);
+  move.obj.v(o0,v60,v61,96,f21);
+}
+if (isset(f21)) {
+  reset(f21);
+  erase(o0);
+}
+if (isset(f159)) {
+  reset(f159);
+  set(f20);
+}
+if (isset(f20)) {
+  reset(f20);
+  print("You should know that it is not possible"
+        "to walk on clouds!");
+  set(f63);
+}
+if (v2 == 1) {
+  new.room(57);
+}
+if (v2 == 2) {
+  new.room(61);
+}
+return();
+
+// Messages
+#message 1 "You are in the Land of the Clouds.  It is rumored that a giant lives up here."
+#message 2 "You should know that it is not possible to walk on clouds!"
+#message 3 "This is very strange vegetation."
+
+

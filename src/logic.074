@@ -1,4 +1,4 @@
-if (isset(f5)) {
+if (isset(f5)) { 
   load.pic(v0);
   draw.pic(v0);
   discard.pic(v0);
@@ -13,7 +13,7 @@ if (isset(f5)) {
   draw(o0);
   show.pic();
 }
-if (said("check","cave")) {
+if ((said("check","cave") || said("check","room") || said("check"))) {
   print("The further you get from the light, the"
         "darker and mustier it becomes.");
 }
@@ -27,4 +27,6 @@ return();
 
 // Messages
 #message 1 "The further you get from the light, the darker and mustier it becomes."
+
+
 

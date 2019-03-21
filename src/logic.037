@@ -1,0 +1,135 @@
+// logic.037
+if (isset(f5)) {
+  load.pic(v0);
+  draw.pic(v0);
+  discard.pic(v0);
+  set.horizon(55);
+  load.logics(101);
+  call(101);
+  if (isset(f75)) {
+    load.logics(103);
+  }
+  if (v65 == v0) {
+    add.to.pic(62,0,0,128,61,0,0);
+  }
+  if (v1 == 44) {
+    get.posn(o0,v60,v61);
+    if (v60 < 75) {
+      position(o0,10,57);
+    }
+    if (v60 > 74) {
+      position(o0,140,57);
+    }
+  }
+  if (v1 == 28) {
+    get.posn(o0,v60,v61);
+    if (v60 < 75) {
+      position(o0,5,164);
+    }
+    if (v60 > 74) {
+      position(o0,144,164);
+    }
+  }
+  block(27,59,127,167);
+  ignore.blocks(o0);
+  draw(o0);
+  show.pic();
+}
+if (isset(f213)) {
+  reset(f213);
+  print("It seems the old goat has wandered off by"
+        "himself and is no longer following you.");
+}
+if ((said("check","lake") || 
+     said("check"))) {
+  print("This lake looks refreshing, but a little"
+        "swampy.");
+}
+if (said("check","tree")) {
+  print("This is a very interesting tree, growing"
+        "in the middle of the lake.");
+}
+if (!isset(f0)) {
+  if ((posn(o0,83,108,131,143) ||
+      posn(o0,37,101,82,145) ||
+      posn(o0,48,37,94,100) ||
+      posn(o0,39,54,100,80) ||
+      posn(o0,85,146,108,155))) {
+    set(f0);
+    set(f134);
+  }
+}
+if (v94 <= 0 &&
+    isset(f0)) {
+  v76 = 255;
+  if (posn(o0,124,119,131,141)) {
+    v76 = 112;
+    v77 = 139;
+  }
+  if (posn(o0,19,56,33,74)) {
+    v76 = 30;
+    v77 = 67;
+  }
+  if (v76 == 255) {
+    v76 = 0;
+  }
+  else {
+    get.posn(o0,v60,v61);
+    v76 -= v60;
+    v77 -= v61;
+    set(f134);
+  }
+}
+if (!isset(f88)) {
+  if ((said("drink","water") ||
+      said("acquire","drink"))) {
+    print("In your thirst, even swamp water is"
+          "satisfying.");
+  }
+}
+if (!isset(f88) &&
+    isset(f81) &&
+    said("acquire","water")) {
+  print("The bucket fills with the somewhat swampy"
+        "water.");
+  get("water");
+  set(f88);
+  if (!isset(f91)) {
+    v3 += 2;
+  }
+  set(f91);
+}
+if (v2 != 0) {
+  if (isset(f66)) {
+    reset(f66);
+    reset(f75);
+    set(f130);
+    set(f213);
+  }
+}
+if (v2 == 1) {
+  new.room(44);
+}
+if (v2 == 2) {
+  new.room(36);
+}
+if (v2 == 4) {
+  new.room(38);
+}
+if (v2 == 3) {
+  new.room(28);
+}
+if (isset(f75)) {
+  call(103);
+}
+call(101);
+return();
+
+// Messages
+#message 1 "The bucket fills with the somewhat swampy water."
+#message 2 "In your thirst, even swamp water is satisfying."
+#message 3 "This lake looks refreshing, but a little swampy."
+#message 4 "This is a very interesting tree, growing in the middle of the lake."
+#message 5 "It seems the old goat has wandered off by himself and is no longer following you."
+
+

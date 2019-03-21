@@ -1,0 +1,56 @@
+// logic.055 - First hallway in the castle
+if (isset(f5)) {
+  load.pic(v0);
+  draw.pic(v0);
+  discard.pic(v0);
+  set.horizon(70);
+  if (v1 == 54) {
+    position(o0,79,71);
+  }
+  if (v1 == 2) {
+    position(o0,75,164);
+  }
+  draw(o0);
+  show.pic();
+}
+if (said("check","chandelier")) {
+  print("The light from the oil lamp is rather dim"
+        "in the dark interior of the castle.");
+}
+if (said("speak","armor")) {
+  print("There is nobody in the armor.");
+}
+if (said("check","armor")) {
+  print("This is the armor of one of King Edward's"
+        "knights from years ago.");
+}
+if (said("acquire","armor")) {
+  print("The armor is firmly mounted to the wall.");
+}
+if ((said("check","hall") || 
+    said("check","room") ||
+    said("check","building") ||
+    said("check"))) {
+  print("The long marble hall has a cold, dreary"
+        "feeling.");
+}
+if (said("acquire","chandelier")) {
+  print("You cannot swing from the chandelier because you are not Sia.");
+}
+if (v2 == 1) {
+  new.room(54);
+}
+if (posn(o0,0,166,159,167)) {
+  new.room(2);
+}
+return();
+
+// Messages
+#message 1 "The light from the oil lamp is rather dim in the dark interior of the castle."
+#message 2 "There is nobody in the armor."
+#message 3 "This is the armor of one of King Edward's knights from years ago."
+#message 4 "The armor is firmly mounted to the wall."
+#message 5 "The long marble hall has a cold, dreary feeling."
+
+
+

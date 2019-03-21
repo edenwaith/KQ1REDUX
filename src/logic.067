@@ -1,0 +1,64 @@
+// Logic.067 - Bottom half of stairs
+if (isset(f5)) {
+  load.pic(v0);
+  draw.pic(v0);
+  discard.pic(v0);
+  load.view(105);
+  load.sound(5);
+  set.horizon(40);
+  if (v1 == 66) {
+    position(o0,9,152);
+    set.loop(o0,0);
+    move.obj(o0,10,151,0,f148);
+  }
+  if (v1 == 68) {
+    position(o0,120,41);
+    set.loop(o0,1);
+    move.obj(o0,119,42,0,f148);
+  }
+  draw(o0);
+  show.pic();
+}
+if ((said("check","stairs") ||
+    said("check","room") ||
+    said("check"))) {
+  print("The stairs are moss-covered and slippery.");
+}
+if (isset(f3) &&
+    !isset(f21)) {
+  set(f145);
+  set(f146);
+  set(f21);
+  if (!isset(f79)) {
+    set.view(o0,105);
+  }
+  start.cycling(o0);
+  set(f98);
+  get.posn(o0,v60,v61);
+  get.priority(o0,v30);
+  set.priority.v(o0,v30);
+  print("Darn!  You slipped on the steep stairs.");
+  v61 = 165;
+  v96 = 4;
+  move.obj.v(o0,v60,v61,96,f20);
+  sound(5,f159);
+}
+if (isset(f20)) {
+  reset(f20);
+  erase(o0);
+  set(f63);
+}
+if (v2 == 1) {
+  new.room(68);
+}
+if (posn(o0,5,150,6,167)) {
+  new.room(66);
+}
+return();
+
+// Messages
+#message 1 "The stairs are moss-covered and slippery."
+#message 2 "Darn!  You slipped on the steep stairs."
+
+
+

@@ -1,0 +1,102 @@
+// logic.059
+if (isset(f5)) {
+  ignore.horizon(o0);
+  load.pic(v0);
+  draw.pic(v0);
+  discard.pic(v0);
+  load.sound(5);
+  load.view(105);
+  if (v1 == 62) {
+    get.posn(o0,v60,v61);
+    if (v60 > 152) {
+      position(o0,150,164);
+    }
+  }
+  if (v1 == 69) {
+    position(o0,116,110);
+  }
+  draw(o0);
+  show.pic();
+}
+if (said("check","cave")) {
+  print("The dark cave burrows its way into a"
+        "steep mountain.");
+}
+if (said("climb","mountain")) {
+  print("The mountain is too steep to climb.");
+}
+if (said("check","mountain")) {
+  print("You are near the top of a very high"
+        "mountain.  It steeply descends toward a"
+        "valley floor.");
+}
+if ((said("check","clouds") ||
+    said("check","room") ||
+    said("check"))) {
+  print("You are in the Land of the Clouds.  It is"
+        "rumored that a giant lives here.");
+}
+if (said("check","tree")) {
+  print("These are the most unusual looking trees.");
+}
+if (said("check","blossom")) {
+  print("These are unusual looking flowers.");
+}
+if (isset(f3) &&
+    !isset(f95) &&
+    posn(o0,0,84,159,167)) {
+  set(f95);
+  stop.cycling(o0);
+  sound(5,f159);
+  move.obj(o0,153,166,5,f21);
+}
+if (isset(f3) &&
+    posn(o0,0,0,159,83)) {
+  reset(f3);
+  program.control();
+  if (!isset(f79)) {
+    set.view(o0,105);
+  }
+  start.cycling(o0);
+  set(f98);
+  sound(5,f159);
+  erase(o0);
+}
+if (isset(f21)) {
+  reset(f21);
+  erase(o0);
+}
+if (isset(f159)) {
+  reset(f159);
+  set(f20);
+}
+if (isset(f20)) {
+  reset(f20);
+  print("Oops, you've missed the edge and fallen"
+        "through the  clouds.");
+  set(f63);
+}
+if (posn(o0,135,94,136,120)) {
+  new.room(69);
+}
+if (v2 == 4) {
+  new.room(58);
+}
+if (v2 == 3) {
+  get.posn(o0,v60,v61);
+  if (v60 < 153) {
+    new.room(62);
+  }
+}
+return();
+
+// Messages
+#message 1 "The dark cave burrows its way into a steep mountain."
+#message 2 "The mountain is too steep to climb."
+#message 3 "You are near the top of a very high mountain.  It steeply descends toward a valley floor."
+#message 4 "You are in the Land of the Clouds.  It is rumored that a giant lives here."
+#message 5 "Oops, you've missed the edge and fallen through the  clouds."
+#message 6 "These are the most unusual looking trees."
+#message 7 "These are unusual looking flowers."
+
+

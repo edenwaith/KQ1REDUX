@@ -1,4 +1,6 @@
 // logic.0
+// Check http://www.agidev.com/articles/agispec/agispecs-3.html for 
+// common variable and flag types used by the interpreter
 if (v17 > 0) {
   call(98);
 }
@@ -13,8 +15,8 @@ if (v0 == 0) {
   }
   else {
     set.menu("Info");
-    set.menu.item("About KQ",c19);
-    set.menu.item("Help    ",c18);
+    set.menu.item("About KQ ",c19);
+    set.menu.item("Help <F1>",c18);
     set.menu("File");
     set.menu.item("Save Game      <F5>",c1);
     set.menu.item("Restore Game   <F7>",c2);
@@ -113,6 +115,7 @@ if (isset(f5)) {
       v0 != 11) {
     load.view(75);
     load.view(87);
+    load.view(150);
   }
   load.view(110);
   if (v0 != 83) {
@@ -424,10 +427,11 @@ if ((said("duck") ||
       v0 != 51 &&
       !isset(f142)) {
     set(f200);
-    set.view(o0,87);
+    set.view(o0,150);
     set(f98);
-    start.cycling(o0);
-    end.of.loop(o0,f201);
+    // set(f201);
+    //start.cycling(o0);
+    //end.of.loop(o0,f201);
   }
   else {
     if (!isset(f202)) {
@@ -1368,4 +1372,17 @@ return();
 #message 174 "Jump  0"
 #message 175 "Duck  -"
 #message 176 "Joystick/Mouse <Ctrl J>"
+
+
+
+
+
+
+
+
+
+
+
+
+
 

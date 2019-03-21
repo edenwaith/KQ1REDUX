@@ -1,0 +1,303 @@
+// logic.006
+if (isset(f5)) {
+  load.pic(v0);
+  draw.pic(v0);
+  discard.pic(v0);
+  load.sound(4);
+  load.sound(5);
+  set.horizon(40);
+  if (isset(f75)) {
+    load.logics(103);
+  }
+  if (v65 == v0) {
+    add.to.pic(62,0,0,54,67,0,0);
+  }
+  if ((isset(f154) ||
+      v80 == 6)) {
+    v92 = 84;
+    set(f155);
+    load.pic(v92);
+    load.view(114);
+    load.view(103);
+    load.view(104);
+    load.view(74);
+    load.view(105);
+    load.logics(104);
+    load.sound(12);
+  }
+  if (v1 == 70 &&
+      isset(f157)) {
+    set.view(o0,74);
+    position(o0,64,41);
+    move.obj(o0,64,41,0,f148);
+    set.priority(o0,8);
+  }
+  if (v1 == 70 &&
+      isset(f158)) {
+    program.control();
+    ignore.horizon(o0);
+    set.priority(o0,15);
+    set.view(o0,105);
+    get.posn(o0,v60,v61);
+    if (v60 > 75) {
+      position(o0,80,29);
+    }
+    else {
+      position(o0,65,29);
+    }
+    get.posn(o0,v60,v61);
+    v61 = 106;
+    v96 = 2;
+    move.obj.v(o0,v60,v61,96,f21);
+  }
+  if (v1 == 43 &&
+      isset(f0)) {
+    reset(f98);
+    set.view(o0,0);
+    v94 = 0;
+  }
+  if (v80 == 6) {
+    overlay.pic(v92);
+  }
+  draw(o0);
+  show.pic();
+}
+if ((said("check","room") || 
+     said("check"))) {
+  print("You are in the forest.  You can see a"
+        "stump and a hollow log here.");
+}
+if (isset(f158) &&
+    !isset(f23)) {
+  set(f23);
+  set(f135);
+  sound(5,f24);
+}
+if (isset(f21)) {
+  stop.sound();
+  set(f23);
+  reset(f158);
+  reset(f135);
+  set.view(o0,114);
+  shake.screen(2);
+  set(f63);
+}
+if ((said("check","branch") ||
+    said("look in","branch"))) {
+  if (posn(o0,0,92,102,167)) {
+    print("It is only a rotted log.");
+  }
+  else {
+    if ((posn(o0,22,135,36,167) ||
+        posn(o0,75,135,91,167))) {
+      print("There is nothing in the old log.");
+    }
+    else {
+      print("I suggest you move closer to try that.");
+    }
+  }
+}
+if (said("check","stump")) {
+  if (posn(o0,0,81,102,167)) {
+    print("From here you can see the stump is very"
+          "old and nearly petrified.");
+  }
+  else {
+    print("You can vaguely see the stump in the"
+          "distance.");
+  }
+}
+if (said("acquire","branch")) {
+  print("There is no reason to take this old log"
+        "with you.");
+}
+if (said("look in","stump")) {
+  if (posn(o0,0,103,35,146)) {
+    if (!isset(f71)) {
+      print("Inside the old, rotted stump you"
+            "notice a small, canvas pouch.");
+      if (!isset(f61)) {
+        set(f61);
+        v3 += 1;
+      }
+    }
+    else {
+      print("Inside the decaying tree stump, you"
+            "see nothing interesting.");
+    }
+  }
+  else {
+    print("I suggest you move closer to try that.");
+  }
+}
+if (said("acquire","bag") &&
+    !isset(f72)) {
+  if (posn(o0,0,103,35,146)) {
+    if (!isset(f71)) {
+      print("You notice the pouch feels aged and"
+            "tattered.");
+      get("pouch");
+      set(f71);
+      set(f72);
+      v3 += 3;
+    }
+    else {
+      print("There's no pouch here.");
+    }
+  }
+  if (!posn(o0,0,103,35,146)) {
+    print("You have to find it first.");
+  }
+}
+if (isset(f154) &&
+    isset(f155)) {
+  if (said("bury","bean")) {
+    reset(f154);
+    v80 = 6;
+    set(f94);
+    drop("beans");
+    v3 += 2;
+    print("The beans immediately sprout roots that"
+          "reach deep into the fertile soil..."
+          "leaves unfold themselves to the warm,"
+          "loving sun... a rumbling is felt... and"
+          "a mighty beanstalk now stretches up"
+          "into the sky!");
+    sound(12,f25);
+    overlay.pic(v92);
+    show.pic();
+  }
+}
+if (v80 == 6 &&
+    !isset(f79)) {
+  if (said("climb","beanstalk") &&
+      !isset(f157)) {
+    if (posn(o0,52,76,103,97)) {
+      erase(o0);
+      set.view(o0,74);
+      set(f157);
+      position(o0,71,77);
+      set.priority(o0,8);
+      draw(o0);
+      move.obj(o0,71,77,0,f148);
+    }
+    else {
+      print("You can't reach the beanstalk from"
+            "here.");
+    }
+  }
+}
+if (v80 != 6) {
+  if (said("climb","beanstalk")) {
+    print("There is no beanstalk here to climb.");
+  }
+}
+if (isset(f157)) {
+  if (isset(f3) &&
+      posn(o0,60,78,93,80)) {
+    erase(o0);
+    set.view(o0,0);
+    reset(f157);
+    position(o0,70,106);
+    release.priority(o0);
+    draw(o0);
+  }
+  if (isset(f3) &&
+      !posn(o0,60,78,93,80)) {
+    program.control();
+    set.priority(o0,15);
+    get.posn(o0,v60,v61);
+    erase(o0);
+    set.view(o0,105);
+    reset(f157);
+    position.v(o0,v60,v61);
+    draw(o0);
+    v61 = 106;
+    v96 = 2;
+    move.obj.v(o0,v60,v61,96,f20);
+    set(f135);
+    sound(5,f198);
+  }
+}
+v30--;
+if (isset(f20)) {
+  stop.sound();
+  reset(f20);
+  observe.blocks(o0);
+  release.priority(o0);
+  stop.motion(o0);
+  set.view(o0,103);
+  v30 = 20;
+  set(f98);
+  shake.screen(2);
+  print("Ouch!");
+  set(f135);
+  sound(4,f159);
+}
+if (isset(f159)) {
+  if (v30 > 0) {
+    reset(f159);
+    sound(4,f159);
+  }
+}
+if (v30 == 1) {
+  set.view(o0,104);
+  end.of.loop(o0,f22);
+}
+if (isset(f22)) {
+  reset(f22);
+  reset(f98);
+  start.motion(o0);
+  set.view(o0,0);
+  release.priority(o0);
+  player.control();
+}
+if (v2 != 0) {
+  reset(f155);
+}
+if (v2 == 1 &&
+    isset(f157)) {
+  new.room(70);
+}
+if (v2 == 1 &&
+    !isset(f157)) {
+  new.room(11);
+}
+if (v2 == 2) {
+  new.room(5);
+}
+if (v2 == 4) {
+  new.room(7);
+}
+if (v2 == 3) {
+  new.room(43);
+}
+if (isset(f75)) {
+  call(103);
+}
+if (v80 == 6) {
+  call(104);
+}
+return();
+
+// Messages
+#message 1 "Inside the old, rotted stump you notice a small, canvas pouch."
+#message 2 "Inside the decaying tree stump, you see nothing interesting."
+#message 3 "You notice the pouch feels aged and tattered."
+#message 4 "You could get a much better look at it if it were in your  hands."
+#message 5 "There's no pouch here."
+#message 6 "From here you can see the stump is very old and nearly petrified."
+#message 7 "You can vaguely see the stump in the distance."
+#message 8 "It is only a rotted log."
+#message 9 "There is no reason to take this old log with you."
+#message 10 "I suggest you move closer to try that."
+#message 11 "You need to get closer to look at the log."
+#message 12 "There is nothing in the old log."
+#message 13 "The beans immediately sprout roots that reach deep into the fertile soil... leaves unfold themselves to the warm, loving sun... a rumbling is felt... and a mighty beanstalk now stretches up into the sky!"
+#message 14 "You can't reach the beanstalk from here."
+#message 15 "There is no beanstalk here to climb."
+#message 16 "Ouch!"
+#message 17 "You have to find it first."
+#message 18 "You are in the forest.  You can see a stump and a hollow log here."
+
+

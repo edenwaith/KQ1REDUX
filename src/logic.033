@@ -1,0 +1,168 @@
+// logic.033
+if (isset(f5)) {
+  load.pic(v0);
+  draw.pic(v0);
+  discard.pic(v0);
+  set.horizon(43);
+  load.logics(101);
+  call(101);
+  if (isset(f75)) {
+    load.logics(103);
+  }
+  if (v65 == v0) {
+    add.to.pic(62,0,0,56,127,0,0);
+  }
+  if (v1 == 32) {
+    get.posn(o0,v60,v61);
+    if (v60 > 103) {
+      position(o0,143,166);
+    }
+  }
+  set(f68);
+  ignore.blocks(o0);
+  draw(o0);
+  show.pic();
+}
+if (isset(f0) &&
+    !isset(f20)) {
+  set(f20);
+  print("Your swimming attempt proved fatal!  The"
+        "raging current drags you under....");
+}
+if ((said("check","river") || 
+     said("check","room") || 
+     said("check"))) {
+  print("This is a Raging River filled with"
+        "boulders and rapids.");
+}
+if ((said("check","across") ||
+    said("check","across","river"))) {
+  print("You see a lovely green meadow on the"
+        "other side of the river.");
+  set(f4);
+}
+if (said("check","boulder")) {
+  print("It is a massive boulder that splits the"
+        "river.");
+}
+if (!isset(f88)) {
+  if ((said("drink","water") ||
+      said("acquire","drink"))) {
+    if ((posn(o0,0,48,97,128) ||
+        posn(o0,98,94,159,167) ||
+        posn(o0,120,44,159,86))) {
+      print("You drink deeply of the cold river"
+            "water.");
+    }
+    else {
+      print("You are not close enough to the"
+            "Raging River.");
+    }
+  }
+}
+if (!isset(f88) &&
+    isset(f81) &&
+    said("acquire","water")) {
+  if ((posn(o0,0,48,97,128) ||
+      posn(o0,98,94,159,167) ||
+      posn(o0,120,44,159,86))) {
+    print("You carefully fill the bucket at the"
+          "river's edge.");
+    get("water");
+    set(f88);
+    if (!isset(f91)) {
+      v3 += 2;
+    }
+    set(f91);
+  }
+  else {
+    print("You are not close enough to the Raging"
+          "River.");
+  }
+}
+if (!isset(f0)) {
+  if ((posn(o0,14,66,54,107) ||
+      posn(o0,99,64,145,82) ||
+      posn(o0,114,113,133,136))) {
+    set(f0);
+    set(f134);
+  }
+}
+if (v94 <= 0 &&
+    isset(f0)) {
+  v76 = 255;
+  if (posn(o0,0,64,23,109)) {
+    v76 = 5;
+    v77 = 90;
+  }
+  if (posn(o0,24,67,47,108)) {
+    v76 = 30;
+    v77 = 91;
+  }
+  if (posn(o0,47,63,77,87)) {
+    v76 = 63;
+    v77 = 81;
+  }
+  if (posn(o0,47,88,77,110)) {
+    v76 = 63;
+    v77 = 96;
+  }
+  if (posn(o0,78,64,98,112)) {
+    v76 = 79;
+    v77 = 90;
+  }
+  if (posn(o0,99,60,131,82)) {
+    v76 = 108;
+    v77 = 78;
+  }
+  if (posn(o0,132,40,159,80)) {
+    v76 = 134;
+    v77 = 69;
+  }
+  if (posn(o0,95,88,145,130)) {
+    v76 = 110;
+    v77 = 115;
+  }
+  if (posn(o0,98,131,147,167)) {
+    v76 = 122;
+    v77 = 157;
+  }
+  if (v76 == 255) {
+    v76 = 0;
+  }
+  else {
+    get.posn(o0,v60,v61);
+    v76 -= v60;
+    v77 -= v61;
+    set(f134);
+  }
+}
+if (v2 == 1) {
+  new.room(48);
+}
+if (v2 == 2) {
+  new.room(40);
+}
+if (v2 == 4) {
+  new.room(34);
+}
+if (v2 == 3) {
+  new.room(32);
+}
+if (isset(f75)) {
+  call(103);
+}
+call(101);
+return();
+
+// Messages
+#message 1 "This is a Raging River filled with boulders and rapids."
+#message 2 "You see a lovely green meadow on the other side of the river."
+#message 3 "It is a massive boulder that splits the river."
+#message 4 "You carefully fill the bucket at the river's edge."
+#message 5 "You drink deeply of the cold river water."
+#message 6 "You have no container for water."
+#message 7 "You are not close enough to the Raging River."
+#message 8 "Your swimming attempt proved fatal!  The raging current drags you under...."
+
+

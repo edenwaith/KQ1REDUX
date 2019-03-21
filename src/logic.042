@@ -54,6 +54,11 @@ if (isset(f0) &&
         "are swept under.  I'm afraid your end has"
         "come.");
 }
+if ((said("check","room") || 
+     said("look around") || 
+     said("check"))) {
+  print(m11);
+}
 if (said("check","water")) {
   if (posn(o0,93,40,159,82)) {
     print("The clear blue lake is surrounded by a"
@@ -204,4 +209,5 @@ return();
 #message 8 "It tastes very refreshing to a thirsty wanderer."
 #message 9 "The crystal clear water fills up the bucket."
 #message 10 "You glance under the old bridge, but see nothing unusual."
+#message 11 "Off to one side is a clear blue lake surrounded by a pretty meadow. A swift river flows into the lake."
 

@@ -1,0 +1,148 @@
+// logic.063 - Nest in big tree
+if (isset(f5)) {
+  load.pic(v0);
+  draw.pic(v0);
+  discard.pic(v0);
+  load.sound(5);
+  load.view(105);
+  if (!isset(f132)) {
+    set(f132);
+    v3 += 2;
+  }
+  if (!isset(f137)) {
+    set(f20);
+    load.view(39);
+    animate.obj(o1);
+    set.view(o1,39);
+    position(o1,70,85);
+    set.priority(o1,6);
+  }
+  set.priority(o0,6);
+  position(o0,35,164);
+  observe.blocks(o0);
+  v6 = 0;
+  if (isset(f20)) {
+    draw(o1);
+    stop.update(o1);
+  }
+  draw(o0);
+  show.pic();
+}
+if ((said("check","tree") || 
+     said("check","room") || 
+     said("check"))) {
+  print("There is a rather large bird's nest here.");
+}
+if (isset(f137)) {
+  if ((said("check","bird nest") ||
+      said("look in","bird nest"))) {
+    print("The nest is empty.");
+  }
+  if (isset(f110) &&
+      said("acquire","egg")) {
+    print("You already have the golden egg from"
+          "the nest.");
+  }
+  if (!isset(f110) &&
+      said("acquire","egg")) {
+    print("There is no egg here to get.");
+  }
+}
+distance(o0,o1,v62);
+if (!isset(f137)) {
+  if ((said("check","bird nest") ||
+      said("look in","bird nest"))) {
+    print("There is a pure golden egg lying in the"
+          "nest!");
+  }
+  if (said("check","egg")) {
+    print("The golden egg is smooth and shiny.");
+  }
+  if (said("acquire","egg")) {
+    if (v62 < 24) {
+      start.update(o1);
+      erase(o1);
+      set(f110);
+      get("gold egg");
+      set(f137);
+      v3 += 6;
+      print("The golden egg is so heavy you almost"
+            "drop it.");
+    }
+    else {
+      print("You can't get the egg from here!");
+    }
+  }
+}
+if (isset(f0) &&
+    !posn(o0,12,106,57,166) &&
+    !isset(f21)) {
+  set(f21);
+  set(f131);
+  ignore.blocks(o0);
+  set.view(o0,105);
+  print("Apparently you lost your grip while"
+        "climbing this tree and you fall to the"
+        "hard earth below.");
+  get.posn(o0,v60,v61);
+  v61 = 166;
+  v96 = 3;
+  sound(5,f159);
+  move.obj.v(o0,v60,v61,96,f148);
+}
+if (isset(f3) &&
+    !posn(o0,12,106,57,166) &&
+    !isset(f21)) {
+  set(f21);
+  set(f131);
+  ignore.blocks(o0);
+  set.priority(o0,4);
+  set.view(o0,105);
+  print("Apparently you lost your grip while"
+        "climbing this tree and you fall to the"
+        "hard earth below.");
+  get.posn(o0,v60,v61);
+  v61 = 166;
+  v96 = 3;
+  sound(5,f159);
+  move.obj.v(o0,v60,v61,96,f148);
+}
+if (posn(o0,12,106,57,166) &&
+    !isset(f21)) {
+  if ((isset(f3) ||
+      isset(f0))) {
+    set(f21);
+    set(f131);
+    ignore.blocks(o0);
+    set.priority(o0,5);
+    set.view(o0,105);
+    print("Apparently you lost your grip while"
+          "climbing this tree and you fall to the"
+          "hard earth below.");
+    get.posn(o0,v60,v61);
+    v61 = 166;
+    v96 = 3;
+    sound(5,f159);
+    move.obj.v(o0,v60,v61,96,f148);
+  }
+}
+if (isset(f148)) {
+  new.room(14);
+}
+if (v2 == 3) {
+  new.room(14);
+}
+return();
+
+// Messages
+#message 1 "There is a rather large bird's nest here."
+#message 2 "There is a pure golden egg lying in the nest!"
+#message 3 "The nest is empty."
+#message 4 "The golden egg is smooth and shiny."
+#message 5 "You already have the golden egg from the nest."
+#message 6 "There is no egg here to get."
+#message 7 "The golden egg is so heavy you almost drop it."
+#message 8 "You can't get the egg from here!"
+#message 9 "Apparently you lost your grip while climbing this tree and you fall to the hard earth below."
+
+

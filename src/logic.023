@@ -1,0 +1,146 @@
+// logic.023
+if (isset(f5)) {
+  load.pic(v0);
+  draw.pic(v0);
+  discard.pic(v0);
+  set.horizon(46);
+  load.logics(101);
+  call(101);
+  if (isset(f75)) {
+    load.logics(103);
+  }
+  if (v65 == v0) {
+    add.to.pic(62,0,0,108,64,0,0);
+  }
+  if (v1 == 26) {
+    get.posn(o0,v60,v61);
+    if (v60 < 50) {
+      position(o0,10,50);
+    }
+    else {
+      position(o0,116,50);
+    }
+  }
+  block(128,78,136,113);
+  ignore.blocks(o0);
+  draw(o0);
+  show.pic();
+}
+if (isset(f213)) {
+  reset(f213);
+  print("It seems the old goat has wandered off by"
+        "himself and is no longer following you.");
+}
+if ((said("check","lake") || 
+     said("check"))) {
+  print("You see the mountains and trees reflected"
+        "in the mirror-like water.");
+}
+if (said("check","cattails")) {
+  print("These cattails look soft and fuzzy.");
+}
+if (said("acquire","cattails")) {
+  print("You have no need for the cattails.");
+}
+if (!isset(f0)) {
+  if ((posn(o0,69,76,103,131) ||
+      posn(o0,104,96,123,120) ||
+      posn(o0,124,96,132,105) ||
+      posn(o0,120,106,125,111))) {
+    set(f0);
+    set(f134);
+  }
+}
+if (v94 <= 0 &&
+    isset(f0)) {
+  v76 = 255;
+  if ((posn(o0,108,88,133,110) ||
+      posn(o0,104,111,125,120))) {
+    v76 = 114;
+    v77 = 102;
+  }
+  if (posn(o0,86,125,106,156)) {
+    v76 = 73;
+    v77 = 139;
+  }
+  if (v76 == 255) {
+    v76 = 0;
+  }
+  else {
+    get.posn(o0,v60,v61);
+    v76 -= v60;
+    v77 -= v61;
+    set(f134);
+  }
+}
+if (!isset(f88) &&
+    !isset(f0) &&
+    !isset(f116)) {
+  if ((said("drink","water") ||
+      said("acquire","drink"))) {
+    if ((posn(o0,0,40,109,167) ||
+        posn(o0,110,55,151,142))) {
+      print("Ahhh!  That water sure hit the spot!");
+    }
+    else {
+      print("You are not close enough to the water.");
+    }
+  }
+}
+if (!isset(f88) &&
+    isset(f81) &&
+    !isset(f0) &&
+    said("acquire","water")) {
+  if ((posn(o0,0,40,109,167) ||
+      posn(o0,110,55,151,142))) {
+    reset(f116);
+    print("The clear mountain water pours into the"
+          "bucket.");
+    get("water");
+    set(f88);
+    if (!isset(f91)) {
+      v3 += 2;
+    }
+    set(f91);
+  }
+  else {
+    print("You are not close enough to the water.");
+  }
+}
+if (v2 != 0) {
+  if (isset(f66)) {
+    reset(f66);
+    reset(f75);
+    set(f130);
+    set(f213);
+  }
+}
+if (v2 == 1) {
+  new.room(26);
+}
+if (v2 == 2) {
+  new.room(22);
+}
+if (v2 == 4) {
+  new.room(24);
+}
+if (v2 == 3) {
+  new.room(10);
+}
+if (isset(f75)) {
+  call(103);
+}
+call(101);
+return();
+
+// Messages
+#message 1 "The clear mountain water pours into the bucket."
+#message 2 "Ahhh!  That water sure hit the spot!"
+#message 3 "You are not close enough to the water."
+#message 4 "You have no container for water."
+#message 5 "You see the mountains and trees reflected in the mirror-like water."
+#message 6 "These cattails look soft and fuzzy."
+#message 7 "It seems the old goat has wandered off by himself and is no longer following you."
+
+
+

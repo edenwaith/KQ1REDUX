@@ -31,8 +31,9 @@ if (isset(f5)) {
   draw(o0);
   show.pic();
 }
-if (said("check","room")) {
-  print("You are in a forest clearing.  There is a"
+if ((said("check","room") || 
+     said("check"))) {
+  print("You are in a forest clearing. There is a"
         "large rock here.");
 }
 if (isset(f62)) {
@@ -205,5 +206,7 @@ return();
 #message 19 "You do not have a dagger to look at."
 #message 20 "You are too far from the hole to see in it."
 #message 21 "You are in a forest clearing.  There is a large rock here."
+
+
 
 

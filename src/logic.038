@@ -56,7 +56,9 @@ if (isset(f5)) {
   draw(o0);
   show.pic();
 }
-if (said("check","room")) {
+if ((said("check","room") || 
+     said("check","grass") ||
+     said("check"))) {
   print("Numerous flowers are growing in the"
         "fertile soil.");
 }
@@ -236,3 +238,6 @@ return();
 #message 7 "There is no beanstalk here to climb."
 #message 8 "Ouch!"
 #message 9 "Numerous flowers are growing in the fertile soil."
+
+
+

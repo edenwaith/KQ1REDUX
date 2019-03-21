@@ -114,29 +114,34 @@ if (isset(f20) &&
   }
   set(f63);
 }
-if (said("check","room")) {
+//if ((said("check","room") || 
+//     said("check"))) {
+//  if (!isset(f165) &&
+//      v75 == 0) {
+//    print("The ferocious fire-breathing dragon is"
+//          "protecting the magic mirror.");
+//  }
+//  if (!isset(f165) &&
+//      v75 == 1) {
+//    print("There is a dead dragon, a large"
+//          "boulder, and a seemingly ordinary"
+//          "mirror in the cave.");
+//  }
+//  if (!isset(f165) &&
+//      v75 == 2) {
+//    print("There is a large granite boulder and a"
+//          "magic mirror in the cave.");
+//  }
+// }
+if ((said("check","cave") || 
+     said("check","room") || 
+     said("check"))) {
   if (!isset(f165) &&
       v75 == 0) {
-    print("The ferocious fire-breathing dragon is"
-          "protecting the magic mirror.");
-  }
-  if (!isset(f165) &&
-      v75 == 1) {
-    print("There is a dead dragon, a large"
-          "boulder, and a seemingly ordinary"
-          "mirror in the cave.");
-  }
-  if (!isset(f165) &&
-      v75 == 2) {
-    print("There is a large granite boulder and a"
-          "magic mirror!! in the cave.");
-  }
-}
-if (said("check","cave")) {
-  if (!isset(f165) &&
-      v75 == 0) {
-    print("A green, scaly dragon breathing hot"
-          "fire and smoke is protecting the mirror.");
+      print("The ferocious fire-breathing dragon is"
+            "protecting the magic mirror.");
+//    print("A green, scaly dragon breathing hot"
+//          "fire and smoke is protecting the mirror.");
   }
   if (isset(f165) &&
       v75 == 1) {
@@ -147,13 +152,13 @@ if (said("check","cave")) {
   if (!isset(f165) &&
       v75 == 1) {
     print("There is a dead dragon, a large"
-          "boulder, and a seemingly ordinary"
+          "boulder, and a magic"
           "mirror in the cave.");
   }
   if (!isset(f165) &&
       v75 == 2) {
     print("There is a large granite boulder and a"
-          "magic mirror!! in the cave.");
+          "magic mirror in the cave.");
   }
   if (isset(f165) &&
       v75 == 2) {
@@ -464,3 +469,5 @@ return();
 #message 38 "You should know about these fire-breathing dragons!  Maybe next time you will be a little more careful!"
 #message 39 "Your shield melted from the intensity of the dragon's flames!  You should know about these fire-breathing dragons!  Maybe next time you will be a little more careful!"
 #message 40 "I think you found the dragon!"
+
+

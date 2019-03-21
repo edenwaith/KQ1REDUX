@@ -1,4 +1,4 @@
-// logic.27
+// logic.027
 if (isset(f5)) {
   load.pic(v0);
   draw.pic(v0);
@@ -31,6 +31,9 @@ if (said("look around")) {
   print("Welcome to the most boring scene of the game!");
   // print("What are you doing that for?  There's nothing here.");
 }
+if (said("talk","tree")) {
+  print("I talk to the trees, but they don't listen to me.");
+}
 if (v2 == 1) {
   new.room(38);
 }
@@ -50,6 +53,8 @@ return();
 
 // Messages
 #message 1 "What are you doing that for?  There's nothing here."
+
+
 
 
 

@@ -1,3 +1,4 @@
+// logic.002
 if (isset(f5)) {
   load.pic(v0);
   draw.pic(v0);
@@ -63,7 +64,7 @@ if (isset(f5)) {
   wander(o12);
   show.pic();
 }
-if (said("check","room")) {
+if ((said("check","room") || said("check"))) {
   print("You are standing outside a castle"
         "surrounded by an alligator filled moat.");
 }
@@ -385,5 +386,7 @@ return();
 #message 27 "What!  Are you crazy?"
 #message 28 "Your knock echos within the castle.  Unfortunately, no one answers."
 #message 29 "You are standing outside a castle surrounded by an alligator filled moat."
+
+
 
 

@@ -1,0 +1,91 @@
+// logic.071 - Beanstalk (two clouds)
+if (isset(f5)) {
+  load.pic(v0);
+  draw.pic(v0);
+  discard.pic(v0);
+  set.horizon(30);
+  load.view(105);
+  load.view(74);
+  load.sound(5);
+  if (v1 == 72 &&
+      isset(f157)) {
+    set.view(o0,74);
+    position(o0,66,40);
+    move.obj(o0,66,40,0,f148);
+  }
+  if (v1 == 72 &&
+      isset(f158)) {
+    program.control();
+    set.view(o0,105);
+    get.posn(o0,v60,v61);
+    if (v60 > 75) {
+      position(o0,90,29);
+    }
+    else {
+      position(o0,55,29);
+    }
+    v61 = 166;
+    v96 = 4;
+    set.priority(o0,15);
+    move.obj.v(o0,v60,v61,96,f20);
+  }
+  if (v1 == 70) {
+    set.view(o0,74);
+    position(o0,69,160);
+    move.obj(o0,69,160,0,f148);
+  }
+  draw(o0);
+  show.pic();
+}
+if (isset(f158) &&
+    !isset(f20) &&
+    !isset(f21)) {
+  sound(5,f159);
+  set(f21);
+}
+if ((said("check","beanstalk") ||
+     said("check"))) {
+  print("You can no longer see the bottom... it"
+        "seems to go  on forever!");
+}
+if (isset(f3) &&
+    !isset(f158)) {
+  program.control();
+  print("You have to be careful when you get so"
+        "high on the foliage!");
+  get.posn(o0,v60,v61);
+  reset(f157);
+  set(f158);
+  erase(o0);
+  set.view(o0,105);
+  if (v60 > 75) {
+    v60 = 80;
+    position.v(o0,v60,v61);
+    draw(o0);
+  }
+  if (v60 < 76) {
+    v60 = 65;
+    position.v(o0,v60,v61);
+    draw(o0);
+  }
+  start.cycling(o0);
+  set(f98);
+  v61 = 166;
+  v96 = 4;
+  move.obj.v(o0,v60,v61,96,f20);
+}
+if (v2 == 1) {
+  new.room(72);
+}
+if ((isset(f20) ||
+    posn(o0,0,166,159,167))) {
+  new.room(70);
+}
+return();
+
+// Messages
+#message 1 "If you were to jump or duck here you might fall."
+#message 2 "You can no longer see the bottom... it seems to go  on forever!"
+#message 3 "You have to be careful when you get so high on the foliage!"
+
+

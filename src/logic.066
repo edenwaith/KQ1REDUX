@@ -1,0 +1,71 @@
+// Logic.066 - Bottom of stairs
+if (isset(f5)) {
+  load.pic(v0);
+  draw.pic(v0);
+  discard.pic(v0);
+  load.view(105);
+  load.sound(5);
+  set.horizon(45);
+  if (v1 == 19) {
+    position(o0,21,162);
+  }
+  if (v1 == 67) {
+    position(o0,132,46);
+    set.loop(o0,1);
+    move.obj(o0,131,47,0,f148);
+  }
+  draw(o0);
+  show.pic();
+}
+if (isset(f75)) {
+  reset(f75);
+  set(f130);
+  print("The old goat is afraid of the dark and"
+        "decides to stay outside.");
+  v3 -= 5;
+}
+if ((said("check","stairs") ||
+    said("check","room") ||
+    said("check"))) {
+  print("The stairs go up into the heart of the"
+        "mountain.");
+} 
+if (isset(f3) &&
+    !isset(f21)) {
+  set(f145);
+  set(f146);
+  set(f21);
+  if (!isset(f79)) {
+    set.view(o0,105);
+  }
+  start.cycling(o0);
+  set(f98);
+  get.posn(o0,v60,v61);
+  get.priority(o0,v30);
+  set.priority.v(o0,v30);
+  v61 = 165;
+  v96 = 4;
+  move.obj.v(o0,v60,v61,96,f20);
+  sound(5,f159);
+}
+if (isset(f20)) {
+  reset(f20);
+  print("Oops!  Those stairs are pretty slippery,"
+        "aren't they?");
+  erase(o0);
+  set(f63);
+}
+if (v2 == 1) {
+  new.room(67);
+}
+if (posn(o0,16,165,31,166)) {
+  new.room(19);
+}
+return();
+
+// Messages
+#message 1 "The old goat is afraid of the dark and decides to stay outside."
+#message 2 "The stairs go up into the heart of the mountain."
+#message 3 "Oops!  Those stairs are pretty slippery, aren't they?"
+
+

@@ -1,0 +1,112 @@
+// logic.070 - Beanstalk (three clouds)
+if (isset(f5)) {
+  load.pic(v0);
+  draw.pic(v0);
+  discard.pic(v0);
+  load.view(105);
+  load.view(74);
+  load.sound(5);
+  if (v1 == 71 &&
+      isset(f157)) {
+    set.view(o0,74);
+    position(o0,69,40);
+    move.obj(o0,69,40,0,f148);
+  }
+  if (v1 == 71 &&
+      isset(f158)) {
+    program.control();
+    set.view(o0,105);
+    get.posn(o0,v60,v61);
+    if (v60 > 75) {
+      position(o0,90,29);
+    }
+    else {
+      position(o0,55,29);
+    }
+    v61 = 166;
+    v96 = 4;
+    set.priority(o0,15);
+    move.obj.v(o0,v60,v61,96,f20);
+  }
+  if (v1 < 50) {
+    set.view(o0,74);
+    position(o0,69,160);
+    move.obj(o0,69,160,0,f148);
+  }
+  draw(o0);
+  show.pic();
+}
+if (isset(f158) &&
+    !isset(f20) &&
+    !isset(f21)) {
+  sound(5,f159);
+  set(f21);
+}
+if (isset(f75)) {
+  print("The goat was quite hesitant about"
+        "climbing that huge beanstalk!  You may"
+        "have lost the goat.");
+  reset(f75);
+  set(f130);
+  v3 -= 5;
+}
+if ((said("check","beanstalk") || 
+     said("check"))) {
+  print("The beanstalk disappears up into the"
+        "clouds.");
+}
+if (isset(f3) &&
+    !isset(f158)) {
+  program.control();
+  print("With a wrong move, you fall dizzyingly to"
+        "the ground.");
+  get.posn(o0,v60,v61);
+  set(f158);
+  erase(o0);
+  set.view(o0,105);
+  if (v60 > 75) {
+    v60 = 80;
+    position.v(o0,v60,v61);
+    draw(o0);
+  }
+  if (v60 < 76) {
+    v60 = 65;
+    position.v(o0,v60,v61);
+    draw(o0);
+  }
+  start.cycling(o0);
+  set(f98);
+  v61 = 166;
+  v96 = 4;
+  move.obj.v(o0,v60,v61,96,f20);
+}
+if (v2 == 1) {
+  new.room(71);
+}
+if ((isset(f20) ||
+    posn(o0,0,166,159,167))) {
+  if (v80 == 6) {
+    new.room(6);
+  }
+  if (v80 == 22) {
+    new.room(22);
+  }
+  if (v80 == 31) {
+    new.room(31);
+  }
+  if (v80 == 35) {
+    new.room(35);
+  }
+  if (v80 == 38) {
+    new.room(38);
+  }
+}
+return();
+
+// Messages
+#message 1 "If you were to jump or duck here you might fall."
+#message 2 "The beanstalk disappears up into the clouds."
+#message 3 "With a wrong move, you fall dizzyingly to the ground."
+#message 4 "The goat was quite hesitant about climbing that huge beanstalk!  You may have lost the goat."
+
+

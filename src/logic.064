@@ -1,0 +1,66 @@
+// logic.064 - Clouds without beanstalk
+if (isset(f5)) {
+  ignore.horizon(o0);
+  load.pic(v0);
+  draw.pic(v0);
+  discard.pic(v0);
+  load.view(105);
+  load.sound(5);
+  if (v1 == 56) {
+    position(o0,145,109);
+  }
+  draw(o0);
+  show.pic();
+}
+if (isset(f3) &&
+    !isset(f21)) {
+  set(f21);
+  if (!isset(f79)) {
+    set.view(o0,105);
+  }
+  start.cycling(o0);
+  set(f98);
+  get.posn(o0,v60,v61);
+  get.priority(o0,v30);
+  set.priority.v(o0,v30);
+  v61 = 165;
+  v96 = 6;
+  sound(5,f159);
+  move.obj.v(o0,v60,v61,96,f22);
+}
+if (isset(f22)) {
+  reset(f22);
+  erase(o0);
+}
+if (isset(f159)) {
+  reset(f159);
+  set(f20);
+}
+if (isset(f20)) {
+  reset(f20);
+  print("So you're walking on clouds, huh? "
+        "Unfortunately, that's an impossible task"
+        "that cost you your life!");
+  erase(o0);
+  set(f63);
+}
+if ((said("check","anyword") || said("check"))) {
+  print("You are in the Land of the Clouds.  It is"
+        "rumored that a giant lives up here.");
+}
+if (!isset(f157)) {
+  if (said("climb","beanstalk")) {
+    print("Are you blind or just stupid? There is no beanstalk here to climb.");
+  }
+}
+if (v2 == 2) {
+  new.room(56);
+}
+return();
+
+// Messages
+#message 1 "So you're walking on clouds, huh?  Unfortunately, that's an impossible task that cost you your life!"
+#message 2 "You are in the Land of the Clouds.  It is rumored that a giant lives up here."
+
+
+

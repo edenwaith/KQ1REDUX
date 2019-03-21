@@ -1,0 +1,278 @@
+// logic.068 - landing of stairs
+if (isset(f5)) {
+  load.pic(v0);
+  draw.pic(v0);
+  discard.pic(v0);
+  load.view(105);
+  load.sound(5);
+  random(0,250,v62);
+  if (v62 < 150 &&
+      v1 == 67) {
+    load.sound(16);
+    load.view(111);
+    load.view(115);
+    animate.obj(o1);
+    set.view(o1,111);
+    set(f23);
+    observe.blocks(o1);
+    ignore.horizon(o1);
+  }
+  if (isset(f23)) {
+Label1:
+    random(0,150,v70);
+    if (v70 > 45) {
+      goto(Label1);
+    }
+  }
+  set.horizon(40);
+  if (v1 == 67) {
+    position(o0,94,160);
+    set.loop(o0,0);
+    move.obj(o0,95,159,0,f148);
+  }
+  if (v1 == 69) {
+    position(o0,43,41);
+    set.loop(o0,0);
+    move.obj(o0,44,42,0,f148);
+  }
+  draw(o0);
+  show.pic();
+}
+if (isset(f24)) {
+  if (!isset(f27)) {
+    set(f27);
+    sound(16,f28);
+  }
+  if (isset(f28)) {
+    reset(f27);
+    reset(f28);
+  }
+}
+v70--;
+if (v70 == 1) {
+  if (posn(o0,0,0,159,83)) {
+    position(o1,96,162);
+  }
+  else {
+    position(o1,30,27);
+  }
+  draw(o1);
+  set(f24);
+  move.obj(o1,130,127,2,f25);
+}
+if (!isset(f26)) {
+  distance(o0,o1,v71);
+}
+if (isset(f25)) {
+  set(f26);
+  reset(f25);
+  follow.ego(o1,10,f156);
+}
+if ((said("check","stairs") ||
+    said("check","room") ||
+    said("check"))) {
+  print("The stairs seem to go on forever.");
+}
+if (said("check","dwarf")) {
+  if (isset(f24)) {
+    print("This is a shy little dwarf.  He is too"
+          "quick to catch.");
+  }
+  else {
+    print("There is nobody here but you.");
+  }
+}
+if ((said("speak","dwarf") ||
+    said("hello") ||
+    said("say","hello"))) {
+  if (isset(f24)) {
+    print("The dwarf is not here for idle"
+          "conversion.");
+  }
+  else {
+    print("Talking to yourself again, Graham?");
+  }
+}
+if (said("kill","dwarf")) {
+  if (isset(f24)) {
+    print("He's too quick for you to catch.");
+  }
+  else {
+    print("There is nobody here but you.");
+  }
+}
+if (isset(f3) &&
+    !isset(f22)) {
+  set(f145);
+  set(f146);
+  set(f22);
+  ignore.blocks(o0);
+  start.cycling(o0);
+  set(f98);
+  get.posn(o0,v60,v61);
+  get.priority(o0,v30);
+  set.priority.v(o0,v30);
+  if (!isset(f79)) {
+    set.view(o0,105);
+  }
+  print("Look out!  You are too close to the edge!"
+        " Oh, oh, you fell!");
+  if (v61 < 130) {
+    v61 = 130;
+  }
+  else {
+    v61 = 165;
+  }
+  v96 = 4;
+  move.obj.v(o0,v60,v61,96,f20);
+  sound(5,f159);
+}
+if (isset(f20)) {
+  reset(f20);
+  erase(o0);
+  set(f63);
+}
+if (v71 > 0 &&
+    v71 < 11) {
+  set(f26);
+  v71 = 0;
+  set(f156);
+}
+if (isset(f156)) {
+  reset(f156);
+  v71 = 0;
+  set(f26);
+  normal.motion(o1);
+  ignore.blocks(o1);
+  if (isset(f73)) {
+    print("It's a good thing you are protected by"
+          "a spell. That little dwarf likes to"
+          "steal treasures.");
+    set.view(o1,115);
+    reset(f24);
+    end.of.loop(o1,f21);
+  }
+  else {
+    if (isset(f79)) {
+      print("Being invisible has protected you,"
+            "and your treasures, from the dwarf.");
+      set.view(o1,115);
+      reset(f24);
+      end.of.loop(o1,f21);
+    }
+    else {
+      if (isset(f100)) {
+        reset(f100);
+        set(f101);
+        v3 -= 8;
+        drop("magic mirror");
+        set(f126);
+        reset(f125);
+        v74--;
+      }
+      else {
+        if (isset(f102)) {
+          reset(f102);
+          set(f103);
+          v3 -= 8;
+          drop("shield");
+          set(f126);
+          reset(f125);
+          v74--;
+        }
+        else {
+          if (isset(f104)) {
+            reset(f104);
+            set(f105);
+            v3 -= 8;
+            drop("chest");
+            set(f126);
+            reset(f125);
+            v74--;
+          }
+          else {
+            if (isset(f106)) {
+              reset(f106);
+              set(f107);
+              v3 -= 6;
+              drop("pouch of diamonds");
+            }
+            else {
+              if (isset(f108)) {
+                reset(f108);
+                set(f109);
+                v3 -= 6;
+                drop("gold walnut");
+              }
+              else {
+                if (isset(f110)) {
+                  reset(f110);
+                  set(f111);
+                  v3 -= 6;
+                  drop("gold egg");
+                }
+                else {
+                  if (isset(f72)) {
+                    reset(f72);
+                    set(f112);
+                    v3 -= 3;
+                    drop("pouch");
+                  }
+                  else {
+                    if (isset(f113)) {
+                      reset(f113);
+                      set(f114);
+                      v3 -= 6;
+                      drop("sceptre");
+                    }
+                    else {
+                      set.view(o1,115);
+                      reset(f24);
+                      print("The quick, little"
+                            "dwarf came by to see"
+                            "what you had--"
+                            "nothing interested"
+                            "him.");
+                      end.of.loop(o1,f21);
+                      goto(Label2);
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      set.view(o1,115);
+      reset(f24);
+      print("That little dwarf caught you by"
+            "surprise.  Is your treasure still OK?");
+      end.of.loop(o1,f21);
+    }
+  }
+}
+Label2:
+if (isset(f21)) {
+  erase(o1);
+}
+if (v2 == 1) {
+  new.room(69);
+}
+if (posn(o0,0,166,159,167)) {
+  new.room(67);
+}
+return();
+
+// Messages
+#message 1 "The stairs seem to go on forever."
+#message 2 "This is a shy little dwarf.  He is too quick to catch."
+#message 3 "Look out!  You are too close to the edge!  Oh, oh, you fell!"
+#message 4 "That little dwarf caught you by surprise.  Is your treasure still OK?"
+#message 5 "The quick, little dwarf came by to see what you had-- nothing interested him."
+#message 6 "There is nobody here but you."
+#message 7 "It's a good thing you are protected by a spell. That little dwarf likes to steal treasures."
+#message 8 "The dwarf is not here for idle conversion."
+#message 9 "Being invisible has protected you, and your treasures, from the dwarf."
+#message 10 "Talking to yourself again, Graham?"
+
+
