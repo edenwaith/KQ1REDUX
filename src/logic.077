@@ -272,6 +272,12 @@ if ((said("check","cave") ||
             "next to the throne.");
     }
     if (!isset(f188) &&
+        isset(f189)) {
+      print("This is the throne room of the"
+            "leprechaun King.  There is a shield"
+            "next to the throne.");
+    }
+    if (!isset(f188) &&
         !isset(f189)) {
       print("This is the throne room of the"
             "leprechaun King.  There is a shield"
@@ -285,12 +291,12 @@ if ((said("check","cave") ||
             "leprechaun King.  There is a shield"
             "next to the throne.");
     }
+    else {
+      print("This is the throne room of the"
+            "leprechaun King.");
+    }
   }
 }
-
-// kill king - You consider pulling out your medieval flamethrower and incinerating the leprechaun King,
-// but wisely decide against it. Regicide is not a very becoming trait for would-be-kings of Daventry.
-
 if (said("kill","king")) {
   print("You consider pulling out your medieval flamethrower and "
         "incinerating the leprechaun King, but wisely decide "
@@ -449,6 +455,8 @@ return();
 #message 37 "This is the throne room of the leprechaun King.  There is a shield next to the throne."
 #message 38 "This is the throne room of the leprechaun King.  There is a sceptre next to the throne."
 #message 39 "The King of the leprechauns is sitting on the stone throne."
+
+
 
 
 

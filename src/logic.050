@@ -58,7 +58,9 @@ if (said("check","stalactite")) {
         "and stalactites to form.");
 }
 if (v75 == 2) {
-  if (said("check","cave")) {
+  if ((said("check","cave") || 
+       said("check","room") ||
+       said("check"))) {
     print("It is a rather large, vacant cave.");
   }
 }
@@ -98,5 +100,6 @@ return();
 #message 9 "It leads to another portion of the cave."
 #message 10 "It is on the far side of the cave."
 #message 11 "There is nothing of interest on top of the boulder."
+
 
 
