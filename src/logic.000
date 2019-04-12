@@ -876,18 +876,20 @@ if (isset(f154)) {
     show.obj(141);
   }
   if (said("consume","bean")) {
-    print("You're going to be sorry!!  These were"
-          "magic beans!");
-    v3 -= 5;
-    drop("beans");
-    reset(f154);
+    print("It would not be wise to eat the magic beans.");
+    //print("You're going to be sorry!!  These were"
+    //      "magic beans!");
+    //v3 -= 5;
+    //drop("beans");
+    //reset(f154);
   }
   if (said("bury","bean")) {
     if (v0 != 6 &&
         v0 != 22 &&
         v0 != 31 &&
         v0 != 35 &&
-        v0 != 38) {
+        v0 != 38 && 
+        v0 != 46) {
       print("That is not a bad idea, but this is"
             "not a very suitable place to plant"
             "these beans.  Why don't you try it"
@@ -1372,6 +1374,7 @@ return();
 #message 174 "Jump  0"
 #message 175 "Duck  -"
 #message 176 "Joystick/Mouse <Ctrl J>"
+
 
 
 

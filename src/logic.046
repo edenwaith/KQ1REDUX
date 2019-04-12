@@ -3,6 +3,8 @@ if (isset(f5)) {
   load.pic(v0);
   draw.pic(v0);
   discard.pic(v0);
+  load.sound(4);
+  load.sound(5);
   if (isset(f75)) {
     load.logics(103);
   }
@@ -11,7 +13,7 @@ if (isset(f5)) {
   }
   set.horizon(42);
   random(0,250,v62);
-  if (v62 < 175) {
+  if ((v62 < 175) && (v80 != 46)) {
     load.sound(1);
     v31 = 2;
     step.size(o1,v31);
@@ -22,12 +24,55 @@ if (isset(f5)) {
     set.view(o1,2);
     set(f20);
   }
+  
+  if ((isset(f154) ||
+      v80 == 46)) {
+    v92 = 84;
+    set(f155);
+    load.pic(v92);
+    load.view(114);
+    load.view(103);
+    load.view(104);
+    load.view(74);
+    load.view(105);
+    load.logics(104);
+    load.sound(12);
+  }
+  if (v1 == 70 &&
+      isset(f157)) {
+    set.view(o0,74);
+    position(o0,64,41);
+    move.obj(o0,64,41,0,f148);
+    set.priority(o0,8);
+  }
+  if (v1 == 70 &&
+      isset(f158)) {
+    program.control();
+    ignore.horizon(o0);
+    set.priority(o0,15);
+    set.view(o0,105);
+    get.posn(o0,v60,v61);
+    if (v60 > 75) {
+      position(o0,80,29);
+    }
+    else {
+      position(o0,65,29);
+    }
+    get.posn(o0,v60,v61);
+    v61 = 106;
+    v96 = 2;
+    move.obj.v(o0,v60,v61,96,f22);
+  }
+  
   if (isset(f20)) {
 Label1:
     random(0,250,v70);
     if (v70 > 90) {
       goto(Label1);
     }
+  }
+  if (v80 == 46) {
+    overlay.pic(v92);
   }
   draw(o0);
   show.pic();
@@ -38,7 +83,24 @@ if ((said("check","room") ||
      said("check"))) {
   print(m20);
 }
-if (v70 == 1) {
+// TODO: Might need to check some of these flags
+if (isset(f158) &&
+    !isset(f23)) {
+  set(f23);
+  set(f135);
+  sound(5,f24);
+}
+if (isset(f22)) {
+  stop.sound();
+  set(f23);
+  reset(f158);
+  reset(f135);
+  set.view(o0,114);
+  shake.screen(2);
+  set(f63);
+}
+
+if ((v70 == 1) && (v80 != 46)) {
   set(f145);
   set(f146);
   position(o1,40,51);
@@ -61,6 +123,78 @@ if (v70 == 1) {
     print("Lucky for you that ogres are afraid of"
           "goats. This one decides to leave you"
           "alone.");
+  }
+}
+if (isset(f154) &&
+    isset(f155)) {
+  if (said("bury","bean")) {
+    reset(f154);
+    v80 = 46;
+    set(f94);
+    drop("beans");
+    v3 += 2;
+    print("The beans immediately sprout roots that"
+          "reach deep into the fertile soil..."
+          "leaves unfold themselves to the warm,"
+          "loving sun... a rumbling is felt... and"
+          "a mighty beanstalk now stretches up"
+          "into the sky!");
+    sound(12,f25); // doublecheck on the f25 flag
+    overlay.pic(v92);
+    show.pic();
+  }
+}
+if (v80 == 46 &&
+    !isset(f79)) {
+  if (said("climb","beanstalk") &&
+      !isset(f157)) {
+    if (posn(o0,52,76,103,97)) {
+      erase(o0);
+      set.view(o0,74);
+      set(f157);
+      position(o0,71,77);
+      set.priority(o0,8);
+      draw(o0);
+      move.obj(o0,71,77,0,f148);
+    }
+    else {
+      print("You can't reach the beanstalk from"
+            "here.");
+    }
+  }
+}
+if (v80 != 46) {
+  if (said("climb","beanstalk")) {
+    print("There is no beanstalk here to climb.");
+  }
+}
+// Beanstalk has sprouted
+if (isset(f157)) {
+  if (isset(f3) &&
+      posn(o0,60,78,93,80)) {
+    erase(o0);
+    set.view(o0,0);
+    observe.blocks(o0);
+    reset(f157);
+    position(o0,70,106);
+    release.priority(o0);
+    draw(o0);
+  }
+  if (isset(f3) &&
+      !posn(o0,60,78,93,80)) {
+    program.control();
+    set.priority(o0,15);
+    get.posn(o0,v60,v61);
+    erase(o0);
+    set.view(o0,105);
+    reset(f157);
+    position.v(o0,v60,v61);
+    draw(o0);
+    v61 = 106;
+    v96 = 2;
+    move.obj.v(o0,v60,v61,96,f24);
+    set(f135);
+    sound(5,f198);
   }
 }
 if (isset(f159)) {
@@ -177,6 +311,9 @@ if (isset(f21)) {
       said("say","hello"))) {
     print("Ogres don't talk, they growl!");
   }
+  if (said("kiss","dwarf")) {
+    print("Better not. Ogres have bad breath.");
+  }
   if (said("cast","dagger") &&
       isset(f67)) {
     print("The dagger is of little use against"
@@ -187,12 +324,18 @@ if (isset(f21)) {
 if (v2 != 0) {
   reset(f145);
   reset(f146);
+  reset(f155);
 }
 if (isset(f24)) {
   goto(Label3);
 }
 if (v2 == 1 &&
-    v30 <= 0) {
+    isset(f157)) {
+  new.room(70);
+}
+if (v2 == 1 &&
+    v30 <= 0 && 
+    !isset(f157)) {
   new.room(3);
 }
 if (v2 == 2 &&
@@ -209,6 +352,9 @@ if (v2 == 3 &&
 }
 if (isset(f75)) {
   call(103);
+}
+if (v80 == 46) {
+  call(104);
 }
 Label3:
 return();
@@ -234,6 +380,20 @@ return();
 #message 18 "Lucky for you that ogres are afraid of goats. This one decides to leave you alone."
 #message 19 "You need to be a little closer to smell the flowers."
 #message 20 "You are in a forest clearing."
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
