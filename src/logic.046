@@ -38,9 +38,10 @@ if (isset(f5)) {
     load.logics(104);
     load.sound(12);
   }
+  // If the previous room was climbing the beanstalk
   if (v1 == 70 &&
       isset(f157)) {
-    set.view(o0,74);
+    set.view(o0,74); // climbing view
     position(o0,64,41);
     move.obj(o0,64,41,0,f148);
     set.priority(o0,8);
@@ -84,12 +85,14 @@ if ((said("check","room") ||
   print(m20);
 }
 // TODO: Might need to check some of these flags
+// Falling from the higher level of the beanstalk
 if (isset(f158) &&
     !isset(f23)) {
   set(f23);
   set(f135);
-  sound(5,f24);
+  sound(5,f240);
 }
+// Death by falling from the beanstalk
 if (isset(f22)) {
   stop.sound();
   set(f23);
@@ -192,7 +195,7 @@ if (isset(f157)) {
     draw(o0);
     v61 = 106;
     v96 = 2;
-    move.obj.v(o0,v60,v61,96,f24);
+    move.obj.v(o0,v60,v61,96,f245);
     set(f135);
     sound(5,f198);
   }
@@ -201,6 +204,43 @@ if (isset(f159)) {
   reset(f159);
   reset(f135);
 }
+// Handle falling but not dying from the beanstalk
+// Should v30 be used, or v70, instead?
+if (isset(f245)) {
+  stop.sound();
+  reset(f245);
+  observe.blocks(o0);
+  release.priority(o0);
+  stop.motion(o0);
+  set.view(o0,103);
+  v30 = 20;
+  set(f98);
+  shake.screen(2);
+  print("Ouch!");
+  set(f135);
+  sound(4,f159);
+}
+if (isset(f159)) {
+  if (v30 > 0) {
+    reset(f159);
+    sound(4,f159);
+  }
+}
+
+if (v30 == 1) {
+  set.view(o0,104);
+  end.of.loop(o0,f246);
+}
+
+if (isset(f246)) {
+  reset(f246);
+  reset(f98);
+  start.motion(o0);
+  set.view(o0,0);
+  release.priority(o0);
+  player.control();
+}
+
 if (!isset(f21)) {
   reset(f145);
   reset(f146);
@@ -262,20 +302,28 @@ if (isset(f23) &&
   reset(f21);
 }
 if (v30 == 1) {
-  print("You were warned to be careful around this"
+  if (v80 != 46) {
+    print("You were warned to be careful around this"
         "fierce creature!  Maybe next time you"
         "will be able to elude the beast.");
-  get.posn(o0,v60,v61);
-  erase(o0);
-  set.view(o0,95);
-  set.view(o1,2);
-  position.v(o0,v60,v61);
-  position.v(o1,v60,v61);
-  draw(o1);
-  draw(o0);
-  stop.motion(o1);
-  stop.cycling(o1);
-  set(f63);
+    get.posn(o0,v60,v61);
+    erase(o0);
+    set.view(o0,95);
+    set.view(o1,2);
+    position.v(o0,v60,v61);
+    position.v(o1,v60,v61);
+    draw(o1);
+    draw(o0);
+    stop.motion(o1);
+    stop.cycling(o1);
+    set(f63);
+  }
+  else {
+    if (isset(f21)) {
+      //set.view(o0,104);
+      //end.of.loop(o0,f21);
+    }
+  }
 }
 if (isset(f21)) {
   if (said("check","dwarf")) {
@@ -380,6 +428,19 @@ return();
 #message 18 "Lucky for you that ogres are afraid of goats. This one decides to leave you alone."
 #message 19 "You need to be a little closer to smell the flowers."
 #message 20 "You are in a forest clearing."
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
