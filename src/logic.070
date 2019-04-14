@@ -100,6 +100,9 @@ if ((isset(f20) ||
   if (v80 == 38) {
     new.room(38);
   }
+  if (v80 == 46) {
+    new.room(46);
+  }
 }
 return();
 
@@ -108,5 +111,6 @@ return();
 #message 2 "The beanstalk disappears up into the clouds."
 #message 3 "With a wrong move, you fall dizzyingly to the ground."
 #message 4 "The goat was quite hesitant about climbing that huge beanstalk!  You may have lost the goat."
+
 
 

@@ -2,6 +2,7 @@ if (isset(f5)) {
   load.pic(v0);
   load.sound(22);
   configure.screen(0,21,0);
+  load.view(144);
   draw.pic(v0);
   prevent.input();
   // v30 = 250;
@@ -10,7 +11,34 @@ if (isset(f5)) {
   v33 = 1;
   v35 = 1;
   v37 = 12;
+//  v226 = 0;
+  v221 = 2;
+  v222 = 3;
+  v223 = 4;
+  v224 = 5;
+  v225 = 10;
   set(f9);
+  animate.obj(o1);
+  ignore.objs(o1);
+  set.view(o1,144);
+  set.loop(o1,0);
+  set.priority(o1,15);
+  animate.obj(o2);
+  ignore.objs(o2);
+  set.view(o2,144);
+  set.loop(o2,0);
+  set.priority(o2,15);
+  animate.obj(o3);
+  ignore.objs(o3);
+  set.view(o3,144);
+  set.loop(o3,0);
+  set.priority(o3,15);
+  animate.obj(o4);
+  ignore.objs(o4);
+  set.view(o4,144);
+  set.loop(o4,0);
+  set.priority(o4,15);
+  
   if (v26 == 2) {
     display(24,1,"(c) copyright Sierra On-Line"
             "Inc.  1987");
@@ -19,6 +47,22 @@ if (isset(f5)) {
     display(22,5,"(c) 1987 Sierra On-Line Inc.");
     display(23,14,"Version 3.0");
   }
+  
+//  add.to.pic(144,0,2,59,148,4,4);
+
+
+
+//  animate.obj(o8);
+//  set.view(o8,144);
+//  set.loop(o8,0); // was 3, instead of 0
+//  fix.loop(o8);
+//  ignore.objs(o8);
+//  set.priority(o8,15);
+  
+//  position(o8,54,70);
+//  draw(o8);
+  // move.obj(o8,54,30,5,f227);
+  
   set.key(0,59,c18);
   set.key(0,60,c17);
   set.key(19,0,c17);
@@ -56,6 +100,289 @@ if (!isset(f21)) {
   set(f21);
   sound(22,f20);
 }
+v221--;
+if (v221 == 1) {
+  random(1,9,v36);
+  if (v36 == 1) {
+    v37 = 39;
+    v38 = 77;
+  }
+  if (v36 == 2) {
+    v37 = 48;
+    v38 = 107;
+  }
+  if (v36 == 3) {
+    v37 = 68;
+    v38 = 73;
+  }
+  if (v36 == 4) {
+    v37 = 92;
+    v38 = 79;
+  }
+  if (v36 == 5) {
+    v37 = 105;
+    v38 = 106;
+  }
+  if (v36 == 6) {
+    v37 = 126;
+    v38 = 88;
+  }
+  if (v36 == 7) {
+    v37 = 132;
+    v38 = 106;
+  }
+  if (v36 == 8) {
+  // These are decent values for the top left part of the K
+    v37 = 23;
+    v38 = 93;
+  }
+  if (v36 == 9) {
+    // Bottom left part of the K
+    v37 = 27; // temp
+    v38 = 107; // temp
+  }
+  if (v36 == 10) {
+  // Below banner
+    v37 = 55;
+    v38 = 150;
+  }
+  if (v36 == 11) {
+  // Below banner
+    v37 = 100;
+    v38 = 153;
+  }
+  if (v36 == 12) {
+  // Below banner
+    v37 = 94;
+    v38 = 136;
+  }
+  if (v36 == 13) {
+  // Above banner
+    v37 = 72;
+    v38 = 63;
+  }
+  // These are decent values for the top left part of the K
+//  v37 = 23;  // temp
+//  v38 = 93;  // temp
+  position.v(o1,v37,v38);
+  set.cel(o1,0);
+  draw(o1);
+  end.of.loop(o1,f221);
+}
+if (isset(f221)) {
+  reset(f221);
+  erase(o1);
+  random(4,10,v221);
+}
+v222--;
+if (v222 == 1) {
+  random(1,9,v36);
+  if (v36 == 1) {
+    v37 = 39;
+    v38 = 77;
+  }
+  if (v36 == 2) {
+    v37 = 48;
+    v38 = 107;
+  }
+  if (v36 == 3) {
+    v37 = 68;
+    v38 = 73;
+  }
+  if (v36 == 4) {
+    v37 = 92;
+    v38 = 79;
+  }
+  if (v36 == 5) {
+    v37 = 105;
+    v38 = 106;
+  }
+  if (v36 == 6) {
+    v37 = 126;
+    v38 = 88;
+  }
+  if (v36 == 7) {
+    v37 = 132;
+    v38 = 106;
+  }
+  if (v36 == 8) {
+  // These are decent values for the top left part of the K
+    v37 = 23;
+    v38 = 93;
+  }
+  if (v36 == 9) {
+    // Bottom left part of the K
+    v37 = 27; // temp
+    v38 = 107; // temp
+  }
+  if (v36 == 10) {
+    v37 = 55;
+    v38 = 150;
+  }
+  if (v36 == 11) {
+    v37 = 100;
+    v38 = 153;
+  }
+  if (v36 == 12) {
+    v37 = 94;
+    v38 = 136;
+  }
+  if (v36 == 13) {
+    v37 = 72;
+    v38 = 63;
+  }
+  // Bottom left part of the K
+//  v37 = 27; // temp
+//  v38 = 107; // temp
+  position.v(o2,v37,v38);
+  draw(o2);
+  set.cel(o2,0);
+  end.of.loop(o2,f222);
+}
+if (isset(f222)) {
+  reset(f222);
+  erase(o2);
+  random(4,10,v222);
+}
+v223--;
+if (v223 == 1) {
+  random(1,9,v36);
+  if (v36 == 1) {
+    v37 = 39;
+    v38 = 77;
+  }
+  if (v36 == 2) {
+    v37 = 48;
+    v38 = 107;
+  }
+  if (v36 == 3) {
+    v37 = 68;
+    v38 = 73;
+  }
+  if (v36 == 4) {
+    v37 = 92;
+    v38 = 79;
+  }
+  if (v36 == 5) {
+    v37 = 105;
+    v38 = 106;
+  }
+  if (v36 == 6) {
+    v37 = 126;
+    v38 = 88;
+  }
+  if (v36 == 7) {
+    v37 = 132;
+    v38 = 106;
+  }
+  if (v36 == 8) {
+  // These are decent values for the top left part of the K
+    v37 = 23;
+    v38 = 93;
+  }
+  if (v36 == 9) {
+    // Bottom left part of the K
+    v37 = 27; // temp
+    v38 = 107; // temp
+  }
+  if (v36 == 10) {
+    v37 = 55;
+    v38 = 150;
+  }
+  if (v36 == 11) {
+    v37 = 100;
+    v38 = 153;
+  }
+  if (v36 == 12) {
+    v37 = 94;
+    v38 = 136;
+  }
+  if (v36 == 13) {
+    v37 = 72;
+    v38 = 63;
+  }
+//  v37 = 7;  // temp
+//  v38 = 121; // temp
+  position.v(o3,v37,v38);
+  set.cel(o3,0);
+  draw(o3);
+  end.of.loop(o3,f223);
+}
+if (isset(f223)) {
+  reset(f223);
+  erase(o3);
+  random(4,10,v223);
+}
+v224--;
+if (v224 == 1) {
+  random(1,9,v36);
+  if (v36 == 1) {
+    v37 = 39;
+    v38 = 77;
+  }
+  if (v36 == 2) {
+    v37 = 48;
+    v38 = 107;
+  }
+  if (v36 == 3) {
+    v37 = 68;
+    v38 = 73;
+  }
+  if (v36 == 4) {
+    v37 = 92;
+    v38 = 79;
+  }
+  if (v36 == 5) {
+    v37 = 105;
+    v38 = 106;
+  }
+  if (v36 == 6) {
+    v37 = 126;
+    v38 = 88;
+  }
+  if (v36 == 7) {
+    v37 = 132;
+    v38 = 106;
+  }
+  if (v36 == 8) {
+  // These are decent values for the top left part of the K
+    v37 = 23;
+    v38 = 93;
+  }
+  if (v36 == 9) {
+    // Bottom left part of the K
+    v37 = 27; // temp
+    v38 = 107; // temp
+  }
+  if (v36 == 10) {
+    v37 = 55;
+    v38 = 150;
+  }
+  if (v36 == 11) {
+    v37 = 100;
+    v38 = 153;
+  }
+  if (v36 == 12) {
+    v37 = 94;
+    v38 = 136;
+  }
+  if (v36 == 13) {
+    v37 = 72;
+    v38 = 63;
+  }
+//  v37 = 145;  // temp
+//  v38 = 123; // temp
+  position.v(o4,v37,v38);
+  set.cel(o4,0);
+  draw(o4);
+  end.of.loop(o4,f224);
+}
+if (isset(f224)) {
+  reset(f224);
+  erase(o4);
+  random(4,10,v224);
+}
+
 v30--;
 if (v30 == v31) {
   v32 = v33;
@@ -134,6 +461,50 @@ return();
 #message 23 "    Scott Murphy "
 #message 24 "(c) copyright Sierra On-Line Inc.  1987"
 #message 25 "Version 3.0"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
