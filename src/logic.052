@@ -60,8 +60,10 @@ if (v68 == 0 &&
   set(f22);
   set.view(o0,114);
   print("Not even you can hold your breath"
-        "forever.  The well bottom has become your"
-        "eternal resting place.");
+        "forever.  Too bad you can't hold your breath "
+        "for ten minutes like some other adventurers. "
+        "The well bottom has become your eternal "
+        "resting place.");
   ignore.blocks(o0);
   get.posn(o0,v60,v61);
   if (v61 < 141) {
@@ -128,5 +130,6 @@ return();
 #message 8 "The rusty old can has been here awhile."
 #message 9 "You have no use for this old can."
 #message 10 "Thrashing around in the water has caused you to lose the magic ring and become visible again."
+
 
 

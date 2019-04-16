@@ -332,6 +332,82 @@ if (isset(f176)) {
     print("The bucket is not here.");
   }
 }
+
+// Turn handle --------------------------------
+if (said("turn","handle")) {
+  if (posn(o0,10,109,71,153)) {
+    // TODO: Check if the bucket was already taken
+    if (!isset(f176) &&
+        !isset(f177)) {
+      print("The old bucket disappears into the"
+            "darkness.");
+      start.update(o2);
+      start.update(o1);
+      end.of.loop(o2,f21);
+      sound(20,f30);
+      start.cycling(o1);
+      set(f177);
+    }
+    else {
+      if (!isset(f176) &&
+          isset(f177) &&
+          !isset(f180)) {
+
+        print("The old bucket emerges from the"
+              "depths of the well.");
+        start.update(o2);
+        start.update(o1);
+        random(0,250,v62);
+        if (v62 < 30) {
+          set(f163);
+        }
+        reverse.loop(o2,f22);
+        start.cycling(o1);
+        sound(20,f30);
+        reset(f177);
+      }
+    }
+    
+    // Raise the bucket-less rope
+    if (isset(f176) &&
+        isset(f179) &&
+        !isset(f180)) {
+        
+        start.cycling(o3);
+        start.update(o1);
+        print("The rope emerges from the well.");
+        reverse.loop(o3,f23);
+        sound(20,f30);
+        start.cycling(o1);
+        reset(f179);
+    } 
+    else {
+      // Lower the bucket-less rope
+      if (isset(f178)) {
+        print("There is not enough rope left to lower.");
+      }
+      else {
+      
+      if (isset(f176) &&
+          !isset(f179)) {
+        start.cycling(o3);
+        start.update(o1);
+        print("The rope descends into the darkness.");
+        sound(20,f30);
+        end.of.loop(o3,f24);
+        start.cycling(o1);
+        set(f179);
+       }
+       
+       }
+    }
+    
+  }
+  else {
+    print("You are not close enough to do that.");
+  }
+}
+
 if (!isset(f176) &&
     !isset(f177)) {
   if (!isset(f81) &&
@@ -730,6 +806,18 @@ return();
 #message 55 "There is no useful rope to get."
 #message 56 "You should be more careful the next time you try  climbing ropes."
 #message 57 "There is not enough rope left to lower."
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
