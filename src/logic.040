@@ -134,14 +134,17 @@ if (isset(f23)) {
 if (isset(f22)) {
   if (said("rumpelstiltskin") &&
       v84 != 2) {
-    print("That is very close but not quite right!");
+    print("You have the right idea, but your"
+          "guess is just a little too forward "
+          "thinking for my tastes.");
     v84++;
     goto(Label1);
   }
   if (said("fucknugget") &&
       v84 != 2) {
     print("You have the right idea, but your"
-          "thinking is just a little bit off.");
+          "guess is just a little too forward "
+          "thinking for my tastes.");
     v84++;
     goto(Label1);
   }
@@ -340,7 +343,7 @@ return();
 // Messages
 #message 1 "You see a crotchety old gnome pacing around his lean-to."
 #message 2 "That is very close but not quite right!"
-#message 3 "You have the right idea, but your thinking is just a little bit off."
+#message 3 "You have the right idea, but your guess is just a little too forward thinking for my tastes."
 #message 4 "That's right!!!  You've guessed it!!  Here are some magic beans for your outstanding accomplishment!"
 #message 5 "The old gnome tells you he has something that may be very useful to you.  Your task is to guess his name in three guesses and his gift will be yours.  Good luck!  What is your first guess?"
 #message 6 "You still haven't guessed my name!"
@@ -365,6 +368,8 @@ return();
 #message 25 "You slip down the bank into the river far below.  Your cries for help are not heard."
 #message 26 "The gnome's lean-to doesn't look very sturdy."
 #message 27 "What do you think I am, a car?  This also won't get you a raise.  Nice try."
+
+
 
 
 
