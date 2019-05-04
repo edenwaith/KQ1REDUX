@@ -51,15 +51,28 @@ if (isset(f5)) {
     v96 = 2;
     move.obj.v(o0,v60,v61,96,f22);
   }
-  if (!isset(f90)) {
-    load.view(25);
+  // Add the note in place of the bowl
+  if (!isset(f170)) {
+    load.view(42);
     animate.obj(o1);
-    set.view(o1,25);
+    set.view(o1,42);
+    // position(o1,118,140);
     position(o1,126,138);
+    // set.priority(o1,14);
   }
-  if (!isset(f90)) {
+  if (!isset(f170)) {
     draw(o1);
   }
+  
+//  if (!isset(f90)) {
+//    load.view(25);
+//    animate.obj(o1);
+//    set.view(o1,25);
+//    position(o1,126,138);
+//  }
+//  if (!isset(f90)) {
+//    draw(o1);
+//  }
   if (v80 == 31) {
     overlay.pic(v92);
   }
@@ -81,28 +94,33 @@ if (isset(f22)) {
   shake.screen(2);
   set(f63);
 }
-if (isset(f90) &&
-    !isset(f89)) {
-  if (said("anyword","bowl")) {
-    print("There may have been a bowl here at one"
-          "time, but it is not here now!");
+//if (isset(f90) &&
+//    !isset(f89)) {
+//  if (said("anyword","bowl")) {
+//    print("There may have been a bowl here at one"
+//          "time, but it is not here now!");
+//  }
+//}
+if (!isset(f170)) {
+//  if (said("check","bowl")) {
+//    if (posn(o0,106,103,159,167)) {
+//      print("This is a very colorful ceramic bowl.");
+//    }
+//    else {
+//      print("It looks like an interesting,"
+//            "colorful bowl.");
+//    }
+//  }
+  if (said("check","note")) {
+    print("It appears that someone has dropped a "
+          "note on the ground. What a litter bug!");
   }
-}
-if (!isset(f90)) {
-  if (said("check","bowl")) {
-    if (posn(o0,106,103,159,167)) {
-      print("This is a very colorful ceramic bowl.");
-    }
-    else {
-      print("It looks like an interesting,"
-            "colorful bowl.");
-    }
-  }
+  
   if ((said("check","grass") ||
       said("check","room") || 
       said("check"))) {
     print(m11);
-    print("There appears to be some sort of bowl"
+    print("There appears to be some sort of note"
           "on the ground.");
   }
 }
@@ -113,21 +131,38 @@ else {
        print(m11);
   }
 }
-if (!isset(f90) &&
-    said("acquire","bowl")) {
-  if (posn(o0,116,128,136,148)) {
-    print("You pick up the ceramic bowl.");
-    start.update(o1);
-    erase(o1);
-    v3 += 3;
-    set(f89);
-    set(f90);
-    get("ceramic bowl");
-  }
-  else {
-    print("That is impossible from here.");
-  }
+
+// Get the note
+if (!isset(f170) &&
+    said("acquire","note")) {
+    if (posn(o0,116,128,136,148)) {
+      start.update(o1);
+      erase(o1);
+      set(f170);
+      get("note");
+      print("You pick up the note from the ground.");
+      v3 += 2;
+    }
+    else {
+      print("That is impossible from here.");
+    }
 }
+
+//if (!isset(f90) &&
+//    said("acquire","bowl")) {
+//  if (posn(o0,116,128,136,148)) {
+//    print("You pick up the ceramic bowl.");
+//    start.update(o1);
+//    erase(o1);
+//    v3 += 3;
+//    set(f89);
+//    set(f90);
+//    get("ceramic bowl");
+//  }
+//  else {
+//    print("That is impossible from here.");
+//  }
+//}
 if (isset(f154) &&
     isset(f155)) {
   if (said("bury","bean")) {
@@ -269,8 +304,13 @@ return();
 #message 7 "You can't reach the beanstalk from here."
 #message 8 "There is no beanstalk here to climb."
 #message 9 "Ouch!"
-#message 10 "There appears to be some sort of bowl on the ground."
+#message 10 "There appears to be some sort of note on the ground."
 #message 11 "This is a charming little wooded area of the forest. Pine trees and lush grass grow in the especially rich soil here."
+
+
+
+
+
 
 
 
