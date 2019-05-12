@@ -25,10 +25,21 @@ if ((said("check","hall") ||
     said("check","building") || 
     said("check"))) {
   print("The long marble hall has a cold, dreary"
-        "feeling.");
+        "feeling. A statue has been erected in "
+        "memory of your old friend Achaka.");
 }
 if (said("acquire","chandelier")) {
-  print("You cannot swing from the chandelier because you are not Sia.");
+  print(m5);
+}
+// Statue-related checks
+if (said("check","statue")) {
+  print(m3);
+}
+if (said("acquire","statue")) {
+  print(m4);
+}
+if (said("kiss","statue")) {
+  print(m6);
 }
 if (posn(o0,0,0,1,167)) {
   new.room(53);
@@ -40,7 +51,15 @@ return();
 
 // Messages
 #message 1 "The light from the oil lamp is rather dim in the dark interior of the castle."
-#message 2 "The long marble hall has a cold, dreary feeling."
+#message 2 "The long marble hall has a cold, dreary feeling. A statue has been erected in memory of your old friend Achaka."
+#message 3 "This is a bust of your fallen comrade Achaka."
+#message 4 "You have no need to carry around a statue."
+#message 5 "You cannot swing from the chandelier because you are not Sia."
+#message 6 "You have some odd predilections there, Sir Graham."
+
+
+
+
 
 
 
