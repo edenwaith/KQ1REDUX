@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BBEditDocumentType</key>
+	<string>CodelessLanguageModule</string>
+	<key>BBLMColorsSyntax</key>
+	<true/>
+	<key>BBLMIsCaseSensitive</key>
+	<true/>
+	<key>BBLMKeywordList</key>
+	<array>
+		<string>add</string>
+		<string>animate</string>
+		<string>bool</string>
+		<string>break</string>
+		<string>blocks</string>
+		<string>call</string>
+		<string>case</string>
+		<string>cel</string>
+		<string>continue</string>
+		<string>cycle</string>
+		<string>cycling</string>
+		<string>define</string>
+		<string>discard</string>
+		<string>do</string>
+		<string>discard</string>
+		<string>display</string>
+		<string>draw</string>
+		<string>drop</string>
+		<string>ego</string>
+		<string>else</string>
+		<string>end</string>
+		<string>enum</string>
+		<string>event</string>
+		<string>erase</string>
+		<string>false</string>
+		<string>finally</string>
+		<string>fixed</string>
+		<string>float</string>
+		<string>follow</string>
+		<string>for</string>
+		<string>foreach</string>
+		<string>get</string>
+		<string>goto</string>
+		<string>horizon</string>
+		<string>if</string>
+		<string>ignore</string>
+		<string>in</string>
+		<string>input</string>
+		<string>is</string>
+		<string>isset</string>
+		<string>key</string>
+		<string>load</string>
+		<string>logics</string>
+		<string>loop</string>
+		<string>motion</string>
+		<string>move</string>
+		<string>null</string>
+		<string>obj</string>
+		<string>object</string>
+		<string>objs</string>
+		<string>of</string>
+		<string>on</string>
+		<string>params</string>
+		<string>pic</string>
+		<string>position</string>
+		<string>prevent</string>
+		<string>print</string>
+		<string>priority</string>
+		<string>play</string>
+		<string>posn</string>
+		<string>random</string>
+		<string>return</string>
+		<string>reset</string>
+		<string>reverse</string>
+		<string>said</string>
+		<string>set</string>
+		<string>short</string>
+		<string>show</string>
+		<string>sound</string>
+		<string>start</string>
+		<string>stop</string>
+		<string>string</string>
+		<string>struct</string>
+		<string>switch</string>
+		<string>time</string>
+		<string>to</string>
+		<string>true</string>
+		<string>update</string>
+		<string>view</string>
+		<string>void</string>
+		<string>wander</string>
+		<string>water</string>
+		<string>while</string>
+	</array>
+	<key>BBLMLanguageCode</key>
+	<string>AGIC</string>
+	<key>BBLMLanguageDisplayName</key>
+	<string>AGI LOGIC</string>
+	<key>BBLMFileNamesToMatch</key>
+	<array>
+		<string>logic</string>
+		<string>.[0-9]*</string>
+	</array>
+	<key>BBLMScansFunctions</key>
+	<true/>
+	<key>BBLMCommentLineDefault</key>
+	<string>//</string>
+	<key>Language Features</key>
+	<dict>
+		<key>Comment Pattern</key>
+		<string>(?x:
+			(?&gt;	//		.*			$				) |
+			(?&gt;	/\*		(?s:.*?)	(?: \*/ | \z )	)
+		)</string>
+		<key>Function Pattern</key>
+		<string>(?x:
+			(?P&lt;function&gt;
+			
+				(?P&lt;function_name&gt;
+					(?&gt; _* [A-Za-z] [A-Za-z0-9_]* )
+					(?:
+						(?:
+							(?&gt;
+								(?&gt; \s+ ) | (?P&gt;comment) | (?P&gt;string)
+							)
+						)*
+						::
+						(?:
+							(?&gt;
+								(?&gt; \s+ ) | (?P&gt;comment) | (?P&gt;string)
+							)
+						)*
+						~?	_* [A-Za-z] [A-Za-z0-9_]*
+					)?
+				)
+				
+				(?:
+					(?&gt;
+						(?&gt; \s+ ) | (?P&gt;comment) | (?P&gt;string)
+					)
+				)*
+				
+				(?P&lt;parens&gt;
+					\(
+						(?:
+							(?&gt;
+								(?&gt; [^&apos;&quot;()]+ ) | (?: / (?![/*]) ) | (?P&gt;comment) | (?P&gt;string) | (?P&gt;parens)
+							)
+						)*
+					\)
+				)
+				
+				(?:
+					(?&gt;
+						(?&gt; \s+ ) | (?P&gt;comment) | (?P&gt;string)
+					)
+				)*
+				
+				(?:
+					:
+					(?:
+						(?&gt;
+							(?&gt; [^&apos;&quot;{]+ ) | (?: / (?![/*]) ) | (?P&gt;comment) | (?P&gt;string)
+						)
+					)*
+				)?
+				
+				(?P&lt;braces&gt;
+					{
+						(?:
+							(?&gt;
+								(?&gt; [^&apos;&quot;{}]+ ) | (?: / (?![/*]) ) | (?P&gt;comment) | (?P&gt;string) | (?P&gt;braces)
+							)
+						)*
+					}
+				)
+			)
+		)</string>
+		<key>Identifier and Keyword Character Class</key>
+		<string>0-9A-Z_a-z</string>
+		<key>Skip Pattern</key>
+		<string>(?x:
+			(?&gt;
+				(?P&gt;comment) | (?P&gt;string)
+			)
+		)</string>
+		<key>String Pattern</key>
+		<string>(?x:
+			(?&gt;	&quot;	(?s: \\. | [^&quot;] )*?		(?: &quot; | $)	)	|
+			(?&gt;	&apos;	(?s: \\. | [^&apos;] )*?		(?: &apos; | $)	)	|
+			(?&gt;	@	(?: &quot; (?s: .*?) &quot; )+ )
+		)</string>
+	</dict>
+</dict>
+</plist>

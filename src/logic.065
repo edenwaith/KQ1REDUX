@@ -7,23 +7,23 @@ if (isset(f5)) {
   load.sound(4);
   load.sound(5);
   
-  if (!isset(f90)) {
-    load.view(25);
-    animate.obj(o5);
-    set.view(o5,25);
-    position(o5,65,120);
-    set.priority(o5,12);
-  }
-  if (!isset(f90)) {
-    draw(o5);
-  }
-  if (!isset(f170)) {
-    load.view(42);
-    animate.obj(o1);
-    set.view(o1,42);
-    position(o1,118,140);
-    set.priority(o1,14);
-  }
+ if (!isset(f90)) {
+   load.view(25);
+   animate.obj(o5);
+   set.view(o5,25);
+   position(o5,65,120);
+   set.priority(o5,12);
+ }
+ if (!isset(f90)) {
+   draw(o5);
+ }
+//  if (!isset(f170)) {
+//    load.view(42);
+//    animate.obj(o1);
+//    set.view(o1,42);
+//    position(o1,118,140);
+//    set.priority(o1,14);
+//  }
   if (v87 == 2) {
     load.view(40);
     animate.obj(o2);
@@ -107,10 +107,10 @@ if (isset(f5)) {
       position(o4,26,120);
     }
   }
-  if (!isset(f170)) {
-    draw(o1);
-    stop.update(o1);
-  }
+//  if (!isset(f170)) {
+//    draw(o1);
+//    stop.update(o1);
+//  }
   draw(o2);
   if (v87 == 1) {
     draw(o3);
@@ -568,18 +568,66 @@ if (said("open","oven")) {
           "to open the oven.");
   }
 }
+
+// Bowl
+
+if (isset(f90) &&
+   !isset(f89)) {
+ if (said("anyword","bowl")) {
+   print("There may have been a bowl here at one"
+         "time, but it is not here now!");
+ }
+}
+
+//if (!isset(f170)) {
+//  if (said("check","bowl")) {
+//    if (posn(o0,106,103,159,167)) {
+//      print("This is a very colorful ceramic bowl.");
+//    }
+//    else {
+//      print("It looks like an interesting,"
+//            "colorful bowl.");
+//    }
+//  }
+
+if (!isset(f90)) {
+
+  if (said("acquire","bowl")) {
+
+    if (posn(o0,40,100,90,140)) {
+      print("You pick up the ceramic bowl.");
+      start.update(o5);
+      erase(o5);
+      v3 += 3;
+      set(f89);
+      set(f90);
+      get("ceramic bowl");
+    }
+    else {
+      print("That is impossible from here.");
+    }
+  }
+  
+  if (said("check","bowl")) {
+    print("There is a very colorful ceramic bowl on the table.");
+  }
+}
+
+// position(o5,65,120);
+
+
 if (posn(o0,105,88,158,160)) {
   if (said("check","bedroom")) {
     print("It looks like an ordinary bedroom.");
   }
   if (said("check","table")) {
-    if (isset(f170)) {
+//    if (isset(f170)) {
       print("It is just a plain, wooden bedside"
             "table.");
-    }
-    else {
-      print("There is a note lying on top of it.");
-    }
+//    }
+//    else {
+//      print("There is a note lying on top of it.");
+//    }
   }
   if (said("check","bed")) {
     print("The witch's bed looks hard and"
@@ -599,6 +647,9 @@ if (!posn(o0,105,88,158,160)) {
   if (said("check","table")) {
     print("That is the table where she eats her"
           "(gulp) food.");
+    if (!isset(f90)) {
+      print("There is a ceramic bowl sitting on top of it.");
+    }
   }
   if (said("check","bed")) {
     print("The bed is not here.");
@@ -617,30 +668,30 @@ if (said("check","window")) {
     print("There is little to see from here.");
   }
 }
-if (!isset(f170)) {
-  if (said("check","note")) {
-    if (posn(o0,114,132,140,160)) {
-      print("It is written in a familiar language.");
-    }
-    else {
-      print("Your eyes are not sharp enough to see"
-            "it from here.");
-    }
-  }
-  if (said("acquire","note")) {
-    if (posn(o0,114,132,140,160)) {
-      start.update(o1);
-      erase(o1);
-      set(f170);
-      get("note");
-      print("You grab the note from the table.");
-      v3 += 2;
-    }
-    else {
-      print("You cannot reach it from here.");
-    }
-  }
-}
+//if (!isset(f170)) {
+//  if (said("check","note")) {
+//    if (posn(o0,114,132,140,160)) {
+//      print("It is written in a familiar language.");
+//    }
+//    else {
+//      print("Your eyes are not sharp enough to see"
+//            "it from here.");
+//    }
+//  }
+//  if (said("acquire","note")) {
+//    if (posn(o0,114,132,140,160)) {
+//      start.update(o1);
+//      erase(o1);
+//      set(f170);
+//      get("note");
+//      print("You grab the note from the table.");
+//      v3 += 2;
+//    }
+//    else {
+//      print("You cannot reach it from here.");
+//    }
+//  }
+//}
 if (posn(o0,39,164,56,166)) {
   new.room(28);
 }
@@ -710,6 +761,17 @@ return();
 #message 62 "Be thankful that you are invisible or the witch may have stuck around to try and catch you!"
 #message 63 "You need to be more specific."
 #message 64 "It looks like an ordinary bedroom."
+
+
+
+
+
+
+
+
+
+
+
 
 
 

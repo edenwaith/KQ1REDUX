@@ -372,7 +372,7 @@ if (!isset(f189)) {
     if ((isset(f187) ||
         isset(f20))) {
       if (said("check","sceptre")) {
-        print("The sceptre is fashioned from gold"
+        print("The sceptre is fashioned from titanium"
               "and silver, and accented with"
               "emeralds.");
       }
@@ -443,7 +443,7 @@ return();
 #message 25 "You take the magic shield and carefully put it in your pocket."
 #message 26 "You need to get closer to see it clearly."
 #message 27 "You must be closer to do that."
-#message 28 "The sceptre is fashioned from gold and silver, and accented with emeralds."
+#message 28 "The sceptre is fashioned from titanium and silver, and accented with emeralds."
 #message 29 "I see no sceptre right here."
 #message 30 "I see no sceptre to get around here."
 #message 31 "Eagerly, you pick up the sceptre."
@@ -455,6 +455,7 @@ return();
 #message 37 "This is the throne room of the leprechaun King.  There is a shield next to the throne."
 #message 38 "This is the throne room of the leprechaun King.  There is a sceptre next to the throne."
 #message 39 "The King of the leprechauns is sitting on the stone throne."
+
 
 
 

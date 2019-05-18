@@ -128,7 +128,7 @@ if (said("check","door")) {
     print("You can't see them from here.");
   }
 }
-if (said("anyword","lion")) {
+if ((said("anyword","lion") || said("anyword","statue"))) {
   if (posn(o0,0,128,159,167)) {
     print("They pose as immovable guards for King"
           "Edward's castle, and have frightened"
@@ -386,6 +386,8 @@ return();
 #message 27 "What!  Are you crazy?"
 #message 28 "Your knock echos within the castle.  Unfortunately, no one answers."
 #message 29 "You are standing outside a castle surrounded by an alligator filled moat."
+
+
 
 
 

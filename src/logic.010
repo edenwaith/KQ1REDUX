@@ -22,6 +22,7 @@ if (isset(f5)) {
   }
   if (v65 == v0) {
     add.to.pic(62,0,0,140,80,0,0);
+    set(f20);
   }
   if (v1 == 11 &&
       isset(f74)) {
@@ -40,7 +41,9 @@ if (isset(f20) &&
     !isset(f75)) {
   if (!isset(f22)) {
     set(f22);
-    sound(11,f23);
+    if (v65 <= 0) {
+      sound(11,f23);
+    }
   }
   if (isset(f23)) {
     reset(f22);
@@ -57,7 +60,8 @@ if (!isset(f20)) {
   }
 }
 if (isset(f20) &&
-    !isset(f75)) {
+    !isset(f75) && 
+    v65 != v0) {
   if ((said("hello") ||
       said("hello","goat") ||
       said("say","hello") ||
@@ -109,8 +113,10 @@ if (isset(f20) &&
               "goat... he tries to avoid the"
               "flying dagger, but your aim is"
               "true... as the dagger strikes, he"
-              "slumps to the ground... dead.");
+              "slumps to the ground... dead. "
+              "You bastard!");
         drop("dagger");
+        stop.sound();
         v3 -= 5;
         reset(f67);
         set(f70);
@@ -146,6 +152,7 @@ if (isset(f20) &&
     v111 = 11;
   }
 }
+// Dead goat checks
 if (v65 == v0) {
   if (said("check","goat")) {
     print("Lying lifeless on the ground you see a"
@@ -154,6 +161,19 @@ if (v65 == v0) {
   if (said("acquire","goat")) {
     print("You do not want to carry around a dead"
           "goat.");
+  }
+  if ((said("hello") ||
+      said("hello","goat") ||
+      said("say","hello") ||
+      said("say","hello","goat") || 
+      said("call","goat") || 
+      said("talk","goat"))) {
+    print("Dead goats have very little to say.");
+  }
+  if (said("eat","goat")) {
+    print("What the hell is wrong with you?! It's "
+          "bad enough that you killed the poor goat,"
+          "now you want to eat it?!");
   }
 }
 if (said("check","fence")) {
@@ -225,9 +245,16 @@ if (isset(f74) &&
         said("show","goat","carrot"))) {
       if (v70 < 50) {
         if (!isset(f151)) {
-          print("When you tempt the old goat with"
-                "the carrot, he starts to follow"
-                "you.");
+          if (v65 == v0) {
+            print("Hallelujah! Using the power of "
+                  "your magical voodoo carrot, you "
+                  "manage to resurrect the goat from "
+                  "the dead. Arise Gombie the Zombie Goat!");
+          } else {
+            print("When you tempt the old goat with"
+                  "the carrot, he starts to follow"
+                  "you.");
+          }
           set(f75);
           erase(o13);
           set.view(o0,67);
@@ -319,7 +346,7 @@ return();
 #message 10 "Goats love carrots!  The old goat quickly devours yours."
 #message 11 "From here it will be difficult to do such a terrible  thing."
 #message 12 "You have no way to accomplish such a terrible deed."
-#message 13 "You hurl the dagger at the old goat... he tries to avoid the flying dagger, but your aim is true... as the dagger strikes, he slumps to the ground... dead."
+#message 13 "You hurl the dagger at the old goat... he tries to avoid the flying dagger, but your aim is true... as the dagger strikes, he slumps to the ground... dead. You bastard!"
 #message 14 "When you tempt the old goat with the carrot, he starts to follow you."
 #message 15 "Since you are invisible, everything you own is invisible. The goat cannot see the carrot."
 #message 16 "The old goat shows some interest in the carrot."
@@ -339,5 +366,15 @@ return();
 #message 30 "You get no response from the goat."
 #message 31 "You see a grey billy goat inside the pen."
 #message 32 "This looks like an area in which to keep animals."
+#message 33 "Hallelujah! Using the power of your magical voodoo carrot, you manage to resurrect the goat from the dead. Arise Gombie the Zombie Goat!";
+#message 34 "Dead goats have very little to say.";
+
+
+
+
+
+
+
+
 
 
