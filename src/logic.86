@@ -1,0 +1,62 @@
+// ****************************************************************
+//
+// Logic 86: Entrance to dwarf's hideout
+// 
+// ****************************************************************
+if (isset(f5)) {
+//  load.sound(23);
+//  load.sound(29);
+//  load.view(102);
+//  load.view(8);
+//  load.view(91);
+//  load.view(109);
+  load.pic(v0);
+  draw.pic(v0);
+  discard.pic(v0);
+
+  if (v1 == 85) {
+    position(o0,40,120);
+    set.loop(o0,0);
+    move.obj(o0,50,120,0,f148);
+  }
+
+  draw(o0);
+  show.pic();
+}
+
+
+if ((said("check","room") ||
+     said("check"))) {
+  print("You are in a musty underground"
+        "passageway. There is a narrow ladder"
+        "leading up through a hole in the ground.");
+}
+
+// Heading East
+if (v2 == 2) {
+  new.room(87);
+}
+if (v2 == 4) {
+//  observe.blocks(o0);
+//  release.priority(o0);
+//  set.view(o0,0);
+  new.room(85);
+}
+
+if (posn(o0,30,110,38,130)) {
+  new.room(85);
+}
+
+return();
+
+// Messages
+#message 1 "You are in a musty underground passageway. There is a narrow ladder leading up through a hole in the ground."
+
+
+
+
+
+
+
+
+

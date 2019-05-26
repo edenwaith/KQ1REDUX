@@ -35,6 +35,11 @@ Label1:
     set.loop(o0,0);
     move.obj(o0,44,42,0,f148);
   }
+  if (v1 == 85) {
+    position(o0,160,115);
+    set.loop(o0,0);
+    move.obj(o0,145,115,0,f148);
+  }
   draw(o0);
   show.pic();
 }
@@ -258,6 +263,11 @@ if (isset(f21)) {
 if (v2 == 1) {
   new.room(69);
 }
+// Heading East toward's the Dwarf's hideout
+if (v2 == 2) {
+  // new.room(69); // temp
+  new.room(85);
+}
 if (posn(o0,0,166,159,167)) {
   new.room(67);
 }
@@ -274,5 +284,12 @@ return();
 #message 8 "The dwarf is not here for idle conversion."
 #message 9 "Being invisible has protected you, and your treasures, from the dwarf."
 #message 10 "Talking to yourself again, Graham?"
+
+
+
+
+
+
+
 
 
