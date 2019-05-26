@@ -4,12 +4,7 @@
 // 
 // ****************************************************************
 if (isset(f5)) {
-//  load.sound(23);
-//  load.sound(29);
-//  load.view(102);
-//  load.view(8);
-//  load.view(91);
-//  load.view(109);
+
   load.pic(v0);
   draw.pic(v0);
   discard.pic(v0);
@@ -28,21 +23,23 @@ if (isset(f5)) {
 if ((said("check","room") ||
      said("check"))) {
   print("You are in a musty underground"
-        "passageway. There is a narrow ladder"
-        "leading up through a hole in the ground.");
+        "passageway. There is a large hole"
+        "in the wall.");
+}
+
+if (said("check","hole")) {
+  print(m2);
 }
 
 // Heading East
 if (v2 == 2) {
   new.room(87);
 }
-if (v2 == 4) {
-//  observe.blocks(o0);
-//  release.priority(o0);
-//  set.view(o0,0);
-  new.room(85);
-}
-
+//if (v2 == 4) {
+//
+// new.room(85);
+//}
+// Heading west towards the stairs
 if (posn(o0,30,110,38,130)) {
   new.room(85);
 }
@@ -50,7 +47,9 @@ if (posn(o0,30,110,38,130)) {
 return();
 
 // Messages
-#message 1 "You are in a musty underground passageway. There is a narrow ladder leading up through a hole in the ground."
+#message 1 "You are in a musty underground passageway. There is a large hole in the wall."
+#message 2 "The hole leads to a set of stairs which go up into heart of the mountain."
+
 
 
 
