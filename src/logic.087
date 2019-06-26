@@ -14,15 +14,136 @@ if (isset(f5)) {
   draw.pic(v0);
   discard.pic(v0);
   animate.obj(o3);
-  // animate.obj(o2);
-  
+  animate.obj(o2);
+  v194 = 3;
+  cycle.time(o2,v194); // Changed v94 to v194
+  v194 = 3;
+  position(o3,47,111);
   set.view(o3,146);
+  draw(o3);
+  
+  set.priority(o2,12);
+  position(o2,105,141);
+  set.view(o2,145);
+
+  if (v185 == 0) {
+    set.cel(o2,0);
+  }
+  else {
+    set.cel(o2,3);
+  }
+
+  ignore.objs(o2);
+  draw(o2);
+  stop.cycling(o2);
   
   // ADD ADDITIONAL INITIALIZATION CODE HERE
   draw(o0);
   show.pic();
 }
 
+// Look 
+if ((said("check","room") ||
+     said("check"))) {
+     print("It seems you have entered the"
+           "underground home of the little dwarf."
+           "It is cozy, with a fire crackling in"
+           "the hearth. There is a trunk tucked"
+           "away in the corner.");
+}
+
+if (said("check","fire")) {
+    print("The fire is crackling merrily in the"
+          "fireplace.");
+}
+
+if (said("check","chest")) {
+  print("The trunk looks old and worn. The hinges"
+        "are loose.");
+}
+
+if (said("check","cap")) {
+  print("The stocking hats of the dwarf are"
+        "sitting on the table.");
+}
+
+if (said("anyword","cap")) {
+  print("You have no interest in those hats."
+        "They aren't your style.");
+}
+
+if (said("check","cauldron")) {
+  print("Could it really be the fabled Black Crochan?!"
+        "Nah, you must be thinking of some other Sierra game.");
+}
+
+if (said("acquire","cauldron")) {
+  print("You have no need to raise an army of Cauldron-Born,"
+        "so you decide to leave the black cauldron where it is.");
+}
+
+if ((said("open","chest") ||
+     said("lift","lid"))) {
+  if (!posn(o0,95,120,122,147)) {
+    print("You are too far away, stupid.");
+  }
+  else {
+    if (v185 == 1) {
+      print("The trunk lid is already open.");
+    }
+    if (v185 == 0) {
+      // TODO: Check on f169 and f36
+      end.of.loop(o2,f169);
+      v185 = 1;
+      set(f36);
+    }
+  }
+}
+
+if ((said("close","chest") ||
+     said("close","lid"))) {
+  if (!posn(o0,95,120,122,147)) {
+    print("You are too far away, stupid.");
+  }
+  else {
+    if (v185 == 0) {
+      print("The lid of the trunk is already"
+            "closed.");
+    }
+    if (v185 == 1) {
+      reverse.loop(o2,f169);
+      v185 = 0;
+    }
+  }
+}
+
+if (said("look in","chest")) {
+  if (v185 != 1) {
+    print("You will have to open it to see inside.");
+  }
+  else {
+    // Check if any of the flags have been set when things were stolen
+    
+    // else
+    print("You look inside and notice...nothing! Absolutely nothing!");
+  }
+}
+
+if (said("acquire","chest")) {
+  print("This is not the chest you are looking for.");
+}
+
+// Movement
+if (posn(o0,40,113,64,120)) {
+  if (!isset(f37)) {
+    print("OUCH!!!! This fire is HOT! You're going"
+          "to burn yourself.");
+    set(f37);
+  }
+}
+else {
+  reset(f37);
+}
 
 if (v2 == 4) {
   new.room(86);
@@ -53,6 +174,25 @@ return();
 #message 21 "The stocking hats of the dwarf are sitting on the table."
 #message 22 "Those hats wouldn't fit you."
 #message 23 "OUCH!!!! This fire is HOT! You're going to burn yourself."
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
