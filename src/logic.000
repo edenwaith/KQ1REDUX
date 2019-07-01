@@ -995,6 +995,9 @@ if (isset(f104)) {
   if (said("acquire","chest")) {
     print("You already have it.");
   }
+  // If in the dwarf's hideout, ignore these cases
+  if (v0 != 87) {
+  
   if ((said("check","chest") ||
       said("look in","chest"))) {
     show.obj(118);
@@ -1012,6 +1015,7 @@ if (isset(f104)) {
     print("You open the chest and admire the gold"
           "coins for a moment. You then close the"
           "chest.");
+  }
   }
 }
 if (!isset(f75)) {
@@ -1374,6 +1378,8 @@ return();
 #message 174 "Jump  0"
 #message 175 "Duck  -"
 #message 176 "Joystick/Mouse <Ctrl J>"
+
+
 
 
 
