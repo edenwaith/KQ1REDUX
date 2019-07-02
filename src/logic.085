@@ -24,11 +24,16 @@ if (isset(f5)) {
   draw(o0);
   show.pic();
 }
-if ((said("check","stairs") ||
-    said("check","room") ||
-    said("check"))) {
+
+if (said("check","stairs")) {
   print("The stairs are moss-covered and slippery.");
 }
+
+if ((said("check","room") ||
+     said("check"))) {
+  print("The stairs descend deep into the mountain.");
+}
+
 if (isset(f3) &&
     !isset(f21)) {
   set(f145);
@@ -53,6 +58,7 @@ if (isset(f20)) {
   erase(o0);
   set(f63);
 }
+
 // Heading east
 if (v2 == 2) {
   new.room(86);
@@ -64,7 +70,10 @@ return();
 
 // Messages
 #message 1 "The stairs are moss-covered and slippery."
-#message 2 "You klutz!  You slipped on the steep stairs."
+#message 2 "The stairs descend deep into the mountain."
+#message 3 "You klutz!  You slipped on the steep stairs."
+
+
 
 
 

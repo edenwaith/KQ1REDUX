@@ -126,12 +126,7 @@ if (said("look in","chest")) {
     
     if ((isset(f101) || 
          isset(f103) || 
-         isset(f105) ||
-         isset(f107) ||
-         isset(f109) ||
-         isset(f111) ||
-         isset(f112) ||
-         isset(f114) ||)) {
+         isset(f105))) {
          
          print("You look inside and notice...");
          
@@ -144,21 +139,6 @@ if (said("look in","chest")) {
          if (isset(f105)) { // chest
            print("magic chest");
          }
-         if (isset(f107)) { // pouch of diamonds
-           print("pouch of diamonds");
-         }
-         if (isset(f109)) { // gold walnut
-           print("gold walnut");
-         }
-         if (isset(f111)) { // gold egg
-           print("gold egg");
-         }
-         if (isset(f112)) { // pouch
-           print("pouch");
-         }
-         if (isset(f114)) { // sceptre
-           print("sceptre");
-         }
          
     } else {
       print("You look inside and notice...nothing! Absolutely nothing!");
@@ -166,22 +146,55 @@ if (said("look in","chest")) {
   }
 }
 
-if (said("acquire","chest")) {
-  print("This is not the chest you are looking for.");
+
+if (v185 == 1 && 
+    said("acquire", "mirror")) {
+    if (isset(f101)) {
+        print("You reach into the trunk and get it.");
+        v74++; // number of magic treasures?
+        v3 += 8;
+        get("magic mirror");
+        reset(f101);
+        set(f100);
+        set(f125);
+        reset(f126);
+  }
 }
 
-if ((v185 == 1 said("acquire", "mirror")) {
-  if (isset(f101)) {
-    print("You reach into the trunk and get it.");
-    reset(f101);
-    // TODO: Reset other flags, add any missing points, and add inventory item
-    v74++; // number of magic treasures?
-    set(f100);
-    get("magic mirror");
-    v3 += 8;
-    
-    // Also check on f125 and f126
-  }
+if (v185 == 1 && 
+    said("acquire","shield")) {
+    if (isset(f103)) {
+        print("You reach into the trunk and get it.");
+        v74++;
+        v3 += 8;
+        get("shield");
+        reset(f103);
+        set(f102);
+        set(f125);
+        reset(f126);
+    }
+}
+
+if (v185 == 1 && 
+    said("acquire","chest")) {
+    if (isset(f105)) {
+        print("You reach into the trunk and get it.");
+        v74++;
+        v3 += 8;
+        get("chest");
+        reset(f105);
+        set(f104);
+        set(f125);
+        reset(f126);
+    }
+    else {
+      print("This is not the chest you are looking for.");
+    }
+}
+
+if (v185 == 0 &&     
+    said("acquire","chest")) {
+    print("This is not the chest you are looking for.");
 }
 
 // Movement
@@ -225,6 +238,11 @@ return();
 #message 21 "The stocking hats of the dwarf are sitting on the table."
 #message 22 "Those hats wouldn't fit you."
 #message 23 "OUCH!!!! This fire is HOT! You're going to burn yourself."
+
+
+
+
+
 
 
 
