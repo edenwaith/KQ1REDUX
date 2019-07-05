@@ -40,6 +40,13 @@ Label1:
     set.loop(o0,0);
     move.obj(o0,145,115,0,f148);
   }
+  
+  // Sent here from the dwarf's hideout
+  if (v1 == 87) { 
+    position(o0,160,115);
+    set.loop(o0,0);
+    move.obj(o0,145,115,0,f148);
+  }
   draw(o0);
   show.pic();
 }
@@ -284,6 +291,7 @@ return();
 #message 8 "The dwarf is not here for idle conversion."
 #message 9 "Being invisible has protected you, and your treasures, from the dwarf."
 #message 10 "Talking to yourself again, Graham?"
+
 
 
 
