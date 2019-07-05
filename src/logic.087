@@ -1,0 +1,321 @@
+// ****************************************************************
+//
+// Logic 87: Dwarf's Hideout
+// 
+// ****************************************************************
+if (isset(f5)) {
+  load.view(145); // chest (change from 78 to 145)
+  load.view(111); // dwarf (change from 28 to 111)
+  load.view(146); // fire w/o soup (change from 77 to 146)
+  load.view(115); // POOF animation (keep at 115)
+  load.sound(1); // probably the enemy sound (change to from 5 to 1)
+  load.sound(48); // Points chime
+  
+  load.pic(v0);
+  draw.pic(v0);
+  discard.pic(v0);
+  animate.obj(o3);
+  animate.obj(o2);
+  v194 = 3;
+  cycle.time(o2,v194); // Changed v94 to v194
+  animate.obj(o4);
+  v194 = 3;
+  step.size(o4,v194);
+  // Draw the fire
+  position(o3,47,111);
+  set.view(o3,146);
+  draw(o3);
+  random(0,255,v194);
+  
+  reset(f233);
+  
+ if (v194 < 100) { 
+   set(f233); // Changed f33 to f233
+   set.view(o4,111);
+   position(o4,50,119);
+   follow.ego(o4,7,f234); // Changed f34 to f234
+   draw(o4);
+ }
+  
+  set.priority(o2,12);
+  position(o2,105,141);
+  set.view(o2,145);
+
+  if (v185 == 0) {
+    set.cel(o2,0);
+  }
+  else {
+    set.cel(o2,3);
+  }
+
+  ignore.objs(o2);
+  ignore.objs(o4);
+  ignore.objs(o0);
+  draw(o2);
+  stop.cycling(o2);
+  
+  get.posn(o0,v105,v106);
+  if (v106 < 117) {
+    v106 = 117;
+    position.v(o0,v105,v106);
+  }
+  
+  // ADD ADDITIONAL INITIALIZATION CODE HERE
+  draw(o0);
+  show.pic();
+  
+  if (isset(f233)) {
+    sound(1,f235); // Changed flag f169 to f235
+    print("You have stumbled onto the home of the"
+           "thieving dwarf! Unfortunately for you,"
+           "he is home!");
+  }
+}
+
+// Look 
+if ((said("check","room") ||
+     said("check"))) {
+     print("It seems you have entered the"
+           "underground home of the little dwarf."
+           "It is cozy, with a fire crackling in"
+           "the hearth. There is a trunk tucked"
+           "away in the corner.");
+}
+
+if (said("check","fire")) {
+    print("The fire is crackling merrily in the"
+          "fireplace.");
+}
+
+if (said("check","chest")) {
+  print("The trunk looks old and worn. The hinges"
+        "are loose.");
+}
+
+if (said("check","cap")) {
+  print("The stocking hats of the dwarf are"
+        "sitting on the table.");
+}
+
+if (said("anyword","cap")) {
+  print("You have no interest in those hats."
+        "They aren't your style.");
+}
+
+if (said("check","cauldron")) {
+  print("Could it really be the fabled Black Crochan?!"
+        "Nah, you must be thinking of some other Sierra game.");
+}
+
+if (said("acquire","cauldron")) {
+  print("You have no need to raise an army of Cauldron-Born,"
+        "so you decide to leave the black cauldron where it is.");
+}
+
+if ((said("open","chest") ||
+     said("lift","lid"))) {
+  if (!posn(o0,95,120,122,147)) {
+    print("You are too far away, stupid.");
+  }
+  else {
+    if (v185 == 1) {
+      print("The trunk lid is already open.");
+    }
+    if (v185 == 0) {
+      // Changed f169 to f235.  f36 is not used
+      end.of.loop(o2,f235);
+      v185 = 1;
+      // set(f36); // This does not seem to be used
+    }
+  }
+}
+
+if ((said("close","chest") ||
+     said("close","lid"))) {
+  if (!posn(o0,95,120,122,147)) {
+    print("You are too far away, stupid.");
+  }
+  else {
+    if (v185 == 0) {
+      print("The lid of the trunk is already"
+            "closed.");
+    }
+    if (v185 == 1) {
+      reverse.loop(o2,f235);
+      v185 = 0;
+    }
+  }
+}
+
+if (said("look in","chest")) {
+  if (v185 != 1) {
+    print("You will have to open it to see inside.");
+  }
+  else {
+    // Check if any of the flags have been set when things were stolen
+    
+    if ((isset(f101) || 
+         isset(f103) || 
+         isset(f105))) {
+         
+         print("You look inside and notice...");
+         
+         if (isset(f101)) { // magic mirror
+           print("magic mirror");
+         }
+         if (isset(f103)) { // magic shield
+           print("magic shield");
+         }
+         if (isset(f105)) { // chest
+           print("magic chest");
+         }
+         
+    } else {
+      print("You look inside and notice...nothing! Absolutely nothing!");
+    }
+  }
+}
+
+if (v185 == 1 && 
+    said("acquire", "mirror")) {
+    if (!posn(o0,95,120,122,147)) {
+        print("You are too far away, stupid.");
+    } else {
+        if (isset(f101)) {
+            print("You reach into the trunk and get it.");
+            v74++; // number of magic treasures?
+            v3 += 8;
+            get("magic mirror");
+            reset(f101);
+            set(f100);
+            set(f125);
+            reset(f126);
+            sound(48,f255);
+        }
+    }
+}
+
+if (v185 == 1 && 
+    said("acquire","shield")) {
+    if (!posn(o0,95,120,122,147)) {
+        print("You are too far away, stupid.");
+    } else {
+        if (isset(f103)) {
+            print("You reach into the trunk and get it.");
+            v74++;
+            v3 += 8;
+            get("shield");
+            reset(f103);
+            set(f102);
+            set(f125);
+            reset(f126);
+            sound(48,f255);
+        }
+    }
+}
+
+if (v185 == 1 && 
+    said("acquire","chest")) {
+    if (!posn(o0,95,120,122,147)) {
+        print("You are too far away, stupid.");
+    } else {
+        if (isset(f105)) {
+            print("You reach into the trunk and get it.");
+            v74++;
+            v3 += 8;
+            get("chest");
+            reset(f105);
+            set(f104);
+            set(f125);
+            reset(f126);
+            sound(48,f255);
+        }
+        else {
+            print("This is not the chest you are looking for.");
+        }
+    }
+}
+
+if (v185 == 0 &&     
+    said("acquire","chest")) {
+    print("This is not the chest you are looking for.");
+}
+
+// Movement
+if (posn(o0,40,113,64,120)) {
+  if (!isset(f37)) {
+    print("OUCH!!!! This fire is HOT! You're going"
+          "to burn yourself.");
+    set(f37);
+  }
+}
+else {
+  reset(f37);
+}
+
+if (v2 == 4) {
+  new.room(86);
+}
+
+if (isset(f234)) {
+  reset(f234);
+  print("Gotcha! The dwarf has caught you and throws you "
+        "out of his home.");
+  new.room(68);
+  
+  // This is old code that if I ever want to try and fix the POOF
+  // animation and then transport Graham out.
+//  set.view(o0,115);
+//  if (posn(o0,16,117,60,167)) {
+//    erase(o0);
+//    get.posn(o0,v105,v106);
+//    v105 -= 15;
+//    position.v(o0,v105,v106);
+//    draw(o0);
+//  }
+//  stop.motion(o0);
+//  set(f92);
+//  end.of.loop(o0,f235);
+//  set.priority(o0,15);
+//  ignore.objs(o0);
+}
+
+// FIXME: The poof of smoke appears, but this isn't switching rooms
+// This didn't seem to work quite properly with the POOF animation,
+// so I made an alteration on how the dwarf throws out Graham
+//if (isset(f235)) {
+//  reset(f92);
+//  reset(f235);
+//  set.view(o0,0);
+//  release.priority(o0);
+//  // print("Raus mit dir!");
+//  new.room(68);
+//}
+
+return();
+
+// Messages
+#message 1 "You have stumbled onto the home of the thieving dwarf! Unfortunately for you, he is home!"
+#message 2 "It seems you have entered the underground home of the little dwarf. It is cozy, with a fire crackling in the hearth. A pot of chicken soup bubbling above the fire gives a delicious aroma to the room. There is a trunk tucked away in the corner."
+#message 3 "It seems you have entered the underground home of the little dwarf. It is cozy, with a fire crackling in the hearth. There is a trunk tucked away in the corner."
+#message 4 "There is a pot of chicken soup boiling over the fire."
+#message 5 "The fire is crackling merrily in the fireplace."
+#message 6 "The trunk looks old and worn. The hinges are loose."
+#message 7 "You look inside and notice..."
+#message 8 "You look inside and notice...nothing! Absolutely nothing!"
+#message 9 "The trunk lid is already open."
+#message 10 "magic mirror"
+#message 11 "magic shield"
+#message 12 "magic chest"
+#message 13 "brooch"
+#message 14 "tiara"
+#message 15 "The lid of the trunk is already closed."
+#message 16 "You grab the wooden handle of the bubbling pot of chicken soup. You take the pot with you."
+#message 17 "You reach into the trunk and get it."
+#message 19 "You are too far away."
+#message 20 "You will have to open it to see inside."
+#message 21 "The stocking hats of the dwarf are sitting on the table."
+#message 22 "Those hats wouldn't fit you."
+#message 23 "OUCH!!!! This fire is HOT! You're going to burn yourself."
+
+

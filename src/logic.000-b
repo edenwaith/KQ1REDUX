@@ -1,6 +1,3 @@
-// logic.0
-// Check http://www.agidev.com/articles/agispec/agispecs-3.html for 
-// common variable and flag types used by the interpreter
 if (v17 > 0) {
   call(98);
 }
@@ -174,8 +171,9 @@ if (controller(c10)) {
 if (controller(c27)) {
   if (v10 < 2) {
     v10++;
-  } else {
-    v10 = v10 + 2;
+  }
+  else {
+    v10 += 2;
   }
   if (v10 > 4) {
     v10 = 0;
@@ -186,12 +184,12 @@ if ((said("fastest") ||
     controller(c26))) {
   v88 = 0;
   v10 = v88;
-} 
+}
 if ((said("fast") ||
     controller(c22))) {
   v88 = 1;
   v10 = v88;
-} 
+}
 if ((said("normal") ||
     controller(c23))) {
   v88 = 2;
@@ -240,8 +238,7 @@ if (controller(c21)) {
   reset(f13);
 }
 if (controller(c19)) {
-  print("King's Quest was designed by Roberta"
-        "Williams.");
+  print("King's Quest was designed by Roberta Williams.");
 }
 if (controller(c18)) {
   call(92);
@@ -429,9 +426,6 @@ if ((said("duck") ||
     set(f200);
     set.view(o0,150);
     set(f98);
-    // set(f201);
-    //start.cycling(o0);
-    //end.of.loop(o0,f201);
   }
   else {
     if (!isset(f202)) {
@@ -477,8 +471,7 @@ if (isset(f67)) {
         v0 != 46 &&
         v0 != 51 &&
         v0 != 58) {
-      print("There is no reason to throw the"
-            "dagger.");
+      print("There is no reason to throw the dagger.");
     }
     else {
       reset(f4);
@@ -504,8 +497,7 @@ if (isset(f118) &&
 if (isset(f77)) {
   if (said("consume","carrot")) {
     if (!isset(f75)) {
-      print("Mmmm!  There's nothing like a crisp,"
-            "fresh carrot.");
+      print("Mmmm!  There's nothing like a crisp, fresh carrot.");
       drop("carrot");
       reset(f77);
       reset(f117);
@@ -513,9 +505,8 @@ if (isset(f77)) {
       set(f118);
     }
     if (isset(f75)) {
-      print("Seeing how much the goat likes that"
-            "carrot, eating it may be hazardous to"
-            "your health.");
+      print("Seeing how much the goat likes that carrot, eating it may be"
+            "hazardous to your health.");
     }
   }
   if (said("check","carrot")) {
@@ -533,8 +524,7 @@ if (isset(f77)) {
           said("give","carrot") ||
           said("give","goat","carrot") ||
           said("give","carrot","goat"))) {
-        print("The goat quickly eats the carrot"
-              "and disappears.");
+        print("The goat quickly eats the carrot and disappears.");
         drop("carrot");
         reset(f77);
         reset(f117);
@@ -568,8 +558,7 @@ if (isset(f108)) {
     print("You have already opened the walnut.");
   }
   if (said("consume","gold nut")) {
-    print("Don't do that!  This walnut is not"
-          "edible since it is pure gold.");
+    print("Don't do that!  This walnut is not edible since it is pure gold.");
   }
   if (said("check","gold nut")) {
     show.obj(120);
@@ -577,8 +566,7 @@ if (isset(f108)) {
 }
 if (isset(f127)) {
   if (said("consume","gold nut")) {
-    print("Ouch!  It would be much easier if you"
-          "opened the walnut first.");
+    print("Ouch!  It would be much easier if you opened the walnut first.");
   }
   if (said("check","gold nut")) {
     show.obj(139);
@@ -588,8 +576,7 @@ if (isset(f127)) {
     if (v0 == 30) {
       sound(14,f148);
     }
-    print("When you open the walnut, you discover"
-          "the nut inside is pure gold!");
+    print("When you open the walnut, you discover the nut inside is pure gold!");
     reset(f127);
     set(f108);
     drop("walnut");
@@ -600,9 +587,8 @@ if (isset(f127)) {
 if (v0 != 49 &&
     said("dive","anyword")) {
   if (v94 > 0) {
-    print("The water is very deep here. Without"
-          "aid, it is impossible to swim under the"
-          "water for any length of time.");
+    print("The water is very deep here. Without aid, it is impossible to swim"
+          "under the water for any length of time.");
   }
   else {
     print("You need to be in the water to try that.");
@@ -611,9 +597,8 @@ if (v0 != 49 &&
 if (v63 == 0 &&
     v64 == 0 &&
     isset(f73)) {
-  print("\"Ye best be careful, young Graham.  The"
-        "mystic protective spell of mine has"
-        "weakened and departed.\"");
+  print("\"Ye best be careful, young Graham.  The mystic protective spell of"
+        "mine has weakened and departed.\"");
   reset(f73);
 }
 else {
@@ -643,8 +628,7 @@ if (isset(f81) &&
   if ((said("drink","water") ||
       said("acquire","drink"))) {
     set(f116);
-    print("You drain the bucket of water to quench"
-          "your thirst.");
+    print("You drain the bucket of water to quench your thirst.");
     reset(f88);
     drop("water");
     v3 -= 2;
@@ -654,8 +638,7 @@ if (isset(f81) &&
 if (isset(f0) &&
     (said("drink","water") ||
     said("acquire","drink"))) {
-  print("You open your mouth while swimming and"
-        "quench your thirst.");
+  print("You open your mouth while swimming and quench your thirst.");
 }
 if (isset(f81) &&
     !isset(f88)) {
@@ -663,8 +646,7 @@ if (isset(f81) &&
     if ((said("acquire","water") ||
         said("fill","bucket"))) {
       reset(f116);
-      print("With difficulty, you fill the bucket"
-            "while swimming.");
+      print("With difficulty, you fill the bucket while swimming.");
       get("water");
       set(f88);
       if (!isset(f91)) {
@@ -686,8 +668,7 @@ if (isset(f123)) {
   }
   if (said("consume","mushroom")) {
     if (isset(f79)) {
-      print("You try, but being invisible makes it"
-            "impossible.");
+      print("You try, but being invisible makes it impossible.");
     }
     if (!isset(f157) &&
         !isset(f158) &&
@@ -706,10 +687,9 @@ if (isset(f123)) {
         v0 != 73 &&
         v0 != 74 &&
         v0 != 75) {
-      print("As soon as you swallow the first"
-            "bite, you have this strange shrinking"
-            "feeling...  It's true!  You are now"
-            "no bigger than a mouse!");
+      print("As soon as you swallow the first bite, you have this strange"
+            "shrinking feeling...  It's true!  You are now no bigger than a"
+            "mouse!");
       set.view(o0,60);
       v82 = 200;
       drop("mushroom");
@@ -722,8 +702,7 @@ if (isset(f123)) {
       }
     }
     else {
-      print("Now is not a good time to try and eat"
-            "the mushroom.");
+      print("Now is not a good time to try and eat the mushroom.");
     }
   }
 }
@@ -734,8 +713,8 @@ if (isset(f120) &&
       v0 != 36 &&
       v0 != 78) {
     set.view(o0,0);
-    print("You feel a stretching sensation... Oh,"
-          "you're back to your original size.");
+    print("You feel a stretching sensation... Oh, you're back to your original"
+          "size.");
     reset(f120);
   }
 }
@@ -754,8 +733,7 @@ if (isset(f83)) {
     }
     if (!isset(f133)) {
       set(f133);
-      print("You slip the beautiful ring on one of"
-            "your fingers.");
+      print("You slip the beautiful ring on one of your fingers.");
     }
   }
   if (said("remove","ring")) {
@@ -766,8 +744,7 @@ if (isset(f83)) {
         !isset(f79)) {
       drop("magic ring");
       v3 -= 3;
-      print("I don't know why, but you drop the"
-            "magic ring.");
+      print("I don't know why, but you drop the magic ring.");
       reset(f83);
       reset(f133);
       set(f115);
@@ -776,8 +753,7 @@ if (isset(f83)) {
         isset(f79)) {
       drop("magic ring");
       v3 -= 3;
-      print("When the ring disappears, you"
-            "reappear!");
+      print("When the ring disappears, you reappear!");
       set.view(o0,0);
       reset(f83);
       reset(f79);
@@ -789,18 +765,16 @@ if (isset(f83)) {
   }
   if (said("rub","ring")) {
     if (!isset(f133)) {
-      print("The magic ring is still in your"
-            "pocket.  You can't rub it there.");
+      print("The magic ring is still in your pocket.  You can't rub it there.");
     }
     if (isset(f133) &&
         isset(f75)) {
-      print("You rub the magic ring but the goat"
-            "seems to have a strange effect on it.");
+      print("You rub the magic ring but the goat seems to have a strange effect"
+            "on it.");
     }
     if (isset(f133) &&
         isset(f79)) {
-      print("There is no need to rub the ring as"
-            "you are already invisible.");
+      print("There is no need to rub the ring as you are already invisible.");
     }
     if (isset(f133) &&
         !isset(f75) &&
@@ -820,9 +794,8 @@ if (isset(f83)) {
           !isset(f142) &&
           !isset(f120)) {
         set.view(o0,110);
-        print("When you rub the magic ring, you"
-              "mysteriously disappear, except for"
-              "your footprints.");
+        print("When you rub the magic ring, you mysteriously disappear, except"
+              "for your footprints.");
         set(f79);
         v90 = 250;
         v91 = 10;
@@ -841,8 +814,7 @@ if (isset(f83)) {
           isset(f209) ||
           isset(f142) ||
           isset(f120))) {
-        print("You're too busy right now to rub"
-              "the ring.");
+        print("You're too busy right now to rub the ring.");
       }
     }
   }
@@ -865,10 +837,8 @@ if (v90 == 1 &&
   reset(f133);
   set(f115);
   reset(f79);
-  print("The spell to make you invisible has"
-        "expired and you are once again visible to"
-        "dangerous creatures, but, the ring has"
-        "now disappeared.");
+  print("The spell to make you invisible has expired and you are once again"
+        "visible to dangerous creatures, but, the ring has now disappeared.");
   v3 -= 3;
 }
 if (isset(f154)) {
@@ -877,23 +847,16 @@ if (isset(f154)) {
   }
   if (said("consume","bean")) {
     print("It would not be wise to eat the magic beans.");
-    //print("You're going to be sorry!!  These were"
-    //      "magic beans!");
-    //v3 -= 5;
-    //drop("beans");
-    //reset(f154);
   }
   if (said("bury","bean")) {
     if (v0 != 6 &&
         v0 != 22 &&
         v0 != 31 &&
         v0 != 35 &&
-        v0 != 38 && 
+        v0 != 38 &&
         v0 != 46) {
-      print("That is not a bad idea, but this is"
-            "not a very suitable place to plant"
-            "these beans.  Why don't you try it"
-            "elsewhere?");
+      print("That is not a bad idea, but this is not a very suitable place to"
+            "plant these beans.  Why don't you try it elsewhere?");
     }
     else {
       reset(f4);
@@ -904,14 +867,11 @@ if (isset(f89)) {
   if (v89 == 1) {
     if (said("consume","stew")) {
       if (v0 == 79) {
-        print("It is very inconsiderate to eat in"
-              "front of these poor, starving"
-              "people.  The pains of guilt set in"
-              "on you.");
+        print("It is very inconsiderate to eat in front of these poor, starving"
+              "people.  The pains of guilt set in on you.");
       }
       else {
-        print("You eat every bite of the delicious"
-              "stew.");
+        print("You eat every bite of the delicious stew.");
       }
       v89 = 0;
       reset(f184);
@@ -919,12 +879,10 @@ if (isset(f89)) {
       goto(Label4);
     }
     if (said("taste","stew")) {
-      print("Even a small portion of the stew is"
-            "very appetizing.");
+      print("Even a small portion of the stew is very appetizing.");
     }
     if (said("check","stew")) {
-      print("The stew is chock full of vegetables"
-            "and meat.");
+      print("The stew is chock full of vegetables and meat.");
     }
     if ((said("check","bowl") ||
         said("look in","bowl"))) {
@@ -946,8 +904,7 @@ if (isset(f89)) {
         said("check","word") ||
         said("read","bottom","bowl") ||
         said("check","bottom","bowl"))) {
-      print("The word on the bottom of the bowl"
-            "says \"fill\".");
+      print("The word on the bottom of the bowl says \"fill\".");
       if (!isset(f184)) {
         set(f184);
         v3 += 1;
@@ -956,15 +913,12 @@ if (isset(f89)) {
     if ((said("fill") ||
         said("say","fill"))) {
       if (v0 == 79) {
-        print("The bowl fills with the delicious"
-              "stew, but the woodcutters are"
+        print("The bowl fills with the delicious stew, but the woodcutters are"
               "unaware of it.");
       }
       else {
-        print("After uttering that strange word,"
-              "the bowl starts quivering and"
-              "immediately fills up with a"
-              "delicious, hot stew.");
+        print("After uttering that strange word, the bowl starts quivering and"
+              "immediately fills up with a delicious, hot stew.");
       }
       v89 = 1;
       if (!isset(f184)) {
@@ -995,27 +949,21 @@ if (isset(f104)) {
   if (said("acquire","chest")) {
     print("You already have it.");
   }
-  // If in the dwarf's hideout, ignore these cases
-  if (v0 != 87) {
-  
   if ((said("check","chest") ||
       said("look in","chest"))) {
     show.obj(118);
   }
   if (said("open","chest")) {
-    print("You are dazzled by the countless supply"
-          "of gold coins spilling from the magic"
-          "chest.  You quickly close the chest.");
+    print("You are dazzled by the countless supply of gold coins spilling from"
+          "the magic chest.  You quickly close the chest.");
   }
   if (said("acquire","coin")) {
-    print("You are already carrying an endless"
-          "supply of gold coins in the magic chest.");
-  }
-  if (said("check","coin")) {
-    print("You open the chest and admire the gold"
-          "coins for a moment. You then close the"
+    print("You are already carrying an endless supply of gold coins in the magic"
           "chest.");
   }
+  if (said("check","coin")) {
+    print("You open the chest and admire the gold coins for a moment. You then"
+          "close the chest.");
   }
 }
 if (!isset(f75)) {
@@ -1037,8 +985,7 @@ if (!isset(f75)) {
 if (isset(f75)) {
   if (!isset(f67) &&
       said("kill","goat")) {
-    print("You don't have any way to kill the old"
-          "goat.");
+    print("You don't have any way to kill the old goat.");
   }
   if (isset(f67) &&
       said("kill","goat")) {
@@ -1048,10 +995,8 @@ if (isset(f75)) {
       if ((v0 == 10 ||
           v0 == 11)) {
         get.posn(o0,v60,v61);
-        print("You hurl the dagger at the old"
-              "goat... he tries to avoid the"
-              "flying dagger, but your aim is"
-              "true... as the dagger strikes, he"
+        print("You hurl the dagger at the old goat... he tries to avoid the"
+              "flying dagger, but your aim is true... as the dagger strikes, he"
               "slumps to the ground... dead.");
         set.view(o0,0);
         set.view(o13,62);
@@ -1067,10 +1012,8 @@ if (isset(f75)) {
         set(f70);
       }
       else {
-        print("You hurl the dagger at the old"
-              "goat... he tries to avoid the"
-              "flying dagger, but your aim is"
-              "true... as the dagger strikes, he"
+        print("You hurl the dagger at the old goat... he tries to avoid the"
+              "flying dagger, but your aim is true... as the dagger strikes, he"
               "slumps to the ground... dead.");
         erase(o13);
         set.view(o13,62);
@@ -1087,8 +1030,7 @@ if (isset(f75)) {
     }
   }
   if (said("check","goat")) {
-    print("The old goat, trotting briskly, seems"
-          "happy to be with you.");
+    print("The old goat, trotting briskly, seems happy to be with you.");
   }
   if (said("speak","goat")) {
     print("The goat is not much for conversation.");
@@ -1109,8 +1051,7 @@ if (isset(f170)) {
   if ((said("read","note") ||
       said("read","message") ||
       said("read","message","note"))) {
-    print("The note reads, \"Sometimes it is wise"
-          "to think backwards.\"");
+    print("The note reads, \"Sometimes it is wise to think backwards.\"");
     if (!isset(f196)) {
       set(f196);
       v3 += 1;
@@ -1128,8 +1069,7 @@ if (isset(f139)) {
     show.obj(134);
   }
   if (said("consume","cheese")) {
-    print("Mmmm!  That Swiss cheese was as"
-          "delicious as it looked.");
+    print("Mmmm!  That Swiss cheese was as delicious as it looked.");
     drop("cheese");
     reset(f139);
     v3 -= 2;
@@ -1160,10 +1100,10 @@ if (isset(f102)) {
   }
 }
 if (isset(f113)) {
-  if (said("acquire","sceptre")) {
+  if (said("acquire","scepter")) {
     print("You already have it.");
   }
-  if (said("check","sceptre")) {
+  if (said("check","scepter")) {
     show.obj(133);
   }
 }
@@ -1189,10 +1129,8 @@ if (isset(f72)) {
   if (!isset(f106)) {
     if ((said("open","bag") ||
         said("look in","bag"))) {
-      print("Cautiously, you open the pouch and"
-            "see many sparkling and flashing"
-            "diamonds!  Quickly, you close it"
-            "again so as not to lose any.");
+      print("Cautiously, you open the pouch and see many sparkling and flashing"
+            "diamonds!  Quickly, you close it again so as not to lose any.");
       get("pouch of diamonds");
       drop("pouch");
       v3 += 3;
@@ -1238,8 +1176,7 @@ if (isset(f171)) {
       !isset(f211)) {
     if (said("play","fiddle")) {
       set(f211);
-      print("You play a lively, toe-tapping tune"
-            "on the fiddle.");
+      print("You play a lively, toe-tapping tune on the fiddle.");
       sound(8,f212);
     }
   }
@@ -1300,6 +1237,7 @@ return();
 #message 28 "You need to be in the water to try that."
 #message 29 "You need to be in water to swim."
 #message 30 ">"
+#message 31 "About KQ "
 #message 32 "You do not have any stew."
 #message 33 "The stew is chock full of vegetables and meat."
 #message 34 "You already have a full bowl of stew."
@@ -1309,6 +1247,7 @@ return();
 #message 38 "You eat every bite of the delicious stew."
 #message 39 "OK."
 #message 40 "You're welcome!"
+#message 41 "Help <F1>"
 #message 42 "You are dazzled by the countless supply of gold coins spilling from the magic chest.  You quickly close the chest."
 #message 43 "You are already carrying an endless supply of gold coins in the magic chest."
 #message 44 "You open the chest and admire the gold coins for a moment. You then close the chest."
@@ -1324,11 +1263,19 @@ return();
 #message 54 "When you open the walnut, you discover the nut inside is pure gold!"
 #message 55 "Ouch!  It would be much easier if you opened the walnut first."
 #message 56 "Don't do that!  This walnut is not edible since it is pure gold."
+#message 57 "Normal      "
+#message 58 "Slow        "
+#message 59 "Fast        "
 #message 60 "The note reads, \"Sometimes it is wise to think backwards.\""
+#message 61 "Fastest     "
+#message 62 "------------"
 #message 63 "Mmmm!  That Swiss cheese was as delicious as it looked."
+#message 64 "Change <F10>"
 #message 65 "The word on the bottom of the bowl says \"fill\"."
 #message 66 "Even a small portion of the stew is very appetizing."
+#message 67 "VERSION 3.0"
 #message 68 "You throw one of your pebbles."
+#message 69 "It would not be wise to eat the magic beans."
 #message 73 "This egg will be tough to crack."
 #message 75 "You play a lively, toe-tapping tune on the fiddle."
 #message 78 "You have already opened the pouch."
@@ -1378,20 +1325,3 @@ return();
 #message 174 "Jump  0"
 #message 175 "Duck  -"
 #message 176 "Joystick/Mouse <Ctrl J>"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -1,0 +1,163 @@
+// Logic.073
+if (isset(f5)) {
+  load.sound(23);
+  load.sound(29);
+  load.view(102);
+  load.view(8);
+  load.view(91);
+  load.view(109);
+  load.pic(v0);
+  draw.pic(v0);
+  if (v1 == 72) {
+    if (isset(f125)) {
+      set.priority(o0,15);
+      reset(f31);
+      sound(29,f35);
+      v106 = 25;
+      position.v(o0,v74,v106);
+      v106 = 130;
+      set(f92);
+      v108 = 5;
+      move.obj.v(o0,v74,v106,108,f32);
+      program.control();
+    }
+    else {
+      set(f31);
+      set.priority(o0,14);
+      position(o0,95,40);
+      ignore.blocks(o0);
+      v94 = 2;
+      step.size(o0,v94);
+      set.view(o0,102);
+    }
+  }
+  else {
+    reset(f31);
+  }
+  reset(f32);
+  draw(o0);
+  show.pic();
+}
+if (isset(f3)) {
+  reset(f3);
+  if (isset(f31)) {
+    if (posn(o0,95,115,112,123)) {
+      set.view(o0,0);
+      v94 = 1;
+      cycle.time(o0,v94);
+      step.size(o0,v94);
+      reposition.to(o0,103,130);
+      reset(f31);
+      observe.blocks(o0);
+      release.priority(o0);
+    }
+    else {
+      program.control();
+      set(f92);
+      ignore.blocks(o0);
+      set.view(o0,8);
+      v94 = 2;
+      cycle.time(o0,v94);
+      v94 = 3;
+      step.size(o0,v94);
+      reset(f31);
+      set(f125);
+      sound(29,f35);
+      get.posn(o0,v94,v70);
+      v33 = v70;
+      v70 = 130;
+      v108 = 5;
+      move.obj.v(o0,v94,v70,108,f32);
+    }
+  }
+  else {
+    if (!isset(f125)) {
+      if (posn(o0,95,115,112,123) &&
+          v6 == 1) {
+        v94 = 2;
+        step.size(o0,v94);
+        set.view(o0,102);
+        v94 = 1;
+        cycle.time(o0,v94);
+        v94 = 2;
+        step.size(o0,v94);
+        set(f31);
+        reposition.to(o0,98,110);
+        set.priority(o0,14);
+        ignore.blocks(o0);
+      }
+    }
+  }
+}
+if (isset(f32)) {
+  stop.sound();
+  reset(f32);
+  reset(f125);
+  if (v33 < 60) {
+    set.view(o0,91);
+    set(f50);
+  }
+  else {
+    set.view(o0,109);
+    v94 = 2;
+    cycle.time(o0,v94);
+    set(f92);
+    v58 = 50;
+    set(f34);
+  }
+}
+if (isset(f34) &&
+    v58 > 0) {
+  reset(f34);
+  sound(23,f34);
+}
+v58--;
+if (v58 > 0) {
+  program.control();
+}
+if (v58 == 1) {
+  reset(f125);
+  observe.blocks(o0);
+  release.priority(o0);
+  reset(f31);
+  reset(f92);
+  set.view(o0,0);
+  v94 = 1;
+  cycle.time(o0,v94);
+  step.size(o0,v94);
+  player.control();
+}
+if ((said("check out","ladder") ||
+    said("look up"))) {
+  print("The ladder goes up through a hole in the"
+        "ground. You cannot see the top of the"
+        "ladder.");
+}
+if (!isset(f4) &&
+    (said("check out","antique shop") ||
+    said("check out","swim") ||
+    said("check out"))) {
+  print("You are in a musty underground"
+        "passageway. There is a narrow ladder"
+        "leading up through a hole in the ground.");
+}
+if (!isset(f31) &&
+    said("get on","ladder")) {
+  print("Just go toward the ladder.");
+}
+if (v2 == 2) {
+  new.room(74);
+}
+if (v2 == 1) {
+  observe.blocks(o0);
+  release.priority(o0);
+  set.view(o0,0);
+  new.room(72);
+}
+return();
+
+// Messages
+#message 1 "You are in a musty underground passageway. There is a narrow ladder leading up through a hole in the ground."
+#message 2 "The ladder goes up through a hole in the ground. You cannot see the top of the ladder."
+#message 3 "Just go toward the ladder."
+

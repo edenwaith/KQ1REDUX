@@ -257,7 +257,7 @@ if (!isset(f138)) {
         // Interesting, it takes away 2 points, but adds 4, for a total of 2
         v3 -= 2;
         v3 += 4;
-        sound(48,f148);
+        sound(48,f255);
       }
       else {
         print("It appears you are afraid of the"
