@@ -4,6 +4,7 @@ if (isset(f5)) {
   draw.pic(v0);
   discard.pic(v0);
   load.sound(14);
+  load.sound(48);
   set.horizon(50);
   if (isset(f75)) {
     load.logics(103);
@@ -53,6 +54,7 @@ if (!isset(f127) &&
         set(f129);
         v3 += 3;
         get("walnut");
+        sound(48,f255);
       }
       else {
         print("The walnuts are over by the walnut"
@@ -110,6 +112,7 @@ return();
 #message 7 "They are very small and hard to see from here."
 #message 8 "The walnuts are over by the walnut tree."
 #message 9 "If you've seen one pine tree, you've seen them all."
+
 
 
 

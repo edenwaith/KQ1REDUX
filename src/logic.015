@@ -3,6 +3,7 @@ if (isset(f5)) {
   load.pic(v0);
   draw.pic(v0);
   discard.pic(v0);
+  load.sound(48);
   set.horizon(46);
   if (isset(f75)) {
     load.logics(103);
@@ -73,6 +74,7 @@ if (isset(f20)) {
     if (!isset(f117)) {
       v3 += 2;
       set(f117);
+      sound(48,f255);
     }
   }
 }
@@ -121,5 +123,6 @@ return();
 #message 8 "You must be in the carrot patch to pick a carrot."
 #message 9 "You do not have a carrot to eat."
 #message 10 "You see an old stone wall surrounding a well kept garden."
+
 
 

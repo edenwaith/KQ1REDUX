@@ -3,6 +3,7 @@ if (isset(f5)) {
   load.pic(v0);
   draw.pic(v0);
   discard.pic(v0);
+  load.sound(48);
   set.horizon(46);
   if (v81 != 3) {
     random(0,250,v62);
@@ -104,6 +105,7 @@ if (posn(o0,20,120,110,135)) {
       if (!isset(f160)) {
         v3 += 2;
         set(f160);
+        sound(48,f255);
       }
     }
     if (said("consume","candy")) {
@@ -120,6 +122,7 @@ if (posn(o0,20,120,110,135)) {
       if (!isset(f160)) {
         v3 += 2;
         set(f160);
+        sound(48,f255);
       }
     }
     if (said("consume","candy")) {
@@ -227,5 +230,6 @@ return();
 #message 19 "The path leads to the door."
 #message 20 "The path is around the corner."
 #message 21 "You are near a little gingerbread house in a forest clearing."
+
 
 

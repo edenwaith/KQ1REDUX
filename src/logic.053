@@ -3,6 +3,7 @@ if (isset(f5)) {
   load.pic(v0);
   draw.pic(v0);
   discard.pic(v0);
+  load.sound(48);
   v70 = 0;
   v71 = 0;
   if (v1 == 54) {
@@ -238,6 +239,7 @@ if (posn(o0,18,80,86,113)) {
           if (!isset(f168)) {
             set(f168);
             v3 += 3;
+            sound(48,f255);
           }
         }
         else {
@@ -262,6 +264,7 @@ if (posn(o0,18,80,86,113)) {
             if (!isset(f194)) {
               set(f194);
               v3 += 3;
+              sound(48,f255);
             }
           }
           else {
@@ -504,6 +507,7 @@ return();
 #message 59 "That is no way to try and address King Edward."
 #message 60 "The spell to make you invisible has expired and you are once again visible."
 #message 61 "That man is the King."
+
 
 
 
