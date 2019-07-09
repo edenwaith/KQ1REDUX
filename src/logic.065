@@ -1,4 +1,4 @@
-// logic.065
+// logic.065 - Inside witch's house
 if (isset(f5)) {
   load.pic(v0);
   draw.pic(v0);

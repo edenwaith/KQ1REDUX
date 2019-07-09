@@ -7,6 +7,7 @@ if (isset(f5)) {
   discard.pic(v0);
   load.sound(4);
   load.sound(5);
+  load.sound(48);
   set.horizon(41);
   if (isset(f75)) {
     load.logics(103);
@@ -199,6 +200,7 @@ if (v71 > 20 &&
   if (!isset(f204)) {
     set(f204);
     v3 += 3;
+    sound(48,f255);
   }
 }
 if (!isset(f21) &&
@@ -400,6 +402,7 @@ return();
 #message 14 "Ouch!"
 #message 15 "This bird doesn't talk much."
 #message 16 "A large cave is at the edge of this meadow."
+
 
 
 

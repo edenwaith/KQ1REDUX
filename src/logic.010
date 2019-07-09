@@ -3,6 +3,7 @@ if (isset(f5)) {
   load.pic(v0);
   draw.pic(v0);
   discard.pic(v0);
+  load.sound(48);
   set.horizon(41);
   load.view(67);
   if (!isset(f75) &&
@@ -259,6 +260,7 @@ if (isset(f74) &&
           erase(o13);
           set.view(o0,67);
           v3 += 5;
+          sound(48,f255);
         }
         if (isset(f151)) {
           print("The old goat shows some interest"
@@ -368,6 +370,7 @@ return();
 #message 32 "This looks like an area in which to keep animals."
 #message 33 "Hallelujah! Using the power of your magical voodoo carrot, you manage to resurrect the goat from the dead. Arise Gombie the Zombie Goat!";
 #message 34 "Dead goats have very little to say.";
+
 
 
 

@@ -595,6 +595,8 @@ if (isset(f127)) {
     drop("walnut");
     get("gold walnut");
     v3 += 3;
+    load.sound(48);
+    sound(48,f255);
   }
 }
 if (v0 != 49 &&
@@ -669,6 +671,8 @@ if (isset(f81) &&
       set(f88);
       if (!isset(f91)) {
         v3 += 2;
+        load.sound(48);
+        sound(48,f255);
       }
       set(f91);
     }
@@ -719,6 +723,8 @@ if (isset(f123)) {
       v3 -= 1;
       if (v0 == 78) {
         v3 += 3;
+        load.sound(48);
+        sound(48,f255);
       }
     }
     else {
@@ -948,9 +954,14 @@ if (isset(f89)) {
         said("check","bottom","bowl"))) {
       print("The word on the bottom of the bowl"
             "says \"fill\".");
+            // I probably should cancel out this next block
+            // due to the bug I found that can cause
+            // "negative" points
       if (!isset(f184)) {
         set(f184);
         v3 += 1;
+        load.sound(48);
+        sound(48,f255);
       }
     }
     if ((said("fill") ||
@@ -970,6 +981,8 @@ if (isset(f89)) {
       if (!isset(f184)) {
         set(f184);
         v3 += 2;
+        load.sound(48);
+        sound(48,f255);
       }
     }
     if ((said("consume","stew") ||
@@ -1114,6 +1127,8 @@ if (isset(f170)) {
     if (!isset(f196)) {
       set(f196);
       v3 += 1;
+      load.sound(48);
+      sound(48,f255);
     }
   }
   if (said("acquire","note")) {
@@ -1198,6 +1213,8 @@ if (isset(f72)) {
       v3 += 3;
       set(f106);
       reset(f72);
+      load.sound(48);
+      sound(48,f255);
     }
   }
 }
@@ -1378,6 +1395,10 @@ return();
 #message 174 "Jump  0"
 #message 175 "Duck  -"
 #message 176 "Joystick/Mouse <Ctrl J>"
+
+
+
+
 
 
 
