@@ -96,6 +96,8 @@ if (!isset(f121)) {
       set(f123);
       v3 += 1;
       get("mushroom");
+      load.sound(48);
+      sound(48,f255);
     }
     else {
       print("You need to get closer to do that.");
@@ -153,18 +155,3 @@ return();
 #message 3 "The dark tunnel leads off to the south."
 #message 4 "OUCH!"
 #message 5 "When you fell through the hole, you felt a streching sensation and are back to your normal size."
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

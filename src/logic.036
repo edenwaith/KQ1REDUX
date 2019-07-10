@@ -16,6 +16,8 @@ if (isset(f5)) {
     set.view(o0,60);
     position(o0,110,131);
     move.obj(o0,88,131,0,f20);
+    load.sound(48);
+    sound(48,f255);
   }
   draw(o0);
   show.pic();
@@ -144,5 +146,6 @@ return();
 #message 12 "Go ahead.  Walk right in."
 #message 13 "You feel a stretching sensation... Oh, you're back to your original size."
 #message 14 "You notice a hole in the base of a large moss covered rock."
+
 
 
