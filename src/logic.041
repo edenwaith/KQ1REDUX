@@ -20,6 +20,7 @@ if (isset(f5)) {
     set(f20);
     load.sound(1);
     load.sound(10);
+    load.sound(48);
   }
   draw(o0);
   show.pic();
@@ -152,6 +153,7 @@ if (v62 < 15 &&
   v61 = 80;
   move.obj.v(o13,v60,v61,96,f31);
   v3 += 4;
+  sound(48,f255);
 }
 if (isset(f31)) {
   reset(f31);
@@ -372,7 +374,7 @@ if (isset(f0) &&
     !isset(f29)) {
   set(f29);
   print("You have slipped down the muddy bank and"
-        "lodged in the  river's bed.  Good knight.");
+        "lodged in the  river's bed. Good knight.");
 }
 if (!isset(f88) &&
     !isset(f0) &&
@@ -464,12 +466,14 @@ return();
 #message 21 "The troll doesn't want just a plain walnut."
 #message 22 "You would have to throw it from here!"
 #message 23 "Grasping the precious treasure in a dirt-covered paw, the troll disappears under the bridge."
-#message 24 "You have slipped down the muddy bank and lodged in the  river's bed.  Good knight."
+#message 24 "You have slipped down the muddy bank and lodged in the  river's bed. Good knight."
 #message 25 "It is a well known fact that goats hate trolls intensely. You should move aside and let the goat take care of this nasty troll."
 #message 26 "OK"
 #message 27 "You could never win a fight with a troll."
 #message 28 "You glance under the old bridge, but see nothing unusual."
 #message 29 "As you start to cross the bridge, a wretched troll appears.  Even though you are invisible, he will not let you cross his bridge."
 #message 30 "A rough-hewn plank bridge spans the deep rushing river here."
+
+
 
 
