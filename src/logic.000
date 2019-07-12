@@ -954,15 +954,6 @@ if (isset(f89)) {
         said("check","bottom","bowl"))) {
       print("The word on the bottom of the bowl"
             "says \"fill\".");
-            // I probably should cancel out this next block
-            // due to the bug I found that can cause
-            // "negative" points
-      if (!isset(f184)) {
-        set(f184);
-        v3 += 1;
-        load.sound(48);
-        sound(48,f255);
-      }
     }
     if ((said("fill") ||
         said("say","fill"))) {
@@ -1395,6 +1386,8 @@ return();
 #message 174 "Jump  0"
 #message 175 "Duck  -"
 #message 176 "Joystick/Mouse <Ctrl J>"
+
+
 
 
 
