@@ -125,6 +125,8 @@ if (!isset(f88) &&
     set(f88);
     if (!isset(f91)) {
       v3 += 2;
+      load.sound(48);
+      sound(48,f255);
     }
     set(f91);
   }
@@ -166,6 +168,7 @@ return();
 #message 5 "You have no container for water."
 #message 6 "These cattails are fuzzy and soft."
 #message 7 "It seems the old goat has wandered off by himself and is no longer following you."
+
 
 
 
