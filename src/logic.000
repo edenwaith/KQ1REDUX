@@ -1386,26 +1386,5 @@ return();
 #message 174 "Jump  0"
 #message 175 "Duck  -"
 #message 176 "Joystick/Mouse <Ctrl J>"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#message 177 "Fastest     "
+#message 178 "Change <F10>"

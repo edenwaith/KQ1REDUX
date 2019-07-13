@@ -74,7 +74,7 @@ if (isset(f5)) {
   set.key(0,65,c2);
   set.key(0,67,c3);
   set.key(0,68,c27); // Change speed is F10
-  // Changed showing the memory debugging feature from F10 to F11
+  // Changed showing the memory debugging feature from F10 to F8
   set.key(0,66,c9);
   set.key(9,0,c4);
   set.key(0,32,c10);
@@ -503,6 +503,7 @@ return();
 #message 23 "    Scott Murphy "
 #message 24 "(c) copyright Sierra On-Line Inc.  1987"
 #message 25 "Version 3.0"
+
 
 
 
