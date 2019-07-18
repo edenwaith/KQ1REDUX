@@ -351,6 +351,8 @@ if (!isset(f188)) {
       set(f102);
       get("shield");
       v3 += 8;
+      load.sound(48);
+      sound(48,f255);
       v74++;
     }
     else {
@@ -382,6 +384,8 @@ if (!isset(f189)) {
         set(f113);
         print("Eagerly, you pick up the sceptre.");
         get("sceptre");
+        load.sound(48);
+        sound(48,f255);
         v3 += 6;
       }
     }
@@ -455,6 +459,8 @@ return();
 #message 37 "This is the throne room of the leprechaun King.  There is a shield next to the throne."
 #message 38 "This is the throne room of the leprechaun King.  There is a sceptre next to the throne."
 #message 39 "The King of the leprechauns is sitting on the stone throne."
+
+
 
 
 

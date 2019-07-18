@@ -3,6 +3,7 @@ if (isset(f5)) {
   load.pic(v0);
   draw.pic(v0);
   discard.pic(v0);
+  load.sound(48);
   set.horizon(56);
   load.logics(101);
   call(101);
@@ -89,6 +90,7 @@ if (!isset(f88) &&
     set(f88);
     if (!isset(f91)) {
       v3 += 2;
+      sound(48,f255);
     }
     set(f91);
   }
@@ -186,5 +188,6 @@ return();
 #message 4 "This is a clear mountain lake with some steep cliffs surrounding it."
 #message 5 "You are not close enough to the water."
 #message 6 "It seems the old goat has wandered off by himself and is no longer following you."
+
 
 

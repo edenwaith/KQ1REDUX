@@ -1,4 +1,4 @@
-// logic.065
+// logic.065 - Inside witch's house
 if (isset(f5)) {
   load.pic(v0);
   draw.pic(v0);
@@ -6,6 +6,7 @@ if (isset(f5)) {
   load.sound(1);
   load.sound(4);
   load.sound(5);
+  load.sound(48);
   
  if (!isset(f90)) {
    load.view(25);
@@ -328,6 +329,7 @@ if (isset(f21)) {
       reset(f29);
       reset(f21);
       v3 += 7;
+      sound(48,f255);
     }
   }
   if (v70 > 14) {
@@ -445,6 +447,7 @@ if (posn(o0,23,89,55,100)) {
       if (!isset(f80)) {
         set(f80);
         v3 += 2;
+        sound(48,f255);
       }
     }
   }
@@ -473,6 +476,7 @@ if (posn(o0,23,89,55,100)) {
         print("You pluck the Swiss cheese from the"
               "shelf.");
         v87 = 3;
+        sound(48,f255);
       }
       if ((v87 == 0 ||
           v87 == 2)) {
@@ -602,6 +606,7 @@ if (!isset(f90)) {
       set(f89);
       set(f90);
       get("ceramic bowl");
+      sound(48,f255);
     }
     else {
       print("That is impossible from here.");
@@ -761,6 +766,7 @@ return();
 #message 62 "Be thankful that you are invisible or the witch may have stuck around to try and catch you!"
 #message 63 "You need to be more specific."
 #message 64 "It looks like an ordinary bedroom."
+
 
 
 

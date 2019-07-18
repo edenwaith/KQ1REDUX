@@ -3,6 +3,7 @@ if (isset(f5)) {
   load.pic(v0);
   draw.pic(v0);
   discard.pic(v0);
+  load.sound(48);
   if (!isset(f165)) {
     load.view(34);
   }
@@ -25,6 +26,7 @@ if (isset(f5)) {
     if (!isset(f167)) {
       set(f167);
       v3 += 1;
+      sound(48,f255);
     }
   }
   if (v1 == 50) {
@@ -312,6 +314,7 @@ if (!isset(f100) &&
               "mirror.");
         v74++;
         v3 += 8;
+        sound(48,f255);
       }
     }
   }
@@ -383,6 +386,7 @@ if (!posn(o0,105,96,145,166) &&
     reset(f91);
     move.obj(o3,40,137,0,f21);
     v75 = 2;
+    sound(48,f255);
   }
   if (isset(f67) &&
       (said("cast","dagger") ||
@@ -403,6 +407,7 @@ if (!posn(o0,105,96,145,166) &&
     stop.motion(o3);
     stop.cycling(o3);
     v75 = 1;
+    sound(48,f255);
   }
 }
 if (isset(f21)) {
@@ -469,5 +474,6 @@ return();
 #message 38 "You should know about these fire-breathing dragons!  Maybe next time you will be a little more careful!"
 #message 39 "Your shield melted from the intensity of the dragon's flames!  You should know about these fire-breathing dragons!  Maybe next time you will be a little more careful!"
 #message 40 "I think you found the dragon!"
+
 
 

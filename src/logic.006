@@ -5,6 +5,7 @@ if (isset(f5)) {
   discard.pic(v0);
   load.sound(4);
   load.sound(5);
+  load.sound(48);
   set.horizon(40);
   if (isset(f75)) {
     load.logics(103);
@@ -119,6 +120,7 @@ if (said("look in","stump")) {
       if (!isset(f61)) {
         set(f61);
         v3 += 1;
+        sound(48,f255);
       }
     }
     else {
@@ -140,6 +142,7 @@ if (said("acquire","bag") &&
       set(f71);
       set(f72);
       v3 += 3;
+      sound(48,f255);
     }
     else {
       print("There's no pouch here.");
@@ -299,5 +302,6 @@ return();
 #message 16 "Ouch!"
 #message 17 "You have to find it first."
 #message 18 "You are in the forest.  You can see a stump and a hollow log here."
+
 
 

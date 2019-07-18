@@ -3,6 +3,7 @@ if (isset(f5)) {
   load.pic(v0);
   draw.pic(v0);
   discard.pic(v0);
+  load.sound(48);
   set.horizon(42);
   load.logics(101);
   call(101);
@@ -168,12 +169,15 @@ if (isset(f22)) {
           "outstanding accomplishment!");
     if (v84 <= 0) {
       v3 += 5;
+      sound(48,f255);
     }
     if (v84 == 1) {
       v3 += 4;
+      sound(48,f255);
     }
     if (v84 == 2) {
       v3 += 3;
+      sound(48,f255);
     }
     goto(Label1);
   }
@@ -245,6 +249,7 @@ if (!isset(f23)) {
         get("beans");
         v85 = 2;
         v3 += 4;
+        sound(48,f255);
       }
     }
   }
@@ -271,6 +276,7 @@ if (!isset(f23)) {
         get("key");
         v85 = 1;
         v3 += 3;
+        sound(48,f255);
       }
     }
   }
@@ -368,6 +374,7 @@ return();
 #message 25 "You slip down the bank into the river far below.  Your cries for help are not heard."
 #message 26 "The gnome's lean-to doesn't look very sturdy."
 #message 27 "What do you think I am, a car?  This also won't get you a raise.  Nice try."
+
 
 
 

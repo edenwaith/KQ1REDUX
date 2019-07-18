@@ -127,6 +127,8 @@ if (!isset(f88) &&
     set(f88);
     if (!isset(f91)) {
       v3 += 2;
+      load.sound(48);
+      sound(48,f255);
     }
     set(f91);
   }
@@ -171,5 +173,6 @@ return();
 #message 7 "The flowers are very beautiful."
 #message 8 "It seems the old goat has wandered off by himself and is no longer following you."
 #message 9 "A rapidly moving stream is flowing out of this lake."
+
 
 

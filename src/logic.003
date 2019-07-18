@@ -2,6 +2,7 @@ if (isset(f5)) {
   load.pic(v0);
   draw.pic(v0);
   discard.pic(v0);
+  load.sound(48);
   set.horizon(46);
   if (isset(f75)) {
     load.logics(103);
@@ -89,6 +90,7 @@ if (said("move","boulder")) {
             "move the rock... revealing a dark"
             "hole underneath it.");
       v3 += 2;
+      sound(48,f255);
       set(f20);
     }
     if (posn(o0,118,134,133,148)) {
@@ -155,6 +157,7 @@ if (said("acquire","dagger")) {
             "yourself.");
       get("dagger");
       v3 += 5;
+      sound(48,f255);
       set(f69);
       set(f67);
     }
@@ -206,6 +209,7 @@ return();
 #message 19 "You do not have a dagger to look at."
 #message 20 "You are too far from the hole to see in it."
 #message 21 "You are in a forest clearing.  There is a large rock here."
+
 
 
 

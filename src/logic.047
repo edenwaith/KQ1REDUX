@@ -1,8 +1,9 @@
-// logic.047
+// logic.047 - Magic Mushroom
 if (isset(f5)) {
   load.pic(v0);
   draw.pic(v0);
   discard.pic(v0);
+  load.sound(48);
   if (isset(f75)) {
     load.logics(103);
   }
@@ -131,6 +132,7 @@ if (!isset(f121)) {
         set(f123);
         v3 += 1;
         get("mushroom");
+        sound(48,f255);
       }
       else {
         print("You need to get closer to do that.");
@@ -227,6 +229,7 @@ if (!isset(f88) &&
     set(f88);
     if (!isset(f91)) {
       v3 += 2;
+      sound(48,f255);
     }
     set(f91);
   }
@@ -269,4 +272,5 @@ return();
 #message 18 "This lovely meadow is split by the Raging River."
 #message 19 "There is no mushroom here."
 #message 20 "You already have it."
+
 

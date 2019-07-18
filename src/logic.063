@@ -4,10 +4,12 @@ if (isset(f5)) {
   draw.pic(v0);
   discard.pic(v0);
   load.sound(5);
+  load.sound(48);
   load.view(105);
   if (!isset(f132)) {
     set(f132);
     v3 += 2;
+    sound(48,f255);
   }
   if (!isset(f137)) {
     set(f20);
@@ -68,6 +70,7 @@ if (!isset(f137)) {
       v3 += 6;
       print("The golden egg is so heavy you almost"
             "drop it.");
+      sound(48,f255);
     }
     else {
       print("You can't get the egg from here!");
@@ -144,5 +147,6 @@ return();
 #message 7 "The golden egg is so heavy you almost drop it."
 #message 8 "You can't get the egg from here!"
 #message 9 "Apparently you lost your grip while climbing this tree and you fall to the hard earth below."
+
 
 

@@ -3,6 +3,7 @@ if (isset(f5)) {
   load.pic(v0);
   draw.pic(v0);
   discard.pic(v0);
+  load.sound(48);
   set.horizon(46);
   if (isset(f75)) {
     load.logics(103);
@@ -65,6 +66,7 @@ if (said("acquire","clover")) {
       set(f87);
       start.update(o1);
       erase(o1);
+      sound(48,f255);
     }
     else {
       print("You really don't want any of the"
@@ -97,5 +99,7 @@ return();
 #message 5 "You really don't want any of the three-leaf clovers."
 #message 6 "You had, and lost, the only four-leaf clover  around.  You really don't want a three-leaf clover."
 #message 7 "There is a clover patch in this meadow."
+
+
 
 

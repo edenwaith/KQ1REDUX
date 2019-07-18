@@ -3,6 +3,7 @@ if (isset(f5)) {
   load.pic(v0);
   draw.pic(v0);
   discard.pic(v0);
+  load.sound(48);
   set.horizon(45);
   if (v1 == 47) {
     get.posn(o0,v60,v61);
@@ -101,6 +102,7 @@ if (!isset(f88) &&
     set(f88);
     if (!isset(f91)) {
       v3 += 2;
+      sound(48,f255);
     }
     set(f91);
   }
@@ -127,6 +129,7 @@ if (said("acquire","pebbles")) {
       set(f92);
       v3 += 1;
       get("pebbles");
+      sound(48,f255);
     }
     else {
       print("You are not close enough to the"
@@ -177,5 +180,7 @@ return();
 #message 11 "You are not close enough to the pebbles to get them."
 #message 12 "Your swimming attempt proved fatal!  The raging current drags you under... you are lost...."
 #message 13 "There are many smooth pebbles next to the river."
+
+
 
 

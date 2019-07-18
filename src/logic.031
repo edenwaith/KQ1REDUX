@@ -1,4 +1,4 @@
-// logic.031 - Bowl
+// logic.031 - Bowl/Note
 if (isset(f5)) {
   load.pic(v0);
   draw.pic(v0);
@@ -135,13 +135,14 @@ else {
 // Get the note
 if (!isset(f170) &&
     said("acquire","note")) {
-    if (posn(o0,116,128,136,148)) {
+    if (posn(o0,116,120,136,148)) {
       start.update(o1);
       erase(o1);
       set(f170);
       get("note");
       print("You pick up the note from the ground.");
       v3 += 2;
+      sound(48,f255);
     }
     else {
       print("That is impossible from here.");
@@ -306,6 +307,8 @@ return();
 #message 9 "Ouch!"
 #message 10 "There appears to be some sort of note on the ground."
 #message 11 "This is a charming little wooded area of the forest. Pine trees and lush grass grow in the especially rich soil here."
+
+
 
 
 

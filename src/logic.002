@@ -6,6 +6,7 @@ if (isset(f5)) {
   load.logics(101);
   set.horizon(50);
   load.sound(15);
+  load.sound(48);
   if (isset(f75)) {
     load.logics(103);
     load.view(9);
@@ -236,6 +237,7 @@ if (isset(f81) &&
       if (!isset(f91)) {
         set(f91);
         v3 += 2;
+        sound(48,f255);
       }
     }
     else {
@@ -386,6 +388,12 @@ return();
 #message 27 "What!  Are you crazy?"
 #message 28 "Your knock echos within the castle.  Unfortunately, no one answers."
 #message 29 "You are standing outside a castle surrounded by an alligator filled moat."
+
+
+
+
+
+
 
 
 

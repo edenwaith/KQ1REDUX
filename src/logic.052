@@ -3,6 +3,7 @@ if (isset(f5)) {
   load.pic(v0);
   draw.pic(v0);
   discard.pic(v0);
+  load.sound(48);
   ignore.horizon(o0);
   load.view(73);
   set.view(o0,73);
@@ -18,6 +19,7 @@ if (isset(f5)) {
     if (!isset(f208)) {
       set(f208);
       v3 += 2;
+      sound(48,f255);
     }
   }
   v68 = 250;
@@ -29,6 +31,7 @@ if (isset(f5)) {
     if (!isset(f91)) {
       set(f91);
       v3 += 2;
+      sound(48,f255);
     }
   }
   draw(o0);
@@ -130,6 +133,7 @@ return();
 #message 8 "The rusty old can has been here awhile."
 #message 9 "You have no use for this old can."
 #message 10 "Thrashing around in the water has caused you to lose the magic ring and become visible again."
+
 
 
 

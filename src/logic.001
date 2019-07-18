@@ -110,6 +110,8 @@ if (isset(f81) &&
       if (!isset(f91)) {
         set(f91);
         v3 += 2;
+        load.sound(48);
+        sound(48,f255);
       }
     }
     else {
@@ -249,5 +251,6 @@ return();
 #message 14 "The moats slippery sides prevent you from getting out."
 #message 15 "What!  Are you crazy?"
 #message 16 "You are standing outside a castle surrounded by an alligator filled moat."
+
 
 

@@ -20,6 +20,7 @@ if (isset(f5)) {
     set(f20);
     load.sound(1);
     load.sound(10);
+    load.sound(48);
   }
   draw(o0);
   show.pic();
@@ -157,6 +158,7 @@ if (v62 < 17 &&
   }
   move.obj.v(o13,v60,v61,96,f30);
   v3 += 4;
+  sound(48,f255);
 }
 if (isset(f30)) {
   reset(f30);
@@ -484,4 +486,5 @@ return();
 #message 27 "You glance under the old bridge, but see nothing unusual."
 #message 28 "As you start to cross the bridge, a wretched troll appears.  Even though you are invisible, he will not let you cross his bridge."
 #message 29 "A rough-hewn plank bridge spans the deep rushing river here."
+
 

@@ -5,6 +5,7 @@ if (isset(f5)) {
   discard.pic(v0);
   set.horizon(45);
   load.sound(5);
+  load.sound(48);
   draw(o0);
   show.pic();
 }
@@ -66,6 +67,7 @@ if (!isset(f96)) {
       set(f97);
       v3 += 2;
       get("leather slingshot");
+      sound(48,f255);
     }
     else {
       print("You need to be closer to try.");
@@ -119,6 +121,8 @@ return();
 #message 9 "You've fallen through the clouds!  Cloud walking is for the birds."
 #message 10 "These are strange looking trees."
 #message 11 "You need to be closer to try."
+
+
 
 
 

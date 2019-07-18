@@ -10,6 +10,7 @@ if (isset(f5)) {
   load.sound(5);
   load.sound(9);
   load.sound(18);
+  load.sound(48);
   v33 = 0;
   if (isset(f97)) {
     load.view(102);
@@ -224,6 +225,7 @@ if (!isset(f104)) {
         set(f169);
         v3 += 8;
         get("chest");
+        sound(48,f255);
         v74++;
         v86 = 3;
       }
@@ -242,6 +244,7 @@ if (!isset(f104)) {
         set(f169);
         v3 += 8;
         get("chest");
+        sound(48,f255);
         v74++;
         v86 = 5;
       }
@@ -258,7 +261,7 @@ if (isset(f97)) {
     }
     if (isset(f93) &&
         v71 < 20) {
-      print("The giant is to close for the"
+      print("The giant is too close for the"
             "slingshot to be effective.  I would"
             "suggest you RUN!");
     }
@@ -336,6 +339,7 @@ if (isset(f24)) {
   draw(o2);
   v86 = 4;
   v3 += 3;
+  sound(48,f255);
 }
 if (isset(f25)) {
   reset(f25);
@@ -406,6 +410,7 @@ if (v30 == 1 &&
   if (!isset(f205)) {
     set(f205);
     v3 += 7;
+    sound(48,f255);
   }
   print("What luck!  The huge giant fell fast"
         "asleep!");
@@ -476,7 +481,8 @@ return();
 #message 29 "What luck!  The huge giant fell fast asleep!"
 #message 30 "The giant is sleeping with a chest."
 #message 31 "The giant lies dead on the ground and there is a chest beside him."
-#message 32 "The giant is to close for the slingshot to be effective.  I would suggest you RUN!"
+#message 32 "The giant is too close for the slingshot to be effective.  I would suggest you RUN!"
+
 
 
 

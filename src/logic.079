@@ -7,6 +7,7 @@ if (isset(f5)) {
   load.view(58);
   load.sound(5);
   load.sound(8);
+  load.sound(48);
   if ((isset(f89) ||
       isset(f183))) {
     load.view(25);
@@ -347,6 +348,7 @@ if (isset(f89)) {
         start.cycling(o4);
         v30 = 18;
       }
+      sound(48,f255);
     }
   }
   if (v89 == 1) {
@@ -385,6 +387,7 @@ if (isset(f89)) {
         start.cycling(o4);
         v30 = 18;
       }
+      sound(48,f255);
     }
   }
 }
@@ -420,6 +423,7 @@ if (isset(f183) &&
     if (!isset(f184)) {
       set(f184);
       v3 += 2;
+      sound(48,f255);
     }
     set(f185);
     if (!isset(f24)) {
@@ -471,6 +475,7 @@ if (!isset(f172)) {
             "last song it played.");
       get("fiddle");
       v3 += 3;
+      sound(48,f255);
     }
     if (!posn(o0,120,140,158,166) &&
         isset(f185)) {
@@ -551,6 +556,8 @@ return();
 #message 46 "\"Hello\""
 #message 47 "There is an empty bowl sitting on the old oak table."
 #message 48 "There is a bowl of stew sitting on the old oak table."
+
+
 
 
 

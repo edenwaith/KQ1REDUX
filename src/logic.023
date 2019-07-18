@@ -100,6 +100,8 @@ if (!isset(f88) &&
     set(f88);
     if (!isset(f91)) {
       v3 += 2;
+      load.sound(48);
+      sound(48,f255);
     }
     set(f91);
   }
@@ -141,6 +143,7 @@ return();
 #message 5 "You see the mountains and trees reflected in the mirror-like water."
 #message 6 "These cattails look soft and fuzzy."
 #message 7 "It seems the old goat has wandered off by himself and is no longer following you."
+
 
 
 

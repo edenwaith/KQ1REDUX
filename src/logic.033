@@ -72,6 +72,8 @@ if (!isset(f88) &&
     set(f88);
     if (!isset(f91)) {
       v3 += 2;
+      load.sound(48);
+      sound(48,f255);
     }
     set(f91);
   }
@@ -164,5 +166,6 @@ return();
 #message 6 "You have no container for water."
 #message 7 "You are not close enough to the Raging River."
 #message 8 "Your swimming attempt proved fatal!  The raging current drags you under...."
+
 
 

@@ -4,6 +4,7 @@ if (isset(f5)) {
   draw.pic(v0);
   discard.pic(v0);
   load.sound(5);
+  load.sound(48);
   load.logics(101);
   call(101);
   load.view(72);
@@ -26,6 +27,7 @@ if (isset(f5)) {
     if (!isset(f162)) {
       set(f162);
       v3 += 1;
+      sound(48,f255);
     }
     if (isset(f180)) {
       set.view(o0,74);
@@ -375,6 +377,7 @@ if (isset(f67)) {
           v3 += 2;
         }
       }
+      sound(48,f255);
     }
     if (v94 == 1) {
       print("You have other things to think about"
@@ -411,6 +414,7 @@ if (!isset(f88)) {
       if (!isset(f91)) {
         v3 += 2;
         set(f91);
+        sound(48,f255);
       }
     }
     else {
@@ -435,6 +439,7 @@ if ((v94 == 1 ||
     if (!isset(f164)) {
       set(f164);
       v3 += 2;
+      sound(48,f255);
     }
     new.room(52);
   }
@@ -473,5 +478,6 @@ return();
 #message 25 "There is no way for you to get water now."
 #message 26 "Now is not the time to try diving."
 #message 27 "It is a very long, sturdy rope."
+
 
 

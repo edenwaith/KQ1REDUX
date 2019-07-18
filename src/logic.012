@@ -6,6 +6,7 @@ if (isset(f5)) {
   set.horizon(46);
   load.sound(5);
   load.sound(20);
+  load.sound(48);
   if (isset(f75)) {
     load.logics(103);
   }
@@ -621,6 +622,7 @@ if ((said("cut","rope") ||
         if (!isset(f91)) {
           v3 += 2;
           set(f91);
+          sound(48,f255);
         }
       }
       set(f176);
@@ -628,6 +630,7 @@ if ((said("cut","rope") ||
       print("With the rope cut, you are able to"
             "take the bucket.");
       v3 += 2;
+      sound(48,f255);
     }
     if (!isset(f176) &&
         isset(f177)) {
@@ -806,6 +809,7 @@ return();
 #message 55 "There is no useful rope to get."
 #message 56 "You should be more careful the next time you try  climbing ropes."
 #message 57 "There is not enough rope left to lower."
+
 
 
 
