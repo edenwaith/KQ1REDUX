@@ -436,25 +436,26 @@ if (v226 == 1) {
     display(3,9,"KING'S QUEST I - REDUX");
     display(4,10,"QUEST FOR THE CROWN");
   
-    display(6,4,"Graphics By:");
-    display(6,17,"Doug MacNeill");
-    display(7,17,"Greg Rowland");
+    display(6,4,"Redux Version By:");
+    display(7,17,"Chad Armstrong");
     
-    display(9,4,"Thanks To:");
-    display(9,17,"Mark Crowe");
-    display(10,17,"Robert Heitman");
-    display(11,17,"Scott Murphy");
-    display(12,17,"Bob Ballew");
-    display(13,17,"Susan Lee");
-    display(14,17,"Russ Truelove");
-    display(15,17,"Larry Weissenborn");
+    display(9,4,"Graphics By:");
+    display(9,17,"Doug MacNeill");
+    display(10,17,"Greg Rowland");
     
-    display(17,4,"Redux Version By:");
-    display(18,17,"Chad Armstrong");
+    display(12,4,"Thanks To:");
+    display(12,17,"Mark Crowe");
+    display(13,17,"Robert Heitman");
+    display(14,17,"Scott Murphy");
+    display(15,17,"Bob Ballew");
+    display(16,17,"Susan Lee");
+    display(17,17,"Russ Truelove");
+    display(18,17,"Larry Weissenborn");
+    
   }
 }
 
-// TODO: Make use of v226 to set different screen states
+// v226 sets the different screen states
 if (isset(f20) && 
     v200 == 0) {
     
@@ -462,10 +463,11 @@ if (isset(f20) &&
     v226 = 1;
     v225 = 195;
     
-  // clear.lines(22,24,0);
   // Display credits screen after the initial music has played
-  if (v26 == 2) {
-    text.screen();
+  if (v26 == 2) {  // Hercules graphics mode
+    // text.screen();
+    clear.lines(22,24,0);
+    v226 = 3; // Skip the credits and start the game
   }
   else {
     clear.lines(22,24,0);
@@ -483,26 +485,26 @@ if (isset(f20) &&
     
     load.sound(0);
     sound(0,f230);
-  }
-  
-  // set.text.attribute(12,0);
-  display(3,9,"KING'S QUEST I - REDUX");
-  display(4,10,"QUEST FOR THE CROWN");
-  
-  display(6,4,"Designed & Written By:");
-  display(7,17,"Roberta Williams");
-  
-  display(9,4,"Original Version By:");
-  display(10,17,"Charles Tingley");
-  display(11,17,"Ken MacNeill");
-  display(12,17,"Chris Iden");
-  
-  display(14,4,"New Version By:");
-  display(15,17,"Jeff Stephenson");
-  display(16,17,"Sol Ackerman");
-  display(17,17,"Chris Iden");
+    
+    // set.text.attribute(14,0);
+    display(3,9,"KING'S QUEST I - REDUX");
+    display(4,10,"QUEST FOR THE CROWN");
+    
+    display(6,4,"Designed & Written By:");
+    display(7,17,"Roberta Williams");
+    
+    display(9,4,"Original Version By:");
+    display(10,17,"Charles Tingley");
+    display(11,17,"Ken MacNeill");
+    display(12,17,"Chris Iden");
+    
+    display(14,4,"New Version By:");
+    display(15,17,"Jeff Stephenson");
+    display(16,17,"Sol Ackerman");
+    display(17,17,"Chris Iden");
 
-  // set.text.attribute(15,0);
+    // set.text.attribute(15,0);
+  }
 }
 
 
@@ -538,8 +540,8 @@ if (v30 == 135) {
     display(24,6,"Press any key to continue.");
   } else {
     clear.lines(22,23,0);
-    display(22,5,"(c) 1987 Sierra On-Line Inc.");
-    display(23,6,"Press any key to continue.");
+    display(22,6,"(c) 1987 Sierra On-Line Inc.");
+    display(23,7,"Press any key to continue.");
     
   }
 }
@@ -598,3 +600,4 @@ return();
 #message 23 "    Scott Murphy "
 #message 24 "(c) copyright Sierra On-Line Inc.  1987"
 #message 25 "Version 3.0"
+
