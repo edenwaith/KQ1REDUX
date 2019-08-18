@@ -49,7 +49,7 @@ if (isset(f5)) {
   }
   else {
     // display(22,5,"(c) 1987 Sierra On-Line Inc.");
-    display(22,8,"King's Quest I - Redux");
+    display(22,9,"King's Quest I - Redux");
     display(23,14,"Version 3.0");
   }
   
@@ -600,4 +600,5 @@ return();
 #message 23 "    Scott Murphy "
 #message 24 "(c) copyright Sierra On-Line Inc.  1987"
 #message 25 "Version 3.0"
+
 

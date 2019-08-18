@@ -422,7 +422,7 @@ if (isset(f183) &&
     v89 = 1;
     if (!isset(f184)) {
       set(f184);
-      v3 += 2;
+      v3 += 1;
       sound(48,f255);
     }
     set(f185);
@@ -556,6 +556,7 @@ return();
 #message 46 "\"Hello\""
 #message 47 "There is an empty bowl sitting on the old oak table."
 #message 48 "There is a bowl of stew sitting on the old oak table."
+
 
 
 

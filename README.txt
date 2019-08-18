@@ -63,3 +63,10 @@ Version 3.0.0 - Released 15 August 2019
 	• Missing room descriptions
 	• Fixed several typos
 	• Fixed incorrect messages if Graham tries to interact with the dead goat
+	
+	
+INFO + CONTACT
+==============
+• Website: http://www.edenwaith.com/products/kq1redux/
+• E-mail:  support@edenwaith.com
+• Twitter: @kq1redux 
