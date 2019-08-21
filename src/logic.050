@@ -1,0 +1,115 @@
+// logic.050
+if (isset(f5)) {
+  load.pic(v0);
+  draw.pic(v0);
+  discard.pic(v0);
+  if (v1 == 51) {
+    position(o0,152,133);
+    ignore.blocks(o0);
+  }
+  if (v1 == 22) {
+    position(o0,3,147);
+  }
+  if (v1 == 51) {
+    if (!isset(f208)) {
+      set(f208);
+      v3 += 2;
+      load.sound(48);
+      sound(48,f255);
+    }
+  }
+  if (v75 != 2) {
+    load.view(63);
+    animate.obj(o1);
+    set.view(o1,63);
+    position(o1,142,136);
+    ignore.blocks(o1);
+    draw(o1);
+    observe.blocks(o0);
+  }
+  if (v75 == 2) {
+    ignore.blocks(o0);
+  }
+  draw(o0);
+  show.pic();
+}
+if (isset(f75)) {
+  reset(f75);
+  set(f130);
+  print("When the goat saw how dark it was in"
+        "here, it decided not to stay around.");
+}
+if (v75 != 2) {
+  if ((said("check","cave") || 
+       said("check","room") ||
+       said("check"))) {
+    print("It is empty except for a huge boulder"
+          "opposite the opening.");
+  }
+  if (said("check","boulder")) {
+    print("It is a huge piece of granite.");
+  }
+  if (said("acquire","boulder")) {
+    print("It is far too heavy to carry around.");
+  }
+  if (said("move","boulder")) {
+    print("It is impossible for you to move a"
+          "boulder this large.");
+  }
+  if (said("climb","boulder")) {
+    print("There is nothing of interest on top of"
+          "the boulder.");
+  }
+}
+if (said("check","stalactite")) {
+  print("It took millenniums for these stalagmites"
+        "and stalactites to form.");
+}
+if (v75 == 2) {
+  if ((said("check","cave") || 
+       said("check","room") ||
+       said("check"))) {
+    print("It is a rather large, vacant cave.");
+  }
+}
+if (said("check","doorway")) {
+  if (posn(o0,0,0,80,167)) {
+    print("Looking out the cave opening, you are"
+          "able to admire the beautiful scenery"
+          "outside.");
+  }
+  if (posn(o0,81,0,159,167)) {
+    if (v75 != 2) {
+      print("It is on the far side of the cave.");
+    }
+    else {
+      print("It leads to another portion of the"
+            "cave.");
+    }
+  }
+}
+if (v2 == 2) {
+  new.room(51);
+}
+if (posn(o0,0,0,1,167)) {
+  new.room(22);
+}
+return();
+
+// Messages
+#message 1 "When the goat saw how dark it was in here, it decided not to stay around."
+#message 2 "It is empty except for a huge boulder opposite the opening."
+#message 3 "It is a rather large, vacant cave."
+#message 4 "It is a huge piece of granite."
+#message 5 "It is far too heavy to carry around."
+#message 6 "It is impossible for you to move a boulder this large."
+#message 7 "It took millenniums for these stalagmites and stalactites to form."
+#message 8 "Looking out the cave opening, you are able to admire the beautiful scenery outside."
+#message 9 "It leads to another portion of the cave."
+#message 10 "It is on the far side of the cave."
+#message 11 "There is nothing of interest on top of the boulder."
+
+
+
+
+

@@ -1,0 +1,62 @@
+// ****************************************************************
+//
+// Logic 86: Entrance to dwarf's hideout
+// 
+// ****************************************************************
+if (isset(f5)) {
+
+  load.pic(v0);
+  draw.pic(v0);
+  discard.pic(v0);
+
+  if (v1 == 85) {
+    position(o0,40,120);
+    set.loop(o0,0);
+    move.obj(o0,50,120,0,f148);
+  }
+
+  draw(o0);
+  show.pic();
+}
+
+
+if ((said("check","room") ||
+     said("check"))) {
+  print("You are in a musty underground"
+        "passageway. There is a large hole"
+        "in the wall.");
+}
+
+if (said("check","hole")) {
+  print(m2);
+}
+
+// Heading East
+if (v2 == 2) {
+  new.room(87);
+}
+//if (v2 == 4) {
+//
+// new.room(85);
+//}
+// Heading west towards the stairs
+if (posn(o0,30,110,38,130)) {
+  new.room(85);
+}
+
+return();
+
+// Messages
+#message 1 "You are in a musty underground passageway. There is a large hole in the wall."
+#message 2 "The hole leads to a set of stairs which go up into heart of the mountain."
+
+
+
+
+
+
+
+
+
+
+

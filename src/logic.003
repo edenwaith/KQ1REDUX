@@ -1,0 +1,216 @@
+if (isset(f5)) {
+  load.pic(v0);
+  draw.pic(v0);
+  discard.pic(v0);
+  load.sound(48);
+  set.horizon(46);
+  if (isset(f75)) {
+    load.logics(103);
+  }
+  if (v65 == v0) {
+    add.to.pic(62,0,0,32,75,0,0);
+  }
+  load.view(10);
+  animate.obj(o1);
+  set.view(o1,10);
+  if (!isset(f62)) {
+    position(o1,118,133);
+  }
+  else {
+    position(o1,118,145);
+  }
+  load.view(112);
+  animate.obj(o2);
+  set.view(o2,112);
+  position(o2,122,124);
+  ignore.objs(o2);
+  load.view(114);
+  draw(o1);
+  if (isset(f62)) {
+    draw(o2);
+  }
+  draw(o0);
+  show.pic();
+}
+if ((said("check","room") || 
+     said("check"))) {
+  print("You are in a forest clearing. There is a"
+        "large rock here.");
+}
+if (isset(f62)) {
+  ignore.blocks(o0);
+}
+else {
+  observe.blocks(o0);
+}
+if (!isset(f4)) {
+  if (said("check","tree")) {
+    print("There are numerous white birch trees"
+          "reaching to the sky.");
+  }
+  distance(o0,o1,v62);
+  if (said("check","boulder")) {
+    if (!isset(f62)) {
+      if (v62 > 50) {
+        print("There is a rock in the distance.");
+      }
+      else {
+        print("You see a large, grey rock.");
+      }
+    }
+    else {
+      print("It is a large rock with a hole next"
+            "to it.");
+    }
+  }
+  if (said("acquire","boulder")) {
+    if (v62 < 20) {
+      print("This rock is far too heavy for you to"
+            "carry.");
+    }
+    else {
+      print("You are much too far away to even"
+            "attempt getting the rock.");
+    }
+  }
+}
+if (said("move","boulder")) {
+  if (!isset(f62) &&
+      !isset(f20)) {
+    if (!posn(o0,115,114,133,133) &&
+        !posn(o0,118,134,133,148)) {
+      print("It will be very difficult to move the"
+            "rock from here.");
+    }
+    if (posn(o0,115,114,133,133)) {
+      draw(o2);
+      stop.update(o2);
+      move.obj(o1,118,145,0,f62);
+      print("With a heave and a ho, you manage to"
+            "move the rock... revealing a dark"
+            "hole underneath it.");
+      v3 += 2;
+      sound(48,f255);
+      set(f20);
+    }
+    if (posn(o0,118,134,133,148)) {
+      ignore.objs(o1);
+      draw(o2);
+      stop.update(o2);
+      set(f21);
+      set.priority(o1,15);
+      move.obj(o1,118,145,0,f62);
+      print("This moving rock rolls downhill and"
+            "you, unfortunately,  are in the way.");
+      program.control();
+      set(f63);
+      erase(o0);
+      set.view(o0,114);
+      position(o0,115,140);
+      draw(o0);
+    }
+  }
+  if (isset(f62)) {
+    print("After moving that rock once, even"
+          "thinking about it should make you tired.");
+  }
+}
+if ((said("check","doorway") ||
+    said("look in","doorway"))) {
+  distance(o0,o2,v70);
+  if (isset(f62) &&
+      v70 < 15) {
+    if (!isset(f69)) {
+      print("There is an intricately carved dagger"
+            "in the hole.");
+    }
+    else {
+      print("There is nothing in this hole but"
+            "dirt.");
+    }
+  }
+  if (isset(f62) &&
+      v70 > 14) {
+    print("You are too far from the hole to see in"
+          "it.");
+  }
+  if (!isset(f62)) {
+    print("There is no hole here.");
+  }
+}
+if (said("check","dagger")) {
+  if (!isset(f69) &&
+      isset(f62)) {
+    print("You could see it better if you picked"
+          "it up.");
+  }
+  if (!isset(f62)) {
+    print("You do not have a dagger to look at.");
+  }
+}
+if (said("acquire","dagger")) {
+  if (isset(f62) &&
+      !isset(f69)) {
+    if (posn(o0,112,108,134,133)) {
+      print("You reach into the hole and grasp the"
+            "dagger, being careful not to cut"
+            "yourself.");
+      get("dagger");
+      v3 += 5;
+      sound(48,f255);
+      set(f69);
+      set(f67);
+    }
+    else {
+      print("You are too far away to get the"
+            "dagger.");
+    }
+  }
+  if (!isset(f62) &&
+      !isset(f69)) {
+    print("There is no dagger here.");
+  }
+}
+if (v2 == 1) {
+  new.room(14);
+}
+if (v2 == 2) {
+  new.room(2);
+}
+if (v2 == 4) {
+  new.room(4);
+}
+if (v2 == 3) {
+  new.room(46);
+}
+if (isset(f75)) {
+  call(103);
+}
+return();
+
+// Messages
+#message 1 "There are numerous white birch trees reaching to the sky."
+#message 2 "After moving that rock once, even thinking about it should make you tired."
+#message 3 "There is no hole here."
+#message 4 "There is an intricately carved dagger in the hole."
+#message 5 "There is nothing in this hole but dirt."
+#message 6 "There is no dagger here."
+#message 7 "You are too far away to get the dagger."
+#message 8 "You reach into the hole and grasp the dagger, being careful not to cut yourself."
+#message 10 "This rock is far too heavy for you to carry."
+#message 11 "It will be very difficult to move the rock from here."
+#message 12 "You are much too far away to even attempt getting the rock."
+#message 13 "With a heave and a ho, you manage to move the rock... revealing a dark hole underneath it."
+#message 14 "This moving rock rolls downhill and you, unfortunately,  are in the way."
+#message 15 "You see a large, grey rock."
+#message 16 "It is a large rock with a hole next to it."
+#message 17 "There is a rock in the distance."
+#message 18 "You could see it better if you picked it up."
+#message 19 "You do not have a dagger to look at."
+#message 20 "You are too far from the hole to see in it."
+#message 21 "You are in a forest clearing.  There is a large rock here."
+
+
+
+
+

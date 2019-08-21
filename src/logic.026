@@ -1,0 +1,103 @@
+// logic.26
+if (isset(f5)) {
+  load.pic(v0);
+  draw.pic(v0);
+  discard.pic(v0);
+  set.horizon(46);
+  if (isset(f75)) {
+    load.logics(103);
+  }
+  if (v65 == v0) {
+    add.to.pic(62,0,0,110,110,0,0);
+  }
+  load.logics(101);
+  call(101);
+  set(f68);
+  if (v1 == 23) {
+    if (isset(f0)) {
+      set.view(o0,0);
+      reset(f98);
+      v94 = 0;
+    }
+  }
+  ignore.blocks(o0);
+  draw(o0);
+  show.pic();
+}
+if ((said("check","doorway") ||
+    said("look in","doorway") ||
+    said("look in","stump"))) {
+  if (posn(o0,66,134,159,167)) {
+    print("It is just an old stump that leads "
+          "to the goblin caverns. "
+          "However, that is of no interest"
+          "in your quest.");
+  }
+  else {
+    print("You are not close enough.");
+  }
+}
+if (said("check","stump")) {
+  print("It is old and rotted.");
+}
+if (said("check","river")) {
+  print("The stream appears placid enough, but"
+        "appearances can be deceiving.");
+}
+if ((said("check","anyword") ||
+     said("check"))) {
+  print("There is an attractive meadow dotted with"
+        "trees.");
+}
+if (isset(f81) &&
+    !isset(f88)) {
+  if ((said("acquire","water") ||
+      said("drink","water"))) {
+    if (posn(o0,0,27,95,95)) {
+      print("The bank is too steep to allow access"
+            "to the river's edge.");
+    }
+    else {
+      print("You are not close enough to the river.");
+    }
+  }
+}
+if (isset(f0) &&
+    !isset(f20)) {
+  set(f20);
+  print("This placid looking stream is actually"
+        "quite dangerous.... the current is"
+        "stronger than it looks.  You can't keep"
+        "your head above water.");
+}
+if (v2 != 0) {
+  reset(f68);
+}
+if (v2 == 1) {
+  new.room(39);
+}
+if (v2 == 2) {
+  new.room(27);
+}
+if (v2 == 4) {
+  new.room(25);
+}
+if (v2 == 3) {
+  new.room(23);
+}
+if (isset(f75)) {
+  call(103);
+}
+call(101);
+return();
+
+// Messages
+#message 1 "This placid looking stream is actually quite dangerous.... the current is stronger than it looks.  You can't keep your head above water."
+#message 2 "The bank is too steep to allow access to the river's edge."
+#message 3 "You are not close enough to the river."
+#message 4 "The stream appears placid enough, but appearances can be deceiving."
+#message 5 "It is old and rotted."
+#message 6 "There is an attractive meadow dotted with trees."
+#message 7 "It is just a hole in an empty, old stump."
+#message 8 "You are not close enough."
+

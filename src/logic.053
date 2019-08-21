@@ -1,0 +1,514 @@
+// logic.053 - Castle throne room
+if (isset(f5)) {
+  load.pic(v0);
+  draw.pic(v0);
+  discard.pic(v0);
+  load.sound(48);
+  v70 = 0;
+  v71 = 0;
+  if (v1 == 54) {
+    position(o0,154,120);
+  }
+  load.view(1);
+  load.view(71);
+  load.view(53);
+  load.view(82);
+  load.view(85);
+  load.view(98);
+  load.view(142);
+  load.sound(0);
+  animate.obj(o14);
+  set.view(o14,53);
+  position(o14,30,90);
+  draw(o14);
+  stop.cycling(o14);
+  draw(o0);
+  show.pic();
+  if (v74 == 3) {
+    v70 = 250;
+    v71 = 1;
+  }
+}
+if (isset(f26)) {
+  if (said("check","king")) {
+    print("You are the only King here!");
+  }
+}
+if (isset(f195)) {
+  goto(Label1);
+}
+if (said("check","dwarf")) {
+  print("That man is the King.");
+}
+if (v30 <= 0) {
+  v70--;
+  if (v70 == 1) {
+    if (v71 > 0) {
+      v71--;
+      v70 = 250;
+    }
+  }
+  if (v70 == 1 &&
+      v71 == 0) {
+    v70 = 0;
+    v30 = 250;
+  }
+}
+if (v30 > 0) {
+  v30--;
+  if (v30 == 245) {
+    set.view(o0,0);
+    if (isset(f79)) {
+      print("The spell to make you invisible has"
+            "expired and you are once again"
+            "visible.");
+      v90 = 0;
+      v91 = 0;
+      reset(f79);
+      drop("magic ring");
+      v3 -= 3;
+      reset(f83);
+    }
+    ignore.blocks(o0);
+    get.posn(o0,v100,v101);
+    if (v100 < 60 &&
+        v101 < 88) {
+      move.obj(o0,67,82,0,f28);
+    }
+    else {
+      move.obj(o0,50,110,0,f20);
+    }
+    print("You move aside as the King steps from"
+          "his throne.");
+  }
+  if (isset(f28)) {
+    reset(f28);
+    move.obj(o0,50,110,0,f20);
+  }
+  if (isset(f20)) {
+    reset(f20);
+    set(f95);
+    set.loop(o0,3);
+    stop.motion(o0);
+    stop.cycling(o0);
+    v30 = 200;
+  }
+  if (isset(f95)) {
+    if (v30 == 195) {
+      erase(o14);
+      set.view(o14,98);
+      position(o14,40,90);
+      draw(o14);
+      start.cycling(o14);
+      ignore.blocks(o14);
+      v32 = 2;
+      cycle.time(o14,v32);
+      move.obj(o14,55,95,0,f148);
+      print("As you approach the throne, the King"
+            "himself rises to commend  you for a"
+            "job well done.");
+      if (said("check","king")) {
+        print("The King is walking towards you to"
+              "commend you.");
+      }
+    }
+    if (v30 == 165) {
+      erase(o14);
+      set.view(o14,85);
+      draw(o14);
+      end.of.loop(o14,f26);
+      print("\"Oh!... Oh!!\"  the King proclaims"
+            "in pain!");
+      if (said("check","king")) {
+        print("Your heart also aches with pain as"
+              "you watch the King.");
+      }
+    }
+    if (v30 == 135) {
+      print("From the seemingly lifeless King you"
+            "hear these words:   \"Well done, Sir"
+            "Graham.  You have been a good and"
+            "faithful servant.  Your reward is"
+            "well deserved.  My kingdom is now"
+            "yours.\"");
+      if (said("check","king")) {
+        print("The King is lying motionless on the"
+              "ground.");
+      }
+    }
+    if (v30 == 115) {
+      set.view(o0,1);
+      print("With those words, King Edward the"
+            "Benevolent dies.");
+    }
+    if (v30 == 105) {
+      program.control();
+      print("The experiences of your quest will be"
+            "invaluable to you as you begin your"
+            "reign as King of Daventry!!");
+      reset(f95);
+      start.cycling(o0);
+      ignore.objs(o0);
+      ignore.blocks(o0);
+      move.obj(o0,40,90,0,f27);
+    }
+  }
+}
+if (isset(f27)) {
+  reset(f27);
+  erase(o0);
+  position(o0,30,85);
+  set.view(o0,142);
+  draw(o0);
+  erase(o14);
+  stop.motion(o0);
+  prevent.input();
+  sound(0,f30);
+  print("    Thank you for playing            "
+        "King's Quest                     from    "
+        "          Ken and Roberta Williams    "
+        "Sol Ackerman   Chris Iden           Jeff"
+        "Stephenson                 Mark Crowe    "
+        "       Bob Ballew   Mikel Knight    "
+        "Susan Lee    Russ Truelove         Larry"
+        "Weissenborn   ");
+  set(f195);
+}
+if (posn(o0,18,80,67,107)) {
+  set(f21);
+}
+else {
+  reset(f21);
+}
+if (posn(o0,18,80,86,113)) {
+  if (said("check","king")) {
+    if (v30 <= 0 &&
+        v74 != 3 &&
+        !isset(f126)) {
+      print("King Edward the Benevolent is a very"
+            "wise, but elderly monarch.  His frail"
+            "body is almost lost in the large"
+            "throne.");
+    }
+    if (!isset(f21) &&
+        !isset(f79) &&
+        v74 == 3 &&
+        v30 <= 0) {
+      print("The King, though very ill, seems"
+            "happy to see you.");
+    }
+  }
+  if (said("check","throne")) {
+    print("The King's throne is made of solid"
+          "gold, accented with rubies.  It will be"
+          "yours if you complete your quest.");
+  }
+  if ((said("bow","king") ||
+      said("bow"))) {
+    if (isset(f79)) {
+      print("You bow, but you are the only one who"
+            "knows it.");
+    }
+    else {
+      if (!isset(f79) &&
+          isset(f21)) {
+        print("It is proper to stand directly in"
+              "front of, and a few paces back from"
+              "King Edward when addressing His"
+              "Eminence.");
+      }
+      else {
+        if (!isset(f21) &&
+            !isset(f79) &&
+            v30 <= 0 &&
+            v74 != 3 &&
+            !isset(f24)) {
+          set(f24);
+          get.posn(o0,v60,v61);
+          v60 -= 7;
+          erase(o0);
+          stop.motion(o0);
+          set.view(o0,71);
+          set.cel(o0,0);
+          position.v(o0,v60,v61);
+          v31 = 2;
+          cycle.time(o0,v31);
+          draw(o0);
+          end.of.loop(o0,f22);
+          set(f98);
+          if (!isset(f168)) {
+            set(f168);
+            v3 += 3;
+            sound(48,f255);
+          }
+        }
+        else {
+          if (!isset(f21) &&
+              !isset(f79) &&
+              v30 <= 0 &&
+              v74 == 3 &&
+              !isset(f25)) {
+            set(f25);
+            get.posn(o0,v60,v61);
+            v60 -= 7;
+            erase(o0);
+            stop.motion(o0);
+            set.view(o0,71);
+            set.cel(o0,0);
+            position.v(o0,v60,v61);
+            v31 = 2;
+            cycle.time(o0,v31);
+            draw(o0);
+            end.of.loop(o0,f22);
+            set(f98);
+            if (!isset(f194)) {
+              set(f194);
+              v3 += 3;
+              sound(48,f255);
+            }
+          }
+          else {
+            print("There is no need to bow again.");
+          }
+        }
+      }
+    }
+  }
+  if (said("speak","king")) {
+    if (isset(f60) &&
+        v30 <= 0 &&
+        !isset(f126) &&
+        v74 != 3) {
+      print("Go, Sir Graham!  Go and bring me back"
+            "these treasures!");
+    }
+    if (v30 <= 0 &&
+        v74 == 3) {
+      print("Welcome back from your quest, Sir"
+            "Graham.");
+    }
+    if (v30 <= 0 &&
+        isset(f126)) {
+      print("Why, Sir Graham, have you failed me"
+            "and returned without accomplishing"
+            "your task?  Go, and complete your"
+            "quest!!");
+      set(f125);
+    }
+    if (v30 > 0) {
+      print("The king cannot talk right now.");
+    }
+    if (!isset(f60) &&
+        v30 <= 0 &&
+        !isset(f126) &&
+        v74 != 3) {
+      set(f60);
+      set(f23);
+      set(f125);
+      set.text.attribute(15,0);
+      text.screen();
+      display(0,4,"When you speak to King Edward,");
+      display(1,10,"he sighs and says,");
+      display(2,0,"\"Sir Graham, I am an old man."
+              "I fear");
+      display(3,0," my end is near.  I have chosen"
+              "you to");
+      display(4,0," prove yourself worthy of the"
+              "throne.");
+      display(5,0,"As you know, our kingdom is"
+              "weak and");
+      display(6,0," poor.  I have knowledge of the");
+      display(7,0," existence of three things that"
+              "would");
+      display(8,0," make our kingdom wealthy and"
+              "strong.");
+      display(9,0,"Somewhere within our kingdom,"
+              "there is");
+      display(10,0," a magic mirror that tells the"
+              "future.");
+      display(11,0," There is a magic shield that"
+              "will");
+      display(12,0," protect the bearer from"
+              "mortal harm.");
+      display(13,0," Finally, there is a magic"
+              "chest that");
+      display(14,0," is always filled with gold"
+              "coins.");
+      display(15,0,"Go, Sir Graham!  Go and bring"
+              "me");
+      display(16,0," back these treasures.");
+      display(17,0,"If you succeed, you will"
+              "inherit the");
+      display(18,0," throne.\"");
+      display(22,5,"Press any key to continue.");
+    }
+  }
+}
+if (!posn(o0,60,85,86,113) &&
+    !isset(f21)) {
+  if (v30 <= 0) {
+    if (said("check","king")) {
+      print("You are not close enough to see him"
+            "clearly.");
+    }
+    if (said("check","throne")) {
+      print("King Edward the Benevolent is sitting"
+            "on the throne, waiting for you.");
+    }
+    if ((said("bow","king") ||
+        said("bow"))) {
+      print("It would show more respect if you"
+            "were closer and in front of King"
+            "Edward.");
+    }
+    if (said("speak","king")) {
+      print("It is proper to stand directly in"
+            "front of, and a few paces back from"
+            "King Edward when addressing His"
+            "Eminence.");
+    }
+    if (said("kill","king")) {
+      print(m11);
+    }
+  }
+}
+if (said("kneel","king")) {
+  print("That's not a bad idea, but the custom in"
+        "Daventry is to bow.");
+}
+if (said("kill","king")) {
+  if (v30 <= 0) {
+    set.view(o0,82);
+    print(m1);
+    // erase(o0);
+    set(f63);
+  }
+  if (v30 > 0) {
+    print("Your concern for the old king won't"
+          "allow you to move.");
+  }
+}
+if (said("sit","throne")) {
+  if (v30 <= 0) {
+    print("The throne is already occupied.");
+  }
+  else {
+    print("You will have to do that yourself.");
+  }
+}
+if ((said("check","room") ||
+    said("check","building") || 
+    said("check"))) {
+  print("This huge, tapestried room echoes every"
+        "sound.");
+}
+if ((said("hello") ||
+    said("say","hello"))) {
+  print("That is no way to try and address King"
+        "Edward.");
+}
+if (isset(f22)) {
+  reset(f22);
+  reset(f98);
+  get.posn(o0,v60,v61);
+  v60 += 7;
+  erase(o0);
+  set.loop(o0,1);
+  set.view(o0,0);
+  position.v(o0,v60,v61);
+  v31 = 1;
+  cycle.time(o0,v31);
+  draw(o0);
+  start.motion(o0);
+  print("When you bow to King Edward, his pleased"
+        "smile warms you.");
+  if (isset(f194)) {
+    v30 = 250;
+    v70 = 0;
+    v71 = 0;
+  }
+}
+if (isset(f29)) {
+  reset(f29);
+  reverse.loop(o14,f148);
+}
+if (isset(f23)) {
+  v19 = 0;
+Label2:
+  if (!have.key()) {
+    goto(Label2);
+  }
+  reset(f23);
+  graphics();
+  end.of.loop(o14,f29);
+}
+if (v2 == 2) {
+  new.room(54);
+}
+Label1:
+return();
+
+// Messages
+#message 1 "Even as you are reaching for your medieval flamethrower, the King's guards descend upon you.  You are taken away to be torched at dawn."
+#message 2 "King Edward the Benevolent is a very wise, but elderly monarch.  His frail body is almost lost in the large throne."
+#message 3 "The King's throne is made of solid gold, accented with rubies.  It will be yours if you complete your quest."
+#message 4 "When you bow to King Edward, his pleased smile warms you."
+#message 5 "The King, though very ill, seems happy to see you."
+#message 6 "It is proper to stand directly in front of, and a few paces back from King Edward when addressing His Eminence."
+#message 7 "You bow, but you are the only one who knows it."
+#message 8 "Go, Sir Graham!  Go and bring me back these treasures!"
+#message 9 "Welcome back from your quest, Sir Graham."
+#message 10 "Why, Sir Graham, have you failed me and returned without accomplishing your task?  Go, and complete your quest!!"
+#message 11 "Before exposing your flamethrower, you decide the King is just beyond the range of your obsolete flamethrower."
+#message 12 "You are not close enough to see him clearly."
+#message 13 "King Edward the Benevolent is sitting on the throne, waiting for you."
+#message 14 "It would show more respect if you were closer and in front of King Edward."
+#message 15 "He bids you to approach so he can hear you."
+#message 16 "The King is walking towards you to commend you."
+#message 17 "Your heart also aches with pain as you watch the King."
+#message 18 "The King is lying motionless on the ground."
+#message 19 "You are the only King here!"
+#message 20 "That's not a bad idea, but the custom in Daventry is to bow."
+#message 21 "To kill King Edward would mean immediate execution!"
+#message 22 "The throne is already occupied."
+#message 23 "You will have to do that yourself."
+#message 24 "This huge, tapestried room echoes every sound."
+#message 25 "You move aside as the King steps from his throne."
+#message 26 "As you approach the throne, the King himself rises to commend  you for a job well done."
+#message 27 "\"Oh!... Oh!!\"  the King proclaims in pain!"
+#message 28 "From the seemingly lifeless King you hear these words:   \"Well done, Sir Graham.  You have been a good and faithful servant.  Your reward is well deserved.  My kingdom is now yours.\""
+#message 29 "With those words, King Edward the Benevolent dies."
+#message 30 "The experiences of your quest will be invaluable to you as you begin your reign as King of Daventry!!"
+#message 31 "As you are leaving, your agents remind you that you must remain here now, where it is safe."
+#message 32 "When you speak to King Edward,"
+#message 33 "he sighs and says,"
+#message 34 "\"Sir Graham, I am an old man. I fear"
+#message 35 " my end is near.  I have chosen you to"
+#message 36 " prove yourself worthy of the throne."
+#message 37 "As you know, our kingdom is weak and"
+#message 38 " poor.  I have knowledge of the"
+#message 39 " existence of three things that would"
+#message 40 " make our kingdom wealthy and strong."
+#message 41 "Somewhere within our kingdom, there is"
+#message 42 " a magic mirror that tells the future."
+#message 43 " There is a magic shield that will"
+#message 44 " protect the bearer from mortal harm."
+#message 45 " Finally, there is a magic chest that"
+#message 46 " is always filled with gold coins."
+#message 47 "Go, Sir Graham!  Go and bring me"
+#message 48 " back these treasures."
+#message 49 "If you succeed, you will inherit the"
+#message 50 " throne.\""
+#message 54 "Press any key to continue."
+#message 55 "There is no need to bow again."
+#message 56 "Your concern for the old king won't allow you to move."
+#message 57 "    Thank you for playing             King's Quest                     from               Ken and Roberta Williams     Sol Ackerman   Chris Iden           Jeff Stephenson                 Mark Crowe            Bob Ballew   Mikel Knight     Susan Lee    Russ Truelove         Larry Weissenborn   "
+#message 58 "The king cannot talk right now."
+#message 59 "That is no way to try and address King Edward."
+#message 60 "The spell to make you invisible has expired and you are once again visible."
+#message 61 "That man is the King."
+
+
+
+
+

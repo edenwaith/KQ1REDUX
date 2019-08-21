@@ -1,0 +1,282 @@
+// logic.018
+if (isset(f5)) {
+  load.pic(v0);
+  draw.pic(v0);
+  discard.pic(v0);
+  load.sound(48);
+  set.horizon(46);
+  if (isset(f75)) {
+    load.logics(103);
+  }
+  if (v65 == v0) {
+    add.to.pic(62,0,0,26,138,0,0);
+  }
+  load.logics(101);
+  call(101);
+  random(0,250,v62);
+  if (v62 < 85 &&
+      !isset(f82)) {
+    load.view(7);
+    animate.obj(o1);
+    set.view(o1,7);
+    position(o1,26,60);
+    observe.blocks(o1);
+    object.on.land(o1);
+    set(f22);
+  }
+  if (isset(f22)) {
+Label1:
+    random(0,250,v71);
+    if (v71 > 90) {
+      goto(Label1);
+    }
+  }
+  if (v1 == 15) {
+    get.posn(o0,v60,v61);
+    if (v60 > 100) {
+      position(o0,100,165);
+    }
+  }
+  if (v1 == 17 &&
+      isset(f0)) {
+    get.posn(o0,v60,v61);
+    if (v61 < 111) {
+      position(o0,142,122);
+    }
+  }
+  draw(o0);
+  show.pic();
+}
+if (isset(f213)) {
+  reset(f213);
+  print("It seems the old goat has wandered off by"
+        "himself and is no longer following you.");
+}
+v71--;
+if (v71 == 1) {
+  reset(f22);
+  draw(o1);
+  set(f20);
+  wander(o1);
+  print("Wandering on the banks of the lake, you"
+        "see a cute little elf.");
+}
+if (said("check","lake")) {
+  print("This is a clear mountain lake with some"
+        "steep cliffs surrounding it.");
+}
+if (!isset(f20)) {
+  if (said("anyword","elf")) {
+    if (isset(f21) &&
+        said("speak","elf")) {
+      print("The elf has left since you were not"
+            "very cordial to him.");
+    }
+    else {
+      print("There's no elf here.");
+    }
+  }
+  if ((said("check","room") || 
+       said("check"))) {
+    print("There is a clear mountain lake and some"
+          "trees here.");
+  }
+  if (isset(f21) &&
+      said("speak","elf")) {
+    print("The elf has left since you were not"
+          "very cordial to him.");
+  }
+}
+if (isset(f20)) {
+  distance(o0,o1,v70);
+  if ((said("check","room") || 
+       said("check"))) {
+    print("There is a very pretty lake nearby with"
+          "a small little elf running along its"
+          "shore.");
+  }
+  if (said("check","elf")) {
+    print("This is a small elf.  He looks very"
+          "friendly.");
+  }
+  if ((said("kiss","elf") ||
+      said("hug","elf"))) {
+    print("Silly!  You can't get close enough to"
+          "do that.");
+  }
+  if ((said("kill","elf") ||
+      said("capture","elf"))) {
+    set(f21);
+    erase(o1);
+    reset(f20);
+    print("I'm surprised at you!  That is very"
+          "impolite!");
+  }
+  if (isset(f67)) {
+    if ((said("cast","dagger") ||
+        said("cast","dagger","elf"))) {
+      set(f21);
+      erase(o1);
+      reset(f20);
+      print("I'm surprised at you!  That is very"
+            "impolite!");
+    }
+  }
+  if (!isset(f21) &&
+      (said("speak","elf") ||
+      said("hello") ||
+      said("say","hello"))) {
+    if (v70 < 40) {
+      print("The elf, impressed by your"
+            "friendliness, gives you a magic ring."
+            " \"Kind person, know that once, only"
+            "once, this ring will make you"
+            "invisible,\" he says and then"
+            "disappears.");
+      get("magic ring");
+      set(f83);
+      v3 += 3;
+      erase(o1);
+      reset(f20);
+      set(f82);
+      sound(48,f255);
+    }
+    else {
+      print("You are too far away.");
+    }
+  }
+}
+if (!isset(f0)) {
+  ignore.blocks(o0);
+}
+else {
+  observe.blocks(o0);
+}
+block(100,95,139,100);
+if (!isset(f0)) {
+  if ((posn(o0,129,95,159,105) ||
+      posn(o0,133,80,145,94))) {
+    set(f0);
+    set(f134);
+  }
+}
+if (v94 <= 0 &&
+    isset(f3)) {
+  set(f0);
+  v76 = 255;
+  if (posn(o0,128,64,159,85)) {
+    v76 = 139;
+    v77 = 84;
+  }
+  if (posn(o0,97,88,118,95)) {
+    v76 = 97;
+    v77 = 104;
+  }
+  if (v76 == 255) {
+    v76 = 0;
+  }
+  else {
+    get.posn(o0,v60,v61);
+    v76 -= v60;
+    v77 -= v61;
+    set(f134);
+  }
+}
+if (v94 <= 0 &&
+    isset(f0)) {
+  v76 = 255;
+  if (posn(o0,119,86,146,95)) {
+    v76 = 120;
+    v77 = 104;
+  }
+  if (v76 == 255) {
+    v76 = 0;
+  }
+  else {
+    get.posn(o0,v60,v61);
+    v76 -= v60;
+    v77 -= v61;
+    set(f134);
+  }
+}
+if (!isset(f88) &&
+    !isset(f0) &&
+    !isset(f116)) {
+  if ((said("drink","water") ||
+      said("acquire","drink"))) {
+    if (posn(o0,81,87,159,167)) {
+      print("There is nothing to compare with that"
+            "refreshing taste.");
+    }
+    else {
+      print("You are not close enough to the water.");
+    }
+  }
+}
+if (!isset(f88) &&
+    isset(f81) &&
+    !isset(f0) &&
+    said("acquire","water")) {
+  if (posn(o0,81,87,159,167)) {
+    reset(f116);
+    print("The cold water gushes into the old"
+          "bucket.");
+    get("water");
+    set(f88);
+    if (!isset(f91)) {
+      v3 += 2;
+      sound(48,f255);
+    }
+    set(f91);
+  }
+  else {
+    print("You are not close enough to the water.");
+  }
+}
+if (v2 != 0) {
+  if (isset(f66)) {
+    reset(f66);
+    reset(f75);
+    set(f130);
+    set(f213);
+  }
+}
+if (v2 == 1) {
+  new.room(31);
+}
+if (v2 == 2) {
+  new.room(17);
+}
+if (v2 == 4) {
+  new.room(19);
+}
+if (v2 == 3) {
+  new.room(15);
+}
+if (isset(f75)) {
+  call(103);
+}
+call(101);
+return();
+
+// Messages
+#message 1 "Wandering on the banks of the lake, you see a cute little elf."
+#message 2 "The cold water gushes into the old bucket."
+#message 3 "There is nothing to compare with that refreshing taste."
+#message 4 "You are not close enough to the water."
+#message 5 "There is a very pretty lake nearby with a small little elf running along its shore."
+#message 6 "This is a small elf.  He looks very friendly."
+#message 7 "There's no elf here."
+#message 8 "The elf, impressed by your friendliness, gives you a magic ring.  \"Kind person, know that once, only once, this ring will make you invisible,\" he says and then disappears."
+#message 10 "The elf has left since you were not very cordial to him."
+#message 11 "I'm surprised at you!  That is very impolite!"
+#message 12 "Nothing happens."
+#message 13 "You have no container for water."
+#message 14 "This is a clear mountain lake with some steep cliffs surrounding it."
+#message 15 "There is a clear mountain lake and some trees here."
+#message 16 "Silly!  You can't get close enough to do that."
+#message 17 "You are too far away."
+#message 18 "It seems the old goat has wandered off by himself and is no longer following you."
+
+
+

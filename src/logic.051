@@ -1,0 +1,479 @@
+// logic.051 - Inside dragon's cave
+if (isset(f5)) {
+  load.pic(v0);
+  draw.pic(v0);
+  discard.pic(v0);
+  load.sound(48);
+  if (!isset(f165)) {
+    load.view(34);
+  }
+  if (v75 == 1) {
+    load.view(61);
+  }
+  if (v75 == 0) {
+    load.view(33);
+    load.view(61);
+    load.view(82);
+    load.sound(1);
+    load.sound(7);
+  }
+  load.view(35);
+  if (v1 == 52) {
+    set.view(o0,0);
+    reset(f98);
+    v94 = 0;
+    position(o0,133,136);
+    if (!isset(f167)) {
+      set(f167);
+      v3 += 1;
+      sound(48,f255);
+    }
+  }
+  if (v1 == 50) {
+    position(o0,9,138);
+  }
+  if (!isset(f165)) {
+    animate.obj(o1);
+    set.view(o1,34);
+    position(o1,38,108);
+    draw(o1);
+    stop.update(o1);
+  }
+  if (v75 == 2) {
+    animate.obj(o2);
+    set.view(o2,35);
+    ignore.blocks(o2);
+    position(o2,8,127);
+    draw(o2);
+    stop.cycling(o2);
+  }
+  if (v75 != 2) {
+    animate.obj(o2);
+    set.view(o2,35);
+    ignore.blocks(o2);
+    position(o2,3,127);
+    draw(o2);
+    stop.cycling(o2);
+    animate.obj(o3);
+    if (v75 == 1) {
+      add.to.pic(61,0,0,40,152,0,0);
+    }
+    if (v75 == 0) {
+      set.view(o3,33);
+      position(o3,40,120);
+      v30 = 3;
+      step.size(o3,v30);
+      draw(o3);
+      observe.blocks(o3);
+      follow.ego(o3,20,f20);
+    }
+  }
+  draw(o0);
+  show.pic();
+}
+get.posn(o0,v60,v61);
+if (v60 > 15) {
+  ignore.blocks(o0);
+}
+if (v60 < 16) {
+  if (v75 == 2) {
+    ignore.blocks(o0);
+  }
+  else {
+    observe.blocks(o0);
+  }
+}
+if (v75 == 0 &&
+    !isset(f24)) {
+  set(f24);
+  sound(1,f25);
+}
+if (v75 == 0 &&
+    isset(f25)) {
+  current.loop(o3,v31);
+  if (v31 == 0) {
+    sound(7,f148);
+  }
+  else {
+    stop.sound();
+  }
+}
+if (isset(f20) &&
+    v75 == 0) {
+  reset(f20);
+  set.view(o0,82);
+  if (isset(f102)) {
+    print("Your shield melted from the intensity"
+          "of the dragon's flames!  You should"
+          "know about these fire-breathing"
+          "dragons!  Maybe next time you will be a"
+          "little more careful!");
+  }
+  else {
+    print("You should know about these"
+          "fire-breathing dragons!  Maybe next"
+          "time you will be a little more careful!");
+  }
+  set(f63);
+}
+//if ((said("check","room") || 
+//     said("check"))) {
+//  if (!isset(f165) &&
+//      v75 == 0) {
+//    print("The ferocious fire-breathing dragon is"
+//          "protecting the magic mirror.");
+//  }
+//  if (!isset(f165) &&
+//      v75 == 1) {
+//    print("There is a dead dragon, a large"
+//          "boulder, and a seemingly ordinary"
+//          "mirror in the cave.");
+//  }
+//  if (!isset(f165) &&
+//      v75 == 2) {
+//    print("There is a large granite boulder and a"
+//          "magic mirror in the cave.");
+//  }
+// }
+if ((said("check","cave") || 
+     said("check","room") || 
+     said("check"))) {
+  if (!isset(f165) &&
+      v75 == 0) {
+      print("The ferocious fire-breathing dragon is"
+            "protecting the magic mirror.");
+//    print("A green, scaly dragon breathing hot"
+//          "fire and smoke is protecting the mirror.");
+  }
+  if (isset(f165) &&
+      v75 == 1) {
+    print("In this large cavern, there is a slimy"
+          "dead dragon, an opening on one side,"
+          "and a large boulder in the other.");
+  }
+  if (!isset(f165) &&
+      v75 == 1) {
+    print("There is a dead dragon, a large"
+          "boulder, and a magic"
+          "mirror in the cave.");
+  }
+  if (!isset(f165) &&
+      v75 == 2) {
+    print("There is a large granite boulder and a"
+          "magic mirror in the cave.");
+  }
+  if (isset(f165) &&
+      v75 == 2) {
+    print("The cavern is empty, save for a couple"
+          "of openings on either side.");
+  }
+}
+if (said("check","dragon")) {
+  if (v75 == 2) {
+    print("There is no dragon here.");
+  }
+  if (v75 == 0) {
+    print("This ferocious, fire-breathing dragon"
+          "with sharp, green scales and a long"
+          "tail is protecting the magic mirror."
+          "Watch out for the flames!");
+  }
+  if (v75 == 1) {
+    print("You see the once powerful dragon lying"
+          "lifeless before you.");
+  }
+}
+if (said("find","dragon")) {
+  if (v75 == 2) {
+    print("There is no dragon here.");
+  }
+  if ((v75 == 0 ||
+      v75 == 1)) {
+    print("I think you found the dragon!");
+  }
+}
+if ((said("check","stalactite") ||
+    said("check","stalactite"))) {
+  print("It took millenniums for these stalagmites"
+        "and stalactites to form.");
+}
+if (said("check","boulder")) {
+  print("This boulder is a huge chunk of granite.");
+}
+if ((said("move","boulder") ||
+    said("move","boulder"))) {
+  print("This boulder is far too heavy to move.");
+}
+if (v75 == 0) {
+  if ((said("check","doorway") ||
+      said("look in","doorway"))) {
+    print("A strange watery light issues from the"
+          "hole.");
+  }
+  if ((said("speak","dragon") ||
+      said("hello") ||
+      said("say","hello"))) {
+    print("This dragon does not respond to reason.");
+  }
+}
+if (v75 != 0) {
+  if ((said("check","doorway") ||
+      said("look in","doorway"))) {
+    if (posn(o0,1,1,75,166)) {
+      print("The hole seems to lead further into"
+            "the cave.");
+    }
+    else {
+      print("A strange watery light issues from"
+            "the hole.");
+    }
+  }
+}
+if (v75 == 1) {
+  if (said("acquire","dagger")) {
+    print("The mere thought of retrieving the"
+          "dagger repulses you.");
+  }
+}
+if (isset(f67)) {
+  if (said("use","dagger")) {
+    print("How?");
+  }
+}
+if (said("kill","dragon")) {
+  if (v75 == 2) {
+    print("How?");
+  }
+  if (v75 == 1) {
+    print("This dragon had only one life and you"
+          "have taken it.");
+  }
+  if (v75 == 0) {
+    if (posn(o0,105,96,145,166)) {
+      print("You can't do that from here.!");
+    }
+    else {
+      print("How do you wish to accomplish that?");
+    }
+  }
+}
+if (isset(f81)) {
+  if (said("cast","bucket")) {
+    print("You throw your bucket on the cavern"
+          "floor.");
+    reset(f81);
+    drop("water bucket");
+    v3 -= 2;
+    if (isset(f88)) {
+      reset(f88);
+      drop("water");
+      reset(f91);
+      v3 -= 2;
+    }
+  }
+}
+if (!isset(f100) &&
+    isset(f165)) {
+  if (said("anyword","mirror")) {
+    print("There is no mirror here.");
+  }
+}
+if (!isset(f100) &&
+    !isset(f165)) {
+  if (said("steal","mirror") &&
+      v75 == 0) {
+    print("With that dragon here?  No way!");
+  }
+  if (posn(o0,26,104,59,127)) {
+    if (said("check","mirror")) {
+      if (v75 == 0) {
+        print("The dragon is protecting the magic"
+              "mirror.");
+      }
+      if ((v75 == 2 ||
+          v75 == 1)) {
+        print("The magic mirror is framed with"
+              "ornate mahogany wood, polished to a"
+              "high sheen.");
+      }
+    }
+    if (said("acquire","mirror")) {
+      if (v75 == 0) {
+        print("I do not think that you can get"
+              "close enough to the magic mirror"
+              "with the dragon here.");
+      }
+      if ((v75 == 2 ||
+          v75 == 1)) {
+        start.update(o1);
+        erase(o1);
+        set(f100);
+        set(f165);
+        get("magic mirror");
+        print("Carefully, you pick up the magic"
+              "mirror.");
+        v74++;
+        v3 += 8;
+        sound(48,f255);
+      }
+    }
+  }
+  if (!posn(o0,26,104,59,127)) {
+    if (said("check","mirror")) {
+      print("You could get a much better view if"
+            "you were closer.");
+    }
+    if (said("acquire","mirror")) {
+      print("You are not close enough to reach it.");
+    }
+  }
+}
+if (!isset(f88)) {
+  if ((said("douse","dragon") ||
+      said("cast","water") ||
+      said("cast","water","dragon"))) {
+    if (v75 != 2) {
+      print("You have nothing with which to douse"
+            "a dragon.");
+    }
+    if (v75 == 2) {
+      print("There is no dragon here.");
+    }
+  }
+}
+if (posn(o0,105,96,145,166) &&
+    v75 == 0) {
+  if (isset(f67) &&
+      (said("cast","dagger") ||
+      said("cast","dagger","dragon"))) {
+    reset(f67);
+    print("The dagger sings through the air, but"
+          "falls short of the dragon.  You should"
+          "have been closer.");
+    drop("dagger");
+    v3 -= 5;
+  }
+  if (isset(f88) &&
+      (said("cast","water") ||
+      said("cast","water","dragon") ||
+      said("douse","dragon"))) {
+    reset(f88);
+    print("You throw your water, but to no avail. "
+          "It lands on the floor and is quickly"
+          "absorbed.");
+    drop("water");
+    v3 -= 2;
+    reset(f91);
+  }
+}
+if (!posn(o0,105,96,145,166) &&
+    v75 == 0) {
+  if (isset(f88) &&
+      (said("cast","water") ||
+      said("cast","water","dragon") ||
+      said("douse","dragon"))) {
+    reset(f88);
+    print("The water hits the dragon squarely in"
+          "the mouth, extinguishing its roaring"
+          "flames.  No fire!  How mortified and"
+          "embarrassed the dragon is!  Moving a"
+          "huge boulder in leaving, the dragon"
+          "creeps off to sulk.");
+    drop("water");
+    v3 -= 2;
+    v3 += 7;
+    set.loop(o3,1);
+    reset(f91);
+    move.obj(o3,40,137,0,f21);
+    v75 = 2;
+    sound(48,f255);
+  }
+  if (isset(f67) &&
+      (said("cast","dagger") ||
+      said("cast","dagger","dragon"))) {
+    ignore.blocks(o3);
+    reset(f67);
+    print("Nervously, you throw the dagger at the"
+          "dragon and strike it in the heart. "
+          "Death for the dragon is instant.");
+    drop("dagger");
+    v3 -= 5;
+    v3 += 3;
+    erase(o3);
+    set.view(o3,61);
+    v30 = 0;
+    step.size(o3,v30);
+    draw(o3);
+    stop.motion(o3);
+    stop.cycling(o3);
+    v75 = 1;
+    sound(48,f255);
+  }
+}
+if (isset(f21)) {
+  reset(f21);
+  start.cycling(o2);
+  end.of.loop(o2,f22);
+}
+if (isset(f22)) {
+  ignore.blocks(o3);
+  reset(f22);
+  stop.cycling(o2);
+  move.obj(o3,4,137,0,f23);
+}
+if (isset(f23)) {
+  reset(f23);
+  erase(o3);
+}
+if (v2 == 2) {
+  new.room(52);
+}
+if (posn(o0,0,0,1,167)) {
+  new.room(50);
+}
+return();
+
+// Messages
+#message 1 "The ferocious fire-breathing dragon is protecting the magic mirror."
+#message 2 "There is a dead dragon, a large boulder, and a seemingly ordinary mirror in the cave."
+#message 3 "There is a large granite boulder and a magic mirror!! in the cave."
+#message 4 "A green, scaly dragon breathing hot fire and smoke is protecting the mirror."
+#message 5 "In this large cavern, there is a slimy dead dragon, an opening on one side, and a large boulder in the other."
+#message 6 "The cavern is empty, save for a couple of openings on either side."
+#message 7 "There is no dragon here."
+#message 8 "This ferocious, fire-breathing dragon with sharp, green scales and a long tail is protecting the magic mirror. Watch out for the flames!"
+#message 9 "You see the once powerful dragon lying lifeless before you."
+#message 10 "It took millenniums for these stalagmites and stalactites to form."
+#message 11 "This boulder is a huge chunk of granite."
+#message 12 "This boulder is far too heavy to move."
+#message 13 "A strange watery light issues from the hole."
+#message 14 "The mere thought of retrieving the dagger repulses you."
+#message 15 "The hole seems to lead further into the cave."
+#message 16 "How?"
+#message 17 "This dragon had only one life and you have taken it."
+#message 18 "With that dragon here?  No way!"
+#message 19 "This dragon does not respond to reason."
+#message 20 "You throw your bucket on the cavern floor."
+#message 21 "The dragon is protecting the magic mirror."
+#message 22 "The magic mirror is framed with ornate mahogany wood, polished to a high sheen."
+#message 23 "There is no mirror here."
+#message 24 "Carefully, you pick up the magic mirror."
+#message 25 "I do not think that you can get close enough to the magic mirror with the dragon here."
+#message 26 "You could get a much better view if you were closer."
+#message 27 "You are not close enough to reach it."
+#message 28 "You don't have a dagger."
+#message 29 "You don't have any water."
+#message 30 "You have nothing with which to douse a dragon."
+#message 31 "You can't do that from here.!"
+#message 32 "The dagger sings through the air, but falls short of the dragon.  You should have been closer."
+#message 33 "You throw your water, but to no avail.  It lands on the floor and is quickly absorbed."
+#message 34 "The water hits the dragon squarely in the mouth, extinguishing its roaring flames.  No fire!  How mortified and embarrassed the dragon is!  Moving a huge boulder in leaving, the dragon creeps off to sulk."
+#message 35 "Nervously, you throw the dagger at the dragon and strike it in the heart.  Death for the dragon is instant."
+#message 36 "How do you wish to accomplish that?"
+#message 37 "You are too busy looking around to even think about that."
+#message 38 "You should know about these fire-breathing dragons!  Maybe next time you will be a little more careful!"
+#message 39 "Your shield melted from the intensity of the dragon's flames!  You should know about these fire-breathing dragons!  Maybe next time you will be a little more careful!"
+#message 40 "I think you found the dragon!"
+
+
+

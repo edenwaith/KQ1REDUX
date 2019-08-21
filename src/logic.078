@@ -1,0 +1,103 @@
+// logic.078 - Leprechaun exit
+if (isset(f5)) {
+  load.pic(v0);
+  draw.pic(v0);
+  discard.pic(v0);
+  if (v1 == 36) {
+    set.view(o0,60);
+    position(o0,3,81);
+  }
+  if (v1 == 77) {
+    position(o0,146,131);
+    move.obj(o0,145,130,0,f148);
+  }
+  if (!isset(f123)) {
+    v30 = 250;
+    v31 = 4;
+  }
+  draw(o0);
+  show.pic();
+}
+if (!isset(f123)) {
+  v30--;
+  if (v30 == 0) {
+    if (v31 > 0) {
+      v31--;
+      v30 = 250;
+    }
+  }
+}
+if (v30 == 1 &&
+    v31 == 0) {
+  stop.cycling(o0);
+  print("You seem to be stuck in these underground"
+        "caverns.  As you have no way of leaving,"
+        "it looks like you'll spend the rest of"
+        "your life here.");
+  set(f63);
+}
+if (isset(f120)) {
+  ignore.blocks(o0);
+}
+else {
+  observe.blocks(o0);
+}
+if (v82 == 1 &&
+    isset(f120)) {
+  if (posn(o0,1,75,12,82)) {
+    reset(f120);
+    print("You feel a stretching sensation... Oh,"
+          "you're back to your original size.  You"
+          "can't get out of the small cave!");
+    set(f63);
+  }
+  else {
+    set.view(o0,0);
+    print("You feel a stretching sensation... Oh,"
+          "you're back to your original size.");
+    reset(f120);
+  }
+}
+if (said("check","stairs")) {
+  print("The stairs are very steep and narrow.");
+}
+if ((said("check","doorway") ||
+    said("look in","doorway"))) {
+  print("The small hole leads to the outside world.");
+}
+if ((said("enter","doorway") ||
+    said("enter","doorway"))) {
+  if (isset(f120)) {
+    print("Go ahead.  Walk right in.");
+  }
+  else {
+    print("You are much too big to fit through"
+          "that small hole.");
+  }
+}
+if ((said("check","cave") ||
+    said("check","room") || 
+    said("check"))) {
+  print("This is a small cave with stairs on one"
+        "side and a very small hole on the other"
+        "side.");
+}
+if (v2 == 2) {
+  new.room(77);
+}
+if (posn(o0,0,0,1,167)) {
+  new.room(36);
+}
+return();
+
+// Messages
+#message 1 "You feel a stretching sensation... Oh, you're back to your original size.  You can't get out of the small cave!"
+#message 2 "The stairs are very steep and narrow."
+#message 3 "The small hole leads to the outside world."
+#message 4 "You are much too big to fit through that small hole."
+#message 5 "You feel a stretching sensation... Oh, you're back to your original size."
+#message 6 "Go ahead.  Walk right in."
+#message 7 "This is a small cave with stairs on one side and a very small hole on the other side."
+#message 8 "You seem to be stuck in these underground caverns.  As you have no way of leaving, it looks like you'll spend the rest of your life here."
+
+

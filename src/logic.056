@@ -1,0 +1,90 @@
+// logic.056 - Land of the Clouds - Right of beanstalk
+if (isset(f5)) {
+  ignore.horizon(o0);
+  load.pic(v0);
+  draw.pic(v0);
+  discard.pic(v0);
+  load.sound(5);
+  load.view(105);
+  if (v1 == 57) {
+    get.posn(o0,v60,v61);
+    if (v61 > 154) {
+      position(o0,150,153);
+    }
+  }
+  draw(o0);
+  show.pic();
+}
+if (isset(f3) &&
+    posn(o0,0,0,159,83)) {
+  set(f199);
+  reset(f3);
+  program.control();
+  if (!isset(f79)) {
+    set.view(o0,105);
+  }
+  start.cycling(o0);
+  set(f98);
+  get.priority(o0,v30);
+  set.priority.v(o0,v30);
+  get.posn(o0,v60,v61);
+  v61 += 40;
+  v96 = 4;
+  move.obj.v(o0,v60,v61,96,f20);
+}
+if (isset(f3) &&
+    posn(o0,0,84,159,167)) {
+  set(f199);
+  set(f95);
+  program.control();
+  stop.cycling(o0);
+  get.posn(o0,v60,v61);
+  get.priority(o0,v30);
+  set.priority.v(o0,v30);
+  v61 += 9;
+  v96 = 4;
+  move.obj.v(o0,v60,v61,96,f20);
+}
+if (!isset(f20) &&
+    isset(f199) &&
+    !isset(f21)) {
+  sound(5,f159);
+  set(f21);
+}
+if (isset(f20)) {
+  erase(o0);
+  reset(f199);
+  reset(f20);
+  stop.sound();
+  print("You should know you can't walk on clouds.");
+  set(f63);
+}
+if (said("check","blossom")) {
+  print("These flowers look different than any you"
+        "have ever seen before.");
+}
+else {
+  if ((said("check","anyword") || said("check"))) {
+    print("You are in the Land of the Clouds.  It"
+          "is rumored that a giant lives up here.");
+  }
+}
+if (v2 == 2) {
+  new.room(57);
+}
+if (v2 == 4) {
+  if (isset(f94)) {
+    new.room(72);
+  }
+  else {
+    new.room(64);
+  }
+}
+return();
+
+// Messages
+#message 1 "You should know you can't walk on clouds."
+#message 2 "You are in the Land of the Clouds.  It is rumored that a giant lives up here."
+#message 3 "These flowers look different than any you have ever seen before."
+
+

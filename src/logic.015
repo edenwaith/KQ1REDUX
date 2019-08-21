@@ -1,0 +1,128 @@
+// logic.015 -  Left carrot patch
+if (isset(f5)) {
+  load.pic(v0);
+  draw.pic(v0);
+  discard.pic(v0);
+  load.sound(48);
+  set.horizon(46);
+  if (isset(f75)) {
+    load.logics(103);
+  }
+  if (v65 == v0) {
+    add.to.pic(62,0,0,20,65,0,0);
+  }
+  if (v1 == 18) {
+    if (isset(f0)) {
+      set.view(o0,0);
+      reset(f98);
+      v94 = 0;
+    }
+  }
+  draw(o0);
+  show.pic();
+}
+if ((said("check","room") || 
+     said("check"))) {
+  print("You see an old stone wall surrounding a"
+        "well kept garden.");
+}
+if ((said("check","carrot patch") ||
+    said("check","grass") ||
+    said("check","bury") ||
+    said("check","bush"))) {
+  print("This is a well-tended carrot patch.  The"
+        "carrots look tempting to a hungry"
+        "traveler.");
+}
+if ((said("check","fence") ||
+    said("check","rock wall"))) {
+  print("This is a relatively low, rustic stone"
+        "fence which runs along the left and rear"
+        "sides of the garden.");
+}
+if ((said("climb","fence") ||
+    said("climb","rock wall"))) {
+  print("There is no reason to climb the fence.");
+}
+if ((said("jump","fence") ||
+    said("jump","rock wall"))) {
+  print("You can go around the fence.");
+}
+if ((posn(o0,87,54,159,65) ||
+    posn(o0,79,66,159,76) ||
+    posn(o0,66,77,159,91) ||
+    posn(o0,46,92,159,116) ||
+    posn(o0,32,117,159,147))) {
+  set(f20);
+}
+else {
+  reset(f20);
+}
+if (isset(f20)) {
+  if (!isset(f77) &&
+      said("check","carrot")) {
+    print("There are many large, plump carrots in"
+          "the garden.");
+  }
+  if (!isset(f77) &&
+      said("acquire","carrot")) {
+    print("You pluck a plump, orange carrot from"
+          "the ground.");
+    set(f77);
+    reset(f118);
+    get("carrot");
+    if (!isset(f117)) {
+      v3 += 2;
+      set(f117);
+      sound(48,f255);
+    }
+  }
+}
+if (!isset(f20)) {
+  if (!isset(f77) &&
+      said("check","carrot")) {
+    print("The carrots are buried in the ground. "
+          "You must get  closer to see them.");
+  }
+  if (!isset(f77) &&
+      said("acquire","carrot")) {
+    print("You must be in the carrot patch to pick"
+          "a carrot.");
+  }
+}
+if (!isset(f77)) {
+  if (said("consume","carrot")) {
+    print("You do not have a carrot to eat.");
+  }
+}
+if (v2 == 1) {
+  new.room(18);
+}
+if (v2 == 2) {
+  new.room(16);
+}
+if (v2 == 4) {
+  new.room(14);
+}
+if (v2 == 3) {
+  new.room(2);
+}
+if (isset(f75)) {
+  call(103);
+}
+return();
+
+// Messages
+#message 1 "This is a well-tended carrot patch.  The carrots look tempting to a hungry traveler."
+#message 2 "This is a relatively low, rustic stone fence which runs along the left and rear sides of the garden."
+#message 3 "There is no reason to climb the fence."
+#message 4 "You can go around the fence."
+#message 5 "There are many large, plump carrots in the garden."
+#message 6 "You pluck a plump, orange carrot from the ground."
+#message 7 "The carrots are buried in the ground.  You must get  closer to see them."
+#message 8 "You must be in the carrot patch to pick a carrot."
+#message 9 "You do not have a carrot to eat."
+#message 10 "You see an old stone wall surrounding a well kept garden."
+
+
+

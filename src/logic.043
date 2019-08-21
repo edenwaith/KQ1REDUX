@@ -1,0 +1,122 @@
+// logic.043
+if (isset(f5)) {
+  load.pic(v0);
+  draw.pic(v0);
+  discard.pic(v0);
+  set.horizon(46);
+  load.logics(101);
+  call(101);
+  if (isset(f75)) {
+    load.logics(103);
+  }
+  if (v65 == v0) {
+    add.to.pic(62,0,0,105,58,0,0);
+  }
+  if (v1 == 6) {
+    position(o0,121,47);
+  }
+  ignore.blocks(o0);
+  draw(o0);
+  show.pic();
+}
+if (isset(f213)) {
+  reset(f213);
+  print("It seems the old goat has wandered off by"
+        "himself and is no longer following you.");
+}
+if ((said("check","lake") || 
+     said("check"))) {
+  print("The clear blue lake is surrounded by a"
+        "pretty meadow.");
+}
+if (!isset(f0)) {
+  if ((posn(o0,96,82,115,99) ||
+      posn(o0,100,108,115,120) ||
+      posn(o0,30,113,67,134) ||
+      posn(o0,90,121,112,130) ||
+      posn(o0,30,135,67,139) ||
+      posn(o0,90,131,107,142))) {
+    set(f0);
+    set(f134);
+  }
+}
+if (v94 <= 0 &&
+    isset(f0)) {
+  v76 = 255;
+  if ((posn(o0,115,104,125,111) ||
+      posn(o0,113,112,124,119) ||
+      posn(o0,100,120,122,126) ||
+      posn(o0,100,127,118,136) ||
+      posn(o0,100,137,115,142))) {
+    v76 = 100;
+    v77 = 121;
+  }
+  if (posn(o0,30,131,55,146)) {
+    v76 = 25;
+    v77 = 123;
+  }
+  if (v76 == 255) {
+    v76 = 0;
+  }
+  else {
+    get.posn(o0,v60,v61);
+    v76 -= v60;
+    v77 -= v61;
+    set(f134);
+  }
+}
+if (!isset(f88)) {
+  if ((said("drink","water") ||
+      said("acquire","drink"))) {
+    print("It tastes very refreshing to a thirsty"
+          "wanderer.");
+  }
+}
+if (!isset(f88) &&
+    isset(f81) &&
+    said("acquire","water")) {
+  print("The crystal clear water fills up the"
+        "bucket.");
+  get("water");
+  set(f88);
+  if (!isset(f91)) {
+    v3 += 2;
+    load.sound(48);
+    sound(48,f255);
+  }
+  set(f91);
+}
+if (v2 != 0) {
+  if (isset(f66)) {
+    reset(f66);
+    reset(f75);
+    set(f130);
+    set(f213);
+  }
+}
+if (v2 == 1) {
+  new.room(6);
+}
+if (v2 == 2) {
+  new.room(44);
+}
+if (v2 == 4) {
+  new.room(42);
+}
+if (v2 == 3) {
+  new.room(38);
+}
+if (isset(f75)) {
+  call(103);
+}
+call(101);
+return();
+
+// Messages
+#message 1 "The crystal clear water fills up the bucket."
+#message 2 "It tastes very refreshing to a thirsty wanderer."
+#message 3 "The clear blue lake is surrounded by a pretty meadow."
+#message 4 "It seems the old goat has wandered off by himself and is no longer following you."
+
+
+

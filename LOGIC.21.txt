@@ -1,0 +1,233 @@
+if (isset(f5)) {
+  set.horizon(64);
+  if (!isset(f38)) {
+    v152 = 21;
+  }
+  else {
+    v152 = 121;
+  }
+  load.pic(v152);
+  draw.pic(v152);
+  discard.pic(v152);
+  load.sound(48);
+  load.logics(202);
+  load.logics(206);
+  load.view(3);
+  load.view(40);
+  load.view(12);
+  if (!isset(f170)) {
+    animate.obj(o1);
+    load.view(25);
+    set.view(o1,25);
+    set.loop(o1,8);
+    position(o1,82,113);
+    draw(o1);
+    set(f238);
+  }
+  animate.obj(o12);
+  if (v1 == 20) {
+    if (v34 > 133) {
+      position(o0,0,130);
+    }
+  }
+  if (v1 == 15) {
+    if ((v33 > 38) &&
+        (v33 < 85)) {
+      position(o0,85,62);
+    }
+  }
+  if ((v1 == 27) &&
+      (v33 < 61)) {
+    position(o0,61,167);
+  }
+  if (v1 == 26) {
+    position(o0,52,167);
+  }
+  if (v37 != 0) {
+    if (v1 == 26) {
+      position(o0,1,157);
+    }
+    else {
+      position(o0,155,107);
+    }
+  }
+  draw(o0);
+  load.view(55);
+  animate.obj(o2);
+  animate.obj(o3);
+  set.view(o2,55);
+  set.view(o3,55);
+  set.loop(o2,0);
+  set.loop(o3,0);
+  position(o2,49,135);
+  position(o3,78,127);
+  v152 = 4;
+  cycle.time(o2,v152);
+  v152 = 6;
+  cycle.time(o3,v152);
+  set.priority(o2,5);
+  set.priority(o3,5);
+  ignore.objs(o2);
+  ignore.objs(o3);
+  draw(o2);
+  draw(o3);
+  show.pic();
+}
+if (said("examine","beneath","bridge")) {
+  if (posn(o0,67,116,74,119)) {
+    set(f36);
+    set.view(o12,40);
+    set.loop(o12,2);
+    step.time(o12,v160);
+    position.v(o12,v33,v34);
+    erase(o0);
+    draw(o12);
+    end.of.loop(o12,f229);
+    v161 = 1;
+  }
+  if ((posn(o0,56,93,142,134)) &&
+      (!isset(f36))) {
+    print("You peek under the bridge, but do not see anything of importance "
+          "from where you're standing.");
+  }
+  if (!posn(o0,56,93,142,134)) {
+    print("You're not close enough.");
+  }
+}
+if ((v161 == 1) &&
+    (isset(f229))) {
+  reset(f229);
+  set.view(o12,12);
+  set.loop(o12,0);
+  end.of.loop(o12,f229);
+  v161++;
+}
+if ((v161 == 2) &&
+    (isset(f229))) {
+  reset(f229);
+  if (!has("golden ball")) {
+    print("You kneel down and peer under the bridge.  Aha!  You have found a "
+          "small golden ball!  You pick it up and carry it with you.");
+    set(f170);
+    sound(48,f154);
+    get("golden ball");
+    v3 += 2;
+    reset(f238);
+    erase(o1);
+  }
+  else {
+    print("You find nothing.");
+  }
+  step.time(o12,v160);
+  set.view(o12,40);
+  set.loop(o12,2);
+  reverse.loop(o12,f229);
+  v161++;
+}
+if ((v161 == 3) &&
+    (isset(f229))) {
+  reset(f229);
+  set.view(o0,0);
+  position.v(o0,v33,v34);
+  erase(o12);
+  draw(o0);
+  reset(f36);
+}
+if (posn(o0,82,115,98,123)) {
+  set(f0);
+  set.view(o0,3);
+  v37 = 10;
+}
+if (posn(o0,2,134,49,140)) {
+  set(f0);
+  set.view(o0,3);
+  v37 = 10;
+}
+if (posn(o0,1,145,10,159)) {
+  set(f0);
+  set.view(o0,3);
+  v37 = 10;
+}
+if (posn(o0,119,101,137,112)) {
+  set(f0);
+  set.view(o0,3);
+  v37 = 10;
+  set.priority(o0,7);
+}
+else {
+  release.priority(o0);
+}
+if (isset(f0) &&
+    (v37 != 10)) {
+  v37 = 10;
+  set.view(o0,3);
+}
+if (!isset(f0) &&
+    (v37 != 0)) {
+  v37 = 0;
+  set.view(o0,0);
+}
+if (!isset(f2)) {
+  goto(Label1);
+}
+if ((said("examine") ||
+    said("examine","around") ||
+    said("examine","room") ||
+    said("examine","around","room"))) {
+  print("A gentle stream meanders its way through the trees.  A rustic stone "
+        "bridge crosses its path.");
+}
+if (said("examine","bridge")) {
+  print("The rustic stone bridge adds a bit of charm to this part of the woods.");
+}
+if (said("enter","beneath","bridge")) {
+  print("You can't.");
+}
+if (said("carry","ball")) {
+  if (!has("golden ball")) {
+    print("You haven't found one yet.");
+  }
+  else {
+    set(f114);
+  }
+}
+if (!isset(f4)) {
+  call(202);
+}
+if (!isset(f4)) {
+  call(206);
+}
+Label1:
+if (v2 == 3) {
+  if (v33 > 60) {
+    new.room(27);
+  }
+  else {
+    new.room(26);
+  }
+}
+if (v2 == 2) {
+  new.room(22);
+}
+if (v2 == 1) {
+  new.room(15);
+}
+if (v2 == 4) {
+  if (v37 == 10) {
+    new.room(26);
+  }
+  else {
+    new.room(20);
+  }
+}
+return();
+
+// Messages
+#message 1 "A gentle stream meanders its way through the trees.  A rustic stone bridge crosses its path."
+#message 2 "The rustic stone bridge adds a bit of charm to this part of the woods."
+#message 3 "You peek under the bridge, but do not see anything of importance from where you're standing."
+#message 4 "You're not close enough."
+#message 5 "You kneel down and peer under the bridge.  Aha!  You have found a small golden ball!  You pick it up and carry it with you."
+#message 6 "You find nothing."
+#message 7 "You haven't found one yet."
+#message 8 "You can't."

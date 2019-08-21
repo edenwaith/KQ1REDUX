@@ -1,0 +1,243 @@
+// logic.038 - Meadow for the beanstalk
+if (isset(f5)) {
+  load.pic(v0);
+  draw.pic(v0);
+  discard.pic(v0);
+  set.horizon(40);
+  load.sound(4);
+  load.sound(5);
+  if (isset(f75)) {
+    load.logics(103);
+  }
+  if (v65 == v0) {
+    add.to.pic(62,0,0,36,84,0,0);
+  }
+  if ((isset(f154) ||
+      v80 == 38)) {
+    v92 = 84;
+    set(f155);
+    load.pic(v92);
+    load.view(114);
+    load.view(103);
+    load.view(104);
+    load.view(74);
+    load.view(105);
+    load.logics(104);
+    load.sound(12);
+  }
+  if (v1 == 70 &&
+      isset(f157)) {
+    set.view(o0,74);
+    position(o0,64,41);
+    move.obj(o0,64,41,0,f148);
+    set.priority(o0,8);
+  }
+  if (v1 == 70 &&
+      isset(f158)) {
+    program.control();
+    ignore.horizon(o0);
+    set.priority(o0,15);
+    set.view(o0,105);
+    get.posn(o0,v60,v61);
+    if (v60 > 75) {
+      position(o0,80,29);
+    }
+    else {
+      position(o0,65,29);
+    }
+    get.posn(o0,v60,v61);
+    v61 = 106;
+    v96 = 2;
+    move.obj.v(o0,v60,v61,96,f22);
+  }
+  if (v80 == 38) {
+    overlay.pic(v92);
+  }
+  draw(o0);
+  show.pic();
+}
+if ((said("check","room") || 
+     said("check","grass") ||
+     said("check"))) {
+  print("Numerous flowers are growing in the"
+        "fertile soil.");
+}
+if (isset(f158) &&
+    !isset(f23)) {
+  set(f23);
+  set(f135);
+  sound(5,f24);
+}
+if (isset(f22)) {
+  stop.sound();
+  set(f23);
+  reset(f158);
+  reset(f135);
+  set.view(o0,114);
+  shake.screen(2);
+  set(f63);
+}
+if (said("check","blossom")) {
+  print("What a pretty bed of wild flowers.");
+}
+if (said("smell","blossom")) {
+  if (posn(o0,60,61,117,113)) {
+    print("The flowers' fragrance is enticing.");
+  }
+  else {
+    print("You will have to move closer to do that.");
+  }
+}
+if (said("acquire","blossom")) {
+  if (posn(o0,60,61,117,113)) {
+    print("It would be a shame to pick the lovely"
+          "wild flowers.");
+  }
+  else {
+    print("You will have to move closer to do that.");
+  }
+}
+if (isset(f154) &&
+    isset(f155)) {
+  if (said("bury","bean")) {
+    reset(f154);
+    v80 = 38;
+    set(f94);
+    drop("beans");
+    v3 += 2;
+    print("The beans immediately sprout roots that"
+          "reach deep into the fertile soil..."
+          "leaves unfold themselves to the warm,"
+          "loving sun... a rumbling is felt... and"
+          "a mighty beanstalk now stretches up"
+          "into the sky!");
+    sound(12,f25);
+    overlay.pic(v92);
+    show.pic();
+  }
+}
+if (v80 == 38 &&
+    !isset(f79)) {
+  if (said("climb","beanstalk") &&
+      !isset(f157)) {
+    if (posn(o0,52,76,103,97)) {
+      erase(o0);
+      set.view(o0,74);
+      set(f157);
+      position(o0,71,77);
+      set.priority(o0,8);
+      draw(o0);
+      move.obj(o0,71,77,0,f148);
+    }
+    else {
+      print("You can't reach the beanstalk from"
+            "here.");
+    }
+  }
+}
+if (v80 != 38) {
+  if (said("climb","beanstalk")) {
+    print("There is no beanstalk here to climb.");
+  }
+}
+if (isset(f157)) {
+  if (isset(f3) &&
+      posn(o0,60,78,93,80)) {
+    erase(o0);
+    set.view(o0,0);
+    reset(f157);
+    position(o0,70,106);
+    release.priority(o0);
+    draw(o0);
+  }
+  if (isset(f3) &&
+      !posn(o0,60,78,93,80)) {
+    program.control();
+    set.priority(o0,15);
+    get.posn(o0,v60,v61);
+    erase(o0);
+    set.view(o0,105);
+    reset(f157);
+    position.v(o0,v60,v61);
+    draw(o0);
+    v61 = 106;
+    v96 = 2;
+    move.obj.v(o0,v60,v61,96,f20);
+    set(f135);
+    sound(5,f198);
+  }
+}
+v30--;
+if (isset(f20)) {
+  stop.sound();
+  reset(f20);
+  observe.blocks(o0);
+  release.priority(o0);
+  stop.motion(o0);
+  set.view(o0,103);
+  v30 = 20;
+  set(f98);
+  shake.screen(2);
+  print("Ouch!");
+  set(f135);
+  sound(4,f159);
+}
+if (isset(f159)) {
+  if (v30 > 0) {
+    reset(f159);
+    sound(4,f159);
+  }
+}
+if (v30 == 1) {
+  set.view(o0,104);
+  end.of.loop(o0,f21);
+}
+if (isset(f21)) {
+  reset(f21);
+  reset(f98);
+  start.motion(o0);
+  set.view(o0,0);
+  release.priority(o0);
+  player.control();
+}
+if (v2 != 0) {
+  reset(f155);
+}
+if (v2 == 1 &&
+    isset(f157)) {
+  new.room(70);
+}
+if (v2 == 1 &&
+    !isset(f157)) {
+  new.room(43);
+}
+if (v2 == 2) {
+  new.room(37);
+}
+if (v2 == 4) {
+  new.room(39);
+}
+if (v2 == 3) {
+  new.room(27);
+}
+if (isset(f75)) {
+  call(103);
+}
+if (v80 == 38) {
+  call(104);
+}
+return();
+
+// Messages
+#message 1 "What a pretty bed of wild flowers."
+#message 2 "The flowers' fragrance is enticing."
+#message 3 "You will have to move closer to do that."
+#message 4 "It would be a shame to pick the lovely wild flowers."
+#message 5 "The beans immediately sprout roots that reach deep into the fertile soil... leaves unfold themselves to the warm, loving sun... a rumbling is felt... and a mighty beanstalk now stretches up into the sky!"
+#message 6 "You can't reach the beanstalk from here."
+#message 7 "There is no beanstalk here to climb."
+#message 8 "Ouch!"
+#message 9 "Numerous flowers are growing in the fertile soil."
+
+
+

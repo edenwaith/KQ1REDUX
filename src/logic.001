@@ -1,0 +1,256 @@
+if (isset(f5)) {
+  load.pic(v0);
+  draw.pic(v0);
+  discard.pic(v0);
+  load.logics(101);
+  set.horizon(50);
+  if (isset(f75)) {
+    load.logics(103);
+  }
+  if (v65 == v0) {
+    add.to.pic(62,0,0,95,72,0,0);
+  }
+  load.view(107);
+  load.view(97);
+  animate.obj(o11);
+  animate.obj(o12);
+  animate.obj(o1);
+  set.view(o11,107);
+  set.view(o12,107);
+  set.view(o1,97);
+  position(o11,121,161);
+  position(o12,73,166);
+  ignore.horizon(o1);
+  position(o1,5,17);
+  set.priority(o1,15);
+  set(f68);
+  object.on.water(o11);
+  object.on.water(o12);
+  ignore.blocks(o0);
+  draw(o11);
+  draw(o12);
+  draw(o1);
+  if ((v1 == 0 ||
+      v1 == 83)) {
+    position(o0,110,100);
+  }
+  wander(o11);
+  wander(o12);
+  if (v1 == 8) {
+    get.posn(o0,v60,v61);
+    if (v61 > 150) {
+      position(o0,148,150);
+    }
+  }
+  draw(o0);
+  call(101);
+  show.pic();
+  status.line.on();
+  accept.input();
+}
+if ((said("check","room") || said("check"))) {
+  print("You are standing outside a castle"
+        "surrounded by an alligator filled moat.");
+}
+if (said("pet","alligator")) {
+  print("What!  Are you crazy?");
+}
+if (said("check","bridge")) {
+  print("It is a very small,  wooden barrel bridge.");
+}
+if (said("check","banner")) {
+  print("King Edward's banners are waving in the"
+        "strong breeze.");
+}
+if (said("check","building")) {
+  print("This is the castle of King Edward the"
+        "Benevolent.");
+}
+if (said("check","moat")) {
+  print("It looks deep and dangerous.  You can see"
+        "alligators  floating in the water.");
+}
+if (said("check","water")) {
+  print("The water in the moat is not conducive to"
+        "swimming.");
+}
+if (said("check","blossom")) {
+  print("They are absolutely gorgeous!");
+}
+if ((said("acquire","blossom") ||
+    said("steal","blossom"))) {
+  print("King Edward does not allow anyone to take"
+        "his flowers.");
+}
+if (said("check","alligator")) {
+  print("The alligators are swimming in the moat.");
+}
+if (said("drink","water") &&
+    !isset(f88) &&
+    !isset(f116)) {
+  if ((posn(o0,0,146,159,167) ||
+      posn(o0,87,110,117,145))) {
+    print("There are alligators in this water.  I"
+          "don't think you want to try drinking it.");
+  }
+  else {
+    print("There is water nearby.");
+  }
+}
+if (isset(f81) &&
+    !isset(f88)) {
+  if (said("acquire","water")) {
+    if ((posn(o0,0,146,159,167) ||
+        posn(o0,87,110,117,145))) {
+      reset(f116);
+      print("You fill the bucket with the murky"
+            "water from the moat.");
+      get("water");
+      set(f88);
+      if (!isset(f91)) {
+        set(f91);
+        v3 += 2;
+        load.sound(48);
+        sound(48,f255);
+      }
+    }
+    else {
+      print("You need to get closer to the water.");
+    }
+  }
+}
+if (isset(f3)) {
+  set(f0);
+}
+if (v94 <= 0 &&
+    isset(f0)) {
+  v76 = 255;
+  ignore.objs(o0);
+  if (posn(o0,0,158,28,166)) {
+    v76 = 2;
+    v77 = 166;
+  }
+  if (posn(o0,29,158,56,166)) {
+    v76 = 30;
+    v77 = 166;
+  }
+  if (posn(o0,57,158,84,166)) {
+    v76 = 58;
+    v77 = 166;
+  }
+  if (posn(o0,85,158,111,166)) {
+    v76 = 86;
+    v77 = 166;
+  }
+  if (posn(o0,89,117,108,146)) {
+    set.priority(o0,5);
+    v76 = 90;
+    v77 = 133;
+  }
+  if (posn(o0,112,136,159,167)) {
+    v76 = 122;
+    v77 = 166;
+  }
+  if (v76 == 255) {
+    v76 = 0;
+  }
+  else {
+    get.posn(o0,v60,v61);
+    v76 -= v60;
+    v77 -= v61;
+    set(f134);
+  }
+}
+if (isset(f0)) {
+  if ((said("get out","moat") ||
+      said("exit","moat"))) {
+    print("The moats slippery sides prevent you"
+          "from getting out.");
+  }
+}
+if (isset(f0) &&
+    !isset(f23)) {
+  program.control();
+  stop.motion(o0);
+  follow.ego(o11,18,f20);
+  follow.ego(o12,18,f21);
+  set(f23);
+}
+if (posn(o0,89,132,91,134) &&
+    !isset(f22)) {
+  print("Misfortune strikes and you have fallen"
+        "into the moat. Your struggles and cries"
+        "have attracted hungry alligators.  They"
+        "do not want to let you go.");
+  set(f22);
+  v34 = 45;
+}
+if (isset(f20) &&
+    !isset(f22)) {
+  print("Misfortune strikes and you have fallen"
+        "into the moat. Your struggles and cries"
+        "have attracted hungry alligators.  They"
+        "do not want to let you go.");
+  set(f22);
+  v34 = 45;
+}
+if (isset(f21) &&
+    !isset(f22)) {
+  print("Misfortune strikes and you have fallen"
+        "into the moat. Your struggles and cries"
+        "have attracted hungry alligators.  They"
+        "do not want to let you go.");
+  set(f22);
+  v34 = 45;
+}
+if (isset(f22) &&
+    v34 == 1) {
+  v34 = 0;
+  erase(o0);
+  if (isset(f20)) {
+    erase(o11);
+  }
+  if (isset(f21)) {
+    erase(o12);
+  }
+  set(f63);
+}
+v34--;
+if (v2 != 0) {
+  reset(f68);
+}
+if (v2 == 1) {
+  new.room(16);
+}
+if (v2 == 2) {
+  new.room(8);
+}
+if (v2 == 4) {
+  new.room(2);
+}
+if (isset(f75)) {
+  call(103);
+}
+call(101);
+return();
+
+// Messages
+#message 1 "Misfortune strikes and you have fallen into the moat. Your struggles and cries have attracted hungry alligators.  They do not want to let you go."
+#message 2 "King Edward's banners are waving in the strong breeze."
+#message 3 "This is the castle of King Edward the Benevolent."
+#message 4 "It looks deep and dangerous.  You can see alligators  floating in the water."
+#message 5 "The water in the moat is not conducive to swimming."
+#message 6 "They are absolutely gorgeous!"
+#message 7 "It is a very small,  wooden barrel bridge."
+#message 8 "The alligators are swimming in the moat."
+#message 9 "There are alligators in this water.  I don't think you want to try drinking it."
+#message 10 "You fill the bucket with the murky water from the moat."
+#message 11 "There is water nearby."
+#message 12 "You need to get closer to the water."
+#message 13 "King Edward does not allow anyone to take his flowers."
+#message 14 "The moats slippery sides prevent you from getting out."
+#message 15 "What!  Are you crazy?"
+#message 16 "You are standing outside a castle surrounded by an alligator filled moat."
+
+
+

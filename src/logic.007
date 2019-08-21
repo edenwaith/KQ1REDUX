@@ -1,0 +1,177 @@
+// logic.007
+if (isset(f5)) {
+  load.pic(v0);
+  draw.pic(v0);
+  discard.pic(v0);
+  set.horizon(46);
+  load.logics(101);
+  call(101);
+  if (isset(f75)) {
+    load.logics(103);
+  }
+  if (v65 == v0) {
+    add.to.pic(62,0,0,96,137,0,0);
+  }
+  if (v1 == 8) {
+    get.posn(o0,v60,v61);
+    if (isset(f0) &&
+        v61 < 70) {
+      position(o0,2,75);
+    }
+    if (!isset(f0) &&
+        v61 < 70) {
+      position(o0,2,47);
+      move.obj(o0,2,47,1,f148);
+    }
+  }
+  if (v1 == 10) {
+    get.posn(o0,v60,v61);
+    if (v60 > 19) {
+      position(o0,34,47);
+    }
+    if (v60 < 20) {
+      position(o0,2,47);
+      move.obj(o0,2,47,1,f148);
+    }
+  }
+  if (v1 == 42 &&
+      isset(f0)) {
+    set.view(o0,0);
+    reset(f98);
+    v94 = 0;
+  }
+  block(0,126,69,147);
+  ignore.blocks(o0);
+  draw(o0);
+  show.pic();
+}
+if ((said("check","room") || 
+     said("check"))) {
+  print("A rapidly flowing stream is pouring into"
+        "this lake.");
+}
+if (isset(f213)) {
+  reset(f213);
+  print("It seems the old goat has wandered off by"
+        "himself and is no longer following you.");
+}
+if (posn(o0,0,45,31,78)) {
+  set(f68);
+}
+else {
+  reset(f68);
+}
+if (said("check","lake")) {
+  print("This is a beautiful little lake.");
+}
+if (said("check","waterfall")) {
+  print("There is a small waterfall splashing"
+        "nearby.");
+}
+if (!isset(f88) &&
+    !isset(f0) &&
+    !isset(f116)) {
+  if ((said("drink","water") ||
+      said("acquire","drink"))) {
+    if (posn(o0,0,36,84,167)) {
+      print("The clear water quenches your thirst.");
+    }
+    else {
+      print("You might try that at the lake.");
+    }
+  }
+}
+if (!isset(f88) &&
+    isset(f81) &&
+    !isset(f0) &&
+    said("acquire","water")) {
+  if (posn(o0,0,36,84,167)) {
+    reset(f116);
+    print("The lake's waters pour into the bucket.");
+    get("water");
+    set(f88);
+    if (!isset(f91)) {
+      v3 += 2;
+      load.sound(48);
+      sound(48,f255);
+    }
+    set(f91);
+  }
+  else {
+    print("You are not close enough to the lake.");
+  }
+}
+if (isset(f0) &&
+    posn(o0,0,60,31,76) &&
+    !isset(f20)) {
+  set(f20);
+  v94 = 0;
+  set.view(o0,93);
+  print("The swift water pulls you down to your"
+        "untimely demise.");
+}
+if (!isset(f0)) {
+  if ((posn(o0,9,45,19,52) ||
+      posn(o0,4,53,19,59))) {
+    set(f0);
+    set(f134);
+  }
+}
+if (v94 <= 0 &&
+    isset(f0)) {
+  v76 = 255;
+  if (posn(o0,0,45,31,68)) {
+    v76 = 10;
+    v77 = 63;
+  }
+  if (v76 == 255) {
+    v76 = 0;
+  }
+  else {
+    get.posn(o0,v60,v61);
+    v76 -= v60;
+    v77 -= v61;
+    set(f134);
+  }
+}
+if (v2 != 0) {
+  reset(f68);
+  if (isset(f66)) {
+    reset(f66);
+    reset(f75);
+    set(f130);
+    set(f213);
+  }
+}
+if (v2 == 1) {
+  new.room(10);
+}
+if (v2 == 2) {
+  new.room(6);
+}
+if (v2 == 4) {
+  new.room(8);
+}
+if (v2 == 3) {
+  new.room(42);
+}
+if (isset(f75)) {
+  call(103);
+}
+call(101);
+return();
+
+// Messages
+#message 1 "The lake's waters pour into the bucket."
+#message 2 "The clear water quenches your thirst."
+#message 3 "You are not close enough to the lake."
+#message 4 "You might try that at the lake."
+#message 5 "There is a small waterfall splashing nearby."
+#message 6 "This is a beautiful little lake."
+#message 7 "You have no container for water."
+#message 8 "The swift water pulls you down to your untimely demise."
+#message 9 "It seems the old goat has wandered off by himself and is no longer following you."
+#message 10 "A rapidly flowing stream is pouring into this lake."
+
+
+

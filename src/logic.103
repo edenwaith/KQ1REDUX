@@ -1,0 +1,183 @@
+// logic.103
+if (isset(f5)) {
+  load.view(14);
+  animate.obj(o13);
+  set.view(o13,14);
+  get.posn(o0,v60,v61);
+  object.on.land(o13);
+  if (v0 == 7 &&
+      v1 == 8 &&
+      v61 < 65) {
+    position(o13,1,42);
+    stop.motion(o13);
+    stop.cycling(o13);
+    ignore.horizon(o13);
+    ignore.blocks(o13);
+    set(f40);
+    draw(o13);
+    goto(Label1);
+  }
+  if (v0 == 7 &&
+      v1 == 10 &&
+      v60 < 20) {
+    position(o13,1,42);
+    stop.motion(o13);
+    stop.cycling(o13);
+    ignore.horizon(o13);
+    ignore.blocks(o13);
+    set(f40);
+    draw(o13);
+    goto(Label1);
+  }
+  if (v0 == 17 &&
+      v1 == 18 &&
+      v61 < 65) {
+    position(o13,1,45);
+    stop.motion(o13);
+    stop.cycling(o13);
+    ignore.horizon(o13);
+    ignore.blocks(o13);
+    set(f43);
+    draw(o13);
+    goto(Label1);
+  }
+  if (v0 == 17 &&
+      v1 == 32 &&
+      v60 < 50) {
+    position(o13,1,45);
+    stop.motion(o13);
+    stop.cycling(o13);
+    ignore.horizon(o13);
+    ignore.blocks(o13);
+    set(f43);
+    draw(o13);
+    goto(Label1);
+  }
+  if (v61 > 100) {
+    v61 += 1;
+  }
+  else {
+    v61 -= 1;
+  }
+  position.v(o13,v60,v61);
+  v107 = 1;
+  step.size(o13,v107);
+  draw(o13);
+  follow.ego(o13,10,f207);
+}
+distance(o0,o13,v40);
+if (v40 > 35) {
+  v107 = 1;
+  step.size(o13,v107);
+}
+else {
+  v107 = 1;
+  step.size(o13,v107);
+}
+if (!isset(f75)) {
+  goto(Label2);
+}
+if (isset(f63)) {
+  normal.motion(o13);
+  stop.motion(o13);
+  stop.cycling(o13);
+}
+else {
+  if ((isset(f40) ||
+      isset(f43))) {
+    goto(Label1);
+  }
+  if (isset(f76)) {
+    ignore.blocks(o13);
+    goto(Label2);
+  }
+  else {
+    observe.blocks(o13);
+  }
+  v41--;
+  if (v41 == 1) {
+    if (v40 < 21) {
+      set(f207);
+    }
+    else {
+      if (!isset(f207) &&
+          v94 <= 0) {
+        v41 = 0;
+        start.cycling(o13);
+        start.motion(o13);
+        follow.ego(o13,10,f207);
+      }
+    }
+  }
+  if (isset(f207)) {
+    reset(f207);
+    v41 = 9;
+    normal.motion(o13);
+    stop.motion(o13);
+    stop.cycling(o13);
+  }
+  if (v40 > 20 &&
+      v94 > 0 &&
+      !isset(f66)) {
+    if (!isset(f68) &&
+        v0 != 1 &&
+        v0 != 2 &&
+        v0 != 41 &&
+        v0 != 33 &&
+        v0 != 34 &&
+        v0 != 32 &&
+        v0 != 25 &&
+        v0 != 26 &&
+        v0 != 39) {
+      print("The goat does not mind getting its"
+            "feet wet,but will not swim in the"
+            "water.  You should go back and lead"
+            "the goat around the water.");
+    }
+    set(f66);
+    start.cycling(o13);
+    wander(o13);
+  }
+  if (isset(f66) &&
+      v40 < 25 &&
+      v94 <= 0) {
+    reset(f66);
+    follow.ego(o13,10,f207);
+  }
+  if (isset(f79) &&
+      !isset(f42)) {
+    set(f42);
+    print("The goat, not being able to see you,"
+          "wanders off.");
+    reset(f75);
+    wander(o13);
+    if (v5 != 0) {
+      erase(o13);
+    }
+  }
+  goto(Label2);
+Label1:
+  distance(o0,o13,v40);
+  if (isset(f43) &&
+      v94 > 0 &&
+      !isset(f66)) {
+    set(f66);
+    print("The goat does not mind getting its feet"
+          "wet,but will not swim in the water. "
+          "You should go back and lead the goat"
+          "around the water.");
+  }
+  if (isset(f43) &&
+      isset(f66) &&
+      v40 < 25 &&
+      v94 <= 0) {
+    reset(f66);
+  }
+}
+Label2:
+return();
+
+// Messages
+#message 1 "The goat does not mind getting its feet wet,but will not swim in the water.  You should go back and lead the goat around the water."
+#message 2 "The goat, not being able to see you, wanders off."
+

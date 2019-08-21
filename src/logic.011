@@ -1,0 +1,481 @@
+// logic.011 - Right goat pen
+if (isset(f5)) {
+  load.pic(v0);
+  draw.pic(v0);
+  discard.pic(v0);
+  load.sound(48);
+  set.horizon(41);
+  load.view(15);
+  animate.obj(o1);
+  set.view(o1,15);
+  ignore.blocks(o1);
+  load.view(62);
+  load.view(67);
+  if (!isset(f75) &&
+      v65 <= 0 &&
+      !isset(f130) &&
+      v111 != 10) {
+    v111 = 11;
+    load.sound(11);
+    load.view(14);
+    set(f21);
+    animate.obj(o13);
+    set.view(o13,14);
+    observe.blocks(o13);
+    position(o13,43,97);
+    draw(o13);
+    wander(o13);
+  }
+  if (v65 == v0) {
+    add.to.pic(62,0,0,56,122,9,0);
+    set(f21);
+  }
+  if (!isset(f78)) {
+    position(o1,17,156);
+    draw(o1);
+    set(f20);
+  }
+  if (isset(f78)) {
+    position(o1,43,156);
+    draw(o1);
+    stop.update(o1);
+  }
+  if (isset(f75)) {
+    set.view(o0,67);
+  }
+  if (v1 == 6) {
+    get.posn(o0,v60,v61);
+    if (v60 < 46) {
+      position(o0,46,166);
+    }
+  }
+  draw(o0);
+  show.pic();
+}
+if (isset(f21) &&
+    !isset(f75)) {
+  if (!isset(f23)) {
+    set(f23);
+    if (v65 <= 0) {
+      sound(11,f24);
+    }
+  }
+  if (isset(f24)) {
+    reset(f23);
+    reset(f24);
+  }
+}
+if (posn(o0,16,153,44,155)) {
+  set(f74);
+}
+if (posn(o0,16,156,44,158)) {
+  reset(f74);
+}
+if (posn(o13,16,153,44,155)) {
+  reset(f25);
+}
+if (posn(o13,16,156,44,158)) {
+  set(f25);
+}
+if (said("check","gate")) {
+  if (isset(f78)) {
+    print("The gate is open.");
+  }
+  else {
+    print("The gate is closed.");
+  }
+}
+if (said("open","gate")) {
+  if (isset(f20)) {
+    if (posn(o0,6,139,55,167)) {
+      move.obj(o1,43,156,0,f78);
+      reset(f20);
+      print("The gate is rather heavy, but you"
+            "manage to open it.");
+    }
+    else {
+      print("You cannot reach the gate from here.");
+    }
+  }
+  if (isset(f78)) {
+    print("The gate is already open.");
+  }
+}
+if (said("close","gate")) {
+  if (isset(f78) &&
+      !isset(f75)) {
+    if (posn(o0,33,139,75,167)) {
+      get.posn(o0,v60,v61);
+      if (v61 == 156) {
+        print("You will have to move out of the"
+              "way so the gate can close all the"
+              "way.");
+      }
+      else {
+        print("You find the gate is much easier to"
+              "close than it was to open.");
+      }
+      start.update(o1);
+      move.obj(o1,17,156,0,f20);
+      reset(f78);
+    }
+    else {
+      print("You cannot reach the gate from here.");
+    }
+  }
+  if (isset(f78) &&
+      isset(f75)) {
+    print("There is no need to close the gate now.");
+  }
+  if (isset(f20)) {
+    print("The gate is already closed.");
+  }
+}
+if (!isset(f21)) {
+  if (said("anyword","goat")) {
+    print("There is no goat here.");
+  }
+}
+if ((said("check","room") || 
+     said("check"))) {
+     print("Someone has built a small goat pen here.");
+}
+if (isset(f21) &&
+    !isset(f75) &&
+    v65 != v0) {
+  if ((said("hello") ||
+      said("hello","goat") ||
+      said("say","hello") ||
+      said("say","hello","goat"))) {
+    print("You get no response from the goat.");
+  }
+  if (said("check","goat")) {
+    print("The goat is pacing to and fro.");
+  }
+  if (said("speak","goat")) {
+    print("The goat refuses to listen to your"
+          "words.");
+  }
+  if (said("call","goat")) {
+    print("The old goat refuses to listen to you.");
+  }
+  if (said("acquire","goat")) {
+    if (isset(f74)) {
+      print("It would be rather difficult to carry"
+            "this goat.");
+    }
+    else {
+      print("The old goat's on the other side of"
+            "the fence!");
+    }
+  }
+  if (said("feed","goat")) {
+    print("What do you want to feed the old goat?");
+    set(f4);
+  }
+  if (!isset(f67)) {
+    if (said("kill","goat")) {
+      print("You have no way to accomplish this"
+            "terrible deed.");
+    }
+  }
+  if (isset(f67)) {
+    if (said("kill","goat")) {
+      if (!isset(f74)) {
+        print("From here it will be very difficult"
+              "to do such a  terrible thing.");
+      }
+      else {
+        erase(o13);
+        set.view(o13,62);
+        draw(o13);
+        v98 = 0;
+        step.size(o13,v98);
+        print("You hurl the dagger at the old"
+              "goat... he tries to avoid the"
+              "flying dagger, but your aim is"
+              "true... as the dagger strikes, he"
+              "slumps to the ground... dead. "
+              "You bastard!");
+        drop("dagger");
+        stop.sound();
+        v3 -= 5;
+        reset(f67);
+        set(f70);
+        v65 = v0;
+      }
+    }
+  }
+  if (said("pet","goat")) {
+    print("You can try, but be careful.");
+  }
+  if (said("get on","goat")) {
+    if (isset(f74)) {
+      print("Are you kidding?  The goat would"
+            "never let you!");
+    }
+    else {
+      print("The old goat's on the other side of"
+            "the fence!");
+    }
+  }
+  if (said("capture","goat")) {
+    if (isset(f74)) {
+      print("The goat will not let you catch him.");
+    }
+    else {
+      print("You cannot do that from outside the"
+            "fence.");
+    }
+  }
+  if (v5 == 4 &&
+      !isset(f25)) {
+    erase(o13);
+    reset(f21);
+    v111 = 10;
+  }
+}
+// Dead goat checks
+if (v65 == v0) {
+  if (said("check","goat")) {
+    print("Lying lifeless on the ground you see a"
+          "useless dead  goat.");
+  }
+  if (said("acquire","goat")) {
+    print("You do not want to carry around a dead"
+          "goat.");
+  }
+  if ((said("hello") ||
+      said("hello","goat") ||
+      said("say","hello") ||
+      said("say","hello","goat") || 
+      said("call","goat") || 
+      said("talk","goat"))) {
+    print("Dead goats have very little to say.");
+  }
+  if (said("eat","goat")) {
+    print("What the hell is wrong with you?! It's "
+          "bad enough that you killed the poor goat,"
+          "now you want to eat it?!");
+  }
+}
+if (said("check","fence")) {
+  print("It is high enough to keep animals inside.");
+}
+if (said("look in","fence")) {
+  if (isset(f21)) {
+    print("You see a grey billy goat inside the"
+          "pen.");
+  }
+  else {
+    print("This looks like an area in which to"
+          "keep animals.");
+  }
+}
+if (said("jump","fence")) {
+  print("The fence is too high for you to jump"
+        "over.");
+}
+distance(o0,o13,v70);
+if (isset(f74) &&
+    isset(f21)) {
+  if ((said("feed","carrot") ||
+      said("feed","goat","carrot") ||
+      said("feed","carrot","goat") ||
+      said("give","carrot") ||
+      said("give","goat","carrot") ||
+      said("give","carrot","goat"))) {
+    if (isset(f77)) {
+      if (v70 < 25) {
+        print("Goats love carrots!  The goat"
+              "quickly devours yours.");
+        v3 -= 2;
+        drop("carrot");
+        reset(f77);
+        reset(f117);
+      }
+      else {
+        print("You are too far away.");
+      }
+    }
+    else {
+      print("You do not have a carrot.");
+      set(f4);
+    }
+  }
+}
+if (isset(f74) &&
+    isset(f21)) {
+  if (isset(f77) &&
+      !isset(f75) &&
+      !isset(f79)) {
+    if ((said("show","carrot") ||
+        said("show","carrot","goat") ||
+        said("show","goat","carrot"))) {
+      if (v70 < 50) {
+        if (!isset(f151)) {
+          if (v65 == v0) {
+            print("Hallelujah! Using the power of "
+                  "your magical voodoo carrot, you "
+                  "manage to resurrect the goat from "
+                  "the dead. Arise Gombie the Zombie Goat!");
+          } else {
+            print("When you tempt the old goat with"
+                  "the carrot, he starts to follow"
+                  "you.");
+          }
+          set(f75);
+          erase(o13);
+          set.view(o0,67);
+          v3 += 5;
+          sound(48,f255);
+        }
+        if (isset(f151)) {
+          print("The goat shows some interest in"
+                "the carrot.");
+        }
+      }
+      else {
+        print("You are too far away.");
+      }
+    }
+  }
+}
+if (!isset(f74) &&
+    isset(f21)) {
+  if (!isset(f77)) {
+    if (said("anyword","carrot")) {
+      print("You do not have a carrot.");
+    }
+  }
+  if (isset(f77) &&
+      !isset(f79)) {
+    if ((said("feed","carrot") ||
+        said("feed","goat","carrot") ||
+        said("feed","carrot","goat") ||
+        said("give","carrot") ||
+        said("give","goat","carrot") ||
+        said("give","carrot","goat"))) {
+      if (v70 < 25) {
+        print("Goats love carrots!  The goat"
+              "quickly devours yours.");
+        v3 -= 2;
+        drop("carrot");
+        reset(f77);
+        reset(f117);
+      }
+      else {
+        print("You are too far away.");
+      }
+    }
+    if ((said("show","carrot") ||
+        said("show","goat","carrot") ||
+        said("show","carrot","goat"))) {
+      if (v70 < 50) {
+        print("The goat shows some interest in the"
+              "carrot.");
+      }
+      else {
+        print("You are too far away.");
+      }
+    }
+  }
+}
+if (isset(f79)) {
+  if (isset(f77) &&
+      said("anyword","carrot")) {
+    print("Since you are invisible, everything you"
+          "own is invisible.  The goat cannot see"
+          "the carrot.");
+  }
+}
+if (isset(f25)) {
+  if ((v5 == 2 ||
+      v5 == 3 ||
+      v5 == 4)) {
+    if (!isset(f75)) {
+      erase(o13);
+      reset(f21);
+      set(f130);
+      print("It seems the old goat has wandered"
+            "off.");
+      v111 = 0;
+    }
+  }
+}
+if (v2 != 0) {
+  if (isset(f78) &&
+      !isset(f75) &&
+      v65 <= 0 &&
+      !isset(f130) &&
+      !isset(f74)) {
+    set(f130);
+    v111 = 0;
+  }
+}
+if (v2 == 1) {
+  new.room(22);
+}
+if (v2 == 2) {
+  new.room(12);
+}
+if (v2 == 4) {
+  new.room(10);
+}
+if (v2 == 3) {
+  new.room(6);
+}
+return();
+
+// Messages
+#message 1 "There is no reason to jump or duck here."
+#message 2 "It's not nice to tease the goat.  You're not leaving without him."
+#message 3 "The gate is already open."
+#message 4 "The gate is already closed."
+#message 5 "The gate is rather heavy, but you manage to open it."
+#message 6 "You find the gate is much easier to close than it was to open."
+#message 7 "You cannot reach the gate from here."
+#message 8 "The gate is closed."
+#message 9 "The gate is open."
+#message 10 "The goat is pacing to and fro."
+#message 11 "There is no goat here."
+#message 12 "It is high enough to keep animals inside."
+#message 13 "It would be rather difficult to carry this goat."
+#message 14 "The old goat is already following you."
+#message 15 "What do you want to feed the old goat?"
+#message 16 "You have nothing the old goat wants to eat."
+#message 17 "You do not have a carrot."
+#message 18 "Goats love carrots!  The goat quickly devours yours."
+#message 19 "From here it will be very difficult to do such a  terrible thing."
+#message 20 "You have no way to accomplish this terrible deed."
+#message 21 "You hurl the dagger at the old goat... he tries to avoid the flying dagger, but your aim is true... as the dagger strikes, he slumps to the ground... dead."
+#message 22 "When you tempt the old goat with the carrot, he starts to follow you."
+#message 23 "Since you are invisible, everything you own is invisible.  The goat cannot see the carrot."
+#message 24 "The old goat's on the other side of the fence!"
+#message 25 "The goat is following you already."
+#message 26 "The goat will not let you catch him."
+#message 27 "You cannot do that from outside the fence."
+#message 28 "The fence is too high for you to jump over."
+#message 29 "Why would you want to do that?  There is a gate."
+#message 30 "Are you kidding?  The goat would never let you!"
+#message 31 "The old goat refuses to listen to you."
+#message 32 "You can try, but be careful."
+#message 33 "The goat refuses to listen to your words."
+#message 34 "Lying lifeless on the ground you see a dead goat."
+#message 35 "You do not want to carry around a dead goat."
+#message 36 "You are too far away."
+#message 37 "The goat shows some interest in the carrot."
+#message 38 "You get no response from the goat."
+#message 39 "It seems the old goat has wandered off."
+#message 40 "You see a grey billy goat inside the pen."
+#message 41 "This looks like an area in which to keep animals."
+#message 42 "You will have to move out of the way so the gate can close all the way."
+#message 43 "There is no need to close the gate now."
+#message 44 "Hallelujah! Using the power of your magical voodoo carrot, you manage to resurrect the goat from the dead. Arise Gombie the Zombie Goat!";
+#message 45 "Dead goats have very little to say.";
+
+
+
+
+
+

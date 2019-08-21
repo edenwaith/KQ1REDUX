@@ -1,0 +1,60 @@
+// logic.027
+if (isset(f5)) {
+  load.pic(v0);
+  draw.pic(v0);
+  discard.pic(v0);
+  set.horizon(46);
+  if (isset(f75)) {
+    load.logics(103);
+  }
+  if (v65 == v0) {
+    add.to.pic(62,0,0,107,131,0,0);
+  }
+  draw(o0);
+  show.pic();
+}
+if ((said("check","room") ||
+     said("check"))) {
+  print("Many trees shade your way as "
+        "you journey through the land "
+        "of Daventry.");
+}
+if (said("check", "tree")) {
+  print("This is the most beautiful tree you've ever seen. "
+         "You resist the urge to kiss it.");
+}
+if (said("kiss", "tree")) {
+  print("Let's see how much fun you have pulling splinters "
+        "from your lips.");
+}
+if (said("look around")) {
+  print("Welcome to the most boring scene of the game!");
+  // print("What are you doing that for?  There's nothing here.");
+}
+if (said("talk","tree")) {
+  print("I talk to the trees, but they don't listen to me.");
+}
+if (v2 == 1) {
+  new.room(38);
+}
+if (v2 == 2) {
+  new.room(28);
+}
+if (v2 == 4) {
+  new.room(26);
+}
+if (v2 == 3) {
+  new.room(22);
+}
+if (isset(f75)) {
+  call(103);
+}
+return();
+
+// Messages
+#message 1 "What are you doing that for?  There's nothing here."
+
+
+
+
+

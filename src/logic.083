@@ -1,0 +1,604 @@
+// logic.083 - Title screen for KQ1 Redux
+if (isset(f5)) {
+  load.pic(v0);
+  load.sound(22);
+  configure.screen(0,21,0);
+  load.view(144);
+  draw.pic(v0);
+  prevent.input();
+
+  v30 = 250;
+  v31 = 245;
+  v33 = 1;
+  v35 = 1;
+  v37 = 12;
+  
+  v200 = 0;
+  v221 = 2;
+  v222 = 3;
+  v223 = 4;
+  v224 = 5;
+  v225 = 10;
+  v226 = 0; // determines which step of the title sequence
+  
+  set(f9);
+  animate.obj(o1);
+  ignore.objs(o1);
+  set.view(o1,144);
+  set.loop(o1,0);
+  set.priority(o1,15);
+  animate.obj(o2);
+  ignore.objs(o2);
+  set.view(o2,144);
+  set.loop(o2,0);
+  set.priority(o2,15);
+  animate.obj(o3);
+  ignore.objs(o3);
+  set.view(o3,144);
+  set.loop(o3,0);
+  set.priority(o3,15);
+  animate.obj(o4);
+  ignore.objs(o4);
+  set.view(o4,144);
+  set.loop(o4,0);
+  set.priority(o4,15);
+  
+  if (v26 == 2) {
+    display(24,1,"(c) copyright Sierra On-Line"
+            "Inc.  1987");
+  }
+  else {
+    // display(22,5,"(c) 1987 Sierra On-Line Inc.");
+    display(22,9,"King's Quest I - Redux");
+    display(23,14,"Version 3.0");
+  }
+  
+//  add.to.pic(144,0,2,59,148,4,4);
+
+
+
+//  animate.obj(o8);
+//  set.view(o8,144);
+//  set.loop(o8,0); // was 3, instead of 0
+//  fix.loop(o8);
+//  ignore.objs(o8);
+//  set.priority(o8,15);
+  
+//  position(o8,54,70);
+//  draw(o8);
+  // move.obj(o8,54,30,5,f227);
+  
+  set.key(0,59,c18);
+  set.key(0,60,c17);
+  set.key(19,0,c17);
+  set.key(0,61,c13);
+  set.key(5,0,c13);
+  set.key(0,62,c21);
+  set.key(0,63,c1);
+  set.key(0,64,c16);
+  set.key(0,65,c2);
+  set.key(0,67,c3);
+  set.key(0,68,c27); // Change speed is F10
+  // Changed showing the memory debugging feature from F10 to F8
+  set.key(0,66,c9);
+  set.key(9,0,c4);
+  set.key(0,32,c10);
+  set.key(10,0,c11);
+  set.key(3,0,c12);
+  set.key(24,0,c12);
+  set.key(18,0,c15);
+  set.key(0,44,c6);
+  set.key(61,0,c5);
+  set.key(45,0,c8);
+  set.key(48,0,c7);
+  if (v20 == 1) {
+    set.key(49,0,c18);
+    set.key(50,0,c17);
+    set.key(51,0,c13);
+    set.key(53,0,c1);
+    set.key(55,0,c2);
+    set.key(57,0,c3);
+  }
+  show.pic();
+}
+if (!isset(f21)) {
+  set(f21);
+  sound(22,f20);
+}
+v221--;
+if (v221 == 1 && !isset(f239)) {
+  random(1,15,v36);
+  if (v36 == 1) {
+    v37 = 39;
+    v38 = 77;
+  }
+  if (v36 == 2) {
+    v37 = 48;
+    v38 = 107;
+  }
+  if (v36 == 3) {
+    v37 = 68;
+    v38 = 73;
+  }
+  if (v36 == 4) {
+    v37 = 92;
+    v38 = 79;
+  }
+  if (v36 == 5) {
+    v37 = 105;
+    v38 = 106;
+  }
+  if (v36 == 6) {
+    v37 = 126;
+    v38 = 88;
+  }
+  if (v36 == 7) {
+    v37 = 132;
+    v38 = 106;
+  }
+  if (v36 == 8) {
+  // These are decent values for the top left part of the K
+    v37 = 23;
+    v38 = 93;
+  }
+  if (v36 == 9) {
+    // Bottom left part of the K
+    v37 = 27; 
+    v38 = 107;
+  }
+  if (v36 == 10) {
+  // Below banner
+    v37 = 55;
+    v38 = 150;
+  }
+  if (v36 == 11) {
+  // Below banner
+    v37 = 100;
+    v38 = 153;
+  }
+  if (v36 == 12) {
+  // Bottom right of main I column
+    v37 = 81; 
+    v38 = 132;
+  }
+  if (v36 == 13) {
+  // Above banner
+    v37 = 72;
+    v38 = 63;
+  }
+  if (v36 == 14) {
+    v37 = 55;
+    v38 = 57;
+  }
+  if (v36 == 15) {
+    v37 = 99;
+    v38 = 46;
+  }
+
+  position.v(o1,v37,v38);
+  set.cel(o1,0);
+  draw(o1);
+  end.of.loop(o1,f221);
+}
+if (isset(f221)) {
+  reset(f221);
+  erase(o1);
+  random(4,10,v221);
+}
+v222--;
+if (v222 == 1 && !isset(f239)) {
+  random(1,15,v36);
+  if (v36 == 1) {
+    v37 = 39;
+    v38 = 77;
+  }
+  if (v36 == 2) {
+    v37 = 48;
+    v38 = 107;
+  }
+  if (v36 == 3) {
+    v37 = 68;
+    v38 = 73;
+  }
+  if (v36 == 4) {
+    v37 = 92;
+    v38 = 79;
+  }
+  if (v36 == 5) {
+    v37 = 105;
+    v38 = 106;
+  }
+  if (v36 == 6) {
+    v37 = 126;
+    v38 = 88;
+  }
+  if (v36 == 7) {
+    v37 = 132;
+    v38 = 106;
+  }
+  if (v36 == 8) {
+  // These are decent values for the top left part of the K
+    v37 = 23;
+    v38 = 93;
+  }
+  if (v36 == 9) {
+    // Bottom left part of the K
+    v37 = 27;
+    v38 = 107;
+  }
+  if (v36 == 10) {
+    v37 = 55;
+    v38 = 150;
+  }
+  if (v36 == 11) {
+    v37 = 100;
+    v38 = 153;
+  }
+  if (v36 == 12) {
+  // Bottom right of main I column
+    v37 = 81;
+    v38 = 132;
+  }
+  if (v36 == 13) {
+  // Above banner
+    v37 = 72;
+    v38 = 63;
+  }
+  if (v36 == 14) {
+    v37 = 55;
+    v38 = 57;
+  }
+  if (v36 == 15) {
+    v37 = 99;
+    v38 = 46;
+  }
+
+  position.v(o2,v37,v38);
+  draw(o2);
+  set.cel(o2,0);
+  end.of.loop(o2,f222);
+}
+if (isset(f222)) {
+  reset(f222);
+  erase(o2);
+  random(4,10,v222);
+}
+v223--;
+if (v223 == 1 && !isset(f239)) {
+  random(1,15,v36);
+  if (v36 == 1) {
+    v37 = 39;
+    v38 = 77;
+  }
+  if (v36 == 2) {
+    v37 = 48;
+    v38 = 107;
+  }
+  if (v36 == 3) {
+    v37 = 68;
+    v38 = 73;
+  }
+  if (v36 == 4) {
+    v37 = 92;
+    v38 = 79;
+  }
+  if (v36 == 5) {
+    v37 = 105;
+    v38 = 106;
+  }
+  if (v36 == 6) {
+    v37 = 126;
+    v38 = 88;
+  }
+  if (v36 == 7) {
+    v37 = 132;
+    v38 = 106;
+  }
+  if (v36 == 8) {
+  // These are decent values for the top left part of the K
+    v37 = 23;
+    v38 = 93;
+  }
+  if (v36 == 9) {
+    // Bottom left part of the K
+    v37 = 27;
+    v38 = 107;
+  }
+  if (v36 == 10) {
+    v37 = 55;
+    v38 = 150;
+  }
+  if (v36 == 11) {
+    v37 = 100;
+    v38 = 153;
+  }
+  if (v36 == 12) {
+  // Bottom right of main I column
+    v37 = 81;
+    v38 = 132;
+  }
+  if (v36 == 13) {
+  // Above banner
+    v37 = 72;
+    v38 = 63;
+  }
+  if (v36 == 14) {
+    v37 = 55;
+    v38 = 57;
+  }
+  if (v36 == 15) {
+    v37 = 99;
+    v38 = 46;
+  }
+
+  position.v(o3,v37,v38);
+  set.cel(o3,0);
+  draw(o3);
+  end.of.loop(o3,f223);
+}
+if (isset(f223)) {
+  reset(f223);
+  erase(o3);
+  random(4,10,v223);
+}
+v224--;
+if (v224 == 1 && !isset(f239)) {
+  random(1,15,v36);
+  if (v36 == 1) {
+    v37 = 39;
+    v38 = 77;
+  }
+  if (v36 == 2) {
+    v37 = 48;
+    v38 = 107;
+  }
+  if (v36 == 3) {
+    v37 = 68;
+    v38 = 73;
+  }
+  if (v36 == 4) {
+    v37 = 92;
+    v38 = 79;
+  }
+  if (v36 == 5) {
+    v37 = 105;
+    v38 = 106;
+  }
+  if (v36 == 6) {
+    v37 = 126;
+    v38 = 88;
+  }
+  if (v36 == 7) {
+    v37 = 132;
+    v38 = 106;
+  }
+  if (v36 == 8) {
+  // These are decent values for the top left part of the K
+    v37 = 23;
+    v38 = 93;
+  }
+  if (v36 == 9) {
+    // Bottom left part of the K
+    v37 = 27;
+    v38 = 107;
+  }
+  if (v36 == 10) {
+    v37 = 55;
+    v38 = 150;
+  }
+  if (v36 == 11) {
+    v37 = 100;
+    v38 = 153;
+  }
+  if (v36 == 12) {
+  // Bottom right of main I column
+    v37 = 81;
+    v38 = 132;
+  }
+  if (v36 == 13) {
+  // Above banner
+    v37 = 72;
+    v38 = 63;
+  }
+  if (v36 == 14) {
+    v37 = 55;
+    v38 = 57;
+  }
+  if (v36 == 15) {
+    v37 = 99;
+    v38 = 46;
+  }
+  
+  position.v(o4,v37,v38);
+  set.cel(o4,0);
+  draw(o4);
+  end.of.loop(o4,f224);
+}
+if (isset(f224)) {
+  reset(f224);
+  erase(o4);
+  random(4,10,v224);
+}
+
+// Now display the credits screen
+if (v226 == 1) {
+  v225--;
+  
+  if (v225 == 0) {
+    v226 = 2;
+    // clear.lines(6,17,0);
+    
+    v200 = 82;
+    // load.pic(v200);
+    draw.pic(v200);
+    show.pic();
+    
+    display(3,9,"KING'S QUEST I - REDUX");
+    display(4,10,"QUEST FOR THE CROWN");
+  
+    display(6,4,"Redux Version By:");
+    display(7,17,"Chad Armstrong");
+    
+    display(9,4,"Graphics By:");
+    display(9,17,"Doug MacNeill");
+    display(10,17,"Greg Rowland");
+    
+    display(12,4,"Thanks To:");
+    display(12,17,"Mark Crowe");
+    display(13,17,"Robert Heitman");
+    display(14,17,"Scott Murphy");
+    display(15,17,"Bob Ballew");
+    display(16,17,"Susan Lee");
+    display(17,17,"Russ Truelove");
+    display(18,17,"Larry Weissenborn");
+    
+  }
+}
+
+// v226 sets the different screen states
+if (isset(f20) && 
+    v200 == 0) {
+    
+    set(f239);
+    v226 = 1;
+    v225 = 195;
+    
+  // Display credits screen after the initial music has played
+  if (v26 == 2) {  // Hercules graphics mode
+    // text.screen();
+    clear.lines(22,24,0);
+    v226 = 3; // Skip the credits and start the game
+  }
+  else {
+    clear.lines(22,24,0);
+    unanimate.all();
+    
+    erase(o1);
+    erase(o2);
+    erase(o3);
+    erase(o4);
+    
+    v200 = 82;
+    load.pic(v200);
+    draw.pic(v200);
+    show.pic();
+    
+    load.sound(0);
+    sound(0,f230);
+    
+    // set.text.attribute(14,0);
+    display(3,9,"KING'S QUEST I - REDUX");
+    display(4,10,"QUEST FOR THE CROWN");
+    
+    display(6,4,"Designed & Written By:");
+    display(7,17,"Roberta Williams");
+    
+    display(9,4,"Original Version By:");
+    display(10,17,"Charles Tingley");
+    display(11,17,"Ken MacNeill");
+    display(12,17,"Chris Iden");
+    
+    display(14,4,"New Version By:");
+    display(15,17,"Jeff Stephenson");
+    display(16,17,"Sol Ackerman");
+    display(17,17,"Chris Iden");
+
+    // set.text.attribute(15,0);
+  }
+}
+
+
+
+v30--;
+if (v30 == v31) {
+  v32 = v33;
+  v34 = v35;
+  if (v26 == 2) {
+    v36 = 19;
+  }
+  else {
+    v36 = 18;
+  }
+Label1:
+  // display.v(v36,v37,v32);
+  v34--;
+  if (v34 > 0) {
+    v36--;
+    v32--;
+    goto(Label1);
+  }
+  v31 -= 5;
+  v33++;
+  if (v35 < 13) {
+    v35++;
+  }
+}
+if (v30 == 135) {
+  v31 = 255;
+  if (v26 == 2) {
+    clear.lines(24,24,0);
+    display(24,6,"Press any key to continue.");
+  } else {
+    clear.lines(22,23,0);
+    display(22,6,"(c) 1987 Sierra On-Line Inc.");
+    display(23,7,"Press any key to continue.");
+    
+  }
+}
+
+// Greensleeves song has finished playing
+if (isset(f230)) {
+  // Credits are complete.  Start the game.
+  v226 = 3;
+}
+
+if ((have.key() || v226 == 3)) {
+  if (v26 != 2) {
+    // clear.lines(21,24,0);
+    clear.lines(22,23,0);
+  }
+  stop.sound();
+  v30 = 0;
+  set.key(27,0,c25);
+  if (v20 == 4) {
+    set.key(1,1,c25);
+    set.key(1,3,c5);
+  }
+  else {
+    set.key(1,1,c0);
+    set.key(1,3,c25);
+    set.key(1,2,c5);
+    set.key(1,4,c4);
+  }
+  new.room(1);
+}
+return();
+
+// Messages
+#message 1 "Designed and    "
+#message 2 "    Written by: "
+#message 3 "Roberta Williams"
+#message 4 "                "
+#message 5 "Orig. Version by"
+#message 6 " Charles Tingley"
+#message 7 "  Ken MacNeill  "
+#message 8 "   Chris Iden   "
+#message 9 "                "
+#message 10 "Graphics by:    "
+#message 11 " Doug MacNeill  "
+#message 12 "  Greg Rowland  "
+#message 13 "                "
+#message 14 "New Version by: "
+#message 15 " Jeff Stephenson"
+#message 16 "  Sol Ackerman  "
+#message 17 "   Chris Iden   "
+#message 18 "                "
+#message 19 "Thanks to:      "
+#message 20 " Linda Ackerman  "
+#message 21 "  Mark Crowe     "
+#message 22 "   Robert Heitman"
+#message 23 "    Scott Murphy "
+#message 24 "(c) copyright Sierra On-Line Inc.  1987"
+#message 25 "Version 3.0"
+
+

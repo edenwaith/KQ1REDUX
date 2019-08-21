@@ -1,0 +1,196 @@
+// logic.076 - Leprechaun guards
+if (isset(f5)) {
+  load.pic(v0);
+  draw.pic(v0);
+  discard.pic(v0);
+  if (v1 == 75) {
+    position(o0,113,146);
+  }
+  if (v1 == 77) {
+    position(o0,73,163);
+  }
+  if (isset(f171)) {
+    load.view(50);
+    animate.obj(o1);
+    set.view(o1,50);
+    position(o1,96,78);
+    load.sound(8);
+  }
+  if (!isset(f186)) {
+    load.view(47);
+    load.view(78);
+    load.view(79);
+    load.view(80);
+    animate.obj(o2);
+    animate.obj(o13);
+    set.view(o2,79);
+    set.view(o13,47);
+    position(o2,60,136);
+    position(o13,45,119);
+    stop.cycling(o13);
+    stop.motion(o13);
+  }
+  if (!isset(f186)) {
+    draw(o13);
+    draw(o2);
+    if (isset(f87)) {
+      wander(o2);
+    }
+    else {
+      follow.ego(o2,5,f20);
+    }
+  }
+  draw(o0);
+  show.pic();
+  if (!isset(f186)) {
+    if (!isset(f87) &&
+        isset(f79)) {
+      print("The leprechauns' magic powers detect"
+            "your unseen presence.");
+    }
+    if (!isset(f87) &&
+        !isset(f79)) {
+      print("The leprechauns do not like your"
+            "invasion of their territory.  They"
+            "may not let you get any further.");
+    }
+    if (isset(f87)) {
+      print("The leprechauns revere the power of"
+            "the fourleaf clover. With it in your"
+            "possession they will leave you"
+            "absolutely alone.");
+    }
+  }
+}
+if (isset(f20)) {
+  reset(f20);
+  print("The leprechaun catches you and holds you"
+        "with his small,  but strong arms.  I"
+        "don't think the leprechaun will ever let"
+        "go.");
+  stop.motion(o0);
+  set(f95);
+  stop.cycling(o0);
+  stop.motion(o2);
+  stop.cycling(o2);
+  set(f63);
+}
+if (isset(f22)) {
+  if (said("play","fiddle")) {
+    print("You are already playing the fiddle.");
+  }
+}
+if (v30 > 0) {
+  v30--;
+}
+if (!isset(f186) &&
+    !isset(f22)) {
+  if (isset(f171) &&
+      said("play","fiddle")) {
+    set(f21);
+    set(f22);
+    v30 = 45;
+    draw(o1);
+    sound(8,f23);
+    erase(o13);
+    set.view(o13,80);
+    draw(o13);
+    start.cycling(o13);
+    wander(o13);
+    erase(o2);
+    set.view(o2,78);
+    draw(o2);
+    wander(o2);
+    print("Leprechauns love fiddle music!  Have"
+          "you ever seen such frenzied dancing?");
+    set(f186);
+    v3 += 3;
+  }
+}
+if (v30 > 1 &&
+    isset(f23)) {
+  reset(f23);
+  sound(8,f23);
+}
+if (v30 == 1) {
+  v30 = 0;
+  stop.sound();
+  reset(f21);
+  reset(f22);
+  erase(o13);
+  erase(o2);
+  erase(o1);
+  print("Totally involved in the music, they dance"
+        "right out of the room.");
+}
+if (isset(f21)) {
+  if (v4 == 13) {
+    erase(o13);
+  }
+  if (v4 == 2) {
+    erase(o2);
+  }
+}
+if ((said("check","room") || 
+     said("check"))) {
+  if (!isset(f186)) {
+    print("You are in the antechamber of the Hall"
+          "of the Leprechaun King.  There are"
+          "leprechauns in the room with you.");
+  }
+  else {
+    print("You are in the antechamber of the Hall"
+          "of the Leprechaun King.");
+  }
+}
+if (said("close","door")) {
+  print("I can think of no good reason to close"
+        "the door.");
+}
+if (!isset(f186)) {
+  if (said("check","leprechaun")) {
+    print("They are tiny people dressed all in"
+          "green.");
+  }
+  if ((said("speak","leprechaun") ||
+      said("hello") ||
+      said("say","hello"))) {
+    print("I would not try talking to the"
+          "leprechauns.  You might say the wrong"
+          "thing.");
+  }
+  if (said("kill","leprechaun")) {
+    print("You would not get all of them before"
+          "they got you.");
+  }
+}
+if (isset(f186)) {
+  if (said("anyword","leprechaun")) {
+    print("There are not any leprechauns here.");
+  }
+}
+if (posn(o0,128,133,129,154)) {
+  new.room(75);
+}
+if (posn(o0,0,166,159,167)) {
+  new.room(77);
+}
+return();
+
+// Messages
+#message 1 "The leprechauns' magic powers detect your unseen presence."
+#message 2 "The leprechauns do not like your invasion of their territory.  They may not let you get any further."
+#message 3 "The leprechauns revere the power of the fourleaf clover. With it in your possession they will leave you absolutely alone."
+#message 4 "Leprechauns love fiddle music!  Have you ever seen such frenzied dancing?"
+#message 5 "Totally involved in the music, they dance right out of the room."
+#message 6 "The leprechaun catches you and holds you with his small,  but strong arms.  I don't think the leprechaun will ever let go."
+#message 7 "You are in the antechamber of the Hall of the Leprechaun King.  There are leprechauns in the room with you."
+#message 8 "You are in the antechamber of the Hall of the Leprechaun King."
+#message 9 "I can think of no good reason to close the door."
+#message 10 "They are tiny people dressed all in green."
+#message 11 "I would not try talking to the leprechauns.  You might say the wrong thing."
+#message 12 "You would not get all of them before they got you."
+#message 13 "There are not any leprechauns here."
+#message 14 "You are already playing the fiddle."
+
+

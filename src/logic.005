@@ -1,0 +1,174 @@
+// logic.005
+if (isset(f5)) {
+  load.pic(v0);
+  draw.pic(v0);
+  discard.pic(v0);
+  set.horizon(55);
+  load.logics(101);
+  call(101);
+  if (isset(f75)) {
+    load.logics(103);
+  }
+  if (v65 == v0) {
+    add.to.pic(62,0,0,36,59,0,0);
+  }
+  if (v1 == 4) {
+    if (posn(o0,145,55,159,80)) {
+      position(o0,140,75);
+    }
+    if (posn(o0,145,160,159,167)) {
+      position(o0,150,164);
+    }
+  }
+  if (v1 == 12) {
+    get.posn(o0,v60,v61);
+    if (v60 > 105) {
+      position(o0,90,56);
+    }
+  }
+  if (v1 == 44) {
+    get.posn(o0,v60,v61);
+    if (v60 > 90) {
+      position(o0,82,165);
+    }
+  }
+  block(105,133,159,161);
+  ignore.blocks(o0);
+  draw(o0);
+  show.pic();
+}
+if (isset(f213)) {
+  reset(f213);
+  print("It seems the old goat has wandered off by"
+        "himself and is no longer following you.");
+}
+if ((said("check","lake") ||
+     said("check"))) {
+  print("This is a serene mountain lake.");
+}
+if (said("check","cattails")) {
+  print("These cattails are fuzzy and soft.");
+}
+if (said("acquire","cattails")) {
+  print("You have no need for the cattails.");
+}
+// This needs to be expanded so f0 is set if Graham is swimming on the 
+// right side of the lake
+if (!isset(f0)) {
+  if ((posn(o0,71,110,88,139) ||
+      posn(o0,104,81,159,163) ||
+      posn(o0,89,110,103,142))) {
+    set(f0);
+    set(f134);
+  }
+}
+if (v94 <= 0 &&
+    isset(f0)) {
+  v76 = 255;
+  if (posn(o0,114,46,159,56)) {
+    v76 = 136;
+    v77 = 64;
+  }
+  if (posn(o0,70,131,95,147)) {
+    v76 = 83;
+    v77 = 129;
+  }
+  if (posn(o0,96,139,159,163)) {
+    v76 = 110;
+    v77 = 149;
+  }
+  if (posn(o0,56,94,64,125)) {
+    v76 = 62;
+    v77 = 106;
+  }
+  if ((posn(o0,120,56,135,60) ||
+      posn(o0,115,61,131,64))) {
+    v76 = 127;
+    v77 = 64;
+  }
+  if (v76 == 255) {
+    v76 = 0;
+  }
+  else {
+    get.posn(o0,v60,v61);
+    v76 -= v60;
+    v77 -= v61;
+    set(f134);
+  }
+}
+if (!isset(f88) &&
+    !isset(f0) &&
+    !isset(f116)) {
+  if ((said("drink","water") ||
+      said("acquire","drink"))) {
+    if ((posn(o0,110,40,159,56) ||
+        posn(o0,78,57,159,86) ||
+        posn(o0,47,87,159,167))) {
+      print("You drink of the clear lake water.");
+    }
+    else {
+      print("You are not close enough to the water.");
+    }
+  }
+}
+if (!isset(f88) &&
+    isset(f81) &&
+    !isset(f0) &&
+    said("acquire","water")) {
+  if ((posn(o0,110,40,159,56) ||
+      posn(o0,78,57,159,86) ||
+      posn(o0,47,87,159,167))) {
+    reset(f116);
+    print("You kneel down and fill the bucket with"
+          "the cool water.");
+    get("water");
+    set(f88);
+    if (!isset(f91)) {
+      v3 += 2;
+      load.sound(48);
+      sound(48,f255);
+    }
+    set(f91);
+  }
+  else {
+    print("You are not close enough to the water.");
+  }
+}
+if (v2 != 0) {
+  if (isset(f66)) {
+    reset(f66);
+    reset(f75);
+    set(f130);
+    set(f213);
+  }
+}
+if (v2 == 1) {
+  new.room(12);
+}
+if (v2 == 2) {
+  new.room(4);
+}
+if (v2 == 4) {
+  new.room(6);
+}
+if (v2 == 3) {
+  new.room(44);
+}
+if (isset(f75)) {
+  call(103);
+}
+call(101);
+return();
+
+// Messages
+#message 1 "You kneel down and fill the bucket with the cool water."
+#message 2 "You drink of the clear lake water."
+#message 3 "You are not close enough to the water."
+#message 4 "This is a serene mountain lake."
+#message 5 "You have no container for water."
+#message 6 "These cattails are fuzzy and soft."
+#message 7 "It seems the old goat has wandered off by himself and is no longer following you."
+
+
+
+

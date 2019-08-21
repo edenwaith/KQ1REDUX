@@ -1,0 +1,150 @@
+// logic.020 
+if (isset(f5)) {
+  load.pic(v0);
+  draw.pic(v0);
+  discard.pic(v0);
+  set.horizon(53);
+  load.sound(48);
+  load.logics(101);
+  call(101);
+  if (isset(f75)) {
+    load.logics(103);
+  }
+  if (v65 == v0) {
+    add.to.pic(62,0,0,123,64,0,0);
+  }
+  if (v1 == 29) {
+    get.posn(o0,v60,v61);
+    if (v60 < 50) {
+      position(o0,12,54);
+    }
+    else {
+      position(o0,122,54);
+    }
+  }
+  if (v1 == 13) {
+    if (posn(o0,0,164,75,167)) {
+      position(o0,37,165);
+    }
+    else {
+      position(o0,120,165);
+    }
+  }
+  ignore.blocks(o0);
+  draw(o0);
+  show.pic();
+}
+
+// load.sound(48);
+
+if (isset(f213)) {
+  reset(f213);
+  print("It seems the old goat has wandered off by"
+        "himself and is no longer following you.");
+}
+if ((said("check","lake") || said("check"))) {
+  print("This is a small alpine lake.");
+}
+if (said("check","stump")) {
+  print("It looks as though there were beavers"
+        "around here at one time.");
+}
+if (said("anyword","beaver")) {
+  print("There are no beavers here now.");
+}
+if (!isset(f0)) {
+  if (posn(o0,100,109,115,135)) {
+    set(f0);
+    set(f134);
+  }
+}
+if (!isset(f88) &&
+    !isset(f0) &&
+    !isset(f116)) {
+  if ((said("drink","water") ||
+      said("acquire","drink"))) {
+    if (posn(o0,15,40,138,167)) {
+      print("The clear water quenches your thirst.");
+    }
+    else {
+      print("You are not close enough to the water.");
+    }
+  }
+}
+if (v94 <= 0 &&
+    isset(f0)) {
+  v76 = 255;
+  if (posn(o0,100,100,115,135)) {
+    v76 = 100;
+    v77 = 130;
+  }
+  if (v76 == 255) {
+    v76 = 0;
+  }
+  else {
+    get.posn(o0,v60,v61);
+    v76 -= v60;
+    v77 -= v61;
+    set(f134);
+  }
+}
+if (!isset(f88) &&
+    isset(f81) &&
+    !isset(f0) &&
+    said("acquire","water")) {
+  if (posn(o0,15,40,138,167)) {
+    reset(f116);
+    print("You fill up your bucket with sparkling"
+          "water.");
+    get("water");
+    set(f88);
+    if (!isset(f91)) {
+      v3 += 2;
+      sound(48,f255);
+    }
+    set(f91);
+  }
+  else {
+    print("You are not close enough to the water.");
+  }
+}
+if (v2 != 0) {
+  if (isset(f66)) {
+    reset(f66);
+    reset(f75);
+    set(f130);
+    set(f213);
+  }
+}
+if (v2 == 1) {
+  new.room(29);
+}
+if (v2 == 2) {
+  new.room(19);
+}
+if (v2 == 4) {
+  new.room(21);
+}
+if (v2 == 3) {
+  new.room(13);
+}
+if (isset(f75)) {
+  call(103);
+}
+call(101);
+return();
+
+// Messages
+#message 1 "You fill up your bucket with sparkling water."
+#message 2 "The clear water quenches your thirst."
+#message 3 "You are not close enough to the water."
+#message 4 "You have no container for water."
+#message 5 "It looks as though there were beavers around here at one time."
+#message 6 "This is a small alpine lake."
+#message 7 "There are no beavers here now."
+#message 8 "It seems the old goat has wandered off by himself and is no longer following you."
+
+
+
+
+

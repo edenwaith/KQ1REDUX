@@ -1,0 +1,191 @@
+// logic.101
+if (isset(f5)) {
+  load.view(93);
+  load.view(70);
+  load.sound(13);
+  set(f122);
+  reset(f147);
+}
+if ((isset(f174) ||
+    isset(f63))) {
+  goto(Label1);
+}
+if (isset(f68) &&
+    v94 == 1) {
+  set(f44);
+  if ((said("swim") ||
+      said("enter","swim") ||
+      said("swim","anyword") ||
+      controller(c5))) {
+    if ((v0 == 1 ||
+        v0 == 2)) {
+      print("Unfortunately, with the moat"
+            "population swimming is not possible.");
+    }
+    else {
+      print("The swift current does not allow for"
+            "swimming.");
+    }
+  }
+}
+if (v94 == 1) {
+  if (!isset(f45)) {
+    set(f45);
+    sound(13,f46);
+  }
+  if (isset(f46)) {
+    reset(f46);
+    reset(f45);
+  }
+}
+if (isset(f0)) {
+  if (v94 == 0) {
+    set(f98);
+    stop.motion(o0);
+    v93 = 250;
+    v94 = 1;
+    if (isset(f134)) {
+      reposition(o0,v76,v77);
+    }
+    else {
+      object.on.water(o0);
+    }
+    get.posn(o0,v76,v77);
+    if (v76 > 139) {
+      erase(o0);
+      set.view(o0,93);
+      draw(o0);
+      if (isset(f120)) {
+        reset(f120);
+        v82 = 0;
+        print("It appears you have become normal"
+              "size again.");
+      }
+      if (isset(f79)) {
+        v90 = 0;
+        v91 = 0;
+        reset(f79);
+        reset(f83);
+        reset(f133);
+        set(f115);
+        drop("magic ring");
+        v3 -= 3;
+        print("Thrashing around in the water has"
+              "caused you to lose the magic ring"
+              "and become visible again.");
+      }
+    }
+    else {
+      set.view(o0,93);
+      if (isset(f120)) {
+        reset(f120);
+        v82 = 0;
+        print("It appears you have become normal"
+              "size again.");
+      }
+      if (isset(f79)) {
+        v90 = 0;
+        v91 = 0;
+        reset(f79);
+        reset(f83);
+        reset(f133);
+        set(f115);
+        drop("magic ring");
+        v3 -= 3;
+        print("Thrashing around in the water has"
+              "caused you to lose the magic ring"
+              "and become visible again.");
+      }
+    }
+    if (isset(f68)) {
+      v95 = 50;
+    }
+  }
+  else {
+    if (!isset(f68) &&
+        v94 != 2 &&
+        !isset(f44)) {
+      if ((said("swim") ||
+          said("enter","swim") ||
+          said("swim","anyword") ||
+          controller(c5))) {
+        set.view(o0,70);
+        start.motion(o0);
+        stop.sound();
+        v94 = 2;
+        goto(Label1);
+      }
+    }
+  }
+}
+if (!isset(f147) &&
+    !isset(f44)) {
+  if ((said("swim") ||
+      said("enter","swim") ||
+      said("swim","anyword") ||
+      controller(c5))) {
+    set(f147);
+    if (!isset(f0)) {
+      print("You need to be in the water in order"
+            "to swim.");
+    }
+    else {
+      if (isset(f0) &&
+          v94 == 2) {
+        print("You are already swimming!");
+      }
+    }
+  }
+}
+else {
+  if (!controller(c5)) {
+    reset(f147);
+  }
+}
+if (v94 == 1 &&
+    v95 <= 0) {
+  if (v93 == 0) {
+    set(f44);
+    print("You splash around in the water for a"
+          "while but seem  to have forgotten how"
+          "to swim. Unfortunately, you drown.");
+    v95 = 50;
+  }
+  else {
+    v93--;
+  }
+}
+if (!isset(f0) &&
+    v94 == 2) {
+  reset(f98);
+  v94 = 0;
+  set.view(o0,0);
+  if (isset(f136)) {
+    reposition(o0,v76,v77);
+  }
+  else {
+    object.on.land(o0);
+  }
+}
+reset(f134);
+reset(f136);
+v76 = 0;
+v77 = 0;
+v95--;
+if (v95 == 1) {
+  erase(o0);
+  stop.sound();
+  set(f63);
+}
+Label1:
+return();
+
+// Messages
+#message 1 "You splash around in the water for a while but seem  to have forgotten how to swim. Unfortunately, you drown."
+#message 2 "Unfortunately, with the moat population swimming is not possible."
+#message 3 "You need to be in the water in order to swim."
+#message 4 "You are already swimming!"
+#message 5 "The swift current does not allow for swimming."
+#message 6 "Thrashing around in the water has caused you to lose the magic ring and become visible again."
+#message 7 "It appears you have become normal size again."
+

@@ -1,0 +1,46 @@
+// logic.080
+if (isset(f5)) {
+  load.pic(v0);
+  draw.pic(v0);
+  discard.pic(v0);
+  if (isset(f142)) {
+    load.view(91);
+    set.view(o0,91);
+    position(o0,1,60);
+    move.obj(o0,130,60,0,f20);
+  }
+  else {
+    load.view(89);
+    set.view(o0,89);
+    position(o0,1,60);
+    move.obj(o0,135,60,0,f21);
+  }
+  draw(o0);
+  show.pic();
+}
+if ((said("check","view") ||
+    said("check","clouds") ||
+    said("check","room") ||
+    said("check"))) {
+  print("The view is magnificent.");
+}
+if (said("anyword","witch")) {
+  print("Now is not the time to irritate the witch.");
+}
+if (said("anyword","big bird")) {
+  print("Now is not a good time to bother the bird.");
+}
+if (isset(f20)) {
+  new.room(65);
+}
+if (isset(f21)) {
+  new.room(48);
+}
+return();
+
+// Messages
+#message 1 "The view is magnificent."
+#message 2 "Now is not the time to irritate the witch."
+#message 3 "Now is not a good time to bother the bird."
+
+

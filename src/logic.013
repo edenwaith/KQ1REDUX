@@ -1,0 +1,173 @@
+// logic.013 - Wolf
+if (isset(f5)) {
+  load.pic(v0);
+  draw.pic(v0);
+  discard.pic(v0);
+  set.horizon(46);
+  if (isset(f75)) {
+    load.logics(103);
+  }
+  if (v65 == v0) {
+    add.to.pic(62,0,0,83,142,0,0);
+  }
+  random(0,250,v62);
+  if (v62 < 185) {
+    v30 = 4;
+    step.size(o1,v30);
+    set(f23);
+    load.view(4);
+    load.view(96);
+    load.sound(1);
+    animate.obj(o1);
+    set.view(o1,4);
+  }
+  if (isset(f23)) {
+Label1:
+    random(0,250,v70);
+    if (v70 > 90) {
+      goto(Label1);
+    }
+  }
+  if ((v1 == 20 ||
+      v1 == 4)) {
+    if (isset(f0)) {
+      set.view(o0,0);
+      reset(f98);
+      v94 = 0;
+    }
+  }
+  draw(o0);
+  show.pic();
+}
+v70--;
+if (v70 == 1) {
+  set(f20);
+  position(o1,7,68);
+  set(f135);
+  sound(1,f159);
+  draw(o1);
+  if (!isset(f75)) {
+    print("Look out for that wolf -- he can run"
+          "very fast!   Don't let him catch you!");
+    follow.ego(o1,12,f156);
+  }
+  if (isset(f75)) {
+    wander(o1);
+    set(f22);
+    print("Look out for that wolf -- he can run"
+          "very fast!   Don't let him catch you!");
+    print("The wolf sees that menacing goat by"
+          "your side and decides to keep his"
+          "distance.");
+  }
+}
+if (isset(f159)) {
+  reset(f159);
+  reset(f135);
+}
+if ((said("check","room") || 
+     said("look around") || 
+     said("check"))) {
+  print(m13);
+}
+if (!isset(f20)) {
+  if (said("anyword","wolf")) {
+    print("There's no wolf here.");
+  }
+}
+if (isset(f20)) {
+  if (said("check","wolf")) {
+    print("Yes, it's a wolf and it's very fast. "
+          "Now do something!");
+  }
+  if (said("kill","wolf")) {
+    print("You don't have time to do that right"
+          "now!");
+  }
+  if ((said("pet","wolf") ||
+      said("speak","wolf"))) {
+    print("Are you crazy?");
+  }
+  if ((said("hello") ||
+      said("say","hello"))) {
+    print("The wolf is in no mood for conversion.");
+  }
+}
+if (isset(f156)) {
+  reset(f156);
+  if (isset(f73)) {
+    print("You are very fortunate that your"
+          "protective spell is still working.");
+    wander(o1);
+    set(f22);
+  }
+  else {
+    if (isset(f79)) {
+      print("Fortunately, you are invisible and"
+            "the wolf can't see you.");
+      wander(o1);
+      set(f22);
+    }
+    else {
+      if (isset(f102)) {
+        print("You, fortunately, have the magic"
+              "shield which will protect you.");
+        wander(o1);
+        set(f22);
+      }
+      else {
+        program.control();
+        print("It seems the wolf caught up with"
+              "you and is discussing dinner"
+              "arrangements.");
+        erase(o1);
+        set.view(o0,96);
+        start.cycling(o0);
+        set(f98);
+        set(f63);
+      }
+    }
+  }
+}
+if (isset(f22) &&
+    v5 != 0) {
+  reset(f22);
+  reset(f20);
+  erase(o1);
+}
+if (isset(f63)) {
+  goto(Label2);
+}
+if (v2 == 1) {
+  new.room(20);
+}
+if (v2 == 2) {
+  new.room(14);
+}
+if (v2 == 4) {
+  new.room(12);
+}
+if (v2 == 3) {
+  new.room(4);
+}
+if (isset(f75)) {
+  call(103);
+}
+Label2:
+return();
+
+// Messages
+#message 1 "Look out for that wolf -- he can run very fast!   Don't let him catch you!"
+#message 2 "You are very fortunate that your protective spell is still working."
+#message 3 "Fortunately, you are invisible and the wolf can't see you."
+#message 4 "The wolf sees that menacing goat by your side and decides to keep his distance."
+#message 5 "You, fortunately, have the magic shield which will protect you."
+#message 6 "Yes, it's a wolf and it's very fast.  Now do something!"
+#message 7 "You don't have time to do that right now!"
+#message 8 "It seems the wolf caught up with you and is discussing dinner arrangements."
+#message 9 "Are you crazy?"
+#message 10 "There's no wolf here."
+#message 11 "Now that the goat is gone, you'll have to take care of yourself!"
+#message 12 "The wolf is in no mood for conversion."
+#message 13 "You are in a clearing in the forest. You have the uneasy feeling that someone or something is watching you."
+

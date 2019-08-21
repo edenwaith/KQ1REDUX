@@ -1,0 +1,490 @@
+// logic.39
+if (isset(f5)) {
+  load.pic(v0);
+  draw.pic(v0);
+  discard.pic(v0);
+  set.horizon(41);
+  if (isset(f75)) {
+    load.logics(103);
+  }
+  load.logics(101);
+  call(101);
+  set(f68);
+  if (!isset(f150) &&
+      !isset(f151)) {
+    load.view(64);
+    animate.obj(o1);
+    set.view(o1,64);
+    position(o1,21,69);
+    observe.blocks(o1);
+    set(f20);
+    load.sound(1);
+    load.sound(10);
+    load.sound(48);
+  }
+  draw(o0);
+  show.pic();
+}
+if (isset(f21) &&
+    isset(f159)) {
+  if (!isset(f31)) {
+    set(f31);
+    sound(10,f32);
+  }
+  if (isset(f32)) {
+    reset(f31);
+    reset(f32);
+  }
+}
+if (isset(f21)) {
+  if (posn(o0,52,59,57,79)) {
+    observe.blocks(o0);
+  }
+  else {
+    ignore.blocks(o0);
+  }
+}
+if (!isset(f21)) {
+  ignore.blocks(o0);
+}
+if (isset(f21) &&
+    !isset(f25)) {
+  set(f25);
+  follow.ego(o1,1,f22);
+}
+if ((said("check","room") || 
+     said("look around") || 
+     said("check"))) {
+  print(m29);
+}
+if (!isset(f21)) {
+  if (said("anyword","troll")) {
+    print("I don't see a troll.");
+  }
+  if ((said("cast","dagger") ||
+      said("kill","goat"))) {
+    if (isset(f67)) {
+      print("You throw the dagger and it lands in"
+            "the stream, lost forever.");
+      drop("dagger");
+      reset(f67);
+      set(f70);
+      v3 -= 5;
+    }
+  }
+  if (said("use","dagger") &&
+      isset(f67)) {
+    print("How?");
+  }
+  if (said("give","treasure")) {
+    print("To what?");
+  }
+  if (isset(f106)) {
+    if (said("give","diamond")) {
+      print("To what?");
+    }
+  }
+  if (isset(f110)) {
+    if (said("give","egg")) {
+      print("To what?");
+    }
+  }
+  if ((isset(f127) ||
+      isset(f108))) {
+    if (said("give","gold nut")) {
+      print("To what?");
+    }
+  }
+}
+if (isset(f20) &&
+    isset(f3)) {
+  reset(f20);
+  set(f21);
+  v30 = 2;
+  step.size(o1,v30);
+  sound(1,f159);
+  draw(o1);
+  if (isset(f79)) {
+    print("As you start to cross the bridge, a"
+          "wretched troll appears.  Even though"
+          "you are invisible, he will not let you"
+          "cross his bridge.");
+  }
+  else {
+    print("As you approach the bridge, a mean,"
+          "ugly troll appears and refuses to let"
+          "you cross his bridge.");
+  }
+}
+if (isset(f21) &&
+    isset(f75) &&
+    !isset(f26)) {
+  distance(o0,o13,v31);
+  if (v31 > 25) {
+    reposition.to(o13,85,71);
+  }
+  print("It is a well known fact that goats hate"
+        "trolls intensely.   You should move aside"
+        "and let the goat take care of this nasty"
+        "troll.");
+  set(f26);
+  set(f76);
+  move.obj(o13,80,71,0,f23);
+}
+if (isset(f23)) {
+  ignore.objs(o13);
+  reset(f23);
+  normal.motion(o1);
+  stop.motion(o1);
+  get.posn(o1,v60,v61);
+  v96 = 2;
+  move.obj.v(o13,v60,v61,96,f24);
+}
+distance(o1,o13,v62);
+if (v62 < 17 &&
+    !isset(f150)) {
+  print("The goat butts the troll right off the"
+        "bridge, never to be seen in these parts"
+        "again.");
+  set(f150);
+  reset(f21);
+  reset(f75);
+  erase(o1);
+  set(f130);
+  get.posn(o13,v60,v61);
+  v60 = 140;
+  if (v61 < 71) {
+    v61 += 5;
+  }
+  move.obj.v(o13,v60,v61,96,f30);
+  v3 += 4;
+  sound(48,f255);
+}
+if (isset(f30)) {
+  reset(f30);
+  erase(o13);
+}
+if (isset(f21) &&
+    !isset(f75)) {
+  if (said("check","troll")) {
+    if (posn(o0,1,40,100,90)) {
+      print("This is the ugliest, meanest troll I"
+            "have ever seen.");
+    }
+    else {
+      print("There may be something trollish"
+            "around, but you're not close enough"
+            "to do anything about it.");
+    }
+  }
+  if (said("kill","troll")) {
+    if (posn(o0,1,40,100,90) &&
+        isset(f67)) {
+      print("Do you really think you can do that?");
+    }
+    if (posn(o0,1,40,100,90) &&
+        !isset(f67)) {
+      print("Fortunately for you, you have no way"
+            "to do that.");
+    }
+    if (!posn(o0,1,40,100,90)) {
+      print("There may be something trollish"
+            "around, but you're not close enough"
+            "to do anything about it.");
+    }
+  }
+  if ((said("speak","troll") ||
+      said("hello") ||
+      said("say","hello"))) {
+    if (posn(o0,1,40,100,90)) {
+      print("The troll demands a treasure for"
+            "passage across his bridge.");
+    }
+    else {
+      print("There may be something trollish"
+            "around, but you're not close enough"
+            "to do anything about it.");
+    }
+  }
+  if (said("cast","dagger") &&
+      isset(f67)) {
+    if (posn(o0,1,40,100,90)) {
+      print("You throw the dagger and the quick"
+            "old troll catches it.");
+      drop("dagger");
+      reset(f67);
+      set(f70);
+      v3 -= 5;
+    }
+    else {
+      print("You throw the dagger and it lands in"
+            "the stream, lost forever.");
+      drop("dagger");
+      reset(f67);
+      set(f70);
+      v3 -= 5;
+    }
+  }
+  if (said("use","dagger") &&
+      isset(f67)) {
+    print("How?");
+  }
+  if (said("move","troll")) {
+    if (posn(o0,1,40,100,90)) {
+      print("You push the troll as hard as you"
+            "can; he won't budge.");
+    }
+    else {
+      print("There may be something trollish"
+            "around, but you're not close enough"
+            "to do anything about it.");
+    }
+  }
+  if (said("beg","troll")) {
+    print("Troels has no sympathy for this game.");
+  }
+  if (said("attack","troll")) {
+    print("You could never win a fight with a"
+          "troll.");
+  }
+  if ((said("give","treasure") ||
+      said("give","troll","treasure") ||
+      said("give","treasure","troll"))) {
+    print("What precious treasure would you like"
+          "to give to the  old troll?");
+  }
+  if (isset(f106)) {
+    if ((said("give","diamond") ||
+        said("give","troll","diamond") ||
+        said("give","diamond","troll"))) {
+      if (posn(o0,1,40,100,90)) {
+        print("The troll grabs the treasure and"
+              "vanishes.");
+        drop("pouch of diamonds");
+        reset(f106);
+        set(f151);
+        set(f107);
+        v3 -= 6;
+        set(f27);
+      }
+      else {
+        print("There may be something trollish"
+              "around, but you're not close enough"
+              "to do anything about it.");
+      }
+    }
+  }
+  if (isset(f113)) {
+    if ((said("give","sceptre") ||
+        said("give","troll","sceptre") ||
+        said("give","sceptre","troll"))) {
+      if (posn(o0,1,40,100,90)) {
+        print("The troll grabs the treasure and"
+              "vanishes.");
+        drop("sceptre");
+        reset(f113);
+        set(f151);
+        set(f114);
+        v3 -= 6;
+        set(f27);
+      }
+      else {
+        print("There may be something trollish"
+              "around, but you're not close enough"
+              "to do anything about it.");
+      }
+    }
+  }
+  if (isset(f110)) {
+    if ((said("give","egg") ||
+        said("give","troll","egg") ||
+        said("give","egg","troll"))) {
+      if (posn(o0,1,40,100,90)) {
+        print("The troll grabs the treasure and"
+              "vanishes.");
+        drop("gold egg");
+        reset(f110);
+        set(f151);
+        set(f111);
+        v3 -= 6;
+        set(f27);
+      }
+      else {
+        print("There may be something trollish"
+              "around, but you're not close enough"
+              "to do anything about it.");
+      }
+    }
+  }
+  if (isset(f127)) {
+    if ((said("give","gold nut") ||
+        said("give","troll","gold nut") ||
+        said("give","gold nut","troll"))) {
+      print("The troll doesn't want just a plain"
+            "walnut.");
+    }
+  }
+  if (isset(f108)) {
+    if ((said("give","gold nut") ||
+        said("give","troll","gold nut") ||
+        said("give","gold nut","troll"))) {
+      if (posn(o0,1,40,100,90)) {
+        print("The troll grabs the treasure and"
+              "vanishes.");
+        drop("gold walnut");
+        reset(f108);
+        set(f151);
+        set(f109);
+        v3 -= 6;
+        set(f27);
+      }
+      else {
+        print("There may be something trollish"
+              "around, but you're not close enough"
+              "to do anything about it.");
+      }
+    }
+  }
+}
+if (isset(f27)) {
+  reset(f27);
+  move.obj(o1,20,72,0,f28);
+}
+if (isset(f28)) {
+  reset(f28);
+  erase(o1);
+  reset(f21);
+}
+if (!isset(f0)) {
+  if ((posn(o0,24,44,68,58) ||
+      posn(o0,72,84,72,87))) {
+    set(f0);
+    set(f134);
+  }
+}
+if (v94 <= 0 &&
+    isset(f0)) {
+  v76 = 255;
+  if (posn(o0,0,83,94,167)) {
+    v76 = 34;
+    v77 = 151;
+  }
+  if (posn(o0,20,40,72,60)) {
+    v76 = 43;
+    v77 = 55;
+  }
+  if (v76 == 255) {
+    v76 = 0;
+  }
+  else {
+    get.posn(o0,v60,v61);
+    v76 -= v60;
+    v77 -= v61;
+    set(f134);
+  }
+}
+if (isset(f0) &&
+    !isset(f29)) {
+  set(f29);
+  print("It seems to me that by now you would have"
+        "learned to be more careful.  You are"
+        "stuck in the mud at the bottom of this"
+        "river and sinking fast.");
+}
+if (!isset(f88) &&
+    !isset(f0) &&
+    !isset(f116)) {
+  if ((said("drink","water") ||
+      said("acquire","drink"))) {
+    if (posn(o0,15,40,90,166)) {
+      print("Caution and steep banks advise"
+            "against getting water here.");
+    }
+    else {
+      print("You are too far from the river.");
+    }
+  }
+}
+if (!isset(f88) &&
+    isset(f81) &&
+    !isset(f0) &&
+    said("acquire","water")) {
+  if (posn(o0,15,40,90,166)) {
+    print("Caution and steep banks advise against"
+          "getting water here.");
+  }
+  else {
+    print("You are too far from the river.");
+  }
+}
+if (said("check","bridge")) {
+  print("The wooden bridge is old and weather"
+        "beaten.");
+}
+if (said("look under","bridge")) {
+  print("You glance under the old bridge, but see"
+        "nothing unusual.");
+}
+if (said("check","river")) {
+  print("The stream may not be safe to cross.");
+}
+if (v2 != 0) {
+  observe.blocks(o0);
+  reset(f68);
+  if (isset(f21) &&
+      isset(f75)) {
+    reset(f75);
+    set(f150);
+    set(f130);
+  }
+}
+if (v2 == 1) {
+  new.room(42);
+}
+if (v2 == 2) {
+  new.room(38);
+}
+if (v2 == 4) {
+  new.room(40);
+}
+if (v2 == 3) {
+  new.room(26);
+}
+if (isset(f75)) {
+  call(103);
+}
+call(101);
+return();
+
+// Messages
+#message 1 "As you approach the bridge, a mean, ugly troll appears and refuses to let you cross his bridge."
+#message 2 "It is a well known fact that goats hate trolls intensely.   You should move aside and let the goat take care of this nasty troll."
+#message 3 "Caution and steep banks advise against getting water here."
+#message 4 "You are too far from the river."
+#message 5 "The wooden bridge is old and weather beaten."
+#message 6 "The stream may not be safe to cross."
+#message 7 "Do you really think you can do that?"
+#message 8 "Fortunately for you, you have no way to do that."
+#message 9 "The troll demands a treasure for passage across his bridge."
+#message 10 "You throw the dagger and the quick old troll catches it."
+#message 11 "How?"
+#message 12 "You push the troll as hard as you can; he won't budge."
+#message 13 "Trools have no sympathy."
+#message 14 "There may be something trollish around, but you're not close enough to do anything about it."
+#message 15 "You throw the dagger and it lands in the stream, lost forever."
+#message 16 "I don't see a troll."
+#message 17 "Is there a troll?"
+#message 18 "To what?"
+#message 19 "What precious treasure would you like to give to the  old troll?"
+#message 20 "If you don't have it, how can you give it to the troll?"
+#message 21 "The troll doesn't want just a plain walnut."
+#message 22 "The troll grabs the treasure and vanishes."
+#message 23 "It seems to me that by now you would have learned to be more careful.  You are stuck in the mud at the bottom of this river and sinking fast."
+#message 24 "This is the ugliest, meanest troll I have ever seen."
+#message 25 "The goat butts the troll right off the bridge, never to be seen in these parts again."
+#message 26 "You could never win a fight with a troll."
+#message 27 "You glance under the old bridge, but see nothing unusual."
+#message 28 "As you start to cross the bridge, a wretched troll appears.  Even though you are invisible, he will not let you cross his bridge."
+#message 29 "A rough-hewn plank bridge spans the deep rushing river here."
+
+

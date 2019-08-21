@@ -1,0 +1,193 @@
+// logic.017
+if (isset(f5)) {
+  load.pic(v0);
+  draw.pic(v0);
+  discard.pic(v0);
+  load.sound(48);
+  set.horizon(56);
+  load.logics(101);
+  call(101);
+  if (isset(f75)) {
+    load.logics(103);
+  }
+  if (v65 == v0) {
+    add.to.pic(62,0,0,109,141,0,0);
+  }
+  if (v1 == 18 &&
+      isset(f0)) {
+    get.posn(o0,v60,v61);
+    if (v61 < 111) {
+      position(o0,4,121);
+    }
+  }
+  if (v1 == 32) {
+    get.posn(o0,v60,v61);
+    if (v60 < 50) {
+      position(o0,2,59);
+    }
+    else {
+      position(o0,109,66);
+    }
+  }
+  if (v1 == 16) {
+    if (posn(o0,0,164,88,167)) {
+      position(o0,88,165);
+    }
+  }
+  ignore.blocks(o0);
+  draw(o0);
+  show.pic();
+}
+if (isset(f213)) {
+  reset(f213);
+  print("It seems the old goat has wandered off by"
+        "himself and is no longer following you.");
+}
+if (!isset(f0)) {
+  if ((posn(o0,32,103,103,123) ||
+      posn(o0,0,96,58,108) ||
+      posn(o0,34,87,68,97) ||
+      posn(o0,13,88,37,97))) {
+    set(f0);
+    set(f134);
+  }
+}
+if ((said("check","lake") || 
+     said("check","room") || 
+     said("check"))) {
+  print("This is a clear mountain lake with some"
+        "steep cliffs surrounding it.");
+}
+if (!isset(f88) &&
+    !isset(f0) &&
+    !isset(f116)) {
+  if ((said("drink","water") ||
+      said("acquire","drink"))) {
+    if (posn(o0,64,106,116,167)) {
+      print("You have to scoop the water with your"
+            "hands, but you manage to satisfy your"
+            "thirst.");
+    }
+    if (posn(o0,0,0,115,105)) {
+      print("That's a dangerous proposition from"
+            "here.");
+    }
+    if (!posn(o0,64,106,116,167) &&
+        !posn(o0,0,0,115,105)) {
+      print("You are not close enough to the water.");
+    }
+  }
+}
+if (!isset(f88) &&
+    isset(f81) &&
+    !isset(f0) &&
+    said("acquire","water")) {
+  if (posn(o0,64,106,116,167)) {
+    reset(f116);
+    print("You carefully fill the bucket with"
+          "water.");
+    get("water");
+    set(f88);
+    if (!isset(f91)) {
+      v3 += 2;
+      sound(48,f255);
+    }
+    set(f91);
+  }
+  if (posn(o0,0,0,115,105)) {
+    print("That's a dangerous proposition from"
+          "here.");
+  }
+  if (!posn(o0,64,106,116,167) &&
+      !posn(o0,0,0,115,105)) {
+    print("You are not close enough to the water.");
+  }
+}
+if (v94 <= 0 &&
+    isset(f3)) {
+  set(f0);
+  v76 = 255;
+  if (posn(o0,93,78,112,108)) {
+    v76 = 84;
+    v77 = 111;
+  }
+  if (posn(o0,86,55,98,77)) {
+    v76 = 71;
+    v77 = 106;
+  }
+  if (posn(o0,0,40,25,70)) {
+    v76 = 6;
+    v77 = 87;
+  }
+  if (v76 == 255) {
+    v76 = 0;
+  }
+  else {
+    get.posn(o0,v60,v61);
+    v76 -= v60;
+    v77 -= v61;
+    set(f134);
+  }
+}
+if (v94 <= 0 &&
+    isset(f0) &&
+    !isset(f3)) {
+  v76 = 255;
+  if (posn(o0,89,109,111,121)) {
+    v76 = 89;
+    v77 = 116;
+  }
+  if (posn(o0,80,122,109,146)) {
+    v76 = 70;
+    v77 = 146;
+  }
+  if (posn(o0,70,147,93,167)) {
+    v76 = 57;
+    v77 = 160;
+  }
+  if (v76 == 255) {
+    v76 = 0;
+  }
+  else {
+    get.posn(o0,v60,v61);
+    v76 -= v60;
+    v77 -= v61;
+    set(f134);
+  }
+}
+if (v2 != 0) {
+  if (isset(f66)) {
+    reset(f66);
+    reset(f75);
+    set(f130);
+    set(f213);
+  }
+}
+if (v2 == 1) {
+  new.room(32);
+}
+if (v2 == 2) {
+  new.room(24);
+}
+if (v2 == 4) {
+  new.room(18);
+}
+if (v2 == 3) {
+  new.room(16);
+}
+if (isset(f75)) {
+  call(103);
+}
+call(101);
+return();
+
+// Messages
+#message 1 "You carefully fill the bucket with water."
+#message 2 "You have to scoop the water with your hands, but you manage to satisfy your thirst."
+#message 3 "That's a dangerous proposition from here."
+#message 4 "This is a clear mountain lake with some steep cliffs surrounding it."
+#message 5 "You are not close enough to the water."
+#message 6 "It seems the old goat has wandered off by himself and is no longer following you."
+
+
+
