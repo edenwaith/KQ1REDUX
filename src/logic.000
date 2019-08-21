@@ -921,7 +921,7 @@ if (isset(f89)) {
       }
       v89 = 0;
       reset(f184);
-      v3 -= 2;
+      v3 -= 1;
       goto(Label4);
     }
     if (said("taste","stew")) {
@@ -954,6 +954,12 @@ if (isset(f89)) {
         said("check","bottom","bowl"))) {
       print("The word on the bottom of the bowl"
             "says \"fill\".");
+      if (!isset(f184)) {
+        set(f184);
+        v3 += 1;
+        load.sound(48);
+        sound(48,f255);
+      }
     }
     if ((said("fill") ||
         said("say","fill"))) {
@@ -971,7 +977,7 @@ if (isset(f89)) {
       v89 = 1;
       if (!isset(f184)) {
         set(f184);
-        v3 += 2;
+        v3 += 1;
         load.sound(48);
         sound(48,f255);
       }
@@ -1388,3 +1394,4 @@ return();
 #message 176 "Joystick/Mouse <Ctrl J>"
 #message 177 "Fastest     "
 #message 178 "Change <F10>"
+

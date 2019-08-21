@@ -85,6 +85,12 @@ if ((said("check","stairs") ||
     said("check"))) {
   print("The stairs seem to go on forever.  There is a large hole in the wall to the east.");
 }
+if (said("check","hole")) {
+  print("That's interesting. You don't recall seeing that "
+        "hole before. It appears to lead deeper into the "
+        "mountain.");
+}
+
 if (said("check","dwarf")) {
   if (isset(f24)) {
     print("This is a shy little dwarf.  He is too"
@@ -291,14 +297,4 @@ return();
 #message 8 "The dwarf is not here for idle conversion."
 #message 9 "Being invisible has protected you, and your treasures, from the dwarf."
 #message 10 "Talking to yourself again, Graham?"
-
-
-
-
-
-
-
-
-
-
-
+#message 11 "That's interesting. You don't recall seeing that hole before. It appears to lead deeper into the mountain."

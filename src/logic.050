@@ -10,6 +10,14 @@ if (isset(f5)) {
   if (v1 == 22) {
     position(o0,3,147);
   }
+  if (v1 == 51) {
+    if (!isset(f208)) {
+      set(f208);
+      v3 += 2;
+      load.sound(48);
+      sound(48,f255);
+    }
+  }
   if (v75 != 2) {
     load.view(63);
     animate.obj(o1);
@@ -100,6 +108,8 @@ return();
 #message 9 "It leads to another portion of the cave."
 #message 10 "It is on the far side of the cave."
 #message 11 "There is nothing of interest on top of the boulder."
+
+
 
 
 
