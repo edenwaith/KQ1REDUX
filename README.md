@@ -65,7 +65,7 @@ Both DOSBox and ScummVM are viable programs which can be used to play King's Que
 ## Info + Contact
 
 - Website: [http://www.edenwaith.com/products/kq1redux/](http://www.edenwaith.com/products/kq1redux/)
-- E-mail:  [support@edenwaith.com](support@edenwaith.com)
+- E-mail:  <support@edenwaith.com>
 - Twitter: [@kq1redux](https://twitter.com/kq1redux)
 
 ## Copyright
